@@ -1,15 +1,17 @@
 <template>
-  <div id="app">
-    <app-header></app-header>
+  <app-header :asideOpen="asideOpen" @toggleAside="asideOpen = !asideOpen"></app-header>
 
-    <router-view v-slot="{ Component, route }">
-      <transition name="pageChange" mode="out-in" appear>
-        <component :is="Component" :key="route.path" />
-      </transition>
-    </router-view>
-
-    <app-footer></app-footer>
+  <div id="container" :class="{ blur: asideOpen }">
+    <div id="content">
+      <router-view v-slot="{ Component, route }">
+        <transition name="pageChange" mode="out-in" appear>
+          <component :is="Component" :key="route.path" />
+        </transition>
+      </router-view>
+    </div>
   </div>
+
+  <app-footer></app-footer>
 </template>
 
 <script>
@@ -21,7 +23,24 @@ export default {
   components: {
     AppHeader,
     AppFooter,
-  }
+  },
+  data() {
+    return {
+      asideOpen: false,
+    }
+  },
+  methods: {
+    setVh() {
+			document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
+		},
+  },
+  created() {
+		window.addEventListener('resize', this.setVh);
+		this.setVh();
+	},
+  unmounted() {
+		window.removeEventListener('resize', this.setVh);
+	},
 }
 </script>
 
