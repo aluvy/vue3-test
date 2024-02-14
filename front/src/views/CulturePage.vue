@@ -1,6 +1,6 @@
 <template>
   <div>
-    testvue
+    CulturePage
   </div>
 </template>
 

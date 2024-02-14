@@ -24,24 +24,7 @@
   
   --vh: 100%;
 
-  --color-point: #0064ff;
-  --color-secondary: #6c757d;
-  --color-success: #198754;
-  --color-danger: #dc3545;
-  --color-warning: #ffc107;
-  --color-info: #0dcaf0;
-
-  --bg-point: #0064ff;
-  --bg-secondary: #6c757d;
-  --bg-success: #198754;
-  --bg-danger: #dc3545;
-  --bg-warning: #ffc107;
-  --bg-info: #0dcaf0;
-
-  --button-bg: #0064ff;
-  --button-color: #fff;
-  --button-disabled: #b2b2b2;
-  --button-disabled-color: #fff;
+  --footer-height: 38rem;
 
   /* --color-black: #000;
   --color-deepgray: #222;
@@ -90,7 +73,7 @@ a { display: inline-block; color: inherit; text-decoration: none; /*outline:none
 a:active, a:hover { text-decoration: none; }
 
 a { transition: color .3s; }
-a:hover { color: var(--color-point); }
+/* a:hover { color: var(--color-point); } */
 
 strong,h1,h2,h3 { font-weight: 700; }
 button { background-color: transparent; color: inherit; cursor: pointer; }
