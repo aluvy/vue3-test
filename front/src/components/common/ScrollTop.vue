@@ -1,0 +1,47 @@
+<template>
+  <div id="scroll-top">
+    <button type="button" title="to top" @click="scrollTop">
+      <span>
+        <i class="fa fa-angle-up"></i><i class="fa fa-angle-up"></i>
+      </span>
+    </button>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isRun: false
+    }
+  },
+  methods: {
+    scrollTop() {
+      if(this.isRun) return;
+      if(window.scrollY === 0) return;
+
+      this.isRun = true;
+      this.intervalId = setInterval(() => {
+        if (window.scrollY === 0) {
+          this.isRun = false;
+          clearInterval(this.intervalId);
+        }
+        window.scroll(0, window.scrollY - 50);
+      }, 20);
+    }
+  }
+}
+</script>
+
+<style scoped>
+#scroll-top { position: fixed; right: 2rem; bottom: 2rem; z-index: 10; }
+
+#scroll-top button { position: relative; display: block; width: 5rem; height: 5rem; border-radius: 5rem; background-color:rgba(0,0,0, 0.25); overflow: hidden; }
+#scroll-top button::before { position: absolute; left: 0; top: 0; content: ''; display: block; width: 100%; height: 100%; border-radius: 100%; background: #ff7061; transform: scale(0); transition: transform .3s cubic-bezier(.55,0,.1,1); }
+
+#scroll-top button span { position: absolute; left: 0; top: 0; display: block; transition: all .2s ease; z-index: 2; }
+#scroll-top button i { display: flex; align-items: center; justify-content: center; width: 5rem; height: 5rem; color: #fff; }
+
+#scroll-top button:hover { top: -100%; }
+#scroll-top button:hover::before { transform: scale(1); }
+</style>

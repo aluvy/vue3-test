@@ -5,9 +5,6 @@ html, body { background: #000; }
 #container.blur { filter: blur(5px); }
 #content {}
 
-#footer { position: fixed; left: 0; bottom: 0; right: 0; height: 38rem; background: url(@/assets/images/footer-bg.jpeg) center #191919; background-size: cover; z-index: 0; }
-#footer::after { position: absolute; left:0; top: 0; right: 0; bottom: 0; content:''; background: #1c1c1c; opacity: .8; }
-
 
 
 /* header { height: 5.8rem; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; border-bottom: 1px solid #eee; }

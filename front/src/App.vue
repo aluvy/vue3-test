@@ -1,5 +1,5 @@
 <template>
-  <app-header :asideOpen="asideOpen" @toggleAside="asideOpen = !asideOpen"></app-header>
+  <AppHeader :asideOpen="asideOpen" @toggleAside="asideOpen = !asideOpen"></AppHeader>
 
   <div id="container" :class="{ blur: asideOpen }">
     <div id="content">
@@ -11,18 +11,22 @@
     </div>
   </div>
 
-  <app-footer></app-footer>
+  <AppFooter></AppFooter>
+  <ScrollTop></ScrollTop>
+
 </template>
 
 <script>
 import AppHeader from '@/components/layout/AppHeader.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
+import ScrollTop from '@/components/common/ScrollTop.vue'
 
 export default {
   name: 'App',
   components: {
     AppHeader,
     AppFooter,
+    ScrollTop
   },
   data() {
     return {
