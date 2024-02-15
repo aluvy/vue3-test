@@ -3,17 +3,20 @@ import { createStore } from 'vuex';
 const store = createStore({
 	state() {
 		return {
+			Loading: false,
 			OpenAside: false,
-			count: 1000,
 		};
 	},
 	getters: {
 		isOpenAside: state => state.OpenAside,
-		getCount: state => state.count,
+		isLoading: state => state.Loading,
 	},
 	mutations: {
 		setOpenAside(state, payload) {
 			state.OpenAside = payload;
+		},
+		setLoading(state, payload) {
+			state.Loading = payload;
 		},
 	},
 	actions: {},

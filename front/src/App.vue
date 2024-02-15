@@ -13,6 +13,7 @@
 
   <AppFooter></AppFooter>
   <ScrollTop></ScrollTop>
+  <LoadScreen></LoadScreen>
 </template>
 
 <script>
@@ -20,14 +21,15 @@ import { mapGetters } from 'vuex'
 import AppHeader from '@/components/layout/AppHeader.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
 import ScrollTop from '@/components/common/ScrollTop.vue'
-
+import LoadScreen from '@/components/common/LoadScreen.vue'
 
 export default {
   name: 'App',
   components: {
     AppHeader,
     AppFooter,
-    ScrollTop
+    ScrollTop,
+    LoadScreen
   },
   watch: {
     isOpenAside(state) {
@@ -64,12 +66,10 @@ export default {
 
 <style scoped>
 .pageChange-enter-active,
-.pageChange-leave-active { animation: pageChange .2s; }
+.pageChange-leave-active { animation: fade-in .2s; }
 .pageChange-enter-active { animation-fill-mode: backwards; }
 .pageChange-leave-active { animation-direction: reverse; }
 
-@keyframes pageChange {
-	0% { opacity: 0; }
-	100% { opacity: 1; }
-}
+#container { position: relative; min-height: var(--vh); margin-bottom: var(--footer-height, 38rem); z-index: 10; transition: all .3s ease; }
+.OpenAside #container { filter: blur(5px); margin-bottom: 0; }
 </style>

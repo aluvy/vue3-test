@@ -58,6 +58,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
 	store.commit('setOpenAside', false);
+	store.commit('setLoading', true);
 	next();
 });
 
