@@ -1,4 +1,6 @@
+// const path = require('path');
 const { defineConfig } = require('@vue/cli-service');
+
 module.exports = defineConfig({
 	transpileDependencies: true,
 	chainWebpack: config => {
@@ -11,4 +13,10 @@ module.exports = defineConfig({
 			return definitions;
 		});
 	},
+
+	publicPath: process.env.BASE_URL,
+	assetsDir: process.env.BASE_URL,
+	// devServer: {
+	// 	contentBase: path.join(__dirname, ''),
+	// },
 });

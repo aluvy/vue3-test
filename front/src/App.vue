@@ -1,4 +1,5 @@
 <template>
+  
   <AppHeader></AppHeader>
   
   <div id="container">
@@ -12,7 +13,6 @@
   </div>
 
   <AppFooter></AppFooter>
-  <ScrollTop></ScrollTop>
   <LoadScreen></LoadScreen>
 </template>
 
@@ -20,7 +20,6 @@
 import { mapGetters } from 'vuex'
 import AppHeader from '@/components/layout/AppHeader.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
-import ScrollTop from '@/components/common/ScrollTop.vue'
 import LoadScreen from '@/components/common/LoadScreen.vue'
 
 export default {
@@ -28,7 +27,6 @@ export default {
   components: {
     AppHeader,
     AppFooter,
-    ScrollTop,
     LoadScreen
   },
   watch: {
@@ -36,26 +34,39 @@ export default {
       state
         ? document.documentElement.classList.add('OpenAside')
         : document.documentElement.classList.remove('OpenAside');
+    },
+    isNoScroll(state) {
+      state
+        ? document.documentElement.classList.add('no-scroll')
+        : document.documentElement.classList.remove('no-scroll');
     }
-  },
+   },
   computed: {
-    ...mapGetters(['isOpenAside']),
+    ...mapGetters(['isOpenAside', 'isNoScroll']),
   },
   methods: {
     setVh() {
 			document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
 		},
     isScroll() {
-      (window.scrollY > 10)
-        ? document.documentElement.classList.add('scroll')
-        : document.documentElement.classList.remove('scroll');
-    }
+      if (window.scrollY > 10) {
+        document.documentElement.classList.add('scrolled');
+        this.$store.commit('setScrolled', true);
+      } else {
+        document.documentElement.classList.remove('scrolled');
+        this.$store.commit('setScrolled', false);
+      }
+    },
   },
   created() {
 		window.addEventListener('resize', this.setVh);
     window.addEventListener('scroll', this.isScroll);
 		this.setVh();
     this.isScroll();
+
+    window.addEventListener('beforeunload', () => {
+      document.querySelector('#app').classList.add('loading');
+    });
 	},
   unmounted() {
 		window.removeEventListener('resize', this.setVh);

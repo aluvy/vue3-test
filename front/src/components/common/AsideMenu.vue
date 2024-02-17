@@ -76,7 +76,7 @@ export default {
 .aside-wrap .aside-copy { position: fixed; left: 2.8rem; bottom: 2.8rem; font-size: 1.2rem; color: rgba(255,255,255, 0.7); animation: fade-in .3s; animation-delay: 0.79s; animation-fill-mode: backwards; }
 /* animation */
 .aside-enter-active { animation: timer 0.98s; }
-.aside-enter-active .aisde-dimmed { animation: slide-down 0.98s; animation-timing-function: var(--easing-1); }
-.aside-enter-active .aside-body { animation: fade-in-slide-up .5s; animation-delay: .35s; animation-fill-mode: backwards; }
+.aside-enter-active .aisde-dimmed { animation: slide-down 0.98s; animation-timing-function: var(--ease-InOutExpo); }
+.aside-enter-active .aside-body { animation: fade-in-slide-up-10 .5s; animation-delay: .35s; animation-fill-mode: backwards; }
 .aside-leave-active { animation: fade-out .3s; }
 </style>

@@ -13,18 +13,18 @@ import { mapGetters } from 'vuex';
 export default {
   watch: {
     $route() {
-      setTimeout(()=>{ this.$store.commit('setLoading', false) }, 800);
+      setTimeout(()=>{ this.$store.commit('setLoading', false) }, 1300);  // mask animation time
     }
   },
   computed: {
     ...mapGetters(['isLoading']),
-  }
+  },
 }
 </script>
 
 <style scoped>
-#load-screen { position: fixed; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: 9999; }
-#load-screen > span { position:absolute; background:#191919; animation-duration: .8s; animation-timing-function: cubic-bezier(0.12,0.75,0.4,1); animation-fill-mode: forwards; animation-delay: .1s; }
+#load-screen { position: fixed; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: 9999; /* animation: fade-in .5s ease;*/ }
+#load-screen > span { position:absolute; background:#191919; animation-duration: .8s; animation-timing-function: var(--ease-InOutExpo); animation-fill-mode: forwards; animation-delay: .5s; }
 #load-screen .mask-top { left: 0; top: 0; right: 0; bottom: 50%; animation-name: mask-top; }
 #load-screen .mask-right { left: 50%; top: 0; right: 0; bottom: 0; animation-name: mask-right; }
 #load-screen .mask-bottom { left: 0; top: 50%; right: 0; bottom: 0; animation-name: mask-bottom; }

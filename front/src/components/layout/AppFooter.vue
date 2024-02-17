@@ -11,16 +11,31 @@
       <div class="footer-copy">&copy; the Fiftyone Corp.</div>
     </div>
   </footer>
+  <ScrollTop></ScrollTop>
 </template>
 
 <script>
+import ScrollTop from '@/components/common/ScrollTop.vue'
 import SnsLink from '@/components/common/SnsLink.vue'
 
 export default {
   name: 'AppFooter',
   components: {
-    SnsLink
+    SnsLink,
+    ScrollTop
   },
+  // watch: {
+  //   $route(to, from) {
+  //     (to.path === '/main')
+  //       ? this.show = false
+  //       : this.show = true;
+  //   },
+  // },
+  // data() {
+  //   return {
+  //     show: true
+  //   }
+  // },
 }
 </script>
 

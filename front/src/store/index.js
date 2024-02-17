@@ -3,20 +3,31 @@ import { createStore } from 'vuex';
 const store = createStore({
 	state() {
 		return {
-			Loading: false,
+			Loading: true,
 			OpenAside: false,
+			Scrolled: false,
+			NoScroll: false,
 		};
 	},
 	getters: {
-		isOpenAside: state => state.OpenAside,
 		isLoading: state => state.Loading,
+		isOpenAside: state => state.OpenAside,
+		isScrolled: state => state.Scrolled,
+		isNoScroll: state => state.NoScroll,
 	},
 	mutations: {
-		setOpenAside(state, payload) {
-			state.OpenAside = payload;
-		},
 		setLoading(state, payload) {
 			state.Loading = payload;
+		},
+		setOpenAside(state, payload) {
+			state.OpenAside = payload;
+			state.NoScroll = payload;
+		},
+		setScrolled(state, payload) {
+			state.Scrolled = payload;
+		},
+		setNoScroll(state, payload) {
+			state.NoScroll = payload;
 		},
 	},
 	actions: {},

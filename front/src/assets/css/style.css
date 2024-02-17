@@ -1,0 +1,4 @@
+.no-scroll body { overflow: hidden; }
+
+#app { opacity: 1; transition: opacity .5s; }
+#app.loading { opacity: 0; }
