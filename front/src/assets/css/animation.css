@@ -38,3 +38,8 @@
   0% { transform: translateY(50%); opacity: 0; }
   100% { transform: translateY(0); opacity: 1; }
 }
+
+@keyframes scaleX-in {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}

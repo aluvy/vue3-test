@@ -80,7 +80,4 @@ export default {
 .pageChange-leave-active { animation: fade-in .2s; }
 .pageChange-enter-active { animation-fill-mode: backwards; }
 .pageChange-leave-active { animation-direction: reverse; }
-
-#container { position: relative; min-height: var(--vh); margin-bottom: var(--footer-height, 38rem); z-index: 10; transition: all .3s ease; }
-.OpenAside #container { filter: blur(5px); margin-bottom: 0; }
 </style>

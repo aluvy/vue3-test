@@ -27,23 +27,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-/* sns | aside ***************************/
-.sns-wrap.aside { position: fixed; right: 2.8rem; bottom: 2.8rem; }
-.sns-wrap.aside ul { display: flex; align-items: center; }
-.sns-wrap.aside li + li { margin-left: 1.6rem; }
-.sns-wrap.aside li a { display: flex; align-items: center; justify-content: center; width: 3.2rem; height: 3.2rem; color: #fff; opacity: .7; transition: opacity .3s; }
-.sns-wrap.aside li a:hover { opacity: 1; }
-.sns-wrap.aside li { animation: scale-in .3s; animation-delay: 1s; animation-fill-mode: backwards; }
-.sns-wrap.aside li:nth-child(1) { animation-delay: 0.79s; }
-.sns-wrap.aside li:nth-child(2) { animation-delay: 0.83s; }
-.sns-wrap.aside li:nth-child(3) { animation-delay: 0.87s; }
-
-/* sns | footer ***************************/
-.sns-wrap.footer { padding: 8.5rem 0 0; }
-.sns-wrap.footer ul { display: flex; align-items: center; justify-content: center; }
-.sns-wrap.footer ul li + li { margin-left: 2rem; }
-.sns-wrap.footer ul li a { display:flex; align-items: center; justify-content: center; width: 5rem; height: 5rem; border-radius: 5rem; border: 2px solid rgba(255,255,255, .1); font-size: 1.7rem; color: rgba(255,255,255, .4); transition: all .3s; }
-.sns-wrap.footer ul li a:hover { border-color: rgba(255,255,255, 1); color: rgba(255,255,255, 1); }
-</style>

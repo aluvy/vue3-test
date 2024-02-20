@@ -60,8 +60,6 @@ import image6 from '@/assets/images/main-visual-hyundai-n-brand.jpg';
 import image7 from '@/assets/images/main-visual-culture.jpg';
 import image8 from '@/assets/images/main-visual-company-relocation.jpg';
 
-// https://codepen.io/PeterBrain/pen/eYeEoGW
-
 export default {
   components: {
     Swiper,
@@ -89,29 +87,7 @@ export default {
       direction.value = ( translate.value > swiper.translate ) ? true : false;
       translate.value = swiper.translate;
 
-
-
-      // const { slides, activeIndex } = swiper;
-
-      // console.log(swiper);
-      setTimeout(() => {
-        setCustomClass(swiper);
-      }, 1);
-      
-
-      // slides.forEach((a, i)=>{
-      //   // console.log(activeIndex, i, i < activeIndex);
-      //   a.classList.remove('custom-prev');
-      //   a.classList.remove('custom-next');
-      //   if( i < activeIndex ){
-      //     a.classList.add('custom-prev');
-      //     console.log(a, i, activeIndex);
-      //   } else {
-      //     a.classList.add('custom-next');
-      //   }
-
-      //   // console.log(a, i, activeIndex);
-      // });
+      setTimeout(() => { setCustomClass(swiper) }, 1);
     }
 
     const transitionEnd = () => {
@@ -132,7 +108,6 @@ export default {
         } else {
           a.classList.add('custom-next');
         }
-        // console.log(activeIndex, i, i < activeIndex);
         
       });
     }
@@ -165,10 +140,10 @@ export default {
     }
   },
   mounted() {
-    this.$store.commit('setNoScroll', true);
+    document.documentElement.classList.add('rock-scroll');
   },
   unmounted() {
-    this.$store.commit('setNoScroll', false);
+    document.documentElement.classList.remove('rock-scroll');
   },
 }
 </script>
@@ -303,4 +278,10 @@ export default {
 .slide-controller button:hover::after { transform: scaleX(1); }
 .slide-controller button.btn_prev:hover i { transform: translateX(-0.6rem); }
 .slide-controller button.btn_next:hover i { transform: translateX(0.6rem); }
+
+
+
+/* @media only screen and (max-width: 1024px) {
+  .slide-controller { left: 4rem; }
+} */
 </style>
