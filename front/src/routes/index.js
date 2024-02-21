@@ -30,10 +30,16 @@ const router = createRouter({
 			meta: { title: 'AboutPage' },
 		},
 		{
-			path: '/contact',
-			name: 'ContactPage',
-			component: () => import('@/views/ContactPage.vue'),
-			meta: { title: 'ContactPage' },
+			path: '/who-we-are',
+			name: 'WhoWeArePage',
+			component: () => import('@/views/WhoWeArePage.vue'),
+			meta: { title: 'WhoWeArePage' },
+		},
+		{
+			path: '/contact-us',
+			name: 'ContactUsPage',
+			component: () => import('@/views/ContactUsPage.vue'),
+			meta: { title: 'ContactUsPage' },
 		},
 		{
 			path: '/Culture',

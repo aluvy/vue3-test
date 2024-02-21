@@ -10,8 +10,8 @@
               <li>
                 <router-link to="/about">About us</router-link>
                 <ul class="aside-nav-sub right">
-                  <li><router-link to="/about">Who we are</router-link></li>
-                  <li><router-link to="/contact">Contact us</router-link></li>
+                  <li><router-link to="/who-we-are">Who we are</router-link></li>
+                  <li><router-link to="/contact-us">Contact us</router-link></li>
                 </ul>
               </li>
               <li>

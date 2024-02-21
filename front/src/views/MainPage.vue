@@ -123,7 +123,6 @@ export default {
   data() {
     return {
       visuals: [
-        // { url: '', img: image1, slogan: '<p><span>2024</span><span>Happy</span></p><p><span>New</span><span>Goods</span></p>' },
         { url: '', img: image1, slogan: ['2024', 'Happy', 'New', 'Goods'] },
         { url: '', img: image2, slogan: ['Golden', 'Time', 'Year-end', 'Party'] },
         { url: '', img: image3, slogan: ['HYUNDAICARD', 'My', 'Company'] },
@@ -218,14 +217,14 @@ export default {
 
 
 /*** pagination ******************************************************/
-.swiper-pagination { position: fixed; right: 9rem; top: 50%; transform: translate3D(0, -50%, 0); display: flex; flex-direction: column; align-items: flex-end; z-index: 9; }
+.swiper-pagination { position: fixed; right: 50%; top: 50%; margin-right: 9rem; transform: translate3D( calc(var(--max-width) / 2) , -50%, 0); display: flex; flex-direction: column; align-items: flex-end; z-index: 9; }
 .swiper-pagination-bullet { padding: 0.8rem 0; }
 .swiper-pagination-bullet::before { content:''; display: block; width: 1.5rem; height: 2px; background: #fff; opacity: 0.5; transition: all .3s; }
 .swiper-pagination-bullet-active::before { width: 3rem; opacity: 1; }
 
 
 /*** controller ******************************************************/
-.slide-controller { position: fixed; left: 9rem; bottom: 5rem; display: flex; align-items: center; z-index: 5; }
+.slide-controller { position: fixed; left: 50%; bottom: 5rem; margin-left: 9rem; transform: translateX(calc(var(--max-width) / 2 * -1)); display: flex; align-items: center; z-index: 5; }
 .slide-controller button { position: relative; width: 4.4rem; height: 4.4rem; font-size: 1rem; line-height: 1.2rem; color: #fff; border-radius: 100%; border: 1px solid rgba(255,255,255, 0.5); }
 .slide-controller button + button { margin-left: 1.4rem; }
 .slide-controller button i { transition: all .3s var(--ease-InOutExpo); }
@@ -235,12 +234,27 @@ export default {
 .slide-controller button.btn_next:hover i { transform: translate3D(0.6rem, 0, 0); }
 
 
+@media only screen and (max-width: 1600px) {
+  .swiper-pagination { right: 9rem; margin-right: 0; transform: translate3D(0, -50%, 0); }
+  .slide-controller { left: 9rem; margin-left: 0; transform: initial; }
+}
+
 @media only screen and (max-width: 1024px) {
   .mySwiper .slogan-area .slogan { font-size: 5.88rem; }
-  .slide-controller { left: 4rem; }
+  .swiper-pagination { right: 50%; margin-right: 4rem; transform: translate3D( calc(var(--max-width) / 2) , -50%, 0); }
+  .slide-controller { left: 50%; margin-left: 4rem; transform: translateX(calc(var(--max-width) / 2 * -1)); }
 }
 
 @media only screen and (max-width: 768px) {
-  .mySwiper .slogan-area .slogan { width: 45%; font-size: 4.8rem; }
+  .mySwiper .slogan-area .slogan { width: 100%; font-size: 4.8rem; }
+  .swiper-pagination { display: none; }
+  .slide-controller { left: 4rem; margin-left: 0; transform: initial; }
+}
+
+/* media query - height */
+@media only screen and (max-height: 650px) {
+  .mySwiper .slogan-area .slogan { width: calc(100% - 6rem); font-size: 4.4rem; }
+  .mySwiper .slogan-area .linkto { margin-top: 1rem; }
+  .slide-controller { bottom: 3rem; }
 }
 </style>
