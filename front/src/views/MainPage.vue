@@ -29,7 +29,9 @@
     >
       <swiper-slide v-for="(visual, i) in visuals" :key="visual" :virtualIndex="i">
         <div class="slogan-area">
-          <div class="slogan" v-html="visual.slogan"></div>
+          <div class="slogan">
+            <strong v-for="word in visual.slogan" :key="word"><span>{{ word }}</span></strong>
+          </div>
           <div class="linkto">
             <router-link to="/#">View Project</router-link>
           </div>
@@ -121,14 +123,15 @@ export default {
   data() {
     return {
       visuals: [
-        { url: '', img: image1, slogan: '<p><span>2024 Happy</span></p><p><span>New Goods</span></p>' },
-        { url: '', img: image2, slogan: '<p><span>Golden Time</span></p><p><span>Year-end</span></p><p><span>Party</span></p>' },
-        { url: '', img: image3, slogan: '<p><span>HYUNDAICARD</span></p><p><span>My Company</span></p>' },
-        { url: '', img: image4, slogan: '<p><span>TVN Drama</span></p><p><span>Voice</span></p><p><span>Season4</span></p>' },
-        { url: '', img: image5, slogan: '<p><span>AMOREPACIFIC</span></p>' },
-        { url: '', img: image6, slogan: '<p><span>Hyundai N</span></p><p><span>Brand</span></p>' },
-        { url: '', img: image7, slogan: '<p><span>Culture</span></p>' },
-        { url: '', img: image8, slogan: '<p><span>Company</span></p><p><span>Relocation</span></p>' },
+        // { url: '', img: image1, slogan: '<p><span>2024</span><span>Happy</span></p><p><span>New</span><span>Goods</span></p>' },
+        { url: '', img: image1, slogan: ['2024', 'Happy', 'New', 'Goods'] },
+        { url: '', img: image2, slogan: ['Golden', 'Time', 'Year-end', 'Party'] },
+        { url: '', img: image3, slogan: ['HYUNDAICARD', 'My', 'Company'] },
+        { url: '', img: image4, slogan: ['TVN', 'Drama', 'Voice', 'Season4'] },
+        { url: '', img: image5, slogan: ['AMOREPACIFIC'] },
+        { url: '', img: image6, slogan: ['Hyundai', 'N', 'Brand'] },
+        { url: '', img: image7, slogan: ['Culture'] },
+        { url: '', img: image8, slogan: ['Company', 'Relocation'] },
       ],
     }
   },
@@ -179,20 +182,20 @@ export default {
 
 /*** slogan-area ******************************************************/
 .mySwiper .slogan-area { position: absolute; left: 50%; top: 50%; transform: translate3D(-50%, -50%, 0); width: 100%; max-width: var(--max-width); padding: var(--inner-pad); max-height: var(--vh); z-index: 2; }
-.mySwiper .slogan-area .slogan { font-size: 6.3rem; line-height: 1.2; font-weight: 700; color: #fff; }
-.mySwiper .slogan-area .slogan p { overflow: hidden; }
-.mySwiper .slogan-area .slogan p span { display: block; width: fit-content; transition-property: transform; }
+.mySwiper .slogan-area .slogan { display: flex; flex-wrap: wrap; align-items: center; width: 50%; font-size: 6.3rem; line-height: 1.2; font-weight: 700; color: #fff; }
+.mySwiper .slogan-area .slogan strong { display: inline-block; overflow: hidden; padding-right: 2rem; }
+.mySwiper .slogan-area .slogan strong span { display: inline-block; width: fit-content; word-break: keep-all; transition-property: transform; }
 
 /* slogan - active motion */
-.mySwiper .swiper-slide-active .slogan-area .slogan p span { transform: translate3D(0, 0, 0); transition-duration: var(--mainSwiper-active-slogan-duration); transition-delay: var(--mainSwiper-active-slogan-delay); }
-.mySwiper.moveStart.down .swiper-slide-active .slogan-area .slogan p span { transform: translate3D(0, 120%, 0); }
-.mySwiper.moveStart.up .swiper-slide-active .slogan-area .slogan p span { transform: translate3D(0, -120%, 0);}
+.mySwiper .swiper-slide-active .slogan-area .slogan strong span { transform: translate3D(0, 0, 0); transition-duration: var(--mainSwiper-active-slogan-duration); transition-delay: var(--mainSwiper-active-slogan-delay); }
+.mySwiper.moveStart.down .swiper-slide-active .slogan-area .slogan strong span { transform: translate3D(0, 120%, 0); }
+.mySwiper.moveStart.up .swiper-slide-active .slogan-area .slogan strong span { transform: translate3D(0, -120%, 0);}
 
 /* slogan - prev & next motion */
-.mySwiper .swiper-slide-prev .slogan-area .slogan p span,
-.mySwiper .swiper-slide-next .slogan-area .slogan p span { transition-duration: var(--mainSwiper-prev-slogan-duration); transition-delay: var(--mainSwiper-prev-slogan-delay); }
-.mySwiper.moveStart.down .swiper-slide-prev .slogan-area .slogan p span { transform: translate3D(0, -120%, 0); }
-.mySwiper.moveStart.up .swiper-slide-next .slogan-area .slogan p span { transform: translate3D(0, 120%, 0); }
+.mySwiper .swiper-slide-prev .slogan-area .slogan strong span,
+.mySwiper .swiper-slide-next .slogan-area .slogan strong span { transition-duration: var(--mainSwiper-prev-slogan-duration); transition-delay: var(--mainSwiper-prev-slogan-delay); }
+.mySwiper.moveStart.down .swiper-slide-prev .slogan-area .slogan strong span { transform: translate3D(0, -120%, 0); }
+.mySwiper.moveStart.up .swiper-slide-next .slogan-area .slogan strong span { transform: translate3D(0, 120%, 0); }
 
 /* slogan - link */
 .mySwiper .slogan-area .linkto { font-size: 1.6rem; color: #fff; line-height: 1.9; letter-spacing: 0.065em; margin: 2.5rem 0 0; overflow: hidden; }
@@ -232,5 +235,12 @@ export default {
 .slide-controller button.btn_next:hover i { transform: translate3D(0.6rem, 0, 0); }
 
 
-/* .mySwiper .slogan-area .slogan */
+@media only screen and (max-width: 1024px) {
+  .mySwiper .slogan-area .slogan { font-size: 5.88rem; }
+  .slide-controller { left: 4rem; }
+}
+
+@media only screen and (max-width: 768px) {
+  .mySwiper .slogan-area .slogan { width: 45%; font-size: 4.8rem; }
+}
 </style>
