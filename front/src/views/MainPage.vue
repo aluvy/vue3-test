@@ -230,4 +230,7 @@ export default {
 .slide-controller button:hover::after { transform: scaleX(1); }
 .slide-controller button.btn_prev:hover i { transform: translate3D(-0.6rem, 0, 0); }
 .slide-controller button.btn_next:hover i { transform: translate3D(0.6rem, 0, 0); }
+
+
+/* .mySwiper .slogan-area .slogan */
 </style>
