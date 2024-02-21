@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer">
+  <footer id="footer" v-if="isFooter">
     <div class="footer-inner">
       <div class="footer-info">
         <strong>The Fifty One</strong>
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import ScrollTop from '@/components/common/ScrollTop.vue'
 import SnsLink from '@/components/common/SnsLink.vue'
 
@@ -23,6 +24,9 @@ export default {
   components: {
     SnsLink,
     ScrollTop
+  },
+  computed: {
+    ...mapGetters(['isFooter']),
   },
 }
 </script>

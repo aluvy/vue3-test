@@ -2,10 +2,9 @@
   <div>
     <swiper
       class="mySwiper"
-      :class="{moveStart: moveStart, moveEnd: moveEnd, up: !direction, down: direction}"
+      :class="{moveStart: moveStart, moveEnd: !moveStart, up: !direction, down: direction}"
       :modules="modules"
       :direction="'vertical'"
-      :effect="'fade'"
       :allowTouchMove= "false"
       :slides-per-view="1"
       :space-between="0"
@@ -15,7 +14,11 @@
       :draggable="true"
       :observer="true"
       :updateOnWindowResize="true"
-      
+      :mousewheel="true"
+      :autoplady="{
+        delay: 5000,
+        
+      }"
       :pagination="{
         clickable: true,
         bulletElement: 'button'
@@ -49,7 +52,7 @@
 <script>
 import { ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Autoplay, Pagination, A11y, Virtual, EffectFade } from 'swiper/modules';
+import { Autoplay, Pagination, A11y, Virtual } from 'swiper/modules';
 
 import image1 from '@/assets/images/main-visual-2024-happy-new-goods.jpg';
 import image2 from '@/assets/images/main-visual-golden-time-year-end-party.jpg';
@@ -67,48 +70,39 @@ export default {
   },
   setup() {
     let mySwiper = ref();
-    const speed = ref(750);
+    const speed = ref(650);
     const moveStart = ref(false);
-    const moveEnd = ref(true);
     const direction = ref(true);   // up: false, down: true
     const translate = ref(0);
 
     const onSwiper = (swiper) => {
       mySwiper.value = swiper;
       swiper.emit("transitionEnd");
-      setTimeout(() => {
-        setCustomClass(swiper);
-      }, 1);
+      setTimeout(() => { setCustomClass(swiper) }, 1);
     }
 
     const transitionStart = (swiper) => {
       moveStart.value = true;
-      moveEnd.value = false;
       direction.value = ( translate.value > swiper.translate ) ? true : false;
       translate.value = swiper.translate;
-
       setTimeout(() => { setCustomClass(swiper) }, 1);
     }
 
     const transitionEnd = () => {
       moveStart.value = false;
-      moveEnd.value = true;
     }
 
     const setCustomClass = (swiper) => {
-      const { slides, activeIndex } = swiper;
-
+      const { slides, activeIndex, previousIndex } = swiper;
       slides.forEach((a, i)=>{
         a.classList.remove('custom-prev');
         a.classList.remove('custom-next');
-        if( i === activeIndex ) {
-          a.classList.add('custom-active');
-        } else if ( i < activeIndex ) {
-          a.classList.add('custom-prev');
-        } else {
-          a.classList.add('custom-next');
-        }
-        
+        a.classList.remove('custom-beforeIdx');
+
+        if( i === activeIndex )       a.classList.add('custom-active');
+        else if ( i < activeIndex )   a.classList.add('custom-prev');
+        else                          a.classList.add('custom-next');
+        if( i === previousIndex)      a.classList.add('custom-beforeIdx');
       });
     }
 
@@ -117,11 +111,10 @@ export default {
       onSwiper,
       transitionEnd,
       transitionStart,
-      modules: [ Autoplay, Pagination, A11y, Virtual, EffectFade ],
+      modules: [ Autoplay, Pagination, A11y, Virtual ],
 
       speed,
       moveStart,
-      moveEnd,
       direction
     };
   },
@@ -141,129 +134,88 @@ export default {
   },
   mounted() {
     document.documentElement.classList.add('rock-scroll');
+    this.$store.commit('setFooter', false);
   },
   unmounted() {
     document.documentElement.classList.remove('rock-scroll');
+    this.$store.commit('setFooter', true);
   },
 }
 </script>
 
 <style>
 :root {
-  --mainSwiper-speed: 750ms;
   --mainSwiper-easing: cubic-bezier(0.4, 0, 0.2, 1);
-  --mainSwiper-duration: 660ms;
-  --mainSwiper-delay: 600ms;
-  --mainSwiper-subDelay: 550ms;
-
+  --mainSwiper-delay: 500ms;
 
   /* img scale */
-  --mainSwiper-active-scale-duration: 600ms;
-  --mainSwiper-active-scale-delay: 550ms;
-
-  --mainSwiper-prev-scale-duration: 600ms;
-  --mainSwiper-prev-scale-delay: 550ms;
+  --mainSwiper-img-scale-duration: 600ms;
 
   /* dimmed */
   --mainSwiper-dimmed-duration: 400ms;
-  --mainSwiper-active-dimmed-delay: 550ms;
 
     /* slogan */
+  --mainSwiper-active-slogan-duration: 600ms;
+  --mainSwiper-active-slogan-delay: 0ms;
   --mainSwiper-prev-slogan-duration: 600ms;
-  --mainSwiper-prev-slogan-delay: 550ms;
+  --mainSwiper-prev-slogan-delay: 400ms;
 }
 
 .mySwiper { width: 100%; height: var(--vh); background: #000; overflow: hidden; z-index: 4; }
-.mySwiper .swiper-slide { position: relative; width: 100%; height: var(--vh); z-index: 1; }
-.mySwiper .swiper-slide-active { z-index: 3; }
-.mySwiper .swiper-slide-prev,
-.mySwiper .swiper-slide-next { z-index: 2; }
-
-
+.mySwiper .swiper-wrapper { transition-delay: var(--mainSwiper-delay); transition-timing-function: var(--mainSwiper-easing); }
+.mySwiper .swiper-slide { position: relative; width: 100%; height: var(--vh); transition-timing-function: ease-out; }
 
 /*** imgarea ******************************************************/
-.mySwiper .swiper-slide .img-area { width: 100%; height: var(--vh); z-index: 1; transition-property: transform; transition-duration: 0s; }
-
-/* imgarea - show */
-.mySwiper .swiper-slide-active .img-area,
-.mySwiper.down .swiper-slide-prev .img-area,
-.mySwiper.up .swiper-slide-next .img-area,
-.mySwiper.down .swiper-slide-prev,
-.mySwiper.up .swiper-slide-next { opacity: 1!important; }
-
-/* imgarea - active motion */
-.mySwiper .swiper-slide-active .img-area { transform: translate3D(0, 0, 0); transition-duration: 750ms; }
-.mySwiper.moveStart.down .swiper-slide-active .img-area { transform: translate3D(0, 100%, 0); transition-duration: 0s; }
-.mySwiper.moveStart.up .swiper-slide-active .img-area { transform: translate3D(0, -100%, 0); transition-duration: 0s; }
-
-/* imgarea - prev & next motion */
-.mySwiper .swiper-slide-prev .img-area,
-.mySwiper .swiper-slide-next .img-area { transition-duration: 0s; }
-.mySwiper .custom-prev .img-area { transform: translate3D(0, -100%, 0); transition-delay: var(--mainSwiper-prev-scale-delay); transition-duration: 750ms; }
-.mySwiper .custom-next .img-area { transform: translate3D(0, 100%, 0); transition-delay: var(--mainSwiper-prev-scale-delay); transition-duration: 750ms; }
-
+.mySwiper .swiper-slide .img-area { width: 100%; height: var(--vh); z-index: 1; }
+.mySwiper .swiper-slide .img-area .img { position: relative; width: 100%; height: 100%; background-position: center; background-size: cover; background-repeat: no-repeat; transform: scale(0.6); transition-property: transform; transition-duration: var(--mainSwiper-img-scale-duration); transition-timing-function: var(--mainSwiper-easing); }
 
 /* imgarea - img - scale */
-.mySwiper .swiper-slide .img-area .img { position: relative; width: 100%; height: 100%; background-position: center; background-size: cover; background-repeat: no-repeat; transform: scale(0.5); transition-property: transform; transition-duration: var(--mainSwiper-active-scale-duration); transition-timing-function: var(--mainSwiper-easing); }
-.mySwiper.moveEnd .swiper-slide-active .img-area .img { transform: scale(1.01); transition-delay: var(--mainSwiper-active-scale-delay); }
-
-
-
-
-
+.mySwiper.moveStart .swiper-slide .img-area .img { transform: scale(0.5); }
+.mySwiper.moveEnd .swiper-slide.swiper-slide-active .img-area .img { transform: scale(1.01); }
 
 /*** imgarea - img - dimmed ******************************************************/
-.mySwiper .swiper-slide .img-area .img::before { position: absolute; left: 0; top: 0; display: block; content:''; width: 100%; height: 100%; background: rgba(0,0,0, 0.4); transition-property: opacity; transition-duration: var(--mainSwiper-dimmed-duration); }
+.mySwiper .swiper-slide .img-area .img::before { position: absolute; left: 0; top: 0; display: block; content:''; width: 100%; height: 100%; background: rgba(0,0,0, 0.4); opacity: 1; transition-property: opacity; transition-duration: var(--mainSwiper-dimmed-duration); }
 .mySwiper.moveStart .swiper-slide .img-area .img::before { opacity: 0; }
-.swiper-slide.swiper-slide-active .img-area .img::before { opacity: 1; }
-.mySwiper.moveStart .swiper-slide.swiper-slide-active .img-area .img::before { transition-delay: 0s; }
-.mySwiper.moveEnd .swiper-slide.swiper-slide-active .img-area .img::before { transition-delay: var(--mainSwiper-active-dimmed-delay); }
-
 
 /*** slogan-area ******************************************************/
-.mySwiper .slogan-area { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 100%; max-width: var(--max-width); padding: var(--inner-pad); max-height: var(--vh); overflow: hidden; opacity: 0; z-index: 2; }
+.mySwiper .slogan-area { position: absolute; left: 50%; top: 50%; transform: translate3D(-50%, -50%, 0); width: 100%; max-width: var(--max-width); padding: var(--inner-pad); max-height: var(--vh); z-index: 2; }
 .mySwiper .slogan-area .slogan { font-size: 6.3rem; line-height: 1.2; font-weight: 700; color: #fff; }
 .mySwiper .slogan-area .slogan p { overflow: hidden; }
-.mySwiper .slogan-area .slogan p span { display: block; width: fit-content; transform: translate3D(0, 120%, 0); transition-property: transform; transition-duration: var(--mainSwiper-prev-slogan-duration); }
-
-/* slogan - show */
-.mySwiper .swiper-slide-active .slogan-area,
-.mySwiper.moveStart.down .swiper-slide-prev .slogan-area,
-.mySwiper.moveStart.up .swiper-slide-next .slogan-area {  opacity: 1; }
+.mySwiper .slogan-area .slogan p span { display: block; width: fit-content; transition-property: transform; }
 
 /* slogan - active motion */
-.mySwiper .swiper-slide-active .slogan-area .slogan p span { transform: translate3D(0, 0, 0); }
-.mySwiper.moveStart.down .swiper-slide-active .slogan-area .slogan p span { transform: translate3D(0, 120%, 0); transition-duration: 0s; }
-.mySwiper.moveStart.up .swiper-slide-active .slogan-area .slogan p span { transform: translate3D(0, -120%, 0); transition-duration: 0s; }
+.mySwiper .swiper-slide-active .slogan-area .slogan p span { transform: translate3D(0, 0, 0); transition-duration: var(--mainSwiper-active-slogan-duration); transition-delay: var(--mainSwiper-active-slogan-delay); }
+.mySwiper.moveStart.down .swiper-slide-active .slogan-area .slogan p span { transform: translate3D(0, 120%, 0); }
+.mySwiper.moveStart.up .swiper-slide-active .slogan-area .slogan p span { transform: translate3D(0, -120%, 0);}
 
 /* slogan - prev & next motion */
-.mySwiper.moveStart.down .swiper-slide-prev .slogan-area .slogan p span { transform: translate3D(0, -120%, 0); transition-delay: var(--mainSwiper-prev-slogan-delay); }
-.mySwiper.moveStart.up .swiper-slide-next .slogan-area .slogan p span { transform: translate3D(0, 120%, 0); transition-delay: var(--mainSwiper-prev-slogan-delay); }
+.mySwiper .swiper-slide-prev .slogan-area .slogan p span,
+.mySwiper .swiper-slide-next .slogan-area .slogan p span { transition-duration: var(--mainSwiper-prev-slogan-duration); transition-delay: var(--mainSwiper-prev-slogan-delay); }
+.mySwiper.moveStart.down .swiper-slide-prev .slogan-area .slogan p span { transform: translate3D(0, -120%, 0); }
+.mySwiper.moveStart.up .swiper-slide-next .slogan-area .slogan p span { transform: translate3D(0, 120%, 0); }
 
 /* slogan - link */
 .mySwiper .slogan-area .linkto { font-size: 1.6rem; color: #fff; line-height: 1.9; letter-spacing: 0.065em; margin: 2.5rem 0 0; overflow: hidden; }
-.mySwiper .slogan-area .linkto a { position: relative; display: block; width: fit-content; opacity: 0; transform: translate3d(0, 120%, 0); transition-property: transform, opacity; transition-duration: 0.5s, 0.2s; }
-
-/* slogan - link - show */
-.mySwiper .swiper-slide-active .slogan-area .linkto a { opacity: 1; }
+.mySwiper .slogan-area .linkto a { position: relative; display: block; width: fit-content; opacity: 0; transition-property: transform, opacity; transition-duration: 0.5s, 0.3s; transition-delay: var(--mainSwiper-prev-slogan-delay); }
 
 /* slogan - link - active motion */
-.mySwiper .swiper-slide-active .slogan-area .linkto a { transform: translate3D(0, 0, 0); }
-.mySwiper.moveStart.down .swiper-slide-active .linkto a { transform: translate3D(0, 120%, 0); transition-duration: 0s; }
-.mySwiper.moveStart.up .swiper-slide-active .linkto a { transform: translate3D(0, -120%, 0); transition-duration: 0s; }
+.mySwiper.moveEnd .slogan-area .linkto a { transform: translate3D(0, 0, 0); opacity: 1; }
+.mySwiper.moveStart.down .slogan-area .linkto a { transform: translate3D(0, 110%, 0); }
+.mySwiper.moveStart.up .slogan-area .linkto a { transform: translate3D(0, -110%, 0); }
 
 /* slogan - link - prev & next motion */
-.mySwiper.moveStart.down .swiper-slide-prev .slogan-area .linkto a { transform: translate3D(0, -120%, 0); transition-delay: var(--mainSwiper-prev-slogan-delay); }
-.mySwiper.moveStart.up .swiper-slide-next .slogan-area .linkto a { transform: translate3D(0, 120%, 0); transition-delay: var(--mainSwiper-prev-slogan-delay); }
+.mySwiper.moveStart .swiper-slide-prev .slogan-area .linkto a,
+.mySwiper.moveStart .swiper-slide-next .slogan-area .linkto a { transition-delay: var(--mainSwiper-active-slogan-delay); }
+.mySwiper.moveStart.down .swiper-slide-prev .slogan-area .linkto a { transform: translate3D(0, -110%, 0); }
+.mySwiper.moveStart.up .swiper-slide-next .slogan-area .linkto a { transform: translate3D(0, 110%, 0); }
 
 /* slogan - link hover motion */
 .mySwiper .slogan-area .linkto a::after { position: absolute; left: 0; bottom: 0; content: ''; display: block; width: 0; height: 2px; background: #ffffff; transition: width .3s; }
 .mySwiper .slogan-area .linkto a:hover::after { width: 100%; }
 
 
-
 /*** pagination ******************************************************/
-.swiper-pagination { position: fixed; right: 9rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; align-items: flex-end; z-index: 9; }
+.swiper-pagination { position: fixed; right: 9rem; top: 50%; transform: translate3D(0, -50%, 0); display: flex; flex-direction: column; align-items: flex-end; z-index: 9; }
 .swiper-pagination-bullet { padding: 0.8rem 0; }
 .swiper-pagination-bullet::before { content:''; display: block; width: 1.5rem; height: 2px; background: #fff; opacity: 0.5; transition: all .3s; }
 .swiper-pagination-bullet-active::before { width: 3rem; opacity: 1; }
@@ -273,15 +225,9 @@ export default {
 .slide-controller { position: fixed; left: 9rem; bottom: 5rem; display: flex; align-items: center; z-index: 5; }
 .slide-controller button { position: relative; width: 4.4rem; height: 4.4rem; font-size: 1rem; line-height: 1.2rem; color: #fff; border-radius: 100%; border: 1px solid rgba(255,255,255, 0.5); }
 .slide-controller button + button { margin-left: 1.4rem; }
-.slide-controller button i { transition: all .25s var(--ease-InOutExpo); }
-.slide-controller button::after { position: absolute; left: calc(50% - 0.7rem); top: calc(50% - 0.8px); content:''; display: block; width: 1.4rem; height: 1px; background: #fff; transform: scaleX(0); transition: transform 0.25s var(--ease-InOutExpo); }
+.slide-controller button i { transition: all .3s var(--ease-InOutExpo); }
+.slide-controller button::after { position: absolute; left: calc(50% - 0.7rem); top: calc(50% - 0.8px); content:''; display: block; width: 1.4rem; height: 1px; background: #fff; transform: scaleX(0); transition: transform 0.3s var(--ease-InOutExpo); }
 .slide-controller button:hover::after { transform: scaleX(1); }
-.slide-controller button.btn_prev:hover i { transform: translateX(-0.6rem); }
-.slide-controller button.btn_next:hover i { transform: translateX(0.6rem); }
-
-
-
-/* @media only screen and (max-width: 1024px) {
-  .slide-controller { left: 4rem; }
-} */
+.slide-controller button.btn_prev:hover i { transform: translate3D(-0.6rem, 0, 0); }
+.slide-controller button.btn_next:hover i { transform: translate3D(0.6rem, 0, 0); }
 </style>

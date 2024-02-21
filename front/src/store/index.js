@@ -7,6 +7,8 @@ const store = createStore({
 			OpenAside: false,
 			Scrolled: false,
 			NoScroll: false,
+			header: true,
+			footer: true,
 		};
 	},
 	getters: {
@@ -14,6 +16,8 @@ const store = createStore({
 		isOpenAside: state => state.OpenAside,
 		isScrolled: state => state.Scrolled,
 		isNoScroll: state => state.NoScroll,
+		isHeader: state => state.header,
+		isFooter: state => state.footer,
 	},
 	mutations: {
 		setLoading(state, payload) {
@@ -28,6 +32,12 @@ const store = createStore({
 		},
 		setNoScroll(state, payload) {
 			state.NoScroll = payload;
+		},
+		setHeader(state, payload) {
+			state.header = payload;
+		},
+		setFooter(state, payload) {
+			state.footer = payload;
 		},
 	},
 	actions: {},

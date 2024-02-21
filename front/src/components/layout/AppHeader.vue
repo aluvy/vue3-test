@@ -1,5 +1,5 @@
 <template>
-  <header id="header">
+  <header id="header" v-if="isHeader">
     <div class="header-inner">
       <h1 class="header-logo">
         <router-link to="/main"><img src="@/assets/images/header-logo.png" alt="The Fifty One"></router-link>
@@ -12,12 +12,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import AsideMenu from '@/components/common/AsideMenu.vue'
 
 export default {
   name: 'AppHeader',
   components: {
     AsideMenu
+  },
+  computed: {
+    ...mapGetters(['isHeader']),
   },
   methods: {
     setOpenAside() {
