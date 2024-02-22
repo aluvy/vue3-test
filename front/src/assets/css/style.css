@@ -91,7 +91,7 @@
 .sns-wrap.footer ul li a:hover { border-color: rgba(255,255,255, 1); color: rgba(255,255,255, 1); }
 
 /** sns | about ***************************************************/
-.sns-wrap.about { padding: 4.4rem 0 0; }
+.sns-wrap.about { padding: 4.4rem 0 0; animation: fade-in-slide-up-50 .5s; animation-fill-mode: backwards; }
 .sns-wrap.about ul li a { border-radius: 5rem; border: 2px solid rgba(255,255,255, .15); font-size: 1.7rem; color: rgba(255,255,255, .4); transition: all .3s; }
 .sns-wrap.about ul li a:hover { border-color: rgba(255,255,255, 1); color: rgba(255,255,255, 1); }
 
@@ -105,9 +105,6 @@
 .footer-info strong { display: block; font-size: 1.6rem; font-weight: 600; }
 .footer-info p { margin-top: 1rem; font-weight: 300; word-break: keep-all; }
 .footer-copy { font-size: 1.2rem; color: #878787; padding: 2.5rem 0 0; }
-
-
-
 
 
 
