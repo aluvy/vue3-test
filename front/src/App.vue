@@ -18,6 +18,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
 import AppHeader from '@/components/layout/AppHeader.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
 import LoadScreen from '@/components/common/LoadScreen.vue'
@@ -39,8 +40,10 @@ export default {
       state
         ? document.documentElement.classList.add('no-scroll')
         : document.documentElement.classList.remove('no-scroll');
+    },
+    $route() {
     }
-   },
+  },
   computed: {
     ...mapGetters(['isOpenAside', 'isNoScroll']),
   },

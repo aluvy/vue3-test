@@ -1,12 +1,12 @@
 <template>
   <div class="title-area" :class="{ black: theme==='black', center: align==='center' }" ref="elem">
-    <h3 class="title-s gsap-item">{{ titleS }}</h3>
+    <h3 class="title-s" v-if="titleS!=='none'"><p class="gsap-item">{{ titleS }}</p></h3>
     <div class="title-l" v-if="titleL[0]!=='none'">
       <p class="gsap-overlay" v-for="text in titleL" :key="text">
         <span class="gsap-item">{{ text }}</span>
       </p>
     </div>
-    <div class="desc gsap-item" v-if="desc!=='none'">{{ desc }}</div>
+    <div class="desc" v-if="desc!=='none'"><p class="gsap-item">{{ desc }}</p></div>
   </div>
 </template>
 
@@ -23,9 +23,9 @@ export default {
 </script>
 
 <style>
-.title-area { color: rgba(0,0,0, 0.7); }
+.title-area { color: rgba(0,0,0, 0.7); word-break: keep-all; }
 .title-area .title-s { font-size: 1.6rem; line-height: 1.5; font-weight: 700; }
-.title-area .title-l { font-size: 5.6rem; line-height: 1.1; color: #000; font-weight: 700; }
+.title-area .title-l { font-size: 5.6rem; line-height: 1.2; color: #000; font-weight: 700; }
 .title-area .desc { font-size: 1.6rem; line-height: 1.8; }
 
 .title-area .title-s + .title-l,
@@ -59,5 +59,9 @@ export default {
 
 @media only screen and (max-width: 1024px) {
   .title-area .title-l { font-size: 4.4rem; }
+}
+
+@media only screen and (max-width: 768px) {
+  .title-area .title-l { font-size: 4.2rem; }
 }
 </style>

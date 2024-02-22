@@ -107,6 +107,18 @@
 .footer-copy { font-size: 1.2rem; color: #878787; padding: 2.5rem 0 0; }
 
 
+/** section ***************************************************/
+section.section { background: #fff; overflow-y: hidden; }
+section.section.black { background: #111; }
+section.section .inner { width: 100%; max-width: var(--max-width); padding: var(--inner-pad); margin: 0 auto; }
+
+
+/** gsap | animation ***************************************************/
+.gsap-overlay { overflow: hidden; }
+.gsap-item { animation-fill-mode: backwards; animation-duration: .5s; opacity: 0; }
+.gsap-overlay .gsap-item { display: inline-block; }
+.gsap-item.onEnter { opacity: 1; }
+
 
 
 
