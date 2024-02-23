@@ -13,7 +13,7 @@
           <SnsLink site="about" class="gsap-item"></SnsLink>
         </div>
       </div>
-      <div class="bg gsap-item" :style="`background-image:url(${SubmainVisual})`"></div>
+      <div class="bg gsap-item"></div>
     </section>
 
     <section class="section about-link">
@@ -28,7 +28,7 @@
           </li>
         </ul>
       </div>
-      <div class="img gsap-item"><img :src="AboutImg01" alt=""></div>
+      <div class="img gsap-item"><img :src="poster" alt=""></div>
     </section>
 
     <section class="section black about-awards">
@@ -53,7 +53,7 @@
 
     <section class="section black">
       <div class="about-video gsap-item">
-        <video preload="auto" loop autoplay muted playsinline><source :src="AboutVideo" type="video/mp4"></video>
+        <video preload="auto" loop autoplay muted playsinline><source :src="video" type="video/mp4"></video>
       </div>
     </section>
 
@@ -66,9 +66,9 @@ import { gsapScrollTrigger, gsapKill } from '@/utils/gsap.js'
 import SnsLink from '@/components/common/SnsLink.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
 
-import SubmainVisual from '@/assets/images/about-submain-visual.jpg'
-import AboutImg01 from '@/assets/images/about-img-01.jpg'
-import AboutVideo from '@/assets/images/about-video.mp4'
+// assets
+import poster from '@/assets/images/about/poster.jpg'
+import video from '@/assets/images/about/video.mp4'
 
 export default {
   components: {
@@ -77,9 +77,8 @@ export default {
   },
   data() {
     return {
-      SubmainVisual,
-      AboutImg01,
-      AboutVideo,
+      poster,
+      video,
       awards: [
         { title: '교보 라이프플래닛 모바일 플랫폼', desc: '2018 WEB AWARD KOREA 기술 이노베이션 대상', year: '2018', link: '/#' },
         { title: '롯데호텔 글로벌 웹사이트', desc: '2018 WEB AWARD KOREA 여행/관광 분야 최우수상', year: '2018', link: '/#' },
@@ -125,17 +124,16 @@ export default {
 .about-visual .slogan { flex: 0 0 50%; display: flex; align-items: center; justify-content: flex-end; color: #fff; }
 .about-visual .slogan-inner { width: 100%; max-width: calc(var(--max-width)/2); padding: var(--inner-pad); padding-right: 2rem; font-size: 1.6rem; }
 .about-visual .slogan .title-area .desc { padding-right: 4rem; }
-.about-visual .bg { flex: 1 1 50%; max-width: 50%; min-width: 50%; background-size: cover; background-position: center; background-repeat: no-repeat; }
+.about-visual .bg { flex: 1 1 50%; max-width: 50%; min-width: 50%; background:url(@/assets/images/about/visual.jpg) center no-repeat; background-size: cover; }
 
 /* about link */
 .about-link .list { display: flex; align-items: stretch; justify-content: space-between; padding: 12rem 0; }
 .about-link .list li { flex: 0 0 calc(50% - 2rem); }
-.about-link .list .btn { position: relative; display: block; width: fit-content; height: 4.6rem; line-height: 4.6rem; text-align: center; font-size: 1.4rem; margin-top: 3rem; transition: all .3s; padding-bottom: 4px; box-sizing: content-box; }
-.about-link .list .btn span { display: flex; align-items: center; justify-content: center; padding: 0 5rem; border: 2px solid #000; border-radius: 4px; letter-spacing: 0.055rem; transition: all .3s; }
-.about-link .list .btn span i { position: absolute; right: 4rem; color: #fff; transition: all .3s; }
-.about-link .list .btn:hover { transform: translate3d(0, -5px, 0); }
-.about-link .list .btn:hover span { background: #000; color: #fff; padding: 0 6rem 0 4rem; }
-.about-link .list .btn:hover span i { right: 3rem; }
+.about-link .list .btn { position: relative; display: block; width: fit-content; margin-top: 3rem; box-shadow: 0 0 0 rgba(0,0,0, 0); }
+.about-link .list .btn span { display: flex; align-items: center; justify-content: center; height: 5rem; font-size: 1.4rem; padding: 0 5rem; border: 2px solid #000; border-radius: 4px; letter-spacing: 0.055rem; transition: all .3s; }
+.about-link .list .btn span i { position: absolute; right: 4rem; color: #fff; opacity: 0; transition: all .3s; }
+.about-link .list .btn:hover span { transform: translate3d(0, -3px, 0); box-shadow: 0 2rem 3rem rgba(0,0,0, 0.16); background: #000; color: #fff; padding: 0 7rem 0 3rem; }
+.about-link .list .btn:hover span i { right: 3rem; opacity: 1; }
 .about-link .img img { width: 100%; }
 
 /* awards */
@@ -155,25 +153,18 @@ export default {
 .about-video video { position: absolute; left: 50%; top: 50%; transform: translate3d(-50%, -50%, 0); min-width: 100%; min-height: 100%; }
 .about-video::before { position: absolute; inset: 0; content:''; background: rgba(0,0,0, 0.4); z-index: 2; }
 
-
-/* delay */
-.about-visual .title-s .gsap-item.onEnter { animation-delay: .3s; }
-.about-visual .title-l .gsap-overlay:nth-child(1) .gsap-item.onEnter { animation-delay: .4s; }
-.about-visual .title-l .gsap-overlay:nth-child(2) .gsap-item.onEnter { animation-delay: .5s; }
-.about-visual .desc .gsap-item.onEnter { animation-delay: .6s; }
-
 /* animation */
-.about-visual .sns-wrap.onEnter { animation-name: fade-in-slide-up-50; animation-delay: .7s; }
-.about-visual .bg.onEnter { animation-name: fade-in-slide-left-20; animation-duration: 1s; animation-delay: .3s; }
+.about-visual .sns-wrap.onEnter { animation-name: fade-in-slide-up-50; }
+.about-visual .bg.onEnter { animation-name: fade-in-slide-left-20; animation-duration: 1s; }
 .about-link .img.onEnter { animation-name: fade-in-slide-up-50; animation-duration: 1s; }
-.about-awards .list.onEnter { animation-name: fade-in-slide-up-50; animation-duration: 1s; }
-
-
-
-@media only screen and (max-width: 1600px) {
-  /* .about-slogan strong { font-size: 4.7rem; } */
-  /* .about-link li p { font-size: 4.7rem; } */
-}
+.about-awards .list.onEnter { animation-name: fade-in-slide-up-20; animation-duration: 1s; }
+/* animation | delay */
+.about-visual .title-s .gsap-item.onEnter { animation-delay: .1s; }
+.about-visual .title-l .gsap-overlay:nth-child(1) .gsap-item.onEnter { animation-delay: .2s; }
+.about-visual .title-l .gsap-overlay:nth-child(2) .gsap-item.onEnter { animation-delay: .3s; }
+.about-visual .desc .gsap-item.onEnter { animation-delay: .4s; }
+.about-visual .sns-wrap.onEnter { animation-delay: .5s; }
+.about-visual .bg.onEnter { animation-delay: 0s; }
 
 @media only screen and (max-width: 1024px) {
   .about-visual { display: block; max-width: var(--max-width); margin: 0 auto; padding: var(--inner-pad); min-height: inherit; max-height: inherit; }
@@ -193,9 +184,8 @@ export default {
   .about-awards .list .desc { flex: 0 0 100%; margin: 0.8rem 0 0; }
   .about-awards .list .year { flex: 0 0 100%; text-align: center; margin: 1rem 0 0;}
 
-
   /* animation */
-  .about-visual .bg.onEnter { animation-name: fade-in-slide-up-50; }
+  .about-visual .bg.onEnter { animation-name: fade-in-slide-up-20; }
 }
 
 @media only screen and (max-width: 768px) {

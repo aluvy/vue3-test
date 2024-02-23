@@ -17,7 +17,6 @@
       :mousewheel="true"
       :autoplady="{
         delay: 5000,
-        
       }"
       :pagination="{
         clickable: true,
@@ -56,14 +55,15 @@ import { ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Pagination, A11y, Virtual } from 'swiper/modules';
 
-import image1 from '@/assets/images/main-visual-2024-happy-new-goods.jpg';
-import image2 from '@/assets/images/main-visual-golden-time-year-end-party.jpg';
-import image3 from '@/assets/images/main-visual-hyundaicard-my-company.png';
-import image4 from '@/assets/images/main-visual-tvn-drama-voice-season4.png';
-import image5 from '@/assets/images/main-visual-amorepacific.png';
-import image6 from '@/assets/images/main-visual-hyundai-n-brand.jpg';
-import image7 from '@/assets/images/main-visual-culture.jpg';
-import image8 from '@/assets/images/main-visual-company-relocation.jpg';
+// assets
+import image1 from '@/assets/images/main/visual-2024-happy-new-goods.jpg';
+import image2 from '@/assets/images/main/visual-golden-time-year-end-party.jpg';
+import image3 from '@/assets/images/main/visual-hyundaicard-my-company.png';
+import image4 from '@/assets/images/main/visual-tvn-drama-voice-season4.png';
+import image5 from '@/assets/images/main/visual-amorepacific.png';
+import image6 from '@/assets/images/main/visual-hyundai-n-brand.jpg';
+import image7 from '@/assets/images/main/visual-culture.jpg';
+import image8 from '@/assets/images/main/visual-company-relocation.jpg';
 
 export default {
   components: {
