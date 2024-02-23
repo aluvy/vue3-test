@@ -64,13 +64,13 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
 	document.querySelector('#app').classList.add('loading');
-
-	setTimeout(() => {
-		document.querySelector('#app').classList.remove('loading');
-		store.commit('setOpenAside', false);
-		store.commit('setLoading', true);
-		next();
-	}, 500); // #app loading fade-out time
+	store.commit('setOpenAside', false);
+	// setTimeout(() => {
+	// 	// document.querySelector('#app').classList.remove('loading');
+	// 	store.commit('setOpenAside', false);
+	// 	// store.commit('setLoading', true);
+	next();
+	// }, 500); // #app loading fade-out time
 });
 
 export default router;

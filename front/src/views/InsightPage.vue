@@ -5,8 +5,10 @@
 </template>
 
 <script>
-export default {
+import PageMixin from '@/mixins/PageMixin';
 
+export default {
+  mixins: [PageMixin],
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div id="who-page" ref="elem">
 
-    <section class="section black who-visual">
+    <section class="section black who-visual" data-headerTheme="light">
       <div class="slogan">
         <div class="slogan-inner">
           <ContentTitle
@@ -15,7 +15,7 @@
       <div class="bg gsap-item"></div>
     </section>
 
-    <section class="section who-overview">
+    <section class="section who-overview" data-headerTheme="light">
       <div class="inner">
         <ContentTitle
           titleS="Overview"
@@ -58,14 +58,14 @@
       </div>
     </section>
 
-    <section class="section white who-service">
+    <section class="section white who-service" data-headerTheme="dark">
       <div class="inner">
         swiper
       </div>
       <div class="bg"></div>
     </section>
 
-    <section class="section white who-client">
+    <section class="section white who-client" data-headerTheme="dark">
       <div class="inner">
         <ContentTitle
           titleS="Our Clients"
@@ -73,7 +73,18 @@
           theme="white"
           align="center"
         ></ContentTitle>
+        <ul class="list">
+          <li v-for="client in clients" :key="client"><img :src="client.img" :alt="client.alt"></li>
+        </ul>
       </div>
+    </section>
+
+    <section class="section who-link" data-headerTheme="light">
+      <ul>
+        <li>
+          <router-link to="/contact-us">CONTACT US</router-link>
+        </li>
+      </ul>
     </section>
 
   </div>
@@ -81,14 +92,70 @@
 
 <script>
 import '@/assets/css/page-who.css'
-
+import PageMixin from '@/mixins/PageMixin';
 import { gsapScrollTrigger, gsapKill } from '@/utils/gsap.js'
-
 import ContentTitle from '@/components/common/ContentTitle.vue'
+
+// assets
+import client1 from '@/assets/images/who/client-logo01.jpg'
+import client2 from '@/assets/images/who/client-logo02.jpg'
+import client3 from '@/assets/images/who/client-logo03.jpg'
+import client4 from '@/assets/images/who/client-logo04.jpg'
+import client5 from '@/assets/images/who/client-logo05.jpg'
+import client6 from '@/assets/images/who/client-logo06.jpg'
+import client7 from '@/assets/images/who/client-logo07.jpg'
+import client8 from '@/assets/images/who/client-logo08.jpg'
+import client9 from '@/assets/images/who/client-logo09.jpg'
+import client10 from '@/assets/images/who/client-logo10.jpg'
+import client11 from '@/assets/images/who/client-logo11.jpg'
+import client12 from '@/assets/images/who/client-logo12.jpg'
+import client13 from '@/assets/images/who/client-logo13.jpg'
+import client14 from '@/assets/images/who/client-logo14.jpg'
+import client15 from '@/assets/images/who/client-logo15.jpg'
+import client16 from '@/assets/images/who/client-logo16.jpg'
+import client17 from '@/assets/images/who/client-logo17.jpg'
+import client18 from '@/assets/images/who/client-logo18.jpg'
+import client19 from '@/assets/images/who/client-logo19.jpg'
+import client20 from '@/assets/images/who/client-logo20.jpg'
+import client21 from '@/assets/images/who/client-logo21.jpg'
+import client22 from '@/assets/images/who/client-logo22.jpg'
+import client23 from '@/assets/images/who/client-logo23.jpg'
+import client24 from '@/assets/images/who/client-logo24.jpg'
 
 export default {
   components: {
     ContentTitle,
+  },
+  mixins: [PageMixin],
+  data() {
+    return {
+      clients: [
+        { img: client1, alt: 'LG Electronics', },
+        { img: client2, alt: 'LG CNS', },
+        { img: client3, alt: 'LG U+', },
+        { img: client4, alt: 'LG Hausys', },
+        { img: client5, alt: 'LOTTE HOTELS &amp; RESORTS', },
+        { img: client6, alt: '롯데정보통신', },
+        { img: client7, alt: 'KYOBO', },
+        { img: client8, alt: 'SK telecom', },
+        { img: client9, alt: 'SAMSUNG', },
+        { img: client10, alt: 'HYUNDAI', },
+        { img: client11, alt: 'MORE PACIFIC', },
+        { img: client12, alt: 'GS Retail', },
+        { img: client13, alt: 'KIA', },
+        { img: client14, alt: 'KT', },
+        { img: client15, alt: 'CJ', },
+        { img: client16, alt: 'ebay', },
+        { img: client17, alt: 'Hyundai Motor Company', },
+        { img: client18, alt: 'HANKOOK driving emotion', },
+        { img: client19, alt: 'SERVEONE 주식회사 서브원', },
+        { img: client20, alt: 'AUCTION', },
+        { img: client21, alt: 'KBS', },
+        { img: client22, alt: 'PAGODA', },
+        { img: client23, alt: '쌍용정보통신', },
+        { img: client24, alt: 'LOTTE.COM', },
+      ]
+    }
   },
   async mounted() {
     await this.$nextTick();

@@ -62,7 +62,7 @@
 
 <script>
 import '@/assets/css/page-about.css'
-
+import PageMixin from '@/mixins/PageMixin';
 import { gsapScrollTrigger, gsapKill } from '@/utils/gsap.js'
 
 import SnsLink from '@/components/common/SnsLink.vue'
@@ -77,6 +77,7 @@ export default {
     SnsLink,
     ContentTitle
   },
+  mixins: [PageMixin],
   data() {
     return {
       poster,

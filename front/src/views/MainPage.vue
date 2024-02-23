@@ -52,7 +52,7 @@
 
 <script>
 import '@/assets/css/page-main.css'
-
+import PageMixin from '@/mixins/PageMixin';
 import { ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Pagination, A11y, Virtual } from 'swiper/modules';
@@ -72,6 +72,7 @@ export default {
     Swiper,
     SwiperSlide,
   },
+  mixins: [PageMixin],
   setup() {
     let mySwiper = ref();
     const speed = ref(650);
