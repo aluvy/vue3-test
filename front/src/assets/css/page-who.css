@@ -1,0 +1,62 @@
+#who-page { background: #191919; }
+
+/* visual */
+.who-visual { position: relative; height: calc(var(--vh) * 0.8); }
+.who-visual .slogan { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; }
+.who-visual .slogan-inner { width: 100%; max-width: var(--max-width); padding: var(--inner-pad); }
+.who-visual .slogan .title-area .desc { width: 60%; max-width: 46rem; }
+.who-visual .bg { position: absolute; inset: 0; background: url(@/assets/images/who/visual.jpg) center no-repeat; background-size: cover; }
+.who-visual .bg::before { position: absolute; inset: 0; content:''; background: rgba(0,0,0, 0.4); }
+
+/* overview */
+.who-overview { padding: 10rem 0; }
+.who-overview .desc { display: flex; align-items: flex-start; justify-content: space-between; margin: 6rem 0 0; font-size: 1.6rem; color: #999; line-height: 1.9; }
+.who-overview .desc li { flex: 0 0 calc(50% - 4rem); }
+.who-overview .info { display: flex; align-items: flex-start; justify-content: flex-start; border-top: 1px solid rgba(255,255,255, 0.4); margin-top: 10rem; padding-top: 4rem; font-size: 1.6rem; color: #999; line-height: 1.9; }
+.who-overview .info li { flex: 0 1 25%; }
+.who-overview .info li + li { margin-left: 2rem; }
+.who-overview .info li strong { display: block; color: #ccc; font-size: 2rem; font-weight: normal; margin-bottom: 1rem; }
+
+/* service */
+.who-service { padding: 10rem 0; }
+
+/* client */
+.who-client { padding: 10rem 0; }
+
+
+
+
+
+/* animation */
+.who-visual .bg.onEnter { animation-name: scale-in-1; animation-duration: 1s; animation-fill-mode: forwards; }
+.who-overview .info li.onEnter { animation-name: fade-in-slide-up-30; }
+.who-overview .info li:nth-child(1).onEnter { animation-delay: .1s; }
+.who-overview .info li:nth-child(2).onEnter { animation-delay: .2s; }
+.who-overview .info li:nth-child(3).onEnter { animation-delay: .3s; }
+
+
+
+
+@media only screen and (max-width: 1600px) {
+
+}
+@media only screen and (max-width: 1024px) {
+
+}
+@media only screen and (max-width: 768px) {
+  
+}
+@media only screen and (max-width: 450px) {
+  
+}
+@media only screen and (max-width: 375px) {
+  
+}
+@media only screen and (max-width: 320px) {
+  
+}
+
+/* media query - height */
+@media only screen and (max-height: 650px) {
+  
+}

@@ -108,7 +108,8 @@
 
 
 /** section ***************************************************/
-section.section { background: #fff; overflow-y: hidden; }
+section.section { overflow-y: hidden; }
+section.section.white { background: #fff; }
 section.section.black { background: #111; }
 section.section .inner { width: 100%; max-width: var(--max-width); padding: var(--inner-pad); margin: 0 auto; }
 
