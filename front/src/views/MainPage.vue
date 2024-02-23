@@ -1,5 +1,5 @@
 <template>
-  <div id="main-page">
+  <section id="main-page" data-theme="light">
     <swiper
       class="mySwiper"
       :class="{moveStart: moveStart, moveEnd: !moveStart, up: !direction, down: direction}"
@@ -15,8 +15,9 @@
       :observer="true"
       :updateOnWindowResize="true"
       :mousewheel="true"
-      :autoplady="{
-        delay: 5000,
+      :autoplay="{
+        delay: 3000,
+        disableOnInteraction: false,
       }"
       :pagination="{
         clickable: true,
@@ -47,7 +48,7 @@
       <button type="button" class="btn_next" @click="mySwiper.slideNext()"><i class="fa fa-angle-right"></i><span class="blind">next</span></button>
     </div>
 
-  </div>
+  </section>
 </template>
 
 <script>

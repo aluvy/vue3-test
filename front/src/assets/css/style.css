@@ -19,8 +19,12 @@
 /** header ***************************************************/
 #header { position: fixed; left: 0; top: 0; right: 0; padding-top: 3rem; z-index: 999; }
 .header-inner { position: relative; max-width: var(--max-width); padding: var(--inner-pad); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; z-index: 9; }
-.header-logo a { display: block; }
-.header-logo img { display: block; height: 4.4rem; margin-right: auto; }
+.header-logo a { position: relative; display: block; width: 4.4rem; margin-right: auto; }
+.header-logo a::before,
+.header-logo a::after { content:''; display: block; width: 100%; padding-bottom: 82.99319727891157%; background-position: center; background-repeat: no-repeat; background-size: 100% auto; transition: opacity .3s; }
+.header-logo a::before { background-image: url(@/assets/images/common/header-logo-w.png); }
+.header-logo a::after { background-image: url(@/assets/images/common/header-logo-b.png); opacity: 0; position: absolute; left: 0; top: 0; }
+/* .header-logo img { display: block; height: 4.4rem; margin-right: auto; } */
 .header-menu { position: relative; display: flex; align-items: center; justify-content: center; width: 4.2rem; height: 4.2rem; }
 .header-menu span { position: relative; }
 .header-menu span,
@@ -34,6 +38,17 @@
 .OpenAside .header-menu span { background: transparent; }
 .OpenAside .header-menu span::before { transform: rotate(45deg) translate(7px, 6px) scale(.771); }
 .OpenAside .header-menu span::after { transform: rotate(-45deg) translate(7px, -6px) scale(.771); }
+/* theme */
+html:not(.OpenAside) #header[data-theme='light'] .header-logo a::before { opacity: 1; }
+html:not(.OpenAside) #header[data-theme='dark'] .header-logo a::before { opacity: 0; }
+html:not(.OpenAside) #header[data-theme='lignt'] .header-logo a::after { opacity: 0; }
+html:not(.OpenAside) #header[data-theme='dark'] .header-logo a::after { opacity: 1; }
+html:not(.OpenAside) #header[data-theme='dark'] .header-menu span,
+html:not(.OpenAside) #header[data-theme='dark'] .header-menu span::before,
+html:not(.OpenAside) #header[data-theme='dark'] .header-menu span::after { background: #000; }
+
+/* .OpenAside #header[data-theme='dark'] span { background: transparent; } */
+
 
 
 /** aisde ***************************************************/
@@ -137,7 +152,8 @@ section.section .inner { width: 100%; max-width: var(--max-width); padding: var(
   /* header */
   #header { padding-top: 1.2rem; }
   .header-inner { height: 5rem; }
-  .header-logo img { height: 2.4rem; }
+  .header-logo a { width: 2.9rem; }
+  /* .header-logo img { height: 2.4rem; } */
   .header-menu { width: 3rem; height: 3rem; }
   .header-menu span,
   .header-menu span::before,

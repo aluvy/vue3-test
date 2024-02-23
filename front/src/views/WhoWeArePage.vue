@@ -1,7 +1,7 @@
 <template>
   <div id="who-page" ref="elem">
 
-    <section class="section black who-visual" data-headerTheme="light">
+    <section class="section black who-visual" data-theme="light">
       <div class="slogan">
         <div class="slogan-inner">
           <ContentTitle
@@ -15,7 +15,7 @@
       <div class="bg gsap-item"></div>
     </section>
 
-    <section class="section who-overview" data-headerTheme="light">
+    <section class="section who-overview" data-theme="light">
       <div class="inner">
         <ContentTitle
           titleS="Overview"
@@ -58,14 +58,14 @@
       </div>
     </section>
 
-    <section class="section white who-service" data-headerTheme="dark">
+    <section class="section white who-service" data-theme="dark">
       <div class="inner">
         swiper
       </div>
       <div class="bg"></div>
     </section>
 
-    <section class="section white who-client" data-headerTheme="dark">
+    <section class="section white who-client" data-theme="dark">
       <div class="inner">
         <ContentTitle
           titleS="Our Clients"
@@ -79,7 +79,7 @@
       </div>
     </section>
 
-    <section class="section who-link" data-headerTheme="light">
+    <section class="section who-link" data-theme="light">
       <ul>
         <li>
           <router-link to="/contact-us">CONTACT US</router-link>
@@ -93,7 +93,8 @@
 <script>
 import '@/assets/css/page-who.css'
 import PageMixin from '@/mixins/PageMixin';
-import { gsapScrollTrigger, gsapKill } from '@/utils/gsap.js'
+
+// component
 import ContentTitle from '@/components/common/ContentTitle.vue'
 
 // assets
@@ -156,16 +157,6 @@ export default {
         { img: client24, alt: 'LOTTE.COM', },
       ]
     }
-  },
-  async mounted() {
-    await this.$nextTick();
-    setTimeout(() => {
-      const elem = this.$refs.elem;
-      gsapScrollTrigger(elem);
-    }, 1);
-  },
-  unmounted() {
-    gsapKill();
   },
 }
 </script>

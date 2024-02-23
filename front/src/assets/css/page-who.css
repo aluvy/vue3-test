@@ -35,9 +35,6 @@
 .who-link ul li:hover::after { opacity: 1; }
 
 
-
-
-
 /* animation */
 .who-visual .bg.onEnter { animation-name: scale-in-1; animation-duration: 1s; animation-fill-mode: forwards; }
 .who-overview .info li.onEnter { animation-name: fade-in-slide-up-30; }
@@ -46,16 +43,17 @@
 .who-overview .info li:nth-child(3).onEnter { animation-delay: .3s; }
 
 
-
-
 @media only screen and (max-width: 1600px) {
 
 }
 @media only screen and (max-width: 1024px) {
+  .who-visual { height: calc(var(--vh) * 0.6); }
+  .who-overview .desc { display: block; }
+  .who-overview .desc li + li { margin-top: 3rem; }
 
 }
 @media only screen and (max-width: 768px) {
-  
+
 }
 @media only screen and (max-width: 450px) {
   

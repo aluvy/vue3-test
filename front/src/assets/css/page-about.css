@@ -15,7 +15,9 @@
 .about-link .list .btn span i { position: absolute; right: 4rem; color: #fff; opacity: 0; transition: all .3s; }
 .about-link .list .btn:hover span { transform: translate3d(0, -3px, 0); box-shadow: 0 2rem 3rem rgba(0,0,0, 0.16); background: #000; color: #fff; padding: 0 7rem 0 3rem; }
 .about-link .list .btn:hover span i { right: 3rem; opacity: 1; }
-.about-link .img img { width: 100%; }
+
+/* about img */
+.about-img img { width: 100%; }
 
 /* awards */
 .about-awards { padding: 12rem 0; }
