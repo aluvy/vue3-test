@@ -2,11 +2,11 @@
   <div id="work-page">
     
     <section class="section black work-visual" data-theme="light">
-      <ContentVisual>
+      <ContentVisual :dimmed="true">
         <template #title>
           <ContentTitle
-            :titleXL="[ { delay: 2, text: `Finding the right one is` }, { delay: 3, text: `what we do best.` } ]"
-            :descL="[ { delay: 4, text: `What We Made` } ]"
+            :titleXL = "[ { delay: 2, text: `Finding the right one is` }, { delay: 3, text: `what we do best.` } ]"
+            :visualTitle = "[ { delay: 4, text: `What We Made` } ]"
             theme="black"
             align="center"
           ></ContentTitle>
@@ -49,7 +49,3 @@ export default {
   },
 }
 </script>
-
-<style>
-
-</style>

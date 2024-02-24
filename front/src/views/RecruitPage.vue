@@ -1,6 +1,9 @@
 <template>
   <div>
     RecruitPage
+    <div id="content">
+      recruit
+    </div>
   </div>
 </template>
 

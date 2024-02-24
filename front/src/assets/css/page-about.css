@@ -1,12 +1,5 @@
 #about-page { background: #111; }
 
-/* visual */
-.about-visual { display: flex; align-items: stretch; justify-content: space-between; min-height: var(--vh); max-height: 90rem; overflow-y: hidden; }
-.about-visual .slogan { flex: 0 0 50%; display: flex; align-items: center; justify-content: flex-end; color: #fff; }
-.about-visual .slogan-inner { width: 100%; max-width: calc(var(--max-width)/2); padding: var(--inner-pad); padding-right: 2rem; font-size: 1.6rem; }
-.about-visual .slogan .title-area .desc { padding-right: 4rem; }
-.about-visual .bg { flex: 1 1 50%; max-width: 50%; min-width: 50%; background:url(@/assets/images/about/visual.jpg) center no-repeat; background-size: cover; }
-
 /* about link */
 .about-link .list { display: flex; align-items: stretch; justify-content: space-between; padding: 12rem 0; }
 .about-link .list li { flex: 0 0 calc(50% - 2rem); }
@@ -17,7 +10,7 @@
 .about-link .list .btn:hover span i { right: 3rem; opacity: 1; }
 
 /* about img */
-.about-img img { width: 100%; }
+.about-img .img img { width: 100%; }
 
 /* awards */
 .about-awards { padding: 12rem 0; }
@@ -28,7 +21,7 @@
 .about-awards .list a:hover::after { transform: perspective(1000px) rotateX(0deg); opacity: 1; }
 .about-awards .list a > span { position: relative; z-index: 2; }
 .about-awards .list .title { flex: 0 0 30%; }
-.about-awards .list .desc { flex: 0 0 40%; }
+.about-awards .list .desc { flex: 0 0 60%; }
 .about-awards .list .year { flex: 0 0 10%; text-align: right; margin-left: auto; }
 
 /* video */
@@ -38,25 +31,13 @@
 
 /* animation */
 .about-visual .sns-wrap.onEnter { animation-name: fade-in-slide-up-50; }
-.about-visual .bg.onEnter { animation-name: fade-in-slide-left-20; animation-duration: 1s; }
-.about-link .img.onEnter { animation-name: fade-in-slide-up-50; animation-duration: 1s; }
+/* .about-visual .bg.onEnter { animation-name: fade-in-slide-left-20; animation-duration: 1s; } */
+.about-img .img.onEnter { animation-name: fade-in-slide-up-50; animation-duration: 1s; }
 .about-awards .list.onEnter { animation-name: fade-in-slide-up-20; animation-duration: 1s; }
 /* animation | delay */
-.about-visual .title-s .gsap-item.onEnter { animation-delay: .1s; }
-.about-visual .title-l .gsap-overlay:nth-child(1) .gsap-item.onEnter { animation-delay: .2s; }
-.about-visual .title-l .gsap-overlay:nth-child(2) .gsap-item.onEnter { animation-delay: .3s; }
-.about-visual .desc .gsap-item.onEnter { animation-delay: .4s; }
 .about-visual .sns-wrap.onEnter { animation-delay: .5s; }
-.about-visual .bg.onEnter { animation-delay: 0s; }
 
 @media only screen and (max-width: 1024px) {
-  .about-visual { display: block; max-width: var(--max-width); margin: 0 auto; padding: var(--inner-pad); min-height: inherit; max-height: inherit; }
-  .about-visual .slogan { display: block; padding: 9rem 0; }
-  .about-visual .slogan-inner { max-width: initial; padding: 0; }
-  .about-visual .slogan .title-area .desc { padding-right: 6rem; }
-  .about-visual .bg { max-width: initial; min-width: initial; }
-  .about-visual .bg::before { content:''; display: block; padding-bottom: 50%; }
-
   .about-link .list { display: block; padding: 8rem 0; }
   .about-link .list li + li { margin-top: 5rem; }
 
@@ -66,11 +47,4 @@
   .about-awards .list .title { flex: 0 0 100%; }
   .about-awards .list .desc { flex: 0 0 100%; margin: 0.8rem 0 0; }
   .about-awards .list .year { flex: 0 0 100%; text-align: center; margin: 1rem 0 0;}
-
-  /* animation */
-  .about-visual .bg.onEnter { animation-name: fade-in-slide-up-20; }
-}
-
-@media only screen and (max-width: 768px) {
-  .about-visual .bg::before { padding-bottom: 80%; }
 }

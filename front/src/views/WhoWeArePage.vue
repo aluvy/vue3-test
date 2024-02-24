@@ -2,93 +2,101 @@
   <div id="who-page" ref="elem">
 
     <section class="section black who-visual" data-theme="light">
-      <div class="slogan">
-        <div class="slogan-inner">
+      <ContentVisual type="normal" :dimmed="true">
+        <template #title>
           <ContentTitle
-            :titleS = "[ { delay: 1, text: `WHO WE ARE` } ]"
+            :pageTitle = "[ { delay: 1, text: `WHO WE ARE` } ]"
             :titleL="[
               { delay: 2, text: `Special Group For` },
               { delay: 3, text: `Digital Marketing`,}
             ]"
-            :desc = "[ { delay: 4, text: `더피프티원은 매년 다양한 프로젝트 경험과 전문성 있는 인적자원으로 프로젝트를 성공적으로 진행하며 업계를 선도합니다.` } ]"
+            :desc = "[
+              { delay: 4, text: `더피프티원은 매년 다양한 프로젝트 경험과 전문성 있는 인적자원으로`},
+              { delay: 5, text: `프로젝트를 성공적으로 진행하며 업계를 선도합니다.` }
+            ]"
             theme="black"
           ></ContentTitle>
+        </template>
+        <template #visual>
+          <div class="img" :style="`background-image: url(${visual})`"></div>
+        </template>
+      </ContentVisual>
+    </section>
+
+
+    <div id="content">
+      <section class="section who-overview" data-theme="light">
+        <div class="inner">
+          <ContentTitle
+            :titleS = "[ { delay: 1, text: `Overview` } ]"
+            :titleL = "[ { delay: 2, text: `There Are Many Numbers In Between ‘0’ And ‘100’`} ]"
+            theme="black"
+          ></ContentTitle>
+          <ul class="desc">
+            <li>
+              '0'과 '100'사이에는 많은 숫자가 존재합니다.<br>
+              '100'이 모든것을 이루어낸 '완성'을 의미한다면 '0'은 이루어나가야 하는 '미완성'을 의미합니다.<br>
+              누군가는 모든것을 이루어낸 '100'에 큰 의미를 부여하지만 우리는 '0'과 '100'사이의 '51(fifty-one)'에 주목합니다. '51'은 가능과 불가능을 구분짓는 '가능성'을 의미하기 때문입니다. 불가능을 가능으로 만드는 '51'의 순간을 우리는 함께 경험할 것입니다.
+            </li>
+            <li>
+              If '100' represents 'complete' that achieved everything '0' represents 'incomplete' that has to achieve everything While someone gives significant meaning to '100' we focus on '51(fifty-one)' between '0' and '100' '51' represents 'possibility' that defferentiates possible and impossible We will experience the moment of '51' making the impossible to possible all together.
+            </li>
+          </ul>
+          <ul class="info">
+            <li class="gsap-item">
+              <strong>Company</strong>
+              <p>(주)더피프티원</p>
+              <p>조종영 대표이사</p>
+              <p>2011년 4월 11일(법인설립)</p>
+              <p>80명(자회사 정규직원 포함)</p>
+            </li>
+            <li class="gsap-item">
+              <strong>Business Field</strong>
+              <p>디지털마케팅 에이전시</p>
+              <p>디지털 콘텐츠 서비스</p>
+              <p>UX컨설팅 서비스</p>
+            </li>
+            <li class="gsap-item">
+              <strong>Contact</strong>
+              <p>Head Office</p>
+              <p>서울특별시 강남구 봉은사로18길 58</p>
+            </li>
+          </ul>
         </div>
-      </div>
-      <div class="bg gsap-item"></div>
-    </section>
+      </section>
 
-    <section class="section who-overview" data-theme="light">
-      <div class="inner">
-        <ContentTitle
-          :titleS = "[ { delay: 1, text: `Overview` } ]"
-          :titleL = "[ { delay: 2, text: `There Are Many Numbers In Between ‘0’ And ‘100’`} ]"
-          theme="black"
-        ></ContentTitle>
-        <ul class="desc">
+      <section class="section white who-service" data-theme="dark">
+        <div class="inner">
+          swiper
+        </div>
+        <div class="bg"></div>
+      </section>
+
+      <section class="section white who-client" data-theme="dark">
+        <div class="inner">
+          <ContentTitle
+            :titleS = "[ { delay: 1, text: `Our Clients`} ]"
+            :titleL="[
+              { delay: 2, text: `These Are The Customers` },
+              { delay: 3, text: `Who Trusted Us.` },
+            ]"
+            theme="white"
+            align="center"
+          ></ContentTitle>
+          <ul class="list">
+            <li v-for="client in clients" :key="client"><img :src="client.img" :alt="client.alt"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section who-link" data-theme="light">
+        <ul>
           <li>
-            '0'과 '100'사이에는 많은 숫자가 존재합니다.<br>
-            '100'이 모든것을 이루어낸 '완성'을 의미한다면 '0'은 이루어나가야 하는 '미완성'을 의미합니다.<br>
-            누군가는 모든것을 이루어낸 '100'에 큰 의미를 부여하지만 우리는 '0'과 '100'사이의 '51(fifty-one)'에 주목합니다. '51'은 가능과 불가능을 구분짓는 '가능성'을 의미하기 때문입니다. 불가능을 가능으로 만드는 '51'의 순간을 우리는 함께 경험할 것입니다.
-          </li>
-          <li>
-            If '100' represents 'complete' that achieved everything '0' represents 'incomplete' that has to achieve everything While someone gives significant meaning to '100' we focus on '51(fifty-one)' between '0' and '100' '51' represents 'possibility' that defferentiates possible and impossible We will experience the moment of '51' making the impossible to possible all together.
+            <router-link to="/contact-us">CONTACT US</router-link>
           </li>
         </ul>
-        <ul class="info">
-          <li class="gsap-item">
-            <strong>Company</strong>
-            <p>(주)더피프티원</p>
-            <p>조종영 대표이사</p>
-            <p>2011년 4월 11일(법인설립)</p>
-            <p>80명(자회사 정규직원 포함)</p>
-          </li>
-          <li class="gsap-item">
-            <strong>Business Field</strong>
-            <p>디지털마케팅 에이전시</p>
-            <p>디지털 콘텐츠 서비스</p>
-            <p>UX컨설팅 서비스</p>
-          </li>
-          <li class="gsap-item">
-            <strong>Contact</strong>
-            <p>Head Office</p>
-            <p>서울특별시 강남구 봉은사로18길 58</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section white who-service" data-theme="dark">
-      <div class="inner">
-        swiper
-      </div>
-      <div class="bg"></div>
-    </section>
-
-    <section class="section white who-client" data-theme="dark">
-      <div class="inner">
-        <ContentTitle
-          :titleS = "[ { delay: 1, text: `Our Clients`} ]"
-          :titleL="[
-            { delay: 2, text: `These Are The Customers` },
-            { delay: 3, text: `Who Trusted Us.` },
-          ]"
-          theme="white"
-          align="center"
-        ></ContentTitle>
-        <ul class="list">
-          <li v-for="client in clients" :key="client"><img :src="client.img" :alt="client.alt"></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section who-link" data-theme="light">
-      <ul>
-        <li>
-          <router-link to="/contact-us">CONTACT US</router-link>
-        </li>
-      </ul>
-    </section>
+      </section>
+    </div>
 
   </div>
 </template>
@@ -98,9 +106,11 @@ import '@/assets/css/page-who.css'
 import PageMixin from '@/mixins/PageMixin';
 
 // component
+import ContentVisual from '@/components/common/ContentVisual.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
 
 // assets
+import visual from '@/assets/images/who/visual.jpg'
 import client1 from '@/assets/images/who/client-logo01.jpg'
 import client2 from '@/assets/images/who/client-logo02.jpg'
 import client3 from '@/assets/images/who/client-logo03.jpg'
@@ -128,11 +138,13 @@ import client24 from '@/assets/images/who/client-logo24.jpg'
 
 export default {
   components: {
+    ContentVisual,
     ContentTitle,
   },
   mixins: [PageMixin],
   data() {
     return {
+      visual,
       clients: [
         { img: client1, alt: 'LG Electronics', },
         { img: client2, alt: 'LG CNS', },

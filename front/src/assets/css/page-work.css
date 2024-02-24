@@ -1,23 +1,8 @@
-#who-work { background: #191919; }
-
-/* visual */
-.work-visual .bg video { position: absolute; left: 50%; top: 50%; transform: translate3D(-50%, -50%, 0); min-width: 100%; min-height: 100%; z-index: 1; }
+#work-page { background: #191919; }
 
 
-.scroll-down-wrap svg { width: 3rem; height: 4.5rem;}
-.scroll-down-wrap.no-border .section-down-arrow:before,
-.nectar-next-section-wrap.mouse-wheel .nectar-next-section:before,  
-.slider-down-arrow.no-border:before{position:absolute; content:''; display:block; left:50%; margin-left:-1px; top:22px;  background-color:rgba(255,255,255,0.5);  width:2px;  height:6px;  border-radius:10px;  transition:background-color .55s cubic-bezier(.5,.1,.07,1);  -webkit-animation:trackBallSlide 2.4s cubic-bezier(0.000,0.000,0.725,1.000) infinite;  animation:trackBallSlide 2.4s cubic-bezier(0.000,0.000,0.725,1.000) infinite}
-@keyframes trackBallSlide{
-  0%{ opacity:1;  -webkit-transform:scaleY(1) translateY(-10px);  transform:scaleY(1) translateY(-10px)}
- 45%{ opacity:0;  -webkit-transform:scaleY(0.5) translateY(13px);  transform:scaleY(0.5) translateY(13px)}
- 46%{ opacity:0;  -webkit-transform:scaleY(1) translateY(-10px);  transform:scaleY(1) translateY(-10px)}
- 65%, 100%{ opacity:1;  -webkit-transform:scaleY(1) translateY(-10px);  transform:scaleY(1) translateY(-10px)}
-}
-.scroll-down-wrap.no-border .section-down-arrow { animation: nudgeMouse 2.4s cubic-bezier(0.250,0.460,0.450,0.940) infinite; }
-@keyframes nudgeMouse{
-  0%{ -webkit-transform:translateY(0);  transform:translateY(0)}
-}
+
+
 
 /* .who-visual { position: relative; height: calc(var(--vh) * 0.8); }
 .who-visual .slogan { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; }

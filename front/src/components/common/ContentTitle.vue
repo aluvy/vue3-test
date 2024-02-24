@@ -1,9 +1,13 @@
 <template>
   <div class="title-area" :class="{ black: theme==='black', center: align==='center' }" ref="elem">
 
-    <h3 class="title-s" v-if="titleS.length > 0">
-      <p class="gsap-item" :class="`delay${item.delay}`" v-for="item in titleS" :key="item">{{ item.text }}</p>
-    </h3>
+    <div class="page-title" v-if="pageTitle.length > 0">
+      <h2 class="gsap-item" :class="`delay${item.delay}`" v-for="item in pageTitle" :key="item">{{ item.text }}</h2>
+    </div>
+
+    <div class="title-s" v-if="titleS.length > 0">
+      <h3 class="gsap-item" :class="`delay${item.delay}`" v-for="item in titleS" :key="item">{{ item.text }}</h3>
+    </div>
 
     <div class="title-m" v-if="titleM.length > 0">
       <p v-for="item in titleM" :key="item" class="gsap-item" :class="`delay${item.delay}`">{{ item.text }}</p>
@@ -25,8 +29,8 @@
       <p class="gsap-item" :class="`delay${item.delay}`" v-for="item in desc" :key="item">{{ item.text }}</p>
     </div>
 
-    <div class="desc-l" v-if="descL.length > 0">
-      <p class="gsap-item" :class="`delay${item.delay}`" v-for="item in descL" :key="item">{{ item.text }}</p>
+    <div class="visual-title" v-if="visualTitle.length > 0">
+      <h2 class="gsap-item" :class="`delay${item.delay}`" v-for="item in visualTitle" :key="item">{{ item.text }}</h2>
     </div>
 
   </div>
@@ -35,19 +39,14 @@
 <script>
 export default {
   props: {
-    // titleS: { type: String, default: 'none' },
-    // titleL: { type: Array, default(){ return ['none'] } },
-    
+    pageTitle: { type: Array, default() { return [] } },
     titleS: { type: Array, default(){ return [] } },
     titleL: { type: Array, default(){ return [] } },
     titleXL: { type: Array, default(){ return [] } },
     titleM: { type: Array, default(){ return [] } },
     desc: { type: Array, default(){ return [] } },
     descL: { type: Array, default(){ return [] } },
-
-    // titleM: { type: Object, default(){ return { text: 'none'} } },
-    // desc: { type: String, default: 'none', },
-    // descL: { type: String, default: 'none', },
+    visualTitle: { type: Array, default() { return [] } },
 
     theme: { type: String, default: 'white' },
     align: { type: String, default: 'left' },
@@ -57,13 +56,15 @@ export default {
 
 <style>
 .title-area { color: rgba(0,0,0, 0.7); word-break: keep-all; }
-.title-area .title-s { font-size: 1.6rem; line-height: 1.5; font-weight: 700; }
-.title-area .title-l { font-size: 5.6rem; line-height: 1.2; color: #000; font-weight: 700; }
-.title-area .title-xl { font-size: 8.1rem; line-height: 1.2; color: #000; font-weight: 700; }
+.title-area .page-title h2,
+.title-area .title-s { font-size: 1.6rem; line-height: 1; font-weight: 700; }
+.title-area .title-l { font-size: 5.6rem; line-height: 1.1; color: #000; font-weight: 700; }
+.title-area .title-xl { font-size: 8.1rem; line-height: 1.1; color: #000; font-weight: 700; }
 .title-area .desc { font-size: 1.6rem; line-height: 1.8; }
-.title-area .desc-l { font-size: 2rem; line-height: 1.8; }
+.title-area .visual-title h2 { font-size: 2rem; line-height: 1; font-weight: normal; }
 
 .title-area > * + * { margin-top: 2.4rem; }
+.title-area .title-xl + .visual-title { margin-top: 1.6rem; }
 
 /* theme | black */
 .title-area.black { color: rgba(255,255,255, 0.7) }
@@ -96,7 +97,7 @@ export default {
 @media only screen and (max-width: 1024px) {
   .title-area .title-l { font-size: 4.4rem; }
   .title-area .title-xl { font-size: 6.3rem; }
-  .title-area .desc-l { font-size: 1.8rem; line-height: 1.8; }
+  .title-area .visual-title h2 { font-size: 1.8rem; line-height: 1.8; }
 }
 
 @media only screen and (max-width: 768px) {

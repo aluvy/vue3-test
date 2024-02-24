@@ -2,70 +2,74 @@
   <div id="about-page" ref="elem">
 
     <section class="section black about-visual" data-theme="light">
-      <div class="slogan">
-        <div class="slogan-inner">
+      <ContentVisual type="halfLeft">
+        <template #title>
           <ContentTitle
-            :titleS = "[ { delay: 1, text: `ABOUT US` } ]"
-            :titleL = "[
-              { delay: 2, text: `Awesome` },
-              { delay: 3, text: `Global Capability` }
+            :pageTitle = "[ { delay: 1, text: `ABOUT US` } ]"
+            :titleL = "[ { delay: 2, text: `Awesome` }, { delay: 3, text: `Global Capability` } ]"
+            :desc = "[
+              { delay: 3, text: `우리는 다양한 프로젝트 경험과 구성인력의 전문화로 조직간 Co-work을 통해 성공적인 프로젝트를 진행합니다.`},
             ]"
-            :desc = "[ { delay: 4, text: `우리는 다양한 프로젝트 경험과 구성인력의 전문화로 조직간 Co-work을 통해 성공적인 프로젝트를 진행합니다.` }]"
             theme="black"
           ></ContentTitle>
           <SnsLink site="about" class="gsap-item"></SnsLink>
+        </template>
+        <template #visual>
+          <div class="img" :style="`background-image: url(${visual})`"></div>
+        </template>
+      </ContentVisual>
+    </section>
+
+
+    <div id="content">
+      <section class="section white about-link" data-theme="dark">
+        <div class="inner">
+          <ul class="list">
+            <li v-for="link in links" :key="link">
+              <ContentTitle
+                :titleL = "[ { delay: 1, text: `${link.title}` } ]"
+                :desc="[ { delay: 2, text: `${link.desc}` } ]"
+              ></ContentTitle>
+              <router-link class="btn" :to="link.link"><span>{{ link.btn }}<i class="fa-solid fa-arrow-right"></i></span></router-link>
+            </li>
+          </ul>
         </div>
-      </div>
-      <div class="bg gsap-item"></div>
-    </section>
+      </section>
 
-    <section class="section white about-link" data-theme="dark">
-      <div class="inner">
-        <ul class="list">
-          <li v-for="link in links" :key="link">
-            <ContentTitle
-              :titleL = "[ { delay: 1, text: `${link.title}` } ]"
-              :desc="[ { delay: 2, text: `${link.desc}` } ]"
-            ></ContentTitle>
-            <router-link class="btn" :to="link.link"><span>{{ link.btn }}<i class="fa-solid fa-arrow-right"></i></span></router-link>
-          </li>
-        </ul>
-      </div>
-    </section>
+      <section class="section white about-img" data-theme="light">
+        <div class="img gsap-item"><img :src="poster" alt=""></div>
+      </section>
 
-    <section class="section black about-img" data-theme="light">
-      <div class="img gsap-item"><img :src="poster" alt=""></div>
-    </section>
+      <section class="section black about-awards" data-theme="light">
+        <div class="inner">
+          <ContentTitle
+            :titleS = "[ { delay: 1, text: `AWARDS` } ]"
+            :titleL = "[
+              { delay: 1, text: `We've Received Many` },
+              { delay: 1, text: `Awards, And We're Not` },
+              { delay: 1, text: `Very Shy About it.` }
+            ]"
+            theme="black"
+            align="center"
+          ></ContentTitle>
+          <ul class="list gsap-item">
+            <li v-for="item in awards" :key="item">
+              <router-link :to="item.link">
+                <span class="title">{{ item.title }}</span>
+                <span class="desc">{{ item.desc }}</span>
+                <span class="year">{{ item.year }}</span>
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-    <section class="section black about-awards" data-theme="light">
-      <div class="inner">
-        <ContentTitle
-          :titleS = "[ { delay: 1, text: `AWARDS` } ]"
-          :titleL = "[
-            { delay: 1, text: `We've Received Many` },
-            { delay: 1, text: `Awards, And We're Not` },
-            { delay: 1, text: `Very Shy About it.` }
-          ]"
-          theme="black"
-          align="center"
-        ></ContentTitle>
-        <ul class="list gsap-item">
-          <li v-for="item in awards" :key="item">
-            <router-link :to="item.link">
-              <span class="title">{{ item.title }}</span>
-              <span class="desc">{{ item.desc }}</span>
-              <span class="year">{{ item.year }}</span>
-            </router-link>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section black" data-theme="light">
-      <div class="about-video gsap-item">
-        <video preload="auto" loop autoplay muted playsinline><source :src="video" type="video/mp4"></video>
-      </div>
-    </section>
+      <section class="section black" data-theme="light">
+        <div class="about-video gsap-item">
+          <video preload="auto" loop autoplay muted playsinline><source :src="video" type="video/mp4"></video>
+        </div>
+      </section>
+    </div>
 
   </div>
 </template>
@@ -75,21 +79,25 @@ import '@/assets/css/page-about.css'
 import PageMixin from '@/mixins/PageMixin';
 
 // component
-import SnsLink from '@/components/common/SnsLink.vue'
+import ContentVisual from '@/components/common/ContentVisual.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
+import SnsLink from '@/components/common/SnsLink.vue'
 
 // assets
+import visual from '@/assets/images/about/visual.jpg'
 import poster from '@/assets/images/about/poster.jpg'
 import video from '@/assets/images/about/video.mp4'
 
 export default {
   components: {
+    ContentVisual,
+    ContentTitle,
     SnsLink,
-    ContentTitle
   },
   mixins: [PageMixin],
   data() {
     return {
+      visual,
       poster,
       video,
       awards: [

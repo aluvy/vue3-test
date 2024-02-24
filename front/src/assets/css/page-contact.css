@@ -1,0 +1,29 @@
+#contact-page { background: #191919; }
+
+
+
+
+
+@media only screen and (max-width: 1600px) {
+
+}
+@media only screen and (max-width: 1024px) {
+
+}
+@media only screen and (max-width: 768px) {
+
+}
+@media only screen and (max-width: 450px) {
+  
+}
+@media only screen and (max-width: 375px) {
+  
+}
+@media only screen and (max-width: 320px) {
+  
+}
+
+/* media query - height */
+@media only screen and (max-height: 650px) {
+  
+}
