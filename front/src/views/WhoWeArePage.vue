@@ -5,9 +5,12 @@
       <div class="slogan">
         <div class="slogan-inner">
           <ContentTitle
-            titleS="WHO WE ARE"
-            :titleL="['Special Group For', 'Digital Marketing',]"
-            desc="더피프티원은 매년 다양한 프로젝트 경험과 전문성 있는 인적자원으로 프로젝트를 성공적으로 진행하며 업계를 선도합니다."
+            :titleS = "[ { delay: 1, text: `WHO WE ARE` } ]"
+            :titleL="[
+              { delay: 2, text: `Special Group For` },
+              { delay: 3, text: `Digital Marketing`,}
+            ]"
+            :desc = "[ { delay: 4, text: `더피프티원은 매년 다양한 프로젝트 경험과 전문성 있는 인적자원으로 프로젝트를 성공적으로 진행하며 업계를 선도합니다.` } ]"
             theme="black"
           ></ContentTitle>
         </div>
@@ -18,20 +21,18 @@
     <section class="section who-overview" data-theme="light">
       <div class="inner">
         <ContentTitle
-          titleS="Overview"
-          :titleL="[`There Are Many Numbers In Between ‘0’ And ‘100’`,]"
+          :titleS = "[ { delay: 1, text: `Overview` } ]"
+          :titleL = "[ { delay: 2, text: `There Are Many Numbers In Between ‘0’ And ‘100’`} ]"
           theme="black"
         ></ContentTitle>
         <ul class="desc">
           <li>
             '0'과 '100'사이에는 많은 숫자가 존재합니다.<br>
             '100'이 모든것을 이루어낸 '완성'을 의미한다면 '0'은 이루어나가야 하는 '미완성'을 의미합니다.<br>
-            누군가는 모든것을 이루어낸 '100'에 큰 의미를 부여하지만 우리는 '0'과 '100'사이의<br>
-            '51(fifty-one)'에 주목합니다. '51'은 가능과 불가능을 구분짓는 '가능성'을 의미하기 때문입니다. 불가능을 가능으로 만드는 '51'의 순간을 우리는 함께 경험할 것입니다.
+            누군가는 모든것을 이루어낸 '100'에 큰 의미를 부여하지만 우리는 '0'과 '100'사이의 '51(fifty-one)'에 주목합니다. '51'은 가능과 불가능을 구분짓는 '가능성'을 의미하기 때문입니다. 불가능을 가능으로 만드는 '51'의 순간을 우리는 함께 경험할 것입니다.
           </li>
           <li>
-            If '100' represents 'complete' that achieved everything '0' represents 'incomplete' that has to achieve everything While someone gives significant meaning to '100' we focus on '51(fifty-one)' between '0' and '100'<br>
-            '51' represents 'possibility' that defferentiates possible and impossible We will experience the moment of '51' making the impossible to possible all together.
+            If '100' represents 'complete' that achieved everything '0' represents 'incomplete' that has to achieve everything While someone gives significant meaning to '100' we focus on '51(fifty-one)' between '0' and '100' '51' represents 'possibility' that defferentiates possible and impossible We will experience the moment of '51' making the impossible to possible all together.
           </li>
         </ul>
         <ul class="info">
@@ -51,8 +52,7 @@
           <li class="gsap-item">
             <strong>Contact</strong>
             <p>Head Office</p>
-            <p>서울특별시 강남구</p>
-            <p>봉은사로18길 58</p>
+            <p>서울특별시 강남구 봉은사로18길 58</p>
           </li>
         </ul>
       </div>
@@ -68,8 +68,11 @@
     <section class="section white who-client" data-theme="dark">
       <div class="inner">
         <ContentTitle
-          titleS="Our Clients"
-          :titleL="['These Are The Customers', 'Who Trusted Us.',]"
+          :titleS = "[ { delay: 1, text: `Our Clients`} ]"
+          :titleL="[
+            { delay: 2, text: `These Are The Customers` },
+            { delay: 3, text: `Who Trusted Us.` },
+          ]"
           theme="white"
           align="center"
         ></ContentTitle>

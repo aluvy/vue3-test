@@ -3,13 +3,11 @@
   <AppHeader></AppHeader>
   
   <div id="container">
-    <div id="content">
-      <router-view v-slot="{ Component, route }">
-        <transition name="pageChange" mode="out-in" appear>
-          <component :is="Component" :key="route.path" />
-        </transition>
-      </router-view>
-    </div>
+    <router-view v-slot="{ Component, route }">
+      <transition name="pageChange" mode="out-in" appear>
+        <component :is="Component" :key="route.path" />
+      </transition>
+    </router-view>
   </div>
 
   <AppFooter></AppFooter>

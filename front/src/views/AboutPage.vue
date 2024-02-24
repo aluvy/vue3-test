@@ -5,9 +5,12 @@
       <div class="slogan">
         <div class="slogan-inner">
           <ContentTitle
-            titleS="ABOUT US"
-            :titleL="['Awesome', 'Global Capability',]"
-            desc="우리는 다양한 프로젝트 경험과 구성인력의 전문화로 조직간 Co-work을 통해 성공적인 프로젝트를 진행합니다."
+            :titleS = "[ { delay: 1, text: `ABOUT US` } ]"
+            :titleL = "[
+              { delay: 2, text: `Awesome` },
+              { delay: 3, text: `Global Capability` }
+            ]"
+            :desc = "[ { delay: 4, text: `우리는 다양한 프로젝트 경험과 구성인력의 전문화로 조직간 Co-work을 통해 성공적인 프로젝트를 진행합니다.` }]"
             theme="black"
           ></ContentTitle>
           <SnsLink site="about" class="gsap-item"></SnsLink>
@@ -21,8 +24,8 @@
         <ul class="list">
           <li v-for="link in links" :key="link">
             <ContentTitle
-              :titleL="[ `${link.title}` ]"
-              :desc="link.desc"
+              :titleL = "[ { delay: 1, text: `${link.title}` } ]"
+              :desc="[ { delay: 2, text: `${link.desc}` } ]"
             ></ContentTitle>
             <router-link class="btn" :to="link.link"><span>{{ link.btn }}<i class="fa-solid fa-arrow-right"></i></span></router-link>
           </li>
@@ -37,10 +40,14 @@
     <section class="section black about-awards" data-theme="light">
       <div class="inner">
         <ContentTitle
+          :titleS = "[ { delay: 1, text: `AWARDS` } ]"
+          :titleL = "[
+            { delay: 1, text: `We've Received Many` },
+            { delay: 1, text: `Awards, And We're Not` },
+            { delay: 1, text: `Very Shy About it.` }
+          ]"
           theme="black"
           align="center"
-          titleS="AWARDS"
-          :titleL="[`We've Received Many`, `Awards, And We're Not`, `Very Shy About it.`]"
         ></ContentTitle>
         <ul class="list gsap-item">
           <li v-for="item in awards" :key="item">

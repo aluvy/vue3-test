@@ -1,21 +1,54 @@
 <template>
   <div class="title-area" :class="{ black: theme==='black', center: align==='center' }" ref="elem">
-    <h3 class="title-s" v-if="titleS!=='none'"><p class="gsap-item">{{ titleS }}</p></h3>
-    <div class="title-l" v-if="titleL[0]!=='none'">
-      <p class="gsap-overlay" v-for="text in titleL" :key="text">
-        <span class="gsap-item">{{ text }}</span>
+
+    <h3 class="title-s" v-if="titleS.length > 0">
+      <p class="gsap-item" :class="`delay${item.delay}`" v-for="item in titleS" :key="item">{{ item.text }}</p>
+    </h3>
+
+    <div class="title-m" v-if="titleM.length > 0">
+      <p v-for="item in titleM" :key="item" class="gsap-item" :class="`delay${item.delay}`">{{ item.text }}</p>
+    </div>
+
+    <div class="title-l" v-if="titleL.length > 0">
+      <p class="gsap-overlay" v-for="item in titleL" :key="item">
+        <span class="gsap-item" :class="`delay${item.delay}`">{{ item.text }}</span>
       </p>
     </div>
-    <div class="desc" v-if="desc!=='none'"><p class="gsap-item">{{ desc }}</p></div>
+    
+    <div class="title-xl" v-if="titleXL.length > 0">
+      <p class="gsap-overlay" v-for="item in titleXL" :key="item">
+        <span class="gsap-item" :class="`delay${item.delay}`">{{ item.text }}</span>
+      </p>
+    </div>
+
+    <div class="desc" v-if="desc.length > 0">
+      <p class="gsap-item" :class="`delay${item.delay}`" v-for="item in desc" :key="item">{{ item.text }}</p>
+    </div>
+
+    <div class="desc-l" v-if="descL.length > 0">
+      <p class="gsap-item" :class="`delay${item.delay}`" v-for="item in descL" :key="item">{{ item.text }}</p>
+    </div>
+
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    titleS: { type: String, default: 'none' },
-    titleL: { type: Array, default(){ return ['none'] } },
-    desc: { type: String, default: 'none', },
+    // titleS: { type: String, default: 'none' },
+    // titleL: { type: Array, default(){ return ['none'] } },
+    
+    titleS: { type: Array, default(){ return [] } },
+    titleL: { type: Array, default(){ return [] } },
+    titleXL: { type: Array, default(){ return [] } },
+    titleM: { type: Array, default(){ return [] } },
+    desc: { type: Array, default(){ return [] } },
+    descL: { type: Array, default(){ return [] } },
+
+    // titleM: { type: Object, default(){ return { text: 'none'} } },
+    // desc: { type: String, default: 'none', },
+    // descL: { type: String, default: 'none', },
+
     theme: { type: String, default: 'white' },
     align: { type: String, default: 'left' },
   }
@@ -26,14 +59,16 @@ export default {
 .title-area { color: rgba(0,0,0, 0.7); word-break: keep-all; }
 .title-area .title-s { font-size: 1.6rem; line-height: 1.5; font-weight: 700; }
 .title-area .title-l { font-size: 5.6rem; line-height: 1.2; color: #000; font-weight: 700; }
+.title-area .title-xl { font-size: 8.1rem; line-height: 1.2; color: #000; font-weight: 700; }
 .title-area .desc { font-size: 1.6rem; line-height: 1.8; }
+.title-area .desc-l { font-size: 2rem; line-height: 1.8; }
 
-.title-area .title-s + .title-l,
-.title-area .title-l + .desc { margin-top: 2.4rem; }
+.title-area > * + * { margin-top: 2.4rem; }
 
 /* theme | black */
 .title-area.black { color: rgba(255,255,255, 0.7) }
-.title-area.black .title-l { color: #fff; }
+.title-area.black .title-l,
+.title-area.black .title-xl { color: #fff; }
 
 /* align | center */
 .title-area.center { text-align: center; }
@@ -42,26 +77,30 @@ export default {
 .title-area .gsap-overlay .gsap-item.onEnter { animation-name: slide-up; }
 
 /* delay */
-.title-area *:has(.gsap-item):nth-of-type(0) .gsap-item { animation-delay: 0s; }
-.title-area *:has(.gsap-item):nth-of-type(1) .gsap-item { animation-delay: .1s; }
-.title-area *:has(.gsap-item):nth-of-type(2) .gsap-item { animation-delay: .2s; }
-.title-area *:has(.gsap-item):nth-of-type(3) .gsap-item { animation-delay: .3s; }
-.title-area *:has(.gsap-item):nth-of-type(4) .gsap-item { animation-delay: .4s; }
-.title-area *:has(.gsap-item):nth-of-type(5) .gsap-item { animation-delay: .5s; }
-.title-area *:has(.gsap-item):nth-of-type(6) .gsap-item { animation-delay: .6s; }
-.title-area *:has(.gsap-item):nth-of-type(7) .gsap-item { animation-delay: .7s; }
-.title-area *:has(.gsap-item):nth-of-type(8) .gsap-item { animation-delay: .8s; }
-.title-area *:has(.gsap-item):nth-of-type(9) .gsap-item { animation-delay: .9s; }
+.title-area .delay0 { animation-delay: 0s; }
+.title-area .delay1 { animation-delay: .1s; }
+.title-area .delay2 { animation-delay: .2s; }
+.title-area .delay3 { animation-delay: .3s; }
+.title-area .delay4 { animation-delay: .4s; }
+.title-area .delay5 { animation-delay: .5s; }
+.title-area .delay6 { animation-delay: .6s; }
+.title-area .delay7 { animation-delay: .7s; }
+.title-area .delay8 { animation-delay: .8s; }
+.title-area .delay9 { animation-delay: .9s; }
 
 @media only screen and (max-width: 1600px) {
   .title-area .title-l { font-size: 4.7rem; }
+  .title-area .title-xl { font-size: 7.6rem; }
 }
 
 @media only screen and (max-width: 1024px) {
   .title-area .title-l { font-size: 4.4rem; }
+  .title-area .title-xl { font-size: 6.3rem; }
+  .title-area .desc-l { font-size: 1.8rem; line-height: 1.8; }
 }
 
 @media only screen and (max-width: 768px) {
   .title-area .title-l { font-size: 4.2rem; }
+  .title-area .title-xl { font-size: 5.3rem; }
 }
 </style>
