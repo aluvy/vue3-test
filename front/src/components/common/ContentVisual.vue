@@ -43,7 +43,7 @@ export default {
       if(this.isRun) return;
 
       const winH = window.innerHeight;
-      const endH = window.outerHeight - winH;
+      const endH = document.querySelector('html').scrollHeight - winH;
 
       this.isRun = true;
       this.intervalId = setInterval(() => {
