@@ -5,7 +5,10 @@ const router = createRouter({
 	history: createWebHashHistory(),
 	// mode: 'history',
 	// base: '/#',
-	scrollBehavior: () => ({ y: 0 }),
+	scrollBehavior(to, from, savedPosition) {
+		if (to.path !== from.path) return { top: 0 };
+		return savedPosition;
+	},
 	routes: [
 		{
 			path: '/',
