@@ -6,7 +6,7 @@
         <div class="slogan-inner">
           <h2>
             <p class="gsap-item">PEOPLE <span>OF</span></p>
-            <p class="gsap-item">THE <span>FIFTY ONE</span></p>
+            <p class="gsap-item">THE <span class="red-dot">FIFTY ONE</span></p>
           </h2>
         </div>
       </div>
@@ -22,7 +22,7 @@
         <div class="inner">
           <h3 class="ttl">
             <p>'THE51'을 이끌어갈</p>
-            <p><span>LEADER</span><span>채용</span></p>
+            <p><span>LEADER</span><span class="red-dot">채용</span></p>
           </h3>
 
           <div class="cont">
@@ -111,41 +111,34 @@
         </div>
       </section>
 
-      <section class="section" data-theme="light">
+      <section class="section talent" data-theme="light">
         <div class="inner">
-          항상 즐겁게 일할
-  THE 51의 크루를 기다리고 있습니다.
-  각 분야에서 인재이신 여러분들의 많은 지원과 관심 부탁드립니다.
-  
+          <div class="tit-area">
+            <strong>
+              항상 즐겁게 일할<br>
+              <span class="red-dot">THE 51의 크루를 기다리고 있습니다</span>
+            </strong>
+            <p>각 분야에서 인재이신 여러분들의 많은 지원과 관심 부탁드립니다.</p>
+          </div>
           <ul>
-            <li>업무의 전문성
-  자신의 분야에 전문성을 가지고 이를
-  업무적으로 깊이 있게 적용할 수 있는 사람,
-  그 전문성을 지속적으로 발전시켜 나갈 수 있는
-  열정 있는 인재를 원합니다.</li>
-            <li>
-              창의적 사고
-  변화와 혁신을 두려워하지 않으며
-  기존의 틀에서 벗어난 발상의 전환으로
-  창의적 사고를 지속적으로 할 수 있는
-  인재를 원합니다.
-            </li>
-            <li>
-              올바른 인성
-  도덕성, 책임감, 팀워크, 상호존중,
-  업무 예절 등을 가진 올바른 인성과
-  제대로 된 가치관을 가진 인재를 원합니다.
+            <li v-for="talent in talents" :key="talent">
+              <i :style="`background-image:url(${talent.ico})`"></i>
+              <strong>{{ talent.title }}</strong>
+              <p>{{ talent.desc }}</p>
             </li>
           </ul>
         </div>
       </section>
 
-      <section class="section" data-theme="light">
+      <section class="section joinus" data-theme="light">
         <div class="inner">
-          WANT TO JOIN US?
-          이력서 및 포트폴리오 첨부하여 메일 제목 “입사지원” 표기 후 메일로 접수
-          RECRUIT@THE-51.COM
-          Click to copy
+          <strong>WANT TO JOIN US?</strong>
+          <p>이력서 및 포트폴리오 첨부하여 메일 제목 “입사지원” 표기 후 메일로 접수</p>
+          <div class="email" @mousemove="mouseMove" @mouseleave="mouseLeave">
+            RECRUIT@THE-51.COM
+            <input type="hidden" ref="copyto" value="RECRUIT@THE-51.COM">
+            <button type="button" :class="{ active: mouseEvent.active }" :style="{ left:`${mouseEvent.x}px`, top: `${mouseEvent.y}px` }">Click to<br>copy</button>
+          </div>
         </div>
       </section>
 
@@ -163,6 +156,9 @@ import CustomAccordion from '@/components/common/CustomAccordion.vue'
 // assets
 import visual from '@/assets/images/recruit/visual.png'
 import visualM from '@/assets/images/recruit/visual-m.png'
+import talent1 from '@/assets/images/recruit/talent1.png'
+import talent2 from '@/assets/images/recruit/talent2.png'
+import talent3 from '@/assets/images/recruit/talent3.png'
 
 export default {
   mixins: [PageMixin],
@@ -173,6 +169,7 @@ export default {
     return {
       visual,
       visualM,
+      mouseEvent: { active: false, x: 0, y: 0 },
       parts : [
         {
           idx: 0,
@@ -246,7 +243,41 @@ export default {
           ]
         }
       ],
+      talents: [
+        {
+          ico: talent1,
+          title: "업무의 전문성",
+          desc: "자신의 분야에 전문성을 가지고 이를 업무적으로 깊이 있게 적용할 수 있는 사람, 그 전문성을 지속적으로 발전시켜 나갈 수 있는 열정 있는 인재를 원합니다.",
+        },
+        {
+          ico: talent2,
+          title: "창의적 사고",
+          desc: "변화와 혁신을 두려워하지 않으며 기존의 틀에서 벗어난 발상의 전환으로 창의적 사고를 지속적으로 할 수 있는 인재를 원합니다.",
+        },
+        {
+          ico: talent3,
+          title: "올바른 인성",
+          desc: "도덕성, 책임감, 팀워크, 상호존중, 업무 예절 등을 가진 올바른 인성과 제대로 된 가치관을 가진 인재를 원합니다.",
+        }
+      ],
     }
   },
+  methods: {
+    mouseMove(e) {
+      console.log('move', e);
+      this.mouseEvent.active = true;
+      
+      // this.mouseEvent.x = e.x - 370;
+      // this.mouseEvent.y = e.y - 170;
+    },
+    mouseLeave() {
+      this.mouseEvent.active = false;
+    },
+    copyToEmail() {
+      const input = this.$refs.copyto;
+      input.select();
+      document.execCommand("Copy");
+    }
+  }
 }
 </script>

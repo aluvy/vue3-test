@@ -1,6 +1,7 @@
 #recruit-page { background: #292929; }
 #recruit-page,
 #recruit-page :not(i) { font-family: 'Pretendard', 'Sans-serif', "맑은 고딕", "Malgun Gothic"; }
+#recruit-page .red-dot::after { content: '.'; color: #E6363E; }
 
 /* visual */
 .recruit-visual { position: relative; height: var(--vh); overflow: hidden; }
@@ -10,7 +11,6 @@
 .recruit-visual .slogan-inner p { padding: 0 4rem; }
 .recruit-visual .slogan-inner p span { color: #fff; }
 .recruit-visual .slogan-inner p:nth-child(2) { text-align: right; }
-.recruit-visual .slogan-inner p:nth-child(2) span::after { content: '.'; color: #E6363E; }
 .recruit-visual .bg { position: absolute; inset: 0; z-index: 1; }
 .recruit-visual .bg .img { width: 100%; height: 100%; background-size: 77rem; background-position: top -16.5rem right -14.5rem; background-repeat: no-repeat; }
 /* .recruit-visual .bg .img::before { content:''; display: block; padding-bottom: 67.57369614512471%; } */
@@ -27,7 +27,6 @@
 .recruit h3.ttl { flex: 0 0 25rem; font-size: 1.6rem; line-height: 1.1; font-weight: 700; }
 .recruit h3.ttl p { padding-top: .6rem; }
 .recruit h3.ttl p span { display: block; font-size: 4rem; font-weight: 700; }
-.recruit h3.ttl p span:last-child::after { content: '.'; color: #E6363E; }
 .recruit h4.ttl { font-size: 2.8rem; font-weight: 700; margin-top: 10rem; }
 .recruit .cont .recruit-desc { font-size: 2.3rem; color: #fff; word-break: keep-all; }
 
@@ -70,7 +69,26 @@
 .recruit .part-cont dd + dd { margin-top: 0.4rem; }
 .recruit .part-cont dd::before { position: absolute; left: 0; top: 1rem; content:''; display: block; width: 3px; height: 3px; border-radius: 3px; background: rgba(255,255,255, 0.4); }
 
+/* talent */
+.talent { margin-top: 12rem; color: #fff; }
+.talent .tit-area { text-align: center; }
+.talent .tit-area strong { display: block; font-size: 3rem; }
+.talent .tit-area p { font-size: 1.8rem; margin-top: 0.8rem; }
+.talent ul { display: flex; align-items: flex-start; justify-content: space-between; margin-top: 7rem; }
+.talent ul li { flex: 0 0 33.33%; text-align: center; }
+.talent ul li i { display: block; width: 12rem; margin: 0 auto; background-size: 100% auto; background-position: center; background-repeat: no-repeat;}
+.talent ul li i::after { content: ''; display: block; padding-bottom: 100%; }
+.talent ul li p,
+.talent ul li strong { padding: 0 4rem; word-break: keep-all; }
+.talent ul li strong { display: block; font-size: 1.8rem; font-weight: normal; margin-top: 1.2rem; }
+.talent ul li p { padding-top: 1rem; }
 
+.joinus { padding: 20rem 0; color: #fff; text-align: center; }
+.joinus strong { display: block; font-size:7rem; font-weight: 700; }
+.joinus p { font-size: 2rem; margin-top: 0.8rem; }
+.joinus .email { position: relative; width: fit-content; font-size: 7.6rem; font-weight: 700; margin: 2rem auto 0; line-height: 1.2; border-bottom: 5px solid #fff; }
+.joinus button { position: absolute; display: flex; align-items: center; justify-content: center; width: 7.6rem; height: 7.6rem; border-radius: 7.6rem; text-align: left; font-size: 1.4rem; background: #E6363E; opacity: 0; transition: all .3s; }
+.joinus button.active { opacity: 1; }
 
 
 @media only screen and (max-width: 1600px) {
