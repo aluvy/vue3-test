@@ -10,7 +10,7 @@
 .recruit-visual .slogan-inner p { padding: 0 4rem; }
 .recruit-visual .slogan-inner p span { color: #fff; }
 .recruit-visual .slogan-inner p:nth-child(2) { text-align: right; }
-.recruit-visual .slogan-inner p:nth-child(2)::after { content: '.'; color: #E6363E; }
+.recruit-visual .slogan-inner p:nth-child(2) span::after { content: '.'; color: #E6363E; }
 .recruit-visual .bg { position: absolute; inset: 0; z-index: 1; }
 .recruit-visual .bg .img { width: 100%; height: 100%; background-size: 77rem; background-position: top -16.5rem right -14.5rem; background-repeat: no-repeat; }
 .recruit-visual .bg .img::before { content:''; display: block; padding-bottom: 67.57369614512471%; }
@@ -87,19 +87,23 @@
 
 
 @media only screen and (max-width: 1600px) {
+  .recruit-visual .slogan-inner h2 { font-size: 8.1rem; }
 
 }
 @media only screen and (max-width: 1024px) {
-
+  .recruit-visual .slogan-inner h2 { font-size: 6.3rem; }
 }
 @media only screen and (max-width: 768px) {
-
+  .recruit-visual .slogan-inner h2 { font-size: 8.1rem; }
+  .recruit-visual .slogan-inner p { padding: 0; word-break: keep-all; }
+  .recruit-visual .slogan-inner p:nth-child(2) { text-align: left; }
+  .recruit-visual .slogan-inner p span { display: block; }
 }
 @media only screen and (max-width: 450px) {
-  
+  .recruit-visual .slogan-inner h2 { font-size: 6.3rem; }
 }
 @media only screen and (max-width: 375px) {
-  
+  .recruit-visual .slogan-inner h2 { font-size: 4.5rem; }
 }
 @media only screen and (max-width: 320px) {
   

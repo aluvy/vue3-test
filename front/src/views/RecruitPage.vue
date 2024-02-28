@@ -11,7 +11,8 @@
         </div>
       </div>
       <div class="bg gsap-item">
-        <div class="img" :style="`background-image: url(${visual})`"></div>
+        <div class="img pc-show" :style="`background-image: url(${visual})`"></div>
+        <div class="img mo-show" :style="`background-image: url(${visualM})`"></div>
       </div>
     </section>
 
@@ -152,12 +153,14 @@ import '@/assets/css/page-recruit.css'
 import PageMixin from '@/mixins/PageMixin';
 // assets
 import visual from '@/assets/images/recruit/visual.png'
+import visualM from '@/assets/images/recruit/visual-m.png'
 
 export default {
   mixins: [PageMixin],
   data() {
     return {
       visual,
+      visualM,
       parts : [
         {
           idx: 0,
