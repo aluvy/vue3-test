@@ -6,7 +6,7 @@
         <div class="slogan-inner">
           <h2>
             <p class="gsap-item">PEOPLE <span>OF</span></p>
-            <p class="gsap-item">THE FIFTY ONE</p>
+            <p class="gsap-item">THE <span>FIFTY ONE</span></p>
           </h2>
         </div>
       </div>
@@ -16,103 +16,92 @@
     </section>
 
     <div id="content">
-      
-      <section class="section recruit-leader" data-theme="light">
+
+      <section class="section recruit" data-theme="light">
         <div class="inner">
-          <div class="title">
-            <h3>
-              <p>'THE51'을 이끌어갈</p>
-              <p><span>LEADER</span><span>채용</span></p>
-            </h3>
-          </div>
-          <div class="content">
-            <p class="desc">(주)더피프티원은 10년 동안 쌓은 전략, 마케팅, 콘텐츠, 컨설팅, 브랜딩 등 <br class="pc_show">다양한 노하우를 바탕으로 가장 앞선 디지털 솔루션을 제공하는 The First One 에이전시입니다.</p>
-            <div class="leader-item">
-              <div class="item-ttl">근무조건</div>
-              <div class="item-cont">
-                <dl>
+          <h3 class="ttl">
+            <p>'THE51'을 이끌어갈</p>
+            <p><span>LEADER</span><span>채용</span></p>
+          </h3>
+
+          <div class="cont">
+            <p class="recruit-desc">
+              (주)더피프티원은 10년 동안 쌓은 전략, 마케팅, 콘텐츠, 컨설팅, 브랜딩 등 <br class="pc_show">
+              다양한 노하우를 바탕으로 가장 앞선 디지털 솔루션을 제공하는 The First One 에이전시입니다.
+            </p>
+            <ul class="info">
+              <li>
+                <div class="info-ttl">근무조건</div>
+                <dl class="info-cont">
                   <dt>근무형태</dt>
                   <dd>정규직</dd>
                   <dt>근무지</dt>
                   <dd>
                     프로젝트 투입에 따라 다름
-                    <span>*본사: 서울시 강남구 역삼동</span>
+                    <span class="subscript">&nbsp;* 본사: 서울시 강남구 역삼동</span>
                   </dd>
                   <dt>근무시간</dt>
                   <dd>
                     09:00 ~ 18:00
-                    <span>* 프로젝트 투입에 따라 다름</span>
+                    <span class="subscript">&nbsp;* 프로젝트 투입에 따라 다름</span>
                   </dd>
                   <dt>연봉</dt>
                   <dd>회사 내규에 따름</dd>
                 </dl>
-              </div>
-            </div>
-            <div class="leader-item">
-              <div class="item-ttl">접수방법</div>
-              <div class="item-cont">
-                <p>E-MAIL 접수</p>
-                <p>메일 제목 “입사지원” 표기 후 Recruit@The-51.com 으로 접수</p>
-              </div>
-            </div>
-            <div class="leader-item">
-              <div class="item-ttl">제출서류</div>
-              <div class="item-cont">
-                <p>
-                  이력서 / 자기소개서 / 포트폴리오
-                  <span>(디자이너 필수)</span>
-                </p>
-                <p>
-                  최종 합격 후 별도 제출 서류 안내합니다.
-                  <span>* 허위사실이 발견될 경우 채용이 취소될 수 있습니다.</span>
-                </p>
-              </div>
-            </div>
-            <div class="leader-item">
-              <div class="item-ttl">전형절차</div>
-              <div class="item-cont">
-                <p>서류전형 > 1차 실무 면접 > 최종합격</p>
-                <span>* 수시 면접으로 진행합니다.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+              </li>
+              <li>
+                <div class="info-ttl">접수방법</div>
+                <dl class="info-cont">
+                  <dt>E-MAIL 접수</dt>
+                  <dd>메일 제목 “입사지원” 표기 후 Recruit@The-51.com 으로 접수</dd>
+                </dl>
+              </li>
+              <li>
+                <div class="info-ttl">제출서류</div>
+                <dl class="info-cont">
+                  <dt>
+                    이력서 / 자기소개서 / 포트폴리오
+                    <span class="subscript">&nbsp;(디자이너 필수)</span>
+                  </dt>
+                  <dd>
+                    최종 합격 후 별도 제출 서류 안내합니다.<br>
+                    <span class="subscript">* 허위 사실이 발견될 경우 채용이 취소될 수 있습니다.</span>
+                  </dd>
+                </dl>
+              </li>
+              <li>
+                <div class="info-ttl">전형절차</div>
+                <dl class="info-cont">
+                  <dt>
+                    서류전형<i class="fa-solid fa-chevron-right"></i>1차 실무 면접<i class="fa-solid fa-chevron-right"></i>최종합격
+                  </dt>
+                  <dd><span class="subscript">* 수시 면접으로 진행합니다.</span></dd>
+                </dl>
+              </li>
+            </ul>
 
-      <section class="section recruit-other" data-theme="light">
-        <div class="inner">
-          <div class="title">
-            <h3>모집분야 및 자격요건</h3>
-          </div>
-          <div class="content">
-            <ul>
-              <li class="other-item">
-                <div class="item-ttl">
-                  UX전략 기획 (UX Consulting) 사원~책임 (1년이상)
+            <h4 class="ttl">모집분야 및 자격요건</h4>
+            <ul class="part">
+              <li v-for="item in parts" :key="item" :class="{ active: item.state }">
+                <div class="part-ttl">
+                  <a href="#" @click.prevent="toggleAccordion(item)">
+                    <strong>
+                      {{ item.field }}
+                      <span>({{ item.eng }})</span>
+                    </strong>
+                    <span>{{ item.position }}</span>
+                    <i></i>
+                  </a>
                 </div>
-                <div class="item-cont">
-                  담당업무
-  UX 컨설팅 프로젝트 업무 전반
-  UX 방법론을 통한 인사이트 도출
-  UX 전략 및 컨셉 정의
-  UX/UI 기획
-  보고서 및 제안서 작업
-  자격요건
-  직업적 윤리의식과 사람에 대한 예의를 기본적으로 갖춘 사람
-  남다른 창의력과 성실함을 갖춘 사람
-  오픈 마인드로 협업을 중시하는 마음가짐을 가진 사람
-  자신의 성장과 팀의 성장을 일치시키고자 노력하는 사람
-  우대사항
-  UX 컨설팅 프로젝트 참여 경험
-  UX 컨설팅 관련 교육 수료 및 관련 전공
-  석사 이상
+                <div class="part-cont" :ref="`part-${item.idx}`" :style="{ height: '0px' }">
+                  <dl v-for="detail in item.details" :key="detail">
+                    <dt>{{ detail.title }}</dt>
+                    <dd v-for="list in detail.lists" :key="list">{{ list }}</dd>
+                  </dl>
                 </div>
               </li>
             </ul>
           </div>
-          
-  
-          
         </div>
       </section>
 
@@ -169,7 +158,89 @@ export default {
   data() {
     return {
       visual,
+      parts : [
+        {
+          idx: 0,
+          field: `UX전략 기획`,
+          eng: `UX Consulting`,
+          position: `사원~책임 (1년 이상)`,
+          state: false,
+          details: [
+            {
+              title: '담당업무',
+              lists: [
+                `UX 컨설팅 프로젝트 업무 전반`,
+                `UX 방법론을 통한 인사이트 도출`,
+                `UX 전략 및 컨셉 정의`,
+                `UX/UI 기획`,
+                `보고서 및 제안서 작업`
+              ]
+            },
+            {
+              title: `자격요건`,
+              lists: [
+                `직업적 윤리의식과 사람에 대한 예의를 기본적으로 갖춘 사람`,
+                `남다른 창의력과 성실함을 갖춘 사람`,
+                `오픈 마인드로 협업을 중시하는 마음가짐을 가진 사람`,
+                `자신의 성장과 팀의 성장을 일치시키고자 노력하는 사람`,
+              ]
+            },
+            {
+              title: `우대사항`,
+              lists: [
+                `UX 컨설팅 프로젝트 참여 경험`,
+                `UX 컨설팅 관련 교육 수료 및 관련 전공`,
+                `석사 이상`
+              ]
+            }
+          ]
+        },
+        {
+          idx: 1,
+          field: `서비스 기획`,
+          eng: `Web/Mobile`,
+          position: `PM/PL (5년 이상)`,
+          state: false,
+          details: [
+            {
+              title: '담당업무',
+              lists: [
+                `콘셉트/전략기획 리딩`,
+                `서비스 콘텐츠 기획 리딩`,
+                `제안서/보고서 작성 및 프레젠테이션 진행`,
+                `서비스 이슈 감지/개선/해결 방향 제시 및 리딩`,
+              ]
+            },
+            {
+              title: `자격요건`,
+              lists: [
+                `Web/Mobile에 대한 UI/UX 기획 리딩 가능한 분`,
+                `콘텐츠 및 서비스 콘셉트/전략 수립 능력 보유자`,
+                `프로젝트 프로세스 이해 및 원활한 커뮤니케이션 가능한 분`,
+                `IT 트렌드 및 비즈니스에 대한 이해력/통찰력 보유자`
+              ]
+            },
+            {
+              title: `우대사항`,
+              lists: [
+                `웹 에이전시 경력자 우대`,
+                `글로벌 사이트 구축 및 운영 경험자 우대`,
+                `영어 커뮤니케이션 가능한 분 우대`
+              ]
+            }
+          ]
+        }
+      ],
     }
   },
+  methods: {
+    toggleAccordion: function (item) {
+      const elem = this.$refs[`part-${item.idx}`];
+      const scrollHeight = elem[0].scrollHeight;
+      item.state = !item.state;
+      const to = ( item.state ) ? scrollHeight : 0;
+      elem[0].style.height = `${to}px`;
+    },
+  }
 }
 </script>
