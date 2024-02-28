@@ -82,10 +82,13 @@
             </ul>
 
             <h4 class="ttl">모집분야 및 자격요건</h4>
-            <ul class="part">
-              <li v-for="item in parts" :key="item" :class="{ active: item.state }">
-                <div class="part-ttl">
-                  <a href="#" @click.prevent="toggleAccordion(item)">
+            <div class="part">
+              <CustomAccordion
+                v-for="item in parts" :key="item"
+                :idx="item.idx" :state="item.state"
+                class="part-item" :class="{ active: item.state }">
+                <template #title>
+                  <a href="#" @click.prevent="item.state = !item.state">
                     <strong>
                       {{ item.field }}
                       <span>({{ item.eng }})</span>
@@ -93,15 +96,17 @@
                     <span>{{ item.position }}</span>
                     <i></i>
                   </a>
-                </div>
-                <div class="part-cont" :ref="`part-${item.idx}`" :style="{ height: '0px' }">
-                  <dl v-for="detail in item.details" :key="detail">
-                    <dt>{{ detail.title }}</dt>
-                    <dd v-for="list in detail.lists" :key="list">{{ list }}</dd>
-                  </dl>
-                </div>
-              </li>
-            </ul>
+                </template>
+                <template #content>
+                  <div class="part-cont">
+                    <dl v-for="detail in item.details" :key="detail">
+                      <dt>{{ detail.title }}</dt>
+                      <dd v-for="list in detail.lists" :key="list">{{ list }}</dd>
+                    </dl>
+                  </div>
+                </template>
+              </CustomAccordion>
+            </div>
           </div>
         </div>
       </section>
@@ -151,12 +156,19 @@
 <script>
 import '@/assets/css/page-recruit.css'
 import PageMixin from '@/mixins/PageMixin';
+
+// components
+import CustomAccordion from '@/components/common/CustomAccordion.vue'
+
 // assets
 import visual from '@/assets/images/recruit/visual.png'
 import visualM from '@/assets/images/recruit/visual-m.png'
 
 export default {
   mixins: [PageMixin],
+  components: {
+    CustomAccordion
+  },
   data() {
     return {
       visual,
@@ -236,14 +248,5 @@ export default {
       ],
     }
   },
-  methods: {
-    toggleAccordion: function (item) {
-      const elem = this.$refs[`part-${item.idx}`];
-      const scrollHeight = elem[0].scrollHeight;
-      item.state = !item.state;
-      const to = ( item.state ) ? scrollHeight : 0;
-      elem[0].style.height = `${to}px`;
-    },
-  }
 }
 </script>

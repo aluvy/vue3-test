@@ -49,8 +49,8 @@
 
 /* recruit | part */
 .recruit .part { margin-top: 2rem; }
-.recruit .part li { border-top: 1px solid rgba(255,255,255, 0.4); transition: all .3s; }
-.recruit .part li:first-child { border-color: #fff; }
+.recruit .part-item { border-top: 1px solid rgba(255,255,255, 0.4); transition: all .3s; }
+.recruit .part-item:first-child { border-color: #fff; }
 /* .recruit .part-ttl { } */
 .recruit .part-ttl a { display: flex; align-items: center; justify-content: space-between; padding: 2.5rem 0; }
 .recruit .part-ttl a strong { flex: 0 0 25rem; font-size: 1.8rem; }
@@ -61,11 +61,14 @@
 .recruit .part-ttl a i::after { position: absolute; content:''; display: block; background: #fff; }
 .recruit .part-ttl a i::before { left: 0; top: 50%; transform: translate(0, -50%); width: 100%; height: 1px; }
 .recruit .part-ttl a i::after { left: 50%; top: 0; transform: translate(-50%, 0); width: 1px; height: 100%; transition: transform .3s; }
-.recruit .part li.active i::after { transform: rotate(90deg); }
+.recruit .part-item.active i::after { transform: rotate(90deg); }
 
-.recruit .part-cont { background: rgba(0,0,0, 0.15); overflow: hidden; transition: height .3s; }
-.recruit .part-cont dl { padding: 4rem; }
-.recruit .part-cont dl + dl { padding-top: 0; }
+.recruit .part-cont { padding: 4rem; background: rgba(0,0,0, 0.15); overflow: hidden; }
+.recruit .part-cont dl + dl { padding-top: 4rem; }
+.recruit .part-cont dt { font-size: 1.8rem; padding-bottom: 1.2rem; }
+.recruit .part-cont dd { position: relative; padding-left: 1rem; color: rgba(255,255,255, 0.6); }
+.recruit .part-cont dd + dd { margin-top: 0.4rem; }
+.recruit .part-cont dd::before { position: absolute; left: 0; top: 1rem; content:''; display: block; width: 3px; height: 3px; border-radius: 3px; background: rgba(255,255,255, 0.4); }
 
 
 

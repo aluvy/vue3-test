@@ -7,7 +7,7 @@
   /* Quad */
   --ease-InQuad: cubic-bezier(0.11, 0, 0.5, 0);
   --ease-OutQuad: cubic-bezier(0.5, 1, 0.89, 1);
-  --ease-OutQuad: cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-InOutQuad: cubic-bezier(0.45, 0, 0.55, 1);
 
   /* Cubic */
   --ease-InCubic: cubic-bezier(0.32, 0, 0.67, 0);
