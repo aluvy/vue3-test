@@ -4,7 +4,7 @@
   --footer-height: 38rem;
   --inner-pad: 0 9rem;
 }
-
+.mo-show { display: none; }
 .rock-scroll body { overflow: hidden; }
 
 .no-scroll body { overflow: hidden; } /* aside.. */
@@ -191,6 +191,8 @@ section.section .inner { width: 100%; max-width: var(--max-width); padding: var(
 
 }
 @media only screen and (max-width: 768px) {
+  .pc-show { display: none; }
+  .mo-show { display: block; }
 }
 @media only screen and (max-width: 450px) {
   
