@@ -27,7 +27,7 @@
 
           <div class="cont">
             <p class="recruit-desc">
-              (주)더피프티원은 10년 동안 쌓은 전략, 마케팅, 콘텐츠, 컨설팅, 브랜딩 등 <br class="pc_show">
+              (주)더피프티원은 10년 동안 쌓은 전략, 마케팅, 콘텐츠, 컨설팅, 브랜딩 등 <br class="pc-show">
               다양한 노하우를 바탕으로 가장 앞선 디지털 솔루션을 제공하는 The First One 에이전시입니다.
             </p>
             <ul class="info">
@@ -38,12 +38,12 @@
                   <dd>정규직</dd>
                   <dt>근무지</dt>
                   <dd>
-                    프로젝트 투입에 따라 다름
+                    프로젝트 투입에 따라 다름<br class="mo-show">
                     <span class="subscript">&nbsp;* 본사: 서울시 강남구 역삼동</span>
                   </dd>
                   <dt>근무시간</dt>
                   <dd>
-                    09:00 ~ 18:00
+                    09:00 ~ 18:00<br class="mo-show">
                     <span class="subscript">&nbsp;* 프로젝트 투입에 따라 다름</span>
                   </dd>
                   <dt>연봉</dt>
@@ -133,11 +133,11 @@
       <section class="section joinus" data-theme="light">
         <div class="inner">
           <strong>WANT TO JOIN US?</strong>
-          <p>이력서 및 포트폴리오 첨부하여 메일 제목 “입사지원” 표기 후 메일로 접수</p>
+          <p>이력서 및 포트폴리오 첨부하여 <br class="mo-show">메일 제목 “입사지원” 표기 후 메일로 접수</p>
           <div class="email" @mousemove="mouseMove" @mouseleave="mouseLeave">
             RECRUIT@THE-51.COM
-            <input type="hidden" ref="copyto" value="RECRUIT@THE-51.COM">
-            <button type="button" :class="{ active: mouseEvent.active }" :style="{ left:`${mouseEvent.x}px`, top: `${mouseEvent.y}px` }">Click to<br>copy</button>
+            <input type="text" class="blind" ref="copyto" value="RECRUIT@THE-51.COM">
+            <button type="button" :class="{ active: mouseEvent.active }" :style="{ left:`${mouseEvent.x}px`, top: `${mouseEvent.y}px` }" @click="copyToEmail">Click to<br>copy</button>
           </div>
         </div>
       </section>
@@ -264,11 +264,10 @@ export default {
   },
   methods: {
     mouseMove(e) {
-      console.log('move', e);
       this.mouseEvent.active = true;
-      
-      // this.mouseEvent.x = e.x - 370;
-      // this.mouseEvent.y = e.y - 170;
+      if( e.layerX < 10 || e.layerY < 10 ) return;
+      this.mouseEvent.x = e.layerX;
+      this.mouseEvent.y = e.layerY;
     },
     mouseLeave() {
       this.mouseEvent.active = false;
@@ -276,7 +275,10 @@ export default {
     copyToEmail() {
       const input = this.$refs.copyto;
       input.select();
-      document.execCommand("Copy");
+      input.setSelectionRange(0, 99999); // For mobile devices
+      document.execCommand('copy');
+
+      alert('이메일 주소가 복사 되었습니다.');
     }
   }
 }
