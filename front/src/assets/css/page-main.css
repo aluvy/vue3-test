@@ -35,9 +35,17 @@
 
 /*** slogan-area ******************************************************/
 .mySwiper .slogan-area { position: absolute; left: 50%; top: 50%; transform: translate3D(-50%, -50%, 0); width: 100%; max-width: var(--max-width); padding: var(--inner-pad); max-height: var(--vh); z-index: 2; }
-.mySwiper .slogan-area .slogan { display: flex; flex-wrap: wrap; align-items: center; width: 50%; font-size: 6.3rem; line-height: 1.2; font-weight: 700; color: #fff; }
+.mySwiper .slogan-area .slogan { display: flex; flex-wrap: wrap; align-items: center; font-size: 8.4rem; line-height: 1.2; font-weight: 700; color: #fff; }
 .mySwiper .slogan-area .slogan strong { display: inline-block; overflow: hidden; padding-right: 2rem; }
 .mySwiper .slogan-area .slogan strong span { display: inline-block; width: fit-content; word-break: keep-all; transition-property: transform; }
+.mySwiper .swiper-slide[data-swiper-slide-index='0'] .slogan { width: 60%; }
+.mySwiper .swiper-slide[data-swiper-slide-index='1'] .slogan { width: 60%; }
+.mySwiper .swiper-slide[data-swiper-slide-index='2'] .slogan { width: 80%; }
+.mySwiper .swiper-slide[data-swiper-slide-index='3'] .slogan { width: 60%; }
+.mySwiper .swiper-slide[data-swiper-slide-index='4'] .slogan { width: 100%; }
+.mySwiper .swiper-slide[data-swiper-slide-index='5'] .slogan { width: 70%; }
+.mySwiper .swiper-slide[data-swiper-slide-index='6'] .slogan { width: 100%; }
+.mySwiper .swiper-slide[data-swiper-slide-index='7'] .slogan { width: 50%; }
 
 /* slogan - active motion */
 .mySwiper .swiper-slide-active .slogan-area .slogan strong span { transform: translate3D(0, 0, 0); transition-duration: var(--mainSwiper-active-slogan-duration); transition-delay: var(--mainSwiper-active-slogan-delay); }
@@ -88,22 +96,40 @@
 .slide-controller button.btn_next:hover i { transform: translate3D(0.6rem, 0, 0); }
 
 
-@media only screen and (max-width: 1600px) {
+@media only screen and (max-width: 1440px) {
   .swiper-pagination { right: 9rem; margin-right: 0; transform: translate3D(0, -50%, 0); }
   .slide-controller { left: 9rem; margin-left: 0; transform: initial; }
 }
 
 @media only screen and (max-width: 1024px) {
-  .mySwiper .slogan-area .slogan { font-size: 5.88rem; }
-  .swiper-pagination { right: 50%; margin-right: 4rem; transform: translate3D( calc(var(--max-width) / 2) , -50%, 0); }
-  .slide-controller { left: 50%; margin-left: 4rem; transform: translateX(calc(var(--max-width) / 2 * -1)); }
+  .mySwiper .slogan-area .slogan { font-size: 6.3rem; }
 }
 
 @media only screen and (max-width: 768px) {
-  .mySwiper .slogan-area .slogan { width: 100%; font-size: 4.8rem; }
-  .swiper-pagination { display: none; }
+  .mySwiper .slogan-area .slogan { font-size: 5.8rem; }
+  .mySwiper .swiper-slide[data-swiper-slide-index='4'] .slogan { width: 90%; }
+  .mySwiper .swiper-slide[data-swiper-slide-index='6'] .slogan { width: 50%; }
+  .swiper-pagination { right: 4rem; }
   .slide-controller { left: 4rem; margin-left: 0; transform: initial; }
 }
+
+@media only screen and (max-width: 600px) {
+  .mySwiper .slogan-area .slogan { font-size: 5rem; }
+  .mySwiper .swiper-slide[data-swiper-slide-index='4'] .slogan { width: 100%; }
+  .mySwiper .swiper-slide[data-swiper-slide-index='7'] .slogan { width: 100%; }
+  .swiper-pagination { display: none; }
+}
+
+@media only screen and (max-width: 425px) {
+  .mySwiper .slogan-area .slogan { width: 100%; font-size: 4.2rem; }
+}
+
+@media only screen and (max-width: 375px) {
+  .mySwiper .slogan-area .slogan { font-size: 4rem; }
+  .slide-controller { left: 2rem; }
+}
+
+
 
 /* media query - height */
 @media only screen and (max-height: 650px) {

@@ -8,8 +8,8 @@
             :pageTitle = "[ { delay: 1, text: `CONTACT` } ]"
             :titleL = "[ { delay: 2, text: `Want To Work` }, { delay: 3, text: `With Us?` } ]"
             :desc = "[
-              { delay: 3, text: `더피프티원은 다양한 프로젝트 경험과 구성인력의 전문화로`},
-              { delay: 4, text: `조직간 Co-Work을 통해 성공적인 프로젝트를 진행합니다.` }
+              { delay: 3, text: `더피프티원은 다양한 프로젝트 경험과 구성인력의 전문화로 조직간`},
+              { delay: 4, text: `Co-Work을 통해 성공적인 프로젝트를 진행합니다.` }
             ]"
             theme="black"
           ></ContentTitle>

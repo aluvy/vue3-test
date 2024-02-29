@@ -1,5 +1,8 @@
 #about-page { background: #111; }
 
+/* visual */
+.about-visual .desc { padding-right: 4rem; }
+
 /* about link */
 .about-link .list { display: flex; align-items: stretch; justify-content: space-between; padding: 12rem 0; }
 .about-link .list li { flex: 0 0 calc(50% - 2rem); }
@@ -37,7 +40,10 @@
 /* animation | delay */
 .about-visual .sns-wrap.onEnter { animation-delay: .5s; }
 
-@media only screen and (max-width: 1024px) {
+
+@media only screen and (max-width: 768px) {
+  .about-visual .desc { padding-right: 0; width: 78%; }
+
   .about-link .list { display: block; padding: 8rem 0; }
   .about-link .list li + li { margin-top: 5rem; }
 

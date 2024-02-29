@@ -59,7 +59,7 @@ export default {
 .title-area .page-title h2,
 .title-area .title-s { font-size: 1.6rem; line-height: 1; font-weight: 700; }
 .title-area .title-l { font-size: 5.6rem; line-height: 1.1; color: #000; font-weight: 700; }
-.title-area .title-xl { font-size: 8.1rem; line-height: 1.1; color: #000; font-weight: 700; }
+.title-area .title-xl { font-size: 9rem; line-height: 1.1; color: #000; font-weight: 700; }
 .title-area .desc { font-size: 1.6rem; line-height: 1.8; }
 .title-area .visual-title h2 { font-size: 2rem; line-height: 1; font-weight: normal; }
 
@@ -89,19 +89,23 @@ export default {
 .title-area .delay8 { animation-delay: .8s; }
 .title-area .delay9 { animation-delay: .9s; }
 
-@media only screen and (max-width: 1600px) {
-  .title-area .title-l { font-size: 4.7rem; }
-  .title-area .title-xl { font-size: 7.6rem; }
+@media only screen and (max-width: 1440px) {
+  .title-area .title-l { font-size: 5.6rem; }
+  .title-area .title-xl { font-size: 8.1rem; }
 }
 
 @media only screen and (max-width: 1024px) {
-  .title-area .title-l { font-size: 4.4rem; }
-  .title-area .title-xl { font-size: 6.3rem; }
+  .title-area .title-l { font-size: 4.7rem; }
+  .title-area .title-xl { font-size: 7.6rem; }
   .title-area .visual-title h2 { font-size: 1.8rem; line-height: 1.8; }
 }
 
 @media only screen and (max-width: 768px) {
+  .title-area .title-l { font-size: 4.4rem; }
+  .title-area .title-xl { font-size: 6.3rem; }
+}
+@media only screen and (max-width: 425px) {
   .title-area .title-l { font-size: 4.2rem; }
-  .title-area .title-xl { font-size: 5.3rem; }
+  .title-area .title-xl { font-size: 4rem; }
 }
 </style>

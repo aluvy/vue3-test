@@ -7,13 +7,12 @@
 .recruit-visual { position: relative; height: var(--vh); overflow: hidden; }
 .recruit-visual .slogan { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; }
 .recruit-visual .slogan-inner { width: 100%; max-width: var(--max-width); padding: var(--inner-pad); }
-.recruit-visual .slogan-inner h2 { font-size: 9rem; font-weight: 700; color: #ffffffcc; line-height: 1; }
-.recruit-visual .slogan-inner p { padding: 0 4rem; }
+.recruit-visual .slogan-inner h2 { width: 100%; max-width: 120rem; font-size: 13rem; font-weight: 700; color: rgba(255,255,255, 0.8); line-height: 1; margin: 0 auto; }
+.recruit-visual .slogan-inner p { word-break: keep-all; white-space: nowrap; }
 .recruit-visual .slogan-inner p span { color: #fff; }
 .recruit-visual .slogan-inner p:nth-child(2) { text-align: right; }
 .recruit-visual .bg { position: absolute; inset: 0; z-index: 1; }
 .recruit-visual .bg .img { width: 100%; height: 100%; background-size: 77rem; background-position: top -16.5rem right -14.5rem; background-repeat: no-repeat; }
-/* .recruit-visual .bg .img::before { content:''; display: block; padding-bottom: 67.57369614512471%; } */
 
 /* animation */
 .recruit-visual .slogan-inner p.onEnter {  animation-delay: .3s; animation-duration: 1s; }
@@ -91,19 +90,21 @@
 .joinus button.active { opacity: 1; }
 
 
-@media only screen and (max-width: 1600px) {
-  .recruit-visual .slogan-inner h2 { font-size: 8.1rem; }
-
+@media only screen and (max-width: 1440px) {
+  /* .recruit-visual .slogan-inner h2 { font-size: 10.8rem; } */
 }
+/* @media only screen and (max-width: 1300px) {
+  .recruit-visual .slogan-inner h2 { font-size: 10rem; }
+} */
 @media only screen and (max-width: 1024px) {
-  .recruit-visual .slogan-inner h2 { font-size: 6.3rem; }
+  .recruit-visual .slogan-inner h2 { font-size: 7.6rem; }
 }
 @media only screen and (max-width: 768px) {
-  .recruit-visual .slogan-inner h2 { font-size: 8.1rem; }
-  .recruit-visual .slogan-inner p { padding: 0; word-break: keep-all; }
+  .recruit-visual .slogan-inner h2 { font-size: 8.2rem; max-width: 50%; margin: initial; }
+  .recruit-visual .slogan-inner p { word-break: keep-all; white-space: initial; }
   .recruit-visual .slogan-inner p:nth-child(2) { text-align: left; }
   .recruit-visual .slogan-inner p span { display: block; }
-  .recruit-visual .bg .img { background-size: 60rem; background-position: top 3rem right -20rem; }
+  .recruit-visual .bg .img { background-size: 60rem; background-position: top 3rem right -25rem; }
 
   .recruit .inner { display: block; }
   .recruit h3.ttl p span { display: inline-block; }
@@ -112,8 +113,8 @@
   .recruit .info li { display: block; }
   .recruit .info-cont { margin-top: 2rem; }
 }
-@media only screen and (max-width: 450px) {
-  .recruit-visual .slogan-inner h2 { font-size: 6.3rem; }
+@media only screen and (max-width: 425px) {
+  .recruit-visual .slogan-inner h2 { font-size: 6.3rem; max-width: 100%; }
 }
 @media only screen and (max-width: 375px) {
   .recruit-visual .slogan-inner h2 { font-size: 4.5rem; }
