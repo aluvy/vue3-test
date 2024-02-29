@@ -100,16 +100,20 @@ export default {
 
     const setCustomClass = (swiper) => {
       const { slides, activeIndex, previousIndex } = swiper;
-      slides.forEach((a, i)=>{
-        a.classList.remove('custom-prev');
-        a.classList.remove('custom-next');
-        a.classList.remove('custom-beforeIdx');
+      try {
+        slides.forEach((a, i)=>{
+          a.classList.remove('custom-prev');
+          a.classList.remove('custom-next');
+          a.classList.remove('custom-beforeIdx');
 
-        if( i === activeIndex )       a.classList.add('custom-active');
-        else if ( i < activeIndex )   a.classList.add('custom-prev');
-        else                          a.classList.add('custom-next');
-        if( i === previousIndex)      a.classList.add('custom-beforeIdx');
-      });
+          if( i === activeIndex )       a.classList.add('custom-active');
+          else if ( i < activeIndex )   a.classList.add('custom-prev');
+          else                          a.classList.add('custom-next');
+          if( i === previousIndex)      a.classList.add('custom-beforeIdx');
+        });
+      } catch(e) {
+        console.log(e);
+      }
     }
 
     return {
