@@ -23,7 +23,6 @@
       </ContentVisual>
     </section>
 
-
     <div id="content">
       <section class="section who-overview" data-theme="light">
         <div class="inner">
@@ -67,9 +66,34 @@
 
       <section class="section white who-service" data-theme="dark">
         <div class="inner">
-          swiper
+          <ContentTitle
+            :titleL="[ { delay: 1, text: `Our Services` }]"
+            theme="white"
+            align="center"
+          ></ContentTitle>
+          <swiper
+            class="service-Swiper"
+            :modules="modules"
+            :effect="'fade'"
+            :draggable="true"
+            :navigation="true"
+            :pagination="{
+              type: 'fraction',
+            }"
+            :speed=3000
+            :autoplay="{
+              delay: 300000,
+              disableOnInteraction: false,
+            }"
+            @swiper="onSwiper"
+          >
+            <swiper-slide v-for="service in services" :key="service">
+              <strong>{{ service.title }}</strong>
+              <p>{{ service.desc }}</p>
+            </swiper-slide>
+          </swiper>
         </div>
-        <div class="bg"></div>
+        <div class="bg" :style="`background-image: url(${serviceBG})`"></div>
       </section>
 
       <section class="section white who-client" data-theme="dark">
@@ -104,6 +128,15 @@
 <script>
 import '@/assets/css/page-who.css'
 import PageMixin from '@/mixins/PageMixin';
+import { ref } from 'vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { EffectFade, Autoplay, Pagination, A11y } from 'swiper/modules';
+
+  // Import Swiper styles
+  // import 'swiper/css';
+  // import 'swiper/css/effect-fade';
+  // import 'swiper/css/navigation';
+  // import 'swiper/css/pagination';
 
 // component
 import ContentVisual from '@/components/common/ContentVisual.vue'
@@ -111,6 +144,7 @@ import ContentTitle from '@/components/common/ContentTitle.vue'
 
 // assets
 import visual from '@/assets/images/who/visual.jpg'
+import serviceBG from '@/assets/images/who/service-bg.jpg'
 import client1 from '@/assets/images/who/client-logo01.jpg'
 import client2 from '@/assets/images/who/client-logo02.jpg'
 import client3 from '@/assets/images/who/client-logo03.jpg'
@@ -140,11 +174,45 @@ export default {
   components: {
     ContentVisual,
     ContentTitle,
+    Swiper,
+    SwiperSlide
   },
   mixins: [PageMixin],
+  setup() {
+    let mySwiper = ref();
+    const onSwiper = (swiper) => {
+      mySwiper.value = swiper;
+      // swiper.emit("transitionEnd");
+    }
+
+    return {
+      mySwiper,
+      onSwiper,
+      modules: [ EffectFade, Autoplay, Pagination, A11y ],
+    }
+  },
   data() {
     return {
       visual,
+      serviceBG,
+      services: [
+        {
+          title: `"Web Service뿐만 아니라 Mobile도 아우르는 강력한 Cross Business 구축 경험 및 기술 보유"`,
+          desc: `Web과 Mobile의 경계가 허물어지고 있는 Digital Marketing Trend를 분석하고, 이를 선도하기 위해 꾸준한 Mobile 기술 투자(HTML5&UX)를 이행하여 관련 Technology 및 Skill을 보유`,
+        },
+        {
+          title: `"다양한 산업/고객의 인터넷 및 모바일 서비스 구축 및 운영"`,
+          desc: `협업에 최적화된 내부 업무 Process를 바탕으로 기획, 디자인, 개발, QM 등 통합(Integrated) 서비스를 제공`,
+        },
+        {
+          title: `"Adobe Marketing Cloud Solution에 대한 공식 Partner로서 다양한 경험 및 업계 선도"`,
+          desc: `Adobe Marketing Cloud Solution의 공식 Partner사로 다수의 Global Project 수행 및 구축 경험을 통해 Digital Marketing 분야 업계 선도`,
+        },
+        {
+          title: `다년간의 전문성을 보유한 인적자원과 효율적 Service 개발 및 Know-How 보유`,
+          desc: `성공적 프로젝트 수행을 위해 적합 기술을 가진 Division/Team을 엄선하고, 전문 인력 선별 투입으로 높은 고객만족도 제공`,
+        }
+      ],
       clients: [
         { img: client1, alt: 'LG Electronics', },
         { img: client2, alt: 'LG CNS', },
