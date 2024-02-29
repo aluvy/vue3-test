@@ -27,13 +27,15 @@ export default {
       if(this.isRun) return;
       if(window.scrollY === 0) return;
 
+      const speed = window.scrollY * 0.05;
+
       this.isRun = true;
       this.intervalId = setInterval(() => {
         if (window.scrollY === 0) {
           this.isRun = false;
           clearInterval(this.intervalId);
         }
-        window.scroll(0, window.scrollY - 50);
+        window.scroll(0, window.scrollY - speed);
       }, 20);
     }
   }
