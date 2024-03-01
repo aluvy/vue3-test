@@ -24,8 +24,8 @@
         bulletElement: 'button'
       }"
       @swiper="onSwiper"
-      @transitionEnd="transitionEnd"
       @transitionStart="transitionStart"
+      @transitionEnd="transitionEnd"
     >
       <swiper-slide v-for="(visual, i) in visuals" :key="visual" :virtualIndex="i">
         <div class="slogan-area">

@@ -72,25 +72,31 @@
             align="center"
           ></ContentTitle>
           <swiper
-            class="service-Swiper"
+            class="svSwiper"
             :modules="modules"
             :effect="'fade'"
+            :loop="true"
             :draggable="true"
-            :navigation="true"
             :pagination="{
               type: 'fraction',
             }"
-            :speed=3000
+            :speed=1000
             :autoplay="{
               delay: 300000,
               disableOnInteraction: false,
             }"
             @swiper="onSwiper"
+            @transitionStart="transitionStart"
+            @transitionEnd="transitionEnd"
           >
             <swiper-slide v-for="service in services" :key="service">
               <strong>{{ service.title }}</strong>
               <p>{{ service.desc }}</p>
             </swiper-slide>
+            <div class="svSwiper-controller">
+              <button type="button" class="btn_prev" @click="mySwiper.slidePrev()"><i class="fa fa-angle-left"></i><span class="blind">prev</span></button>
+              <button type="button" class="btn_next" @click="mySwiper.slideNext()"><i class="fa fa-angle-right"></i><span class="blind">next</span></button>
+            </div>
           </swiper>
         </div>
         <div class="bg" :style="`background-image: url(${serviceBG})`"></div>
@@ -185,10 +191,21 @@ export default {
       // swiper.emit("transitionEnd");
     }
 
+    const transitionStart = (swiper) => {
+      console.log('transitionStart', swiper);
+    }
+
+    const transitionEnd = (swiper) => {
+      console.log('transitionEnd', swiper);
+    }
+
     return {
       mySwiper,
       onSwiper,
       modules: [ EffectFade, Autoplay, Pagination, A11y ],
+
+      transitionStart,
+      transitionEnd
     }
   },
   data() {
