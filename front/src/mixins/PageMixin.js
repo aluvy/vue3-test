@@ -1,22 +1,17 @@
 import store from '@/store/';
-import { gsapScrollTrigger, gsapKill } from '@/utils/gsap.js';
-import { observer, disconnectObserver } from '@/utils/observer.js';
+import { gsapAnimationTrigger, gsapThemeTrigger, gsapKill } from '@/utils/gsap.js';
 
 // mixin
 export default {
 	async mounted() {
 		await this.$nextTick();
-		const elem = document.querySelector('#container');
-		gsapScrollTrigger(elem);
+		gsapAnimationTrigger();
+		gsapThemeTrigger();
 
 		document.querySelector('#app').classList.remove('loading');
 		store.commit('setLoading', true);
-		setTimeout(() => {
-			observer();
-		}, 1);
 	},
 	unmounted() {
 		gsapKill();
-		disconnectObserver();
 	},
 };

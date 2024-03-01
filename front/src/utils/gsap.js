@@ -4,35 +4,53 @@ gsap.registerPlugin(ScrollTrigger);
 
 const triggers = ScrollTrigger.getAll();
 
-const gsapScrollTrigger = function (ref) {
+const gsapAnimationTrigger = function () {
 	ScrollTrigger.refresh();
+
+	const container = document.querySelector('#container');
 	gsap.context(() => {
-		const items = ref.querySelectorAll('.gsap-item');
+		const items = container.querySelectorAll('.gsap-item');
 		// console.log(items);
 		items.forEach(item => {
 			gsap.to(item, {
 				scrollTrigger: {
 					trigger: item,
-					start: 'top 80%',
-					end: 'bottom 100%',
+					start: 'top 100%',
+					// start: 'top 80%',
+					end: 'bottom 0%',
 					// markers: true,
-					onEnter: e => {
-						e.trigger.classList.add('onEnter');
-					},
-					// onLeave: e => {
-					// 	e.trigger.classList.remove('onEnter');
-					// },
+					// toggleActions: 'restart pause resume none',
+
+					onEnter: e => e.trigger.classList.add('onEnter'),
+					// onLeave: e => e.trigger.classList.remove('onEnter'),
+					// onEnterBack: e => e.trigger.classList.add('onEnter'),
+					// onLeaveBack: e => e.trigger.classList.remove('onEnter'),
 				},
 			});
 		});
-	}, ref.value);
+	}, container);
 };
 
-const gsapKill = function () {
-	// console.log(triggers);
-	triggers.forEach(trigger => {
-		trigger.kill();
+const gsapThemeTrigger = function () {
+	ScrollTrigger.refresh();
+
+	gsap.utils.toArray('[data-theme]').forEach(item => {
+		let theme = item.getAttribute('data-theme');
+		const header = document.querySelector('#header');
+
+		ScrollTrigger.create({
+			trigger: item,
+			start: 'top 40px',
+			end: 'bottom 40px',
+			// markers: true,
+			onEnter: () => header.setAttribute('data-theme', theme),
+			onEnterBack: () => header.setAttribute('data-theme', theme),
+		});
 	});
 };
 
-export { gsapScrollTrigger, gsapKill };
+const gsapKill = function () {
+	triggers.forEach(trigger => trigger.kill());
+};
+
+export { gsapAnimationTrigger, gsapThemeTrigger, gsapKill };

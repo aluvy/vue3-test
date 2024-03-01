@@ -49,8 +49,6 @@ html:not(.OpenAside) #header[data-theme='dark'] .header-menu span,
 html:not(.OpenAside) #header[data-theme='dark'] .header-menu span::before,
 html:not(.OpenAside) #header[data-theme='dark'] .header-menu span::after { background: #000; }
 
-/* .OpenAside #header[data-theme='dark'] span { background: transparent; } */
-
 
 
 /** aisde ***************************************************/
