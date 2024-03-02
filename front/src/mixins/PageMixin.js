@@ -13,11 +13,6 @@ export default {
 			store.commit('setLoading', false);
 		}, 800); // LoadScreen Component transition duration .8s
 	},
-	beforeUnmount() {
-		store.commit('setLoading', true);
-		document.querySelector('#app').classList.add('loading');
-		store.commit('setOpenAside', false);
-	},
 	unmounted() {
 		gsapKill();
 	},
