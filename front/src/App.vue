@@ -77,8 +77,13 @@ export default {
 </script>
 
 <style scoped>
-.pageChange-enter-active,
-.pageChange-leave-active { animation: fade-in .2s; }
+/* .pageChange-enter-active,
+.pageChange-leave-active { animation: fade-in .1s; }
 .pageChange-enter-active { animation-fill-mode: backwards; }
-.pageChange-leave-active { animation-direction: reverse; }
+.pageChange-leave-active { animation-direction: reverse; } */
+
+/* .pageChange-enter-active,
+.pageChange-leave-active { opacity: 0; transition: 1s; }
+.pageChange-enter-active {  }
+.pageChange-leave-active {  } */
 </style>

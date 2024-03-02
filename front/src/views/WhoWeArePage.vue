@@ -72,19 +72,14 @@
             align="center"
           ></ContentTitle>
           <swiper
-            class="svSwiper"
+            class="svSwiper gsap-item"
             :modules="modules"
-            :effect="'fade'"
             :loop="true"
             :draggable="true"
             :pagination="{
               type: 'fraction',
             }"
-            :speed=1000
-            :autoplay="{
-              delay: 300000,
-              disableOnInteraction: false,
-            }"
+            :speed=0
             @swiper="onSwiper"
             @transitionStart="transitionStart"
             @transitionEnd="transitionEnd"
@@ -136,7 +131,7 @@ import '@/assets/css/page-who.css'
 import PageMixin from '@/mixins/PageMixin';
 import { ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { EffectFade, Autoplay, Pagination, A11y } from 'swiper/modules';
+import { Autoplay, Pagination, A11y } from 'swiper/modules';
 
   // Import Swiper styles
   // import 'swiper/css';
@@ -202,7 +197,7 @@ export default {
     return {
       mySwiper,
       onSwiper,
-      modules: [ EffectFade, Autoplay, Pagination, A11y ],
+      modules: [ Autoplay, Pagination, A11y ],
 
       transitionStart,
       transitionEnd

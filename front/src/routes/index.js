@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import store from '@/store/';
+// import store from '@/store/';
 
 const router = createRouter({
 	history: createWebHashHistory(),
@@ -66,8 +66,9 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	document.querySelector('#app').classList.add('loading');
-	store.commit('setOpenAside', false);
+	// store.commit('setLoading', true);
+	// document.querySelector('#app').classList.add('loading');
+	// store.commit('setOpenAside', false);
 	// setTimeout(() => {
 	// 	// document.querySelector('#app').classList.remove('loading');
 	// 	store.commit('setOpenAside', false);
