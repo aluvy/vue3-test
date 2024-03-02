@@ -13,9 +13,11 @@
 .who-overview .info li:nth-child(3) { max-width: 12rem; }
 
 /* service */
-.who-service { position: relative; padding: 14rem 0; }
+.who-service { position: relative; padding: 14rem 0; overflow: hidden; }
 .who-service .inner { position: relative; z-index: 2; }
-.who-service .bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 1; }
+.who-service .bg { position: absolute; inset: 0; overflow: hidden; z-index: 1; }
+.who-service .bg .timeline { position: absolute; left: 0; top: -10%; width: 100%; height: calc(100% * 1.4); background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 1; }
+
 .svSwiper { position: relative; width: 100%; overflow: hidden; z-index: 4; touch-action: pan-y; margin-top: 3rem; padding: 0 22rem 5.6rem; }
 .svSwiper .swiper-wrapper { position: relative; width: 100%; height: 100%; display: flex; z-index: 1; transition-property: transform; }
 .svSwiper .swiper-slide { position: relative; width: 100%; height: 100%; text-align: center; flex-shrink: 0; transition-property: transform; display: block; transition-property: all; }
@@ -30,7 +32,7 @@
 .svSwiper .swiper-slide-active strong,
 .svSwiper .swiper-slide-active p { transform: translate3d(0, 0, 0); opacity: 1; }
 
-.svSwiper-controller button { position: absolute; top: 0; width: 4.4rem; height: 4.4rem; font-size: 1.9rem; line-height: 1.2rem; color: #000; }
+.svSwiper-controller button { position: absolute; top: 0; width: 4.4rem; height: 4.4rem; font-size: 1.9rem; line-height: 1.2rem; color: #000; z-index: 99; }
 .svSwiper-controller .btn_prev { left: 7rem; }
 .svSwiper-controller .btn_next { right: 7rem; }
 .svSwiper-controller button i { transition: all .3s var(--ease-InOutExpo); }

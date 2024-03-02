@@ -94,7 +94,9 @@
             </div>
           </swiper>
         </div>
-        <div class="bg" :style="`background-image: url(${serviceBG})`"></div>
+        <div class="bg">
+          <div class="timeline" :style="`background-image: url(${serviceBG})`"></div>
+        </div>
       </section>
 
       <section class="section white who-client" data-theme="dark">
@@ -132,6 +134,12 @@ import PageMixin from '@/mixins/PageMixin';
 import { ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Pagination, A11y } from 'swiper/modules';
+
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+// const triggers = ScrollTrigger.getAll();
 
   // Import Swiper styles
   // import 'swiper/css';
@@ -253,5 +261,28 @@ export default {
       ]
     }
   },
+  methods: {
+    svSwiperBGTimeline() {
+      gsap.timeline({ scrollTrigger :{
+        trigger: ".who-service",
+        start: "bottom 100%",
+        end: "botton -200",
+        scrub: 1,
+        markers: true,
+        // pin: true, 
+        // events: onEnter onLeave onEnterBack onLeaveBack
+        toggleActions: "restart none none reverse"
+        // options: play, pause, resume, reset, restart, complete, reverse, none    
+      }})
+      .from(".timeline", {y : '-100', duration: 2, ease: 'none'})
+    }
+  },
+  mounted() {
+    this.svSwiperBGTimeline();
+  },
+  unmounted() {
+    const triggers = ScrollTrigger.getAll();
+    triggers.forEach(trigger => trigger.kill());
+  }
 }
 </script>
