@@ -54,7 +54,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .title-area { color: rgba(0,0,0, 0.7); word-break: keep-all; }
 .title-area .page-title h2,
 .title-area .title-s { font-size: 1.6rem; line-height: 1; font-weight: 700; }

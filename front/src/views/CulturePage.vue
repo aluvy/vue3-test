@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import '@/assets/css/page-culture.css'
+// import '@/assets/css/page-culture.css'
 import PageMixin from '@/mixins/PageMixin';
 
 // component
@@ -48,3 +48,7 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+@import '@/assets/css/page-culture.css';
+</style>

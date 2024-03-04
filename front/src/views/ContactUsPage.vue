@@ -21,13 +21,19 @@
     </section>
 
     <div id="content">
-      content
+      
+      <section class="section who-link" data-theme="light">
+        <ul>
+          <li>
+            <router-link to="/who-we-are">CONTACT US</router-link>
+          </li>
+        </ul>
+      </section>
     </div>
   </div>
 </template>
 
 <script>
-import '@/assets/css/page-contact.css'
 import PageMixin from '@/mixins/PageMixin';
 
 // component
@@ -51,3 +57,7 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+@import '@/assets/css/page-contact.css';
+</style>

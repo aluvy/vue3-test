@@ -134,7 +134,6 @@
 </template>
 
 <script>
-import '@/assets/css/page-who.css'
 import PageMixin from '@/mixins/PageMixin';
 import { ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -297,3 +296,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+@import '@/assets/css/page-who.css';
+</style>

@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import '@/assets/css/page-insight.css'
+// import '@/assets/css/page-insight.css'
 import PageMixin from '@/mixins/PageMixin';
 
 // component
@@ -47,3 +47,7 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+@import '@/assets/css/page-insight.css';
+</style>

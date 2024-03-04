@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import '@/assets/css/page-about.css'
+// import '@/assets/css/page-about.css'
 import PageMixin from '@/mixins/PageMixin';
 
 // component
@@ -126,3 +126,7 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+@import '@/assets/css/page-about.css';
+</style>

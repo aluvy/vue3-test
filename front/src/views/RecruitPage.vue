@@ -147,7 +147,7 @@
 </template>
 
 <script>
-import '@/assets/css/page-recruit.css'
+// import '@/assets/css/page-recruit.css'
 import PageMixin from '@/mixins/PageMixin';
 
 // components
@@ -283,3 +283,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+@import '@/assets/css/page-recruit.css';
+</style>
