@@ -23,7 +23,9 @@
     <div id="content">
 
       <section class="section contact" data-theme="light">
-        <div id="map" ref="map">맵</div>
+        <div id="map">
+          <KakaoMap></KakaoMap>
+        </div>
         <div class="location">
           <ContentTitle
             :titleL="[
@@ -62,16 +64,17 @@ import PageMixin from '@/mixins/PageMixin';
 // component
 import ContentVisual from '@/components/common/ContentVisual.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
+import KakaoMap from '@/components/common/KakaoMap.vue'
 
 // assets
 import visual from '@/assets/images/contact/visual.jpg'
-
 
 export default {
   mixins: [PageMixin],
   components: {
     ContentVisual,
-    ContentTitle
+    ContentTitle,
+    KakaoMap
   },
   data() {
     return {
