@@ -15,6 +15,7 @@
 </template>
 
 <script>
+// import store from '@/store/';
 import { mapGetters } from 'vuex'
 
 import AppHeader from '@/components/layout/AppHeader.vue'
@@ -39,8 +40,6 @@ export default {
         ? document.documentElement.classList.add('no-scroll')
         : document.documentElement.classList.remove('no-scroll');
     },
-    $route() {
-    }
   },
   computed: {
     ...mapGetters(['isOpenAside', 'isNoScroll']),
@@ -66,7 +65,7 @@ export default {
     this.isScroll();
 
     window.addEventListener('beforeunload', () => {
-      document.querySelector('#app').classList.add('loading');
+      document.querySelector('#app').classList.add('loading');  // page refresh
     });
 	},
   unmounted() {
@@ -77,13 +76,6 @@ export default {
 </script>
 
 <style scoped>
-/* .pageChange-enter-active,
-.pageChange-leave-active { animation: fade-in .1s; }
-.pageChange-enter-active { animation-fill-mode: backwards; }
-.pageChange-leave-active { animation-direction: reverse; } */
-
-/* .pageChange-enter-active,
-.pageChange-leave-active { opacity: 0; transition: 1s; }
-.pageChange-enter-active {  }
-.pageChange-leave-active {  } */
+/* page timer */
+.pageChange-leave-active { transition: all .5s; }
 </style>

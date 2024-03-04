@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import store from '@/store/';
+// import store from '@/store/';
 
 const router = createRouter({
 	history: createWebHashHistory(),
@@ -66,10 +66,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	store.commit('setLoading', true);
-	document.querySelector('#app').classList.add('loading');
-	store.commit('setOpenAside', false);
-
+	document.querySelector('#app').classList.add('loading'); // page change
 	next();
 });
 
