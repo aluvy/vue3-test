@@ -76,18 +76,23 @@
             :modules="modules"
             :loop="true"
             :draggable="true"
-            :pagination="{
-              type: 'fraction',
-            }"
             :speed=0
             @swiper="onSwiper"
             @transitionStart="transitionStart"
-            @transitionEnd="transitionEnd"
           >
             <swiper-slide v-for="service in services" :key="service">
               <strong>{{ service.title }}</strong>
               <p>{{ service.desc }}</p>
             </swiper-slide>
+            <div class="svSwiper-pagination">
+              <div class="current">
+                <ul ref="currentUl">
+                  <li v-for="(item, i) in services" :key="i">{{ i + 1 }}</li>
+                </ul>
+              </div>
+              <div class="divide">/</div>
+              <div class="total">{{ services.length }}</div>
+            </div>
             <div class="svSwiper-controller">
               <button type="button" class="btn_prev" @click="mySwiper.slidePrev()"><i class="fa fa-angle-left"></i><span class="blind">prev</span></button>
               <button type="button" class="btn_next" @click="mySwiper.slideNext()"><i class="fa fa-angle-right"></i><span class="blind">next</span></button>
@@ -133,7 +138,7 @@ import '@/assets/css/page-who.css'
 import PageMixin from '@/mixins/PageMixin';
 import { ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Autoplay, Pagination, A11y } from 'swiper/modules';
+import { Autoplay, A11y } from 'swiper/modules';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -189,26 +194,32 @@ export default {
   mixins: [PageMixin],
   setup() {
     let mySwiper = ref();
+    let currentUl = ref();
+    let activeIndex = ref(0);
+
     const onSwiper = (swiper) => {
       mySwiper.value = swiper;
-      // swiper.emit("transitionEnd");
+      setPagination(swiper.realIndex);
     }
 
     const transitionStart = (swiper) => {
-      console.log('transitionStart', swiper);
+      setPagination(swiper.realIndex);
     }
 
-    const transitionEnd = (swiper) => {
-      console.log('transitionEnd', swiper);
+    const setPagination = (index) => {
+      currentUl.value.style.transform = `translate3D(${20 * index * -1}px, 0, 0)`;
     }
 
     return {
       mySwiper,
       onSwiper,
-      modules: [ Autoplay, Pagination, A11y ],
+      modules: [ Autoplay, A11y ],
 
       transitionStart,
-      transitionEnd
+      setPagination,
+
+      currentUl,
+      activeIndex,
     }
   },
   data() {
@@ -268,13 +279,13 @@ export default {
         start: "bottom 100%",
         end: "botton -200",
         scrub: 1,
-        markers: true,
+        // markers: true,
         // pin: true, 
         // events: onEnter onLeave onEnterBack onLeaveBack
         toggleActions: "restart none none reverse"
         // options: play, pause, resume, reset, restart, complete, reverse, none    
       }})
-      .from(".timeline", {y : '-100', duration: 2, ease: 'none'})
+      .from(".timeline", { y : '-100', duration: 2, ease: 'none' })
     }
   },
   mounted() {

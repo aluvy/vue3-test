@@ -5,19 +5,17 @@
 .who-overview .desc { display: flex; align-items: flex-start; justify-content: space-between; margin: 6rem 0 0; font-size: 1.6rem; color: #999; line-height: 1.9; }
 .who-overview .desc li { flex: 0 0 calc(50% - 4rem); }
 .who-overview .info { display: flex; align-items: flex-start; justify-content: flex-start; border-top: 1px solid rgba(255,255,255, 0.4); margin-top: 10rem; padding-top: 4rem; font-size: 1.6rem; color: #999; line-height: 1.9; }
-.who-overview .info li { width: fit-content; }
-.who-overview .info li + li { margin-left: 5rem; }
 .who-overview .info li strong { display: block; color: #ccc; font-size: 2rem; font-weight: normal; margin-bottom: 1rem; }
-/* .who-overview .info li:nth-child(1) { flex: 1 0 25%; } */
-.who-overview .info li:nth-child(2) { min-width: 16rem; }
-.who-overview .info li:nth-child(3) { max-width: 12rem; }
+.who-overview .info li:nth-child(1) { flex: 1 0 20%; }
+.who-overview .info li:nth-child(2) { flex: 1 0 20%; }
+.who-overview .info li:nth-child(3) { flex: 1 0 50%; }
 
 /* service */
-.who-service { position: relative; padding: 14rem 0; overflow: hidden; }
+.who-service { position: relative; padding: 25rem 0; overflow: hidden; }
 .who-service .inner { position: relative; z-index: 2; }
 .who-service .bg { position: absolute; inset: 0; overflow: hidden; z-index: 1; }
 .who-service .bg .timeline { position: absolute; left: 0; top: -10%; width: 100%; height: calc(100% * 1.4); background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 1; }
-
+/* service | swiper */
 .svSwiper { position: relative; width: 100%; overflow: hidden; z-index: 4; touch-action: pan-y; margin-top: 3rem; padding: 0 22rem 5.6rem; }
 .svSwiper .swiper-wrapper { position: relative; width: 100%; height: 100%; display: flex; z-index: 1; transition-property: transform; }
 .svSwiper .swiper-slide { position: relative; width: 100%; height: 100%; text-align: center; flex-shrink: 0; transition-property: transform; display: block; transition-property: all; }
@@ -25,13 +23,12 @@
 .svSwiper .swiper-slide p { transform: translate3d(-3rem, 0, 0); opacity: 0; transition-property: transform opacity; transition-duration: .5s; word-break: keep-all; }
 .svSwiper .swiper-slide strong { display: block; color: #000; font-size: 2rem; }
 .svSwiper .swiper-slide p { font-size: 1.4rem; color: #333; margin-top: 1rem; }
-
-/* active */
+/* service | swiper | active */
 .svSwiper.swiper-backface-hidden .swiper-slide { backface-visibility: hidden; opacity: 0 !important; transform: translateZ(0); }
 .svSwiper.swiper-backface-hidden .swiper-slide-active { opacity: 1!important; }
 .svSwiper .swiper-slide-active strong,
 .svSwiper .swiper-slide-active p { transform: translate3d(0, 0, 0); opacity: 1; }
-
+/* service | swiper | controller */
 .svSwiper-controller button { position: absolute; top: 0; width: 4.4rem; height: 4.4rem; font-size: 1.9rem; line-height: 1.2rem; color: #000; z-index: 99; }
 .svSwiper-controller .btn_prev { left: 7rem; }
 .svSwiper-controller .btn_next { right: 7rem; }
@@ -40,12 +37,14 @@
 .svSwiper-controller button:hover::after { transform: scaleX(1); }
 .svSwiper-controller button.btn_prev:hover i { transform: translate3D(-1rem, 0, 0); }
 .svSwiper-controller button.btn_next:hover i { transform: translate3D(1rem, 0, 0); }
-
-.svSwiper .swiper-pagination { position: absolute; left: 0; bottom: 0; width: 100%; font-size: 1.6rem; color: #000; text-align: center; letter-spacing: 0.6rem; }
-
-/* animation */
-.svSwiper.onEnter { animation-name: scale-out-1; animation-duration: .3s; }
-
+/* service | swiper | pagination */
+.svSwiper-pagination { position: absolute; left: 0; bottom: 0; display: flex; align-items: center; justify-content: center; width: 100%; font-size: 1.6rem; color: #000; line-height: 2rem; text-align: center; letter-spacing: 0.6rem; }
+.svSwiper-pagination .current,
+.svSwiper-pagination .current ul li,
+.svSwiper-pagination .device,
+.svSwiper-pagination .total { flex: 0 0 2rem; text-align: center; overflow: hidden; }
+.svSwiper-pagination .current ul { display: flex; align-items: center; transition: transform .3s; }
+.svSwiper-pagination .divide { margin: 0 0.6rem; }
 
 /* client */
 .who-client { padding: 10rem 0; }
@@ -54,7 +53,6 @@
 .who-client .list li img { max-width: 25rem; }
 
 /* who-link */
-/* .who-link {} */
 .who-link ul { display: flex; align-items: center; justify-content: space-between; }
 .who-link ul li { position: relative; flex: 1 1 auto; background: url(@/assets/images/who/link-bg.jpg) center no-repeat; background-size: cover; }
 .who-link ul li::after { position: absolute; inset: 0; content:''; opacity: 0; transition: all .3s; background: rgba(0,0,0, 0.5); }
@@ -63,7 +61,7 @@
 
 
 /* animation */
-/* .who-visual .bg.onEnter { animation-name: scale-in-1; animation-duration: 1s; animation-fill-mode: forwards; } */
+.svSwiper.onEnter { animation-name: scale-out-1; animation-duration: .3s; }
 .who-overview .info li.onEnter { animation-name: fade-in-slide-up-30; }
 .who-overview .info li:nth-child(1).onEnter { animation-delay: .1s; }
 .who-overview .info li:nth-child(2).onEnter { animation-delay: .2s; }
@@ -71,22 +69,36 @@
 
 
 @media only screen and (max-width: 1440px) {
-
+  .who-service { padding: 15rem 0; }
 }
 @media only screen and (max-width: 1024px) {
-  /* .who-visual { height: calc(var(--vh) * 0.6); } */
   .who-overview .desc { display: block; }
-  .who-overview .desc li + li { margin-top: 3rem; }
+  .who-overview .desc li + li { margin-top: 2.4rem; }
   .who-overview .info { flex-wrap: wrap; }
-  .who-overview .info li { flex: 1 1 45%; }
-  .who-overview .info li + li { margin-left: 0; }
+  .who-overview .info li:nth-child(1),
+  .who-overview .info li:nth-child(2),
+  .who-overview .info li:nth-child(3) { flex: 1 1 50%; }
+  .who-overview .info li:nth-child(n+3) { margin-top: 3rem; }
+
+  .who-service { padding: 10rem 0; }
+  .svSwiper { padding: 0 7rem 5.6rem; }
+  .svSwiper-controller .btn_prev { left: 0; }
+  .svSwiper-controller .btn_next { right: 0; }
 
 }
 @media only screen and (max-width: 768px) {
+  .who-service { padding: 8rem 0; }
+  .who-overview .info li:nth-child(1),
+  .who-overview .info li:nth-child(2),
+  .who-overview .info li:nth-child(3) { flex: 1 1 100%; }
+  .who-overview .info li:nth-child(n+2) { margin-top: 3rem; }
 
+  .svSwiper { padding: 0; }
+  .svSwiper-controller { position: relative; width: 100%; max-width: 42rem; margin: 0 auto; }
+  .svSwiper-controller button { top: initial; bottom: 0; }
+  .svSwiper-pagination { position: initial; left: initial; bottom: initial; line-height: 4.4rem; margin: 2rem 0 0; }
 }
 @media only screen and (max-width: 425px) {
-  
 }
 @media only screen and (max-width: 375px) {
   
