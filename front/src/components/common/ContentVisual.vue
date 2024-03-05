@@ -59,7 +59,8 @@ export default {
 
     }
   },
-  mounted() {
+  async mounted() {
+    await this.$nextTick();
     if( this.mode === 'parallax' ) gsapParallaxVisualTrigger();
   }
 }

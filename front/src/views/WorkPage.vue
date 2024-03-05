@@ -2,7 +2,7 @@
   <div id="work-page">
     
     <section class="section black work-visual" data-theme="light">
-      <ContentVisual :dimmed="true">
+      <ContentVisual :dimmed="true" mode="parallax">
         <template #title>
           <ContentTitle
             :titleXL = "[ { delay: 0, text: `Finding the right one is` }, { delay: 1, text: `what we do best.` } ]"
