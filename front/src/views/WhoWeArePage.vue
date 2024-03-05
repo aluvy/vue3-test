@@ -121,15 +121,13 @@
         </div>
       </section>
 
-      <section class="section who-link" data-theme="light">
-        <ul>
-          <li>
-            <router-link to="/contact-us">CONTACT US</router-link>
-          </li>
-        </ul>
+      <section class="section" data-theme="light">
+        <PageLink :Links="[
+          { url: '/contact-us', title: `CONTACT US`, bg: Linkbg }
+        ]"></PageLink>
       </section>
-    </div>
 
+    </div>
   </div>
 </template>
 
@@ -143,21 +141,15 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-// const triggers = ScrollTrigger.getAll();
-
-  // Import Swiper styles
-  // import 'swiper/css';
-  // import 'swiper/css/effect-fade';
-  // import 'swiper/css/navigation';
-  // import 'swiper/css/pagination';
-
 // component
 import ContentVisual from '@/components/common/ContentVisual.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
+import PageLink from '@/components/common/PageLink.vue'
 
 // assets
 import visual from '@/assets/images/who/visual.jpg'
 import serviceBG from '@/assets/images/who/service-bg.jpg'
+import Linkbg from '@/assets/images/who/link-bg.jpg'
 import client1 from '@/assets/images/who/client-logo01.jpg'
 import client2 from '@/assets/images/who/client-logo02.jpg'
 import client3 from '@/assets/images/who/client-logo03.jpg'
@@ -188,7 +180,8 @@ export default {
     ContentVisual,
     ContentTitle,
     Swiper,
-    SwiperSlide
+    SwiperSlide,
+    PageLink
   },
   mixins: [PageMixin],
   setup() {
@@ -225,6 +218,7 @@ export default {
     return {
       visual,
       serviceBG,
+      Linkbg,
       services: [
         {
           title: `"Web Service뿐만 아니라 Mobile도 아우르는 강력한 Cross Business 구축 경험 및 기술 보유"`,

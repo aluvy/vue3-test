@@ -13,13 +13,6 @@
 
 .contact .location .cont.onEnter { animation-name: fade-in-slide-up-20; animation-duration: .3s; animation-delay: .4s; }
 
-/* who-link */
-.contact-link ul { display: flex; align-items: center; justify-content: space-between; }
-.contact-link ul li { position: relative; flex: 1 1 auto; background: url(@/assets/images/contact/link-bg.jpg) center no-repeat; background-size: cover; }
-.contact-link ul li::after { position: absolute; inset: 0; content:''; opacity: 0; transition: all .3s; background: rgba(0,0,0, 0.5); }
-.contact-link ul li a { position: relative; height: 23rem; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; color: #fff; font-weight: 700; z-index: 2; }
-.contact-link ul li:hover::after { opacity: 1; }
-
 
 @media only screen and (max-width: 1440px) {
   .contact .location { min-height: 75rem; padding: 10rem; }

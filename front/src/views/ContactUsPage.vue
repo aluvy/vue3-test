@@ -47,13 +47,12 @@
         </div>
       </section>
       
-      <section class="section contact-link" data-theme="light">
-        <ul>
-          <li>
-            <router-link to="/who-we-are">WHO WE ARE</router-link>
-          </li>
-        </ul>
+      <section class="section" data-theme="light">
+        <PageLink :Links="[
+          { url: '/who-we-are', title: `WHO WE ARE`, bg: Linkbg }
+        ]"></PageLink>
       </section>
+
     </div>
   </div>
 </template>
@@ -65,20 +64,24 @@ import PageMixin from '@/mixins/PageMixin';
 import ContentVisual from '@/components/common/ContentVisual.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
 import KakaoMap from '@/components/common/KakaoMap.vue'
+import PageLink from '@/components/common/PageLink.vue'
 
 // assets
 import visual from '@/assets/images/contact/visual.jpg'
+import Linkbg from '@/assets/images/contact/link-bg.jpg'
 
 export default {
   mixins: [PageMixin],
   components: {
     ContentVisual,
     ContentTitle,
-    KakaoMap
+    KakaoMap,
+    PageLink
   },
   data() {
     return {
       visual,
+      Linkbg,
     }
   },
 }
