@@ -24,15 +24,21 @@ export default {
       document.head.appendChild(script);
     }
   },
+
   methods: {
     initMap() {
       const container = this.$refs.map;
       const options = {
         center: new kakao.maps.LatLng(this.LatLng.Lat, this.LatLng.Lng),
         level: 3,
-        scrollwheel: false,
+        // scrollwheel: false,
       };
       this.map = new kakao.maps.Map(container, options);
+      this.map.setZoomable(false);
+
+      // 지도 확대 축소 컨트롤
+      var zoomControl = new kakao.maps.ZoomControl();
+      this.map.addControl(zoomControl, kakao.maps.ControlPosition.LEFT);
 
       const markerPosition  = new kakao.maps.LatLng(this.LatLng.Lat, this.LatLng.Lng);
       const icon = new kakao.maps.MarkerImage(
@@ -48,14 +54,24 @@ export default {
 
       let makerWrap = document.querySelector("#kakaomap").querySelector("[title='maker_icon']").parentElement;
       makerWrap.classList.add('maker_icon');
+
+      window.addEventListener('resize', () => {
+        this.setCenter(this.map);
+      })
     },
+    setCenter(map) {
+      map.setCenter(new kakao.maps.LatLng(this.LatLng.Lat, this.LatLng.Lng));
+    }
   },
+  unmounted() {
+    window.removeEventListener('resize', this.setCenter);
+  }
 };
 </script>
 
 <style>
 #kakaomap { width: 100%; height: 100%; }
-#kakaomap, #kakaomap * { touch-action: manipulation; }
+/* #kakaomap, #kakaomap * { touch-action: manipulation; } */
 #kakaomap .maker_icon { position: relative; margin: -4px 0 0 -9px !important; }
 #kakaomap .maker_icon img { position: relative; z-index: 2; }
 #kakaomap .maker_icon::before,
