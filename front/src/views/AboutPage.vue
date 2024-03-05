@@ -5,8 +5,8 @@
       <ContentVisual type="halfLeft">
         <template #title>
           <ContentTitle
-            :pageTitle = "[ { delay: 1, text: `ABOUT US` } ]"
-            :titleL = "[ { delay: 2, text: `Awesome` }, { delay: 3, text: `Global Capability` } ]"
+            :pageTitle = "[ { delay: 0, text: `ABOUT US` } ]"
+            :titleL = "[ { delay: 1, text: `Awesome` }, { delay: 2, text: `Global Capability` } ]"
             :desc = "[
               { delay: 3, text: `우리는 다양한 프로젝트 경험과 구성인력의 전문화로 조직간 Co-work을 통해 성공적인 프로젝트를 진행합니다.`},
             ]"

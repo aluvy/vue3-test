@@ -5,8 +5,8 @@
       <ContentVisual>
         <template #title>
           <ContentTitle
-            :titleXL = "[ { delay: 2, text: `INSIGHT` } ]"
-            :visualTitle = "[ { delay: 3, text: `더피프티원의 새로운 이야기` } ]"
+            :titleXL = "[ { delay: 0, text: `INSIGHT` } ]"
+            :visualTitle = "[ { delay: 1, text: `더피프티원의 새로운 이야기` } ]"
             theme="black"
             align="center"
           ></ContentTitle>

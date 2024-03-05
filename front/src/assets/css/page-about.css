@@ -38,7 +38,7 @@
 .about-img .img.onEnter { animation-name: fade-in-slide-up-50; animation-duration: 1s; }
 .about-awards .list.onEnter { animation-name: fade-in-slide-up-20; animation-duration: 1s; }
 /* animation | delay */
-.about-visual .sns-wrap.onEnter { animation-delay: .5s; }
+.about-visual .sns-wrap.onEnter { animation-delay: 1.3s; }
 
 
 @media only screen and (max-width: 768px) {

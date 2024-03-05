@@ -11,6 +11,8 @@
 .contact .location .cont strong { display: block; font-size: 2rem; font-weight: normal; margin-bottom: 1.4rem; }
 .contact .location .cont p + p { margin-top: 0.6rem; }
 
+.contact .location .cont.onEnter { animation-name: fade-in-slide-up-20; animation-duration: .3s; animation-delay: .4s; }
+
 /* who-link */
 .contact-link ul { display: flex; align-items: center; justify-content: space-between; }
 .contact-link ul li { position: relative; flex: 1 1 auto; background: url(@/assets/images/contact/link-bg.jpg) center no-repeat; background-size: cover; }

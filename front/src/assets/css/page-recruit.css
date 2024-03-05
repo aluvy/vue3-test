@@ -15,7 +15,7 @@
 .recruit-visual .bg .img { width: 100%; height: 100%; background-size: 50% auto; background-position: top -21rem right -17%; background-repeat: no-repeat; }
 
 /* vishal | animation */
-.recruit-visual .slogan-inner p.onEnter {  animation-delay: .3s; animation-duration: 1s; }
+.recruit-visual .slogan-inner p.onEnter {  animation-delay: .8s; animation-duration: 1s; }
 .recruit-visual .slogan-inner p:nth-child(1).onEnter { animation-name: fade-in-slide-right-20; }
 .recruit-visual .slogan-inner p:nth-child(2).onEnter { animation-name: fade-in-slide-left-20; }
 .recruit-visual .bg.onEnter { animation-name: scale-in-2; animation-duration: 1s; animation-fill-mode: forwards; }

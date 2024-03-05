@@ -75,15 +75,15 @@ export default {
 .visual-area.normal { height: calc(var(--vh) * 0.8); min-height: 60rem; }
 
 /* type | halfLeft */
-.visual-area.halfLeft { display: flex; align-items: stretch; justify-content: space-between; height: calc(var(--vh) * 0.95); overflow-y: hidden; }
+.visual-area.halfLeft { display: flex; align-items: stretch; justify-content: space-between; height: calc(var(--vh) * 0.95); min-height: 55rem; overflow-y: hidden; }
 .visual-area.halfLeft .slogan { position: initial; inset: initial; flex: 0 0 50%; display: flex; align-items: center; justify-content: flex-end; color: #fff; }
 .visual-area.halfLeft .slogan-inner { width: 100%; max-width: calc(var(--max-width)/2); padding: var(--inner-pad); padding-right: 6rem; font-size: 1.6rem; }
 .visual-area.halfLeft .bg { position: inherit; inset: inherit; flex: 1 1 50%; max-width: 50%; min-width: 50%; background:url(@/assets/images/about/visual.jpg) center no-repeat; background-size: cover; }
 
 
 /* visual animation */
-.visual-area .bg.onEnter { animation-name: scale-in-1; animation-duration: 1s; animation-fill-mode: forwards; }
-.visual-area.halfLeft .bg.onEnter { animation-name: fade-in-slide-left-20; animation-duration: 1s; }
+.visual-area .bg.onEnter { animation-name: scale-in-1; animation-duration: 1s; animation-fill-mode: forwards; animation-delay: .8s; animation-fill-mode: backwards; }
+.visual-area.halfLeft .bg.onEnter { animation-name: fade-in-slide-left-20; animation-duration: 1s; animation-delay: .8s; animation-fill-mode: backwards; }
 
 
 /* scroll down */

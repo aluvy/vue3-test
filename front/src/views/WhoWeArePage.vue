@@ -5,14 +5,14 @@
       <ContentVisual type="normal" :dimmed="true">
         <template #title>
           <ContentTitle
-            :pageTitle = "[ { delay: 1, text: `WHO WE ARE` } ]"
+            :pageTitle = "[ { delay: 0, text: `WHO WE ARE` } ]"
             :titleL="[
-              { delay: 2, text: `Special Group For` },
-              { delay: 3, text: `Digital Marketing`,}
+              { delay: 1, text: `Special Group For` },
+              { delay: 2, text: `Digital Marketing`,}
             ]"
             :desc = "[
-              { delay: 4, text: `더피프티원은 매년 다양한 프로젝트 경험과 전문성 있는 인적자원으로`},
-              { delay: 5, text: `프로젝트를 성공적으로 진행하며 업계를 선도합니다.` }
+              { delay: 3, text: `더피프티원은 매년 다양한 프로젝트 경험과 전문성 있는 인적자원으로`},
+              { delay: 4, text: `프로젝트를 성공적으로 진행하며 업계를 선도합니다.` }
             ]"
             theme="black"
           ></ContentTitle>

@@ -5,8 +5,8 @@
       <ContentVisual :dimmed="true">
         <template #title>
           <ContentTitle
-            :titleXL = "[ { delay: 2, text: `Finding the right one is` }, { delay: 3, text: `what we do best.` } ]"
-            :visualTitle = "[ { delay: 4, text: `What We Made` } ]"
+            :titleXL = "[ { delay: 0, text: `Finding the right one is` }, { delay: 1, text: `what we do best.` } ]"
+            :visualTitle = "[ { delay: 2, text: `What We Made` } ]"
             theme="black"
             align="center"
           ></ContentTitle>

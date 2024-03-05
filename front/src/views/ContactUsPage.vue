@@ -5,8 +5,8 @@
       <ContentVisual type="normal" :dimmed="true">
         <template #title>
           <ContentTitle
-            :pageTitle = "[ { delay: 1, text: `CONTACT` } ]"
-            :titleL = "[ { delay: 2, text: `Want To Work` }, { delay: 3, text: `With Us?` } ]"
+            :pageTitle = "[ { delay: 0, text: `CONTACT` } ]"
+            :titleL = "[ { delay: 1, text: `Want To Work` }, { delay: 2, text: `With Us?` } ]"
             :desc = "[
               { delay: 3, text: `더피프티원은 다양한 프로젝트 경험과 구성인력의 전문화로 조직간`},
               { delay: 4, text: `Co-Work을 통해 성공적인 프로젝트를 진행합니다.` }
@@ -37,7 +37,7 @@
             ]"
             theme="black"
           ></ContentTitle>
-          <div class="cont">
+          <div class="cont gsap-item">
             <strong>(주)더피프티원</strong>
             <p>서울특별시 강남구 봉은사로18길 58</p>
             <p>Tel: 02 332 6251 / 2</p>
@@ -50,7 +50,7 @@
       <section class="section contact-link" data-theme="light">
         <ul>
           <li>
-            <router-link to="/who-we-are">CONTACT US</router-link>
+            <router-link to="/who-we-are">WHO WE ARE</router-link>
           </li>
         </ul>
       </section>

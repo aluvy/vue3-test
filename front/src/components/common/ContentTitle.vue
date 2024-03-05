@@ -89,6 +89,18 @@ export default {
 .title-area .delay8 { animation-delay: .8s; }
 .title-area .delay9 { animation-delay: .9s; }
 
+/*  */
+.visual-area .title-area .delay0 { animation-delay: .8s; }
+.visual-area .title-area .delay1 { animation-delay: .9s; }
+.visual-area .title-area .delay2 { animation-delay: 1s; }
+.visual-area .title-area .delay3 { animation-delay: 1.1s; }
+.visual-area .title-area .delay4 { animation-delay: 1.2s; }
+.visual-area .title-area .delay5 { animation-delay: 1.3s; }
+.visual-area .title-area .delay6 { animation-delay: 1.4s; }
+.visual-area .title-area .delay7 { animation-delay: 1.4s; }
+.visual-area .title-area .delay8 { animation-delay: 1.6s; }
+.visual-area .title-area .delay9 { animation-delay: 1.7s; }
+
 @media only screen and (max-width: 1440px) {
   .title-area .title-l { font-size: 5.6rem; }
   .title-area .title-xl { font-size: 8.1rem; }
