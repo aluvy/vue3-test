@@ -2,7 +2,7 @@
   <div id="insight-page">
     
     <section class="section black culture-visual" data-theme="light">
-      <ContentVisual>
+      <ContentVisual mode="parallax">
         <template #title>
           <ContentTitle
             :titleXL = "[ { delay: 0, text: `INSIGHT` } ]"

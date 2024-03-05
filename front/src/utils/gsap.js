@@ -49,8 +49,26 @@ const gsapThemeTrigger = function () {
 	});
 };
 
+const gsapParallaxVisualTrigger = function () {
+	// console.log('gsapParallaxVisualTrigger');
+	gsap.to('.parallax-bg', {
+		scrollTrigger: {
+			scrub: true,
+		},
+		y: (i, target) => -ScrollTrigger.maxScroll(window) * target.dataset.speed,
+		ease: 'none',
+	});
+	gsap.to('.parallax-text', {
+		scrollTrigger: {
+			scrub: true,
+		},
+		opacity: 0,
+		ease: 'none',
+	});
+};
+
 const gsapKill = function () {
 	triggers.forEach(trigger => trigger.kill());
 };
 
-export { gsapAnimationTrigger, gsapThemeTrigger, gsapKill };
+export { gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxVisualTrigger, gsapKill };

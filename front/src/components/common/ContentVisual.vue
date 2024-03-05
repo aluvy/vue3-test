@@ -6,8 +6,8 @@ B: who we are, contact us : 높이 80%화면 반응형 | 좌측정렬 3단 텍�
 C: aboutus : 우측이미지 반응형 | 좌측정렬 3단텍스트 + sns | 이미지배경
 D: recruit : 완전다름
   -->
-  <div class="visual-area" :class="{ full: type==='full', normal: type==='normal', halfLeft: type==='halfLeft' }">
-    <div class="slogan">
+  <div class="visual-area parallax-bg" :class="{ full: type==='full', normal: type==='normal', halfLeft: type==='halfLeft' }"  data-speed="-0.5">
+    <div class="slogan parallax-text">
       <div class="slogan-inner">
         <slot name="title"></slot>
         
@@ -21,13 +21,15 @@ D: recruit : 완전다름
 
       </div>
     </div>
-    <div class="bg gsap-item" :class="{ dimmed : dimmed === true }">
+    <div class="bg gsap-item parallax-bg" :class="{ dimmed : dimmed === true }" data-speed="-0.1">
       <slot name="visual"></slot>
     </div>
   </div>
 </template>
 
 <script>
+import { gsapParallaxVisualTrigger } from '@/utils/gsap.js'
+
 export default {
   data() {
     return {
@@ -37,6 +39,7 @@ export default {
   props: {
     type: { type: String, default: 'full' },
     dimmed: { type: Boolean, default: false },
+    mode: { type: String, default: 'basic' },
   },
   methods: {
     scrollDown() {
@@ -56,6 +59,9 @@ export default {
 
     }
   },
+  mounted() {
+    if( this.mode === 'parallax' ) gsapParallaxVisualTrigger();
+  }
 }
 </script>
 
