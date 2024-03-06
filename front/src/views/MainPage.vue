@@ -1,6 +1,6 @@
 <template>
   <section id="main-page" data-theme="light">
-    <SwiperMain :slides="slides"></SwiperMain>
+    <SwiperMain :slides="visuals"></SwiperMain>
   </section>
 </template>
 
@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      slides: [
+      visuals: [
         { url: '', img: image1, slogan: ['2024', 'Happy', 'New', 'Goods'] },
         { url: '', img: image2, slogan: ['Golden', 'Time', 'Year-end', 'Party'] },
         { url: '', img: image3, slogan: ['HYUNDAICARD', 'My', 'Company'] },

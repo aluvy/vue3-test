@@ -71,33 +71,7 @@
             theme="white"
             align="center"
           ></ContentTitle>
-          <swiper
-            class="svSwiper gsap-item"
-            :modules="modules"
-            :loop="true"
-            :draggable="true"
-            :speed=0
-            @swiper="onSwiper"
-            @transitionStart="transitionStart"
-          >
-            <swiper-slide v-for="service in services" :key="service">
-              <strong>{{ service.title }}</strong>
-              <p>{{ service.desc }}</p>
-            </swiper-slide>
-            <div class="svSwiper-pagination">
-              <div class="current">
-                <ul ref="currentUl">
-                  <li v-for="(item, i) in services" :key="i">{{ i + 1 }}</li>
-                </ul>
-              </div>
-              <div class="divide">/</div>
-              <div class="total">{{ services.length }}</div>
-            </div>
-            <div class="svSwiper-controller">
-              <button type="button" class="btn_prev" @click="mySwiper.slidePrev()"><i class="fa fa-angle-left"></i><span class="blind">prev</span></button>
-              <button type="button" class="btn_next" @click="mySwiper.slideNext()"><i class="fa fa-angle-right"></i><span class="blind">next</span></button>
-            </div>
-          </swiper>
+          <SwiperService :slides="services"></SwiperService>
         </div>
         <div class="bg">
           <div class="timeline" :style="`background-image: url(${serviceBG})`"></div>
@@ -133,9 +107,6 @@
 
 <script>
 import PageMixin from '@/mixins/PageMixin';
-import { ref } from 'vue';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Autoplay, A11y } from 'swiper/modules';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -145,6 +116,7 @@ gsap.registerPlugin(ScrollTrigger);
 import ContentVisual from '@/components/common/ContentVisual.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
 import PageLink from '@/components/common/PageLink.vue'
+import SwiperService from '@/components/common/SwiperService.vue'
 
 // assets
 import visual from '@/assets/images/who/visual.jpg'
@@ -179,41 +151,10 @@ export default {
   components: {
     ContentVisual,
     ContentTitle,
-    Swiper,
-    SwiperSlide,
+    SwiperService,
     PageLink
   },
   mixins: [PageMixin],
-  setup() {
-    let mySwiper = ref();
-    let currentUl = ref();
-    let activeIndex = ref(0);
-
-    const onSwiper = (swiper) => {
-      mySwiper.value = swiper;
-      setPagination(swiper.realIndex);
-    }
-
-    const transitionStart = (swiper) => {
-      setPagination(swiper.realIndex);
-    }
-
-    const setPagination = (index) => {
-      currentUl.value.style.transform = `translate3D(${20 * index * -1}px, 0, 0)`;
-    }
-
-    return {
-      mySwiper,
-      onSwiper,
-      modules: [ Autoplay, A11y ],
-
-      transitionStart,
-      setPagination,
-
-      currentUl,
-      activeIndex,
-    }
-  },
   data() {
     return {
       visual,
