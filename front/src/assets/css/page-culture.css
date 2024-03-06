@@ -1,23 +1,88 @@
 #culture-page { background: #191919; }
 
+/* overview */
+.overview { padding: 20rem 0; }
+.overview .inner { display: flex; align-items: center; justify-content: space-between; }
+.overview .title-area { flex: 1 1 50rem; max-width: 50rem; }
+.overview .title-area .desc { margin-top: 4rem; }
+.overview .photo-area { flex: 1 1 67rem; max-width: 67rem; position: relative; display: flex; align-items: center; justify-content: center; }
+.overview .photo-area::after { position: relative; content: ''; display: block; padding-bottom: 80%; z-index: 0; }
+.overview .photo-area > div { position: absolute; width: 61%; background-size: cover; background-position: center; }
+.overview .photo-area > div::before { content: ''; display: block; padding-bottom: 66.5%; }
+.overview .photo-office { left: 8.9%; top: 5.5%; z-index: 3; box-shadow: 0 6rem 13.5rem rgba(0,0,0, 0.14), 0 1.5rem 6.5rem rgba(0,0,0, 0.14); }
+.overview .photo-sea { right: 4.4%; bottom: 7%; z-index: 2; }
+.overview .photo-box { background: #868686; z-index: 1; }
 
+/* overview | animation */
+.overview .photo-area > div.onEnter { animation-name: fade-in-scale-out; animation-duration: .5s; }
+.overview .photo-area .photo-office { animation-delay: 0.5s; animation-duration: .8s; }
+.overview .photo-area .photo-sea { animation-delay: 0.6s; animation-duration: .8s; }
+.overview .photo-area .photo-box { animation-delay: 0.1s; }
 
+/* space */
+.space ul { display: grid; grid-template-columns: repeat(4, 1fr); perspective: 2000px; }
+.space li { background-size: cover; background-position: center; padding: 5rem; font-size: 2.2rem; color: #fff; }
+.space li.big { grid-column: 3 / 5; grid-row: 1 / 3; }
+.space li::after { content:''; display: block; padding-bottom: 45%; }
+.space li p { position: absolute; width: 21rem; word-break: keep-all; z-index: 2; }
+
+/* space | animation */
+.space .onEnter { animation-name: spaceitem; animation-duration: .7s; }
+.space li:nth-child(1).onEnter { animation-delay: .1s; }
+.space li:nth-child(2).onEnter { animation-delay: .2s; }
+.space li:nth-child(3).onEnter { animation-delay: .3s; }
+.space li:nth-child(4).onEnter { animation-delay: .4s; }
+.space li:nth-child(5).onEnter { animation-delay: .5s; }
+
+@keyframes spaceitem {
+  0% { transform: rotateX(-45deg) translate3d(0, 12rem, 0); opacity: 0; }
+  100% { transform: rotateX(0) translate3d(0,0,0); opacity: 1; }
+}
+
+/* insight */
+.insight { position: relative; }
+.insight .inner { position: relative; display: flex; align-items: center; justify-content: flex-end; z-index: 2; }
+.insight-inner { flex: 0 0 50%; padding: 13rem 0 13rem 2rem; }
+.insight-inner .btn { position: relative; display: block; width: fit-content; margin-top: 3rem; }
+.insight-inner .btn span { display: flex; align-items: center; justify-content: center; height: 5rem; font-size: 1.4rem; padding: 0 2.6rem; border: 2px solid #fff; color: #fff; border-radius: 4px; letter-spacing: 0.055rem; transition: all .3s; }
+.insight-inner .btn:hover span { transform: translate3d(0, -5px, 0); background: #fff; color: #000; }
+.insight .bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
+
+/* benefit */
+.benefit { padding: 17rem 0; }
 
 
 @media only screen and (max-width: 1440px) {
-
+  .overview { padding: 14rem 0; }
+  .space li { padding: 3rem; }
+  .insight-inner { padding-top: 8rem; padding-bottom: 8rem; }
+  .benefit { padding: 10rem 0; }
 }
 @media only screen and (max-width: 1024px) {
-
+  .overview { padding: 10rem 0; }
+  .space li { padding: 2rem; }
+  .insight-inner { padding-top: 6rem; padding-bottom: 6rem; }
+  .benefit { padding: 8rem 0; }
 }
 @media only screen and (max-width: 768px) {
-
+  .overview { padding: 7rem 0; }
+  .overview .inner { display: block; }
+  .overview .photo-area { max-width: 60rem; margin: 3rem auto 0; }
+  .space ul { grid-template-columns: repeat(1, 1fr); }
+  .space li { padding: 4rem; }
+  .space li.big { grid-column: initial; grid-row: initial; }
+  .space li.big { order: 5; }
+  .insight .inner { display: block; }
+  .insight-inner { padding-left: 0; }
+  .benefit { padding: 6rem 0; }
 }
 @media only screen and (max-width: 425px) {
-  
+  .space li { padding: 2rem; }
 }
 @media only screen and (max-width: 375px) {
-  
+  .space li { font-size: 1.8rem; }
+  .space li::after { padding-bottom: 50%; }
+  .space li p { width: 18rem; }
 }
 @media only screen and (max-width: 320px) {
   

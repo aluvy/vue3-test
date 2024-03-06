@@ -47,6 +47,12 @@
   100% { transform: scale(1) }
 }
 
+/* fade in scale out */
+@keyframes fade-in-scale-out {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 /* slide down */
 @keyframes slide-down {
   0% { transform: translateY(-100%); }
