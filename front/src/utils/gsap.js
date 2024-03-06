@@ -49,6 +49,23 @@ const gsapThemeTrigger = function () {
 	});
 };
 
+/**
+ * .parallax-item 클래스에 data-speed="-0.1" 속성 필요
+ * @returns
+ */
+const gsapParallaxTrigger = function () {
+	const parallaxItem = document.querySelectorAll('.parallax-item');
+	if (!parallaxItem) return;
+
+	gsap.to('.parallax-item', {
+		scrollTrigger: {
+			scrub: true,
+		},
+		y: (i, target) => -ScrollTrigger.maxScroll(window) * target.dataset.speed,
+		ease: 'none',
+	});
+};
+
 const gsapParallaxVisualTrigger = function () {
 	// console.log('gsapParallaxVisualTrigger');
 	gsap.to('.parallax-bg', {
@@ -71,4 +88,4 @@ const gsapKill = function () {
 	triggers.forEach(trigger => trigger.kill());
 };
 
-export { gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxVisualTrigger, gsapKill };
+export { gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapParallaxVisualTrigger, gsapKill };

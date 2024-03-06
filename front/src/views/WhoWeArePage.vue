@@ -74,7 +74,7 @@
           <SwiperService :slides="services"></SwiperService>
         </div>
         <div class="bg">
-          <div class="timeline" :style="`background-image: url(${serviceBG})`"></div>
+          <div class="parallax-item" data-speed="-0.1" :style="`background-image: url(${serviceBG})`"></div>
         </div>
       </section>
 
@@ -107,10 +107,7 @@
 
 <script>
 import PageMixin from '@/mixins/PageMixin';
-
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
+import { gsapParallaxTrigger } from '@/utils/gsap.js'
 
 // component
 import ContentVisual from '@/components/common/ContentVisual.vue'
@@ -206,29 +203,10 @@ export default {
       ]
     }
   },
-  methods: {
-    svSwiperBGTimeline() {
-      gsap.timeline({ scrollTrigger :{
-        trigger: ".who-service",
-        start: "bottom 100%",
-        end: "botton -200",
-        scrub: 1,
-        // markers: true,
-        // pin: true, 
-        // events: onEnter onLeave onEnterBack onLeaveBack
-        toggleActions: "restart none none reverse"
-        // options: play, pause, resume, reset, restart, complete, reverse, none    
-      }})
-      .from(".timeline", { y : '-100', duration: 2, ease: 'none' })
-    }
+  async mounted() {
+    await this.$nextTick();
+    gsapParallaxTrigger();
   },
-  mounted() {
-    this.svSwiperBGTimeline();
-  },
-  unmounted() {
-    const triggers = ScrollTrigger.getAll();
-    triggers.forEach(trigger => trigger.kill());
-  }
 }
 </script>
 
