@@ -2,22 +2,24 @@
   <swiper
     class="bfSwiper"
     :modules="modules"
-    :slidesPerView="2"
+    :spaceBetween="0"
+    :slidesPerView="'auto'"
+    :activeIndex="0"
     :centeredSlides="true"
     :loop="true"
+
     :draggable="true"
-    :speed=300
+    :speed="300"
     :pagination="{
       clickable: true,
       bulletElement: 'button'
     }"
-    :observer="true"
-    :observeSlideChildren="true"
-    :observeParents="true"
+    
     @swiper="onSwiper"
     @transitionStart="transitionStart"
     @transitionEnd="transitionEnd"
     @observerUpdate="observerUpdate"
+    @beforeResize="beforeResize"
   >
     <swiper-slide v-for="slide in slides" :key="slide">
       <div class="bubble">
@@ -32,7 +34,7 @@
 <script>
 import { ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Pagination, Autoplay, A11y } from 'swiper/modules';
+import { Pagination, A11y } from 'swiper/modules';
 
 // import 'swiper/css';
 // import 'swiper/css/pagination';
@@ -50,39 +52,45 @@ export default {
 
     const onSwiper = (swiper) => {
       mySwiper.value = swiper;
-      swiper.emit("transitionEnd");
+      console.log(swiper.activeIndex);
+
+      
+      // swiper.loopDestroy();
+      // swiper.loopCreate();
+      // swiper.slideTo(0);
+      // swiper.emit("transitionEnd");
+      // console.log(swiper);
     }
 
     const transitionStart = () => {
       // setPagination(swiper.realIndex);
+
     }
 
     const transitionEnd = () => {
-
+      // console.log(swiper.activeIndex);
     }
 
     const observerUpdate = () => {
-      console.log('observerUpdate');
+      // console.log('observerUpdate');
+    }
+
+    const beforeResize = () => {
+      // console.log('beforeResize', swiper);
+      // swiper.slideTo(swiper.activeIndex);
     }
 
     return {
       mySwiper,
       onSwiper,
-      modules: [ Pagination, Autoplay, A11y ],
+      modules: [ Pagination, A11y ],
 
       transitionStart,
       transitionEnd,
-      observerUpdate
+      observerUpdate,
+      beforeResize
     }
   },
-  mounted() {
-
-    // document.addEventListener("resize", ()=>{
-
-    //   this.mySwiper.update();
-    // })
-
-  }
 }
 </script>
 
@@ -90,7 +98,7 @@ export default {
 /* service | swiper */
 .bfSwiper { position: relative; width: 100%; overflow: hidden; touch-action: pan-y; margin-top: 8rem; }
 .bfSwiper .swiper-wrapper { position: relative; width: 100%; height: 100%; display: flex; z-index: 1; transition-property: transform; }
-.bfSwiper .swiper-slide { position: relative; width: 100%; height: 100%; flex-shrink: 0; padding: 0 3rem; opacity: 0.3; transition: opacity .3s; }
+.bfSwiper .swiper-slide { position: relative; width: 75%; height: 100%; flex-shrink: 0; opacity: 0.3; transition: opacity .3s; }
 .bfSwiper .bubble { position: relative; color: #000; font-size: 1.4rem; line-height: 1.6; padding: 5rem; padding-left: 10rem; border-radius: 1rem; }
 .bfSwiper .bubble::before { position: absolute; left: 3rem; top: 0; content: open-quote open-quote; letter-spacing: -0.8rem; font-size: 13rem; color: rgba(0,0,0, 0.4); font-family: 'sans-serif'; }
 .bfSwiper .bubble::after { position: absolute; left: calc(50% - 1.5rem); bottom: -1rem; content: ''; display: block; width: 3rem; height: 3rem; border-radius: 0.6rem; background: #6d6d6d; transform: rotate(45deg); opacity: 0; }
