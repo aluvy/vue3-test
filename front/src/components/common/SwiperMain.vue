@@ -1,5 +1,124 @@
-#main-page { background: #000; }
+<template>
+  <swiper
+    class="mySwiper"
+    :class="{moveStart: moveStart, moveEnd: !moveStart, up: !direction, down: direction}"
+    :modules="modules"
+    :direction="'vertical'"
+    :allowTouchMove= "false"
+    :slides-per-view="1"
+    :space-between="0"
+    :a11y="true"
+    :loop="true"
+    :speed=speed
+    :draggable="true"
+    :observer="true"
+    :updateOnWindowResize="true"
+    :mousewheel="true"
+    :autoplay="{
+      delay: 3000,
+      disableOnInteraction: false,
+    }"
+    :pagination="{
+      clickable: true,
+      bulletElement: 'button'
+    }"
+    @swiper="onSwiper"
+    @transitionStart="transitionStart"
+    @transitionEnd="transitionEnd"
+  >
+    <swiper-slide v-for="(slide, i) in slides" :key="slide" :virtualIndex="i">
+      <div class="slogan-area">
+        <div class="slogan">
+          <strong v-for="word in slide.slogan" :key="word"><span>{{ word }}</span></strong>
+        </div>
+        <div class="linkto">
+          <router-link to="/#">View Project</router-link>
+        </div>
+      </div>
+      <div class="img-area">
+        <div class="img" :style="`background-image: url(${slide.img})`">
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper>
 
+  <div class="slide-controller">
+    <button type="button" class="btn_prev" @click="mySwiper.slidePrev()"><i class="fa fa-angle-left"></i><span class="blind">prev</span></button>
+    <button type="button" class="btn_next" @click="mySwiper.slideNext()"><i class="fa fa-angle-right"></i><span class="blind">next</span></button>
+  </div>
+</template>
+
+<script>
+import { ref } from 'vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Autoplay, Pagination, A11y, Virtual } from 'swiper/modules';
+
+export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  props: {
+    slides: Object,
+  },
+  setup() {
+    let mySwiper = ref();
+    const speed = ref(650);
+    const moveStart = ref(false);
+    const direction = ref(true);   // up: false, down: true
+    const translate = ref(0);
+
+    const onSwiper = (swiper) => {
+      mySwiper.value = swiper;
+      swiper.emit("transitionEnd");
+      setTimeout(() => { setCustomClass(swiper) }, 1);
+    }
+
+    const transitionStart = (swiper) => {
+      moveStart.value = true;
+      direction.value = ( translate.value > swiper.translate ) ? true : false;
+      translate.value = swiper.translate;
+      setTimeout(() => { setCustomClass(swiper) }, 1);
+    }
+
+    const transitionEnd = () => {
+      moveStart.value = false;
+    }
+
+    const setCustomClass = (swiper) => {
+      const { slides, activeIndex, previousIndex } = swiper;
+      try {
+        slides.forEach((a, i)=>{
+          a.classList.remove('custom-prev');
+          a.classList.remove('custom-next');
+          a.classList.remove('custom-beforeIdx');
+
+          if( i === activeIndex )       a.classList.add('custom-active');
+          else if ( i < activeIndex )   a.classList.add('custom-prev');
+          else                          a.classList.add('custom-next');
+          if( i === previousIndex)      a.classList.add('custom-beforeIdx');
+        });
+      } catch(e) {
+        console.log(e);
+      }
+    }
+
+    return {
+      mySwiper,
+      onSwiper,
+      transitionEnd,
+      transitionStart,
+      modules: [ Autoplay, Pagination, A11y, Virtual ],
+
+      speed,
+      moveStart,
+      direction
+    };
+  },
+}
+</script>
+
+<style>
 :root {
   --mainSwiper-easing: cubic-bezier(0.4, 0, 0.2, 1);
   --mainSwiper-delay: 500ms;
@@ -130,10 +249,10 @@
 }
 
 
-
 /* media query - height */
 @media only screen and (max-height: 650px) {
   .mySwiper .slogan-area .slogan { width: calc(100% - 6rem); font-size: 4.4rem; }
   .mySwiper .slogan-area .linkto { margin-top: 1rem; }
   .slide-controller { bottom: 3rem; }
 }
+</style>
