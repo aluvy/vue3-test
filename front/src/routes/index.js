@@ -45,7 +45,7 @@ const router = createRouter({
 			meta: { title: 'ContactUsPage' },
 		},
 		{
-			path: '/Culture',
+			path: '/culture',
 			name: 'CulturePage',
 			component: () => import('@/views/CulturePage.vue'),
 			meta: { title: 'CulturePage' },
@@ -55,6 +55,12 @@ const router = createRouter({
 			name: 'InsightPage',
 			component: () => import('@/views/InsightPage.vue'),
 			meta: { title: 'InsightPage' },
+		},
+		{
+			path: '/insight/:insightId',
+			name: 'InsightView',
+			component: () => import('@/views/InsightView.vue'),
+			meta: { title: 'InsightView' },
 		},
 		{
 			path: '/recruit',

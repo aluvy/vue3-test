@@ -79,7 +79,7 @@ const gsapParallaxVisualTrigger = function () {
 		scrollTrigger: {
 			scrub: true,
 		},
-		opacity: 0,
+		opacity: () => (ScrollTrigger.maxScroll(window) / window.innerHeight) * -1,
 		ease: 'none',
 	});
 };

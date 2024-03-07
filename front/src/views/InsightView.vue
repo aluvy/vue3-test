@@ -1,12 +1,12 @@
 <template>
-  <div id="insight-page">
+  <div id="insight-view">
     
     <section class="section black culture-visual" data-theme="light">
-      <ContentVisual mode="parallax">
+      <ContentVisual mode="parallax" :dimmed="true">
         <template #title>
           <ContentTitle
-            :titleXL = "[ { delay: 0, text: `INSIGHT` } ]"
-            :visualTitle = "[ { delay: 1, text: `더피프티원의 새로운 이야기` } ]"
+            :titleXL = "title"
+            :visualTitle = "[ { delay: 1, text: date } ]"
             theme="black"
             align="center"
           ></ContentTitle>
@@ -18,9 +18,7 @@
     </section>
 
     <div id="content">
-      <section class="section" data-theme="light">
-        <InsightList></InsightList>
-      </section>
+      fdddsddasdff
     </div>
   </div>
 </template>
@@ -31,23 +29,41 @@ import PageMixin from '@/mixins/PageMixin';
 // component
 import ContentVisual from '@/components/common/ContentVisual.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
-import InsightList from '@/components/common/InsightList.vue'
 
 // assets
-import visual from '@/assets/images/insight/visual.jpg'
+import visual from '@/assets/images/insight/20240101-visual.jpg'
 
 export default {
   mixins: [PageMixin],
   components: {
     ContentVisual,
     ContentTitle,
-    InsightList
   },
   data() {
     return {
-      visual
+      visual,
+      title: [],
+      date: '',
+      data: [
+        { title: '', desc: '', image: '', },
+        { title: '', desc: '', image: '', },
+        { title: '', desc: '', image: '', },
+        { title: '', desc: '', image: '', },
+        { title: '', desc: '', image: '', },
+      ],
     }
   },
+  mounted() {
+    this.title = ['2024', 'Happy New Goods'];
+    this.title = this.title.map((o,i)=>{
+      return { delay: i, text: o }
+    })
+
+    this.date = '20240101';
+    this.date = `${this.date.slice(0,4)}.${this.date.slice(4,6)}`;
+
+
+  }
 }
 </script>
 

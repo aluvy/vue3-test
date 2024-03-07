@@ -65,6 +65,11 @@
   100% { transform: translateY(0); }
 }
 
+@keyframes slide-up-10 {
+  0% { transform: translateY(10%); }
+  100% { transform: translateY(0); }
+}
+
 /* slide left */
 @keyframes slide-left {
   0% { transform: translate3D(100%, 0, 0); }
