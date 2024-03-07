@@ -1,5 +1,5 @@
 import store from '@/store/';
-import { gsapAnimationTrigger, gsapThemeTrigger, gsapKill } from '@/utils/gsap.js';
+import { gsapAnimationTrigger, gsapThemeTrigger, gsapRefresh, gsapKill } from '@/utils/gsap.js';
 
 // mixin
 export default {
@@ -15,8 +15,11 @@ export default {
 		setTimeout(() => {
 			store.commit('setLoading', false);
 		}, 1300); // LoadScreen Component transition duration .8s + page loading, change duration .5s
+
+		window.addEventListener('resize', gsapRefresh);
 	},
 	unmounted() {
 		gsapKill();
+		window.removeEventListener('resize', gsapRefresh);
 	},
 };

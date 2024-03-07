@@ -88,4 +88,10 @@ const gsapKill = function () {
 	triggers.forEach(trigger => trigger.kill());
 };
 
-export { gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapParallaxVisualTrigger, gsapKill };
+const gsapRefresh = function () {
+	console.log('refresh');
+	ScrollTrigger.refresh();
+	ScrollTrigger.update();
+};
+
+export { gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapParallaxVisualTrigger, gsapRefresh, gsapKill };

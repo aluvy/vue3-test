@@ -86,7 +86,7 @@ export default {
 .insight-group li .title-wrap { position: absolute; left: 0; bottom: 0; width: 100%; height: 50%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; color: #fff; padding: 0 2rem 4rem; background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); z-index: 3; }
 
 .insight-group li .title-wrap .title,
-.insight-group li .title-wrap .date { font-weight: normal; line-height: 1; text-align: center; }
+.insight-group li .title-wrap .date { font-weight: normal; line-height: 1; text-align: center; word-break: keep-all; }
 .insight-group li .title-wrap .title { font-size: 1.8rem; letter-spacing: 0.1rem; }
 .insight-group li .title-wrap .title span { display: block; }
 .insight-group li .title-wrap .date { font-size: 1.2rem; font-style: italic; margin-top: 1.4rem; }
@@ -99,10 +99,10 @@ export default {
 .len5 li.order2.size2 { grid-column: 2 / 4; grid-row: 1 / 3; order: 2; }
 .len5 li.order3.size2 { grid-column: 3 / 5; grid-row: 1 / 3; order: 3; }
 
-.len1 li .title-wrap .title,
-.len5 li.size2 .title-wrap .title { font-size: 3rem; }
-.len1 li .title-wrap .date,
-.len5 li.size2 .title-wrap .date { font-size: 1.6rem; margin-top: 1.6rem; }
+.insight-group.len1 li .title-wrap .title,
+.insight-group.len5 li.size2 .title-wrap .title { font-size: 3rem; }
+.insight-group.len1 li .title-wrap .date,
+.insight-group.len5 li.size2 .title-wrap .date { font-size: 1.6rem; margin-top: 1.6rem; }
 
 /* hover */
 .insight-group li a:hover::after { background: rgba(0,0,0,0); }
@@ -111,6 +111,39 @@ export default {
 .insight-group li.order1.onEnter { animation-delay: 0s; }
 .insight-group li.order2.onEnter { animation-delay: .1s; }
 .insight-group li.order3.onEnter { animation-delay: .2s; }
-.insight-group li.order4.onEnter { animation-delay: .3s; }
-.insight-group li.order5.onEnter { animation-delay: .4s; }
+.insight-group li.order4.onEnter { animation-delay: 0s; }
+.insight-group li.order5.onEnter { animation-delay: .1s; }
+
+
+@media only screen and (max-width: 1024px) {
+  .insight-group.len4 { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .insight-group.len5 { display: grid; grid-template-columns: repeat(2, 1fr); }
+
+  .len5 li.order1.size2 { grid-column: 1 / 3; grid-row: 1 / 3; }
+  .len5 li.order2.size2 { grid-column: 1 / 3; grid-row: 2 / 4; }
+  .len5 li.order3.size2 { grid-column: 1 / 3; grid-row: 3 / 4; }
+}
+@media only screen and (max-width: 768px) {
+  .insight-group li .title-wrap { padding: 0 2rem 3rem; }
+  .insight-group li .title-wrap .title { font-size: 1.6rem; }
+
+  .insight-group.len1 li .title-wrap .title,
+  .insight-group.len5 li.size2 .title-wrap .title { font-size: 2rem; }
+  .insight-group.len1 li .title-wrap .date,
+  .insight-group.len5 li.size2 .title-wrap .date { font-size: 1.4rem; margin-top: 1.2rem; }
+}
+@media only screen and (max-width: 425px) {
+  .insight-group.len4 { display: grid; grid-template-columns: repeat(1, 1fr); }
+  .insight-group.len5 { display: grid; grid-template-columns: repeat(1, 1fr); }
+
+  .len5 li.order1.size2,
+  .len5 li.order2.size2,
+  .len5 li.order3.size2 { grid-column: initial; grid-row: initial; }
+
+  .insight-group li.order1.onEnter,
+  .insight-group li.order2.onEnter,
+  .insight-group li.order3.onEnter,
+  .insight-group li.order4.onEnter,
+  .insight-group li.order5.onEnter { animation-delay: 0s; }
+}
 </style>
