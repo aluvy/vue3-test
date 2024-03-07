@@ -10,6 +10,7 @@ const store = createStore({
 			NoScroll: false,
 			header: true,
 			footer: true,
+
 			insights: [],
 		};
 	},
@@ -20,6 +21,8 @@ const store = createStore({
 		isNoScroll: state => state.NoScroll,
 		isHeader: state => state.header,
 		isFooter: state => state.footer,
+
+		getInsights: state => state.insights,
 	},
 	mutations: {
 		setLoading(state, payload) {
@@ -41,14 +44,19 @@ const store = createStore({
 		setFooter(state, payload) {
 			state.footer = payload;
 		},
+
+		setInsights(state, payload) {
+			state.insights = payload;
+		},
 	},
 	actions: {
-		async getInsightList(context, payload) {
+		async dispatchInsightList(context, payload) {
 			try {
 				const res = await fetchLists(payload.num);
+				context.commit('setInsights', res.data);
 				console.log(payload.num, res);
 			} catch (e) {
-				console.log(e);
+				console.log('error', e);
 			}
 		},
 	},

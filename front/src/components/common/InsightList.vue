@@ -1,7 +1,8 @@
 <template>
   <div class="insight-wrap">
 
-    <template  v-for="listgroup in listgroups" :key="listgroup">
+    {{ $store.state.insights }}
+    <template  v-for="listgroup in $store.state.insights" :key="listgroup">
       <ul class="insight-group" :class="{ len1: listgroup.length === 1, len4: listgroup.length === 4, len5: listgroup.length === 5 }">
         <li v-for="list in listgroup" :key="list" :class="{ size1: list.size === 1, size2: list.size === 2, order1: list.order===1, order2: list.order===2, order3: list.order===3, order4: list.order===4, order5: list.order===5 }" class="gsap-item">
           <router-link :to="`/insight/${list.idx}`">
@@ -76,22 +77,13 @@ export default {
     }
   },
   methods: {
-
     async fetchLists() {
       try {
-        // this.$store.commit('setLoading', { loading: true });
-        // const res = await fetchLists(1);
-        await this.$store.dispatch('getInsightList', { num: 1 });
-        // console.log(res);
-        // this.posts = res.data.posts;
+        await this.$store.dispatch('dispatchInsightList', { num: 1 });
       } catch (e) {
-        // console.log(e);
-        this.logMessage = e.message;
-      } finally {
-        // this.$store.commit('setLoading', { loading: false });
+        console.log('error', e);
       }
     }
-
   },
   created() {
     this.fetchLists();
