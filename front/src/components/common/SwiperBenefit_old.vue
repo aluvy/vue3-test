@@ -1,6 +1,7 @@
 <template>
   <swiper
     class="bfSwiper"
+    ref="bfSwiper"
     :modules="modules"
     :spaceBetween="0"
     :slidesPerView="'auto'"
@@ -49,10 +50,11 @@ export default {
   },
   setup() {
     let mySwiper = ref();
+    // let bfSwiper = ref();
 
     const onSwiper = (swiper) => {
       mySwiper.value = swiper;
-      console.log(swiper.activeIndex);
+      // console.log(swiper.activeIndex);
 
       
       // swiper.loopDestroy();
@@ -75,9 +77,17 @@ export default {
       // console.log('observerUpdate');
     }
 
-    const beforeResize = () => {
-      // console.log('beforeResize', swiper);
+    const beforeResize = (swiper) => {
+      console.log('beforeResize', swiper);
+      // swiper.attachEvents();
+      // swiper.destroy(false, true);
+      // onSwiper();
+      // swiper.init(bfSwiper.value);
+      swiper.update();
+      // swiper.updateSize();
+      // swiper.updateSlides();
       // swiper.slideTo(swiper.activeIndex);
+      // console.log(onSwiper);
     }
 
     return {
@@ -91,6 +101,38 @@ export default {
       beforeResize
     }
   },
+  // methods: {
+  //   swiperInit() {
+  //     const bfSwiper = this.$refs.bfSwiper;
+  //     const options = {
+  //       // :modules="modules"
+  //       spaceBetween: 0,
+  //       slidesPerView: 'auto',
+  //       activeIndex: 0,
+  //       centeredSlides: true,
+  //       loopL: true,
+
+  //       draggable: true,
+  //       speed: 300,
+  //       pagination: {
+  //         clickable: true,
+  //         bulletElement: 'button'
+  //       },
+        
+  //       // @swiper="onSwiper"
+  //       // @transitionStart="transitionStart"
+  //       // @transitionEnd="transitionEnd"
+  //       // @observerUpdate="observerUpdate"
+  //       // @beforeResize="beforeResize"
+  //     }
+
+  //     new Swiper(bfSwiper, options);
+  //     console.log(bfSwiper);
+  //   },
+  // },
+  // mounted() {
+  //   console.log('mounted', this.swiperInit);
+  // }
 }
 </script>
 
@@ -98,7 +140,7 @@ export default {
 /* service | swiper */
 .bfSwiper { position: relative; width: 100%; overflow: hidden; touch-action: pan-y; margin-top: 8rem; }
 .bfSwiper .swiper-wrapper { position: relative; width: 100%; height: 100%; display: flex; z-index: 1; transition-property: transform; }
-.bfSwiper .swiper-slide { position: relative; width: 75%; height: 100%; flex-shrink: 0; opacity: 0.3; transition: opacity .3s; }
+.bfSwiper .swiper-slide { position: relative; width: 70%; height: 100%; flex-shrink: 0; opacity: 0.3; transition: opacity .3s; }
 .bfSwiper .bubble { position: relative; color: #000; font-size: 1.4rem; line-height: 1.6; padding: 5rem; padding-left: 10rem; border-radius: 1rem; }
 .bfSwiper .bubble::before { position: absolute; left: 3rem; top: 0; content: open-quote open-quote; letter-spacing: -0.8rem; font-size: 13rem; color: rgba(0,0,0, 0.4); font-family: 'sans-serif'; }
 .bfSwiper .bubble::after { position: absolute; left: calc(50% - 1.5rem); bottom: -1rem; content: ''; display: block; width: 3rem; height: 3rem; border-radius: 0.6rem; background: #6d6d6d; transform: rotate(45deg); opacity: 0; }
@@ -129,5 +171,8 @@ export default {
 }
 @media only screen and (max-width: 768px) {
   /* .bfSwiper { padding: 0; } */
+}
+@media only screen and (max-width: 425px) {
+  .bfSwiper .swiper-slide { width: 100%; }
 }
 </style>
