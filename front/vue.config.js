@@ -14,7 +14,8 @@ module.exports = defineConfig({
 		});
 	},
 
-	publicPath: process.env.BASE_URL,
+	// publicPath: process.env.BASE_URL,
+	publicPath: process.env.NODE_ENV === 'production' ? 'https://aluvy.github.io/vue3-test/front/dist/' : '/',
 	assetsDir: process.env.BASE_URL,
 	// devServer: {
 	// 	contentBase: path.join(__dirname, ''),

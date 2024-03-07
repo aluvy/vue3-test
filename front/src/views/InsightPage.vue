@@ -22,10 +22,41 @@
         <InsightList :listgroups="listgroups"></InsightList>
 
         <div v-if="!listState">All Items Loaded</div>
+
+        {{ comments }}
+        <InfiniteLoading @infinite="loadData" />
+
       </section>
     </div>
   </div>
 </template>
+
+<!-- <script setup>
+  import { ref } from "vue";
+  import InfiniteLoading from "v3-infinite-loading";
+  import "v3-infinite-loading/lib/style.css";
+
+  let comments = ref([]);
+  let page = 1;
+  const loadData = async $state => {
+    console.log("loading...");
+
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/comments?_limit=10&_page=" + page
+      );
+      const json = await response.json();
+      if (json.length < 10) $state.complete();
+      else {
+        comments.value.push(...json);
+        $state.loaded();
+      }
+      page++;
+    } catch (error) {
+      $state.error();
+    }
+  };
+</script> -->
 
 <script>
 import FetchPageMixin from '@/mixins/FetchPageMixin';
@@ -43,7 +74,8 @@ export default {
   components: {
     ContentVisual,
     ContentTitle,
-    InsightList
+    InsightList,
+    // InfiniteLoading,
   },
   data() {
     return {
@@ -51,6 +83,8 @@ export default {
       listnum: 1,
       listState: this.$store.getInsightsStatus,
       listgroups: [],
+      // comments: [],
+      // page: 1,
     }
   },
   methods: {
@@ -62,7 +96,25 @@ export default {
       } catch (e) {
         console.log('error', e);
       }
-    }
+    },
+    // async loadData(state) {
+    //   console.log("loading...", state);
+    //   try {
+    //     const response = await fetch(
+    //       "https://jsonplaceholder.typicode.com/comments?_limit=10&_page=" +
+    //         this.page
+    //     );
+    //     const json = await response.json();
+    //     if (json.length < 10) state.complete();
+    //     else {
+    //       this.comments.push(...json);
+    //       state.loaded();
+    //     }
+    //     this.page++;
+    //   } catch (error) {
+    //     state.error();
+    //   }
+    // },
   },
   async created() {
     await this.fetchLists();
