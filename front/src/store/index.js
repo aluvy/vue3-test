@@ -1,4 +1,5 @@
 import { createStore } from 'vuex';
+import { fetchLists } from '@/api/insight.js';
 
 const store = createStore({
 	state() {
@@ -9,6 +10,7 @@ const store = createStore({
 			NoScroll: false,
 			header: true,
 			footer: true,
+			insights: [],
 		};
 	},
 	getters: {
@@ -40,7 +42,16 @@ const store = createStore({
 			state.footer = payload;
 		},
 	},
-	actions: {},
+	actions: {
+		async getInsightList(context, payload) {
+			try {
+				const res = await fetchLists(payload.num);
+				console.log(payload.num, res);
+			} catch (e) {
+				console.log(e);
+			}
+		},
+	},
 });
 
 export default store;

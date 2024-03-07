@@ -21,6 +21,8 @@
 </template>
 
 <script>
+// import { fetchLists } from '@/api/insight.js'
+
 import image1 from '@/assets/images/insight/20210501-thumb.jpg'
 import image2 from '@/assets/images/insight/20221201-thumb.jpg'
 import image3 from '@/assets/images/insight/20240101-thumb.jpg'
@@ -73,6 +75,27 @@ export default {
       ]
     }
   },
+  methods: {
+
+    async fetchLists() {
+      try {
+        // this.$store.commit('setLoading', { loading: true });
+        // const res = await fetchLists(1);
+        await this.$store.dispatch('getInsightList', { num: 1 });
+        // console.log(res);
+        // this.posts = res.data.posts;
+      } catch (e) {
+        // console.log(e);
+        this.logMessage = e.message;
+      } finally {
+        // this.$store.commit('setLoading', { loading: false });
+      }
+    }
+
+  },
+  created() {
+    this.fetchLists();
+  }
 }
 </script>
 
