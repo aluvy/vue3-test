@@ -31,7 +31,8 @@ import ContentVisual from '@/components/common/ContentVisual.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
 
 // assets
-import visual from '@/assets/images/insight/20240101-visual.jpg'
+// import visual from '@/assets/images/insight/20240101-visual.jpg'
+import visual from '@/assets/images/insight/visual.jpg'
 
 export default {
   mixins: [PageMixin],
