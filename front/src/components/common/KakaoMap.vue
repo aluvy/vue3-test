@@ -9,10 +9,15 @@ export default {
   data() {
     return {
       maker,
+      key: '254410f25b638fcce34ea8cc1750ea44',
+      localKey: '6d37859e40fc7b9b1a6bc13b492b6185',
       LatLng: { Lat: 37.5028772, Lng: 127.028281 },
     };
   },
   mounted() {
+
+    const apiKey = (process.env.NODE_ENV === "development") ? this.localKey : this.key;
+
     if (window.kakao && window.kakao.maps) {
       this.initMap();
     } else {
@@ -20,7 +25,7 @@ export default {
       /* global kakao */
       script.onload = () => kakao.maps.load(this.initMap);
       script.src =
-        "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=254410f25b638fcce34ea8cc1750ea44";
+        `//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=${apiKey}`;
       document.head.appendChild(script);
     }
   },

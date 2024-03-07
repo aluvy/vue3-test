@@ -10,7 +10,6 @@ export default {
 			gsapAnimationTrigger();
 			gsapThemeTrigger();
 
-			store.commit('setLoading', true);
 			store.commit('setOpenAside', false);
 			document.querySelector('#app').classList.remove('loading');
 
@@ -22,7 +21,8 @@ export default {
 		},
 	},
 	unmounted() {
-		gsapKill();
+		store.commit('setLoading', true);
 		window.removeEventListener('resize', gsapRefresh);
+		gsapKill();
 	},
 };
