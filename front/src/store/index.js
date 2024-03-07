@@ -11,6 +11,7 @@ const store = createStore({
 			header: true,
 			footer: true,
 
+			insightsStatus: true,
 			insights: [],
 		};
 	},
@@ -22,6 +23,7 @@ const store = createStore({
 		isHeader: state => state.header,
 		isFooter: state => state.footer,
 
+		getInsightsStatus: state => state.insightsStatus,
 		getInsights: state => state.insights,
 	},
 	mutations: {
@@ -48,15 +50,20 @@ const store = createStore({
 		setInsights(state, payload) {
 			state.insights = payload;
 		},
+		setInsightsStatus(state, payload) {
+			state.insightsStatus = payload;
+		},
 	},
 	actions: {
 		async dispatchInsightList(context, payload) {
+			if (!context.state.insightsStatus) return;
 			try {
 				const res = await fetchLists(payload.num);
 				context.commit('setInsights', res.data);
 				console.log(payload.num, res);
 			} catch (e) {
 				console.log('error', e);
+				context.commit('setInsightsStatus', false);
 			}
 		},
 	},

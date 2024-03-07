@@ -1,8 +1,6 @@
 <template>
   <div class="insight-wrap">
-
-    {{ $store.state.insights }}
-    <template  v-for="listgroup in $store.state.insights" :key="listgroup">
+    <template  v-for="listgroup in listgroups" :key="listgroup">
       <ul class="insight-group" :class="{ len1: listgroup.length === 1, len4: listgroup.length === 4, len5: listgroup.length === 5 }">
         <li v-for="list in listgroup" :key="list" :class="{ size1: list.size === 1, size2: list.size === 2, order1: list.order===1, order2: list.order===2, order3: list.order===3, order4: list.order===4, order5: list.order===5 }" class="gsap-item">
           <router-link :to="`/insight/${list.idx}`">
@@ -17,76 +15,13 @@
         </li>
       </ul>
     </template>
-
   </div>
 </template>
 
 <script>
-// import { fetchLists } from '@/api/insight.js'
-
-import image1 from '@/assets/images/insight/20210501-thumb.jpg'
-import image2 from '@/assets/images/insight/20221201-thumb.jpg'
-import image3 from '@/assets/images/insight/20240101-thumb.jpg'
-import image4 from '@/assets/images/insight/20230401-thumb.jpg'
-import image5 from '@/assets/images/insight/20231201-thumb.jpg'
-
-import image6 from '@/assets/images/insight/20230801-thumb.jpg'
-
-import image7 from '@/assets/images/insight/20230801-thumb.jpg'
-import image8 from '@/assets/images/insight/20230801-thumb.jpg'
-import image9 from '@/assets/images/insight/20230801-thumb.jpg'
-import image10 from '@/assets/images/insight/20230801-thumb.jpg'
-
 export default {
-  data() {
-    return {
-      listgroups: [
-        // group1  
-        [
-          { idx: 20220501, order: 1, size: 1, title: ['Company Relocation'], date: '20220501', image: image1, url: '/', },
-          { idx: 20221201, order: 2, size: 1, title: ['Media Center Year-end Party'], date: '20221201', image: image2, url: '/', },
-          { idx: 20240101, order: 3, size: 2, title: ['2024', 'Happy New Goods'], date: '20240101', image: image3, url: '/', },
-          { idx: 20230401, order: 4, size: 1, title: ['IM GROUP Poster'], date: '20230401', image: image4, url: '/', },
-          { idx: 20231201, order: 5, size: 1, title: ['Golden Time Year-end Party'], date: '20231201', image: image5, url: '/', },
-        ],
-        [
-          { idx: 5, order: 1, size: 1, title: ['IM GROUP', 'First half of 2023'], date: '20230801', image: image6, url: '/', },
-        ],
-        [
-          { idx: 6, order: 1, size: 2, title: ['Company Relocation'], date: '20220501', image: image1, url: '/', },
-          { idx: 7, order: 2, size: 1, title: ['Media Center Year-end Party'], date: '20221201', image: image2, url: '/', },
-          { idx: 2, order: 3, size: 1, title: ['2024', 'Happy New Goods'], date: '20240101', image: image3, url: '/', },
-          { idx: 3, order: 4, size: 1, title: ['IM GROUP Poster'], date: '20230401', image: image4, url: '/', },
-          { idx: 4, order: 5, size: 1, title: ['Golden Time Year-end Party'], date: '20231201', image: image5, url: '/', },
-        ],
-        [
-          { idx: 0, order: 1, size: 1, title: ['Company Relocation'], date: '20220501', image: image1, url: '/', },
-          { idx: 1, order: 2, size: 2, title: ['Media Center Year-end Party'], date: '20221201', image: image2, url: '/', },
-          { idx: 2, order: 3, size: 1, title: ['2024', 'Happy New Goods'], date: '20240101', image: image3, url: '/', },
-          { idx: 3, order: 4, size: 1, title: ['IM GROUP Poster'], date: '20230401', image: image4, url: '/', },
-          { idx: 4, order: 5, size: 1, title: ['Golden Time Year-end Party'], date: '20231201', image: image5, url: '/', },
-        ],
-        // group2
-        [
-          { idx: 0, order: 1, size: 1, title: ['Company Relocation'], date: '20220501', image: image7, url: '/', },
-          { idx: 1, order: 2, size: 1, title: ['Company Relocation'], date: '20220501', image: image8, url: '/', },
-          { idx: 2, order: 3, size: 1, title: ['Company Relocation'], date: '20220501', image: image9, url: '/', },
-          { idx: 3, order: 4, size: 1, title: ['Company Relocation'], date: '20220501', image: image10, url: '/', },
-        ]
-      ]
-    }
-  },
-  methods: {
-    async fetchLists() {
-      try {
-        await this.$store.dispatch('dispatchInsightList', { num: 1 });
-      } catch (e) {
-        console.log('error', e);
-      }
-    }
-  },
-  created() {
-    this.fetchLists();
+  props: {
+    listgroups: Object,
   }
 }
 </script>

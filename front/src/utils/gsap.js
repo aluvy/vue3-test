@@ -6,6 +6,7 @@ const triggers = ScrollTrigger.getAll();
 
 const gsapAnimationTrigger = function () {
 	ScrollTrigger.refresh();
+	ScrollTrigger.update();
 
 	const container = document.querySelector('#container');
 	gsap.context(() => {

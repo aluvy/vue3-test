@@ -19,14 +19,16 @@
 
     <div id="content">
       <section class="section" data-theme="light">
-        <InsightList></InsightList>
+        <InsightList :listgroups="listgroups"></InsightList>
+
+        <div v-if="!listState">All Items Loaded</div>
       </section>
     </div>
   </div>
 </template>
 
 <script>
-import PageMixin from '@/mixins/PageMixin';
+import FetchPageMixin from '@/mixins/FetchPageMixin';
 
 // component
 import ContentVisual from '@/components/common/ContentVisual.vue'
@@ -37,7 +39,7 @@ import InsightList from '@/components/common/InsightList.vue'
 import visual from '@/assets/images/insight/visual.jpg'
 
 export default {
-  mixins: [PageMixin],
+  mixins: [FetchPageMixin],
   components: {
     ContentVisual,
     ContentTitle,
@@ -45,9 +47,28 @@ export default {
   },
   data() {
     return {
-      visual
+      visual,
+      listnum: 1,
+      listState: this.$store.getInsightsStatus,
+      listgroups: [],
     }
   },
+  methods: {
+    async fetchLists() {
+      try {
+        await this.$store.dispatch('dispatchInsightList', { num: this.listnum });
+        this.listnum++;
+        console.log('try', this.listnum);
+      } catch (e) {
+        console.log('error', e);
+      }
+    }
+  },
+  async created() {
+    await this.fetchLists();
+    this.listgroups = this.$store.getters.getInsights;
+    this.onPageReady();
+  }
 }
 </script>
 
