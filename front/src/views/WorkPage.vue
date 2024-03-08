@@ -18,7 +18,7 @@
     </section>
 
     <div id="content">
-      <WorkList :listgroups="listgroups"></WorkList>
+      <WorkList :listGroups="listGroups"></WorkList>
       ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>
     </div>
 
@@ -50,16 +50,16 @@ export default {
       video,
       listNum: 1,
       listState: this.$store.getInsightsStatus,
-      listgroups: [],
+      listGroups: [],
     }
   },
   methods: {
     async fetchLists() {
       // if ( !this.listState ) return false;
       try {
-        await this.$store.dispatch('dispatchInsightList', { num: this.listnum });
+        await this.$store.dispatch('dispatchInsightList', { num: this.listNum });
         this.listnum++;
-        console.log('try', this.listnum);
+        console.log('try', this.listNum);
       } catch (e) {
         console.log('error', e);
       }
@@ -71,7 +71,7 @@ export default {
     //   this.PageReady();
     // }, 100);
     await this.fetchLists();
-    this.listgroups = this.$store.getters.getInsights;
+    this.listGroups = this.$store.getters.getInsights;
     this.PageReady();
   }
 }

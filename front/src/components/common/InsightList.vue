@@ -1,6 +1,6 @@
 <template>
   <div class="insight-wrap">
-    <template  v-for="listgroup in listgroups" :key="listgroup">
+    <template  v-for="listgroup in listGroups" :key="listgroup">
       <ul class="insight-group" :class="{ len1: listgroup.length === 1, len4: listgroup.length === 4, len5: listgroup.length === 5 }">
         <li v-for="list in listgroup" :key="list" :class="{ size1: list.size === 1, size2: list.size === 2, order1: list.order===1, order2: list.order===2, order3: list.order===3, order4: list.order===4, order5: list.order===5 }" class="gsap-item">
           <router-link :to="`/insight/${list.idx}`">
@@ -21,7 +21,7 @@
 <script>
 export default {
   props: {
-    listgroups: Object,
+    listGroups: Object,
   }
 }
 </script>

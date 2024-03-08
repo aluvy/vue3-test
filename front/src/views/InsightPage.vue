@@ -19,7 +19,7 @@
 
     <div id="content">
       <section class="section" data-theme="light">
-        <InsightList :listgroups="listgroups"></InsightList>
+        <InsightList :listGroups="listGroups"></InsightList>
 
         <div v-if="!listState">All Items Loaded</div>
 
@@ -49,18 +49,18 @@ export default {
   data() {
     return {
       visual,
-      listnum: 1,
+      listNum: 1,
       listState: this.$store.getInsightsStatus,
-      listgroups: [],
+      listGroups: [],
     }
   },
   methods: {
     async fetchLists() {
       // if ( !this.listState ) return false;
       try {
-        await this.$store.dispatch('dispatchInsightList', { num: this.listnum });
-        this.listnum++;
-        console.log('try', this.listnum);
+        await this.$store.dispatch('dispatchInsightList', { num: this.listNum });
+        this.listNum++;
+        console.log('try', this.listNum);
       } catch (e) {
         console.log('error', e);
       }
@@ -68,7 +68,7 @@ export default {
   },
   async mounted() {
     await this.fetchLists();
-    this.listgroups = this.$store.getters.getInsights;
+    this.listGroups = this.$store.getters.getInsights;
     this.PageReady();
   }
 }
