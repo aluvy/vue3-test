@@ -56,7 +56,7 @@ const gsapThemeTrigger = function () {
  */
 const gsapParallaxTrigger = function () {
 	const parallaxItem = document.querySelectorAll('.parallax-item');
-	if (!parallaxItem) return;
+	if (!parallaxItem.length) return;
 
 	gsap.to('.parallax-item', {
 		scrollTrigger: {
@@ -67,21 +67,26 @@ const gsapParallaxTrigger = function () {
 	});
 };
 
-const gsapParallaxVisualTrigger = function () {
-	// console.log('gsapParallaxVisualTrigger');
-	gsap.to('.parallax-bg', {
+const gsapVisualTrigger = function () {
+	const visualTriggerMode = document.querySelectorAll('.visualTriggerMode');
+	if (!visualTriggerMode.length) return;
+
+	gsap.to('.visualTrigger-bg', {
 		scrollTrigger: {
 			scrub: true,
 		},
 		y: (i, target) => -ScrollTrigger.maxScroll(window) * target.dataset.speed,
 		ease: 'none',
 	});
-	gsap.to('.parallax-text', {
+	gsap.to('.visualTrigger-slogan', {
 		scrollTrigger: {
-			scrub: true,
+			trigger: '.visualTriggerMode',
+			start: '1% 1%',
+			end: '99% 1%',
+			scrub: 1,
+			// markers: true,
 		},
-		opacity: () => (ScrollTrigger.maxScroll(window) / window.innerHeight) * -1,
-		ease: 'none',
+		opacity: 0,
 	});
 };
 
@@ -95,4 +100,4 @@ const gsapRefresh = function () {
 	ScrollTrigger.update();
 };
 
-export { gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapParallaxVisualTrigger, gsapRefresh, gsapKill };
+export { gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapVisualTrigger, gsapRefresh, gsapKill };

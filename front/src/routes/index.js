@@ -36,6 +36,12 @@ const router = createRouter({
 			meta: { title: 'WorkPage' },
 		},
 		{
+			path: '/work/:workId',
+			name: 'WorkView',
+			component: () => import('@/views/WorkView.vue'),
+			meta: { title: 'WorkView' },
+		},
+		{
 			path: '/about',
 			name: 'AboutPage',
 			component: () => import('@/views/AboutPage.vue'),
@@ -80,9 +86,10 @@ const router = createRouter({
 	],
 });
 
-router.beforeEach((to, from, next) => {
-	document.querySelector('#app').classList.add('loading'); // page change
-	next();
-});
+// router.beforeEach((to, from, next) => {
+// 	// document.querySelector('#app').classList.add('loading'); // page change
+// 	console.log('beforeEach', to);
+// 	next();
+// });
 
 export default router;

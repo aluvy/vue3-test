@@ -1,7 +1,7 @@
 <template>
-  <div id="insight-view">
+  <div id="work-view">
     
-    <section class="section black culture-visual" data-theme="light">
+    <section class="section black work-visual" data-theme="light">
       <ContentVisual mode="visualTrigger" :dimmed="true">
         <template #title>
           <ContentTitle
@@ -55,13 +55,12 @@ export default {
     }
   },
   mounted() {
-    this.title = ['2024', 'Happy New Goods'];
+    this.title = ['HYUNDAICARD', 'My Company'];
     this.title = this.title.map((o,i)=>{
       return { delay: i, text: o }
     })
 
-    this.date = '20240101';
-    this.date = `${this.date.slice(0,4)}.${this.date.slice(4,6)}`;
+    this.date = 'Web & Mobile Site';
 
 
   }

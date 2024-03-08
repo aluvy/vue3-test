@@ -2,7 +2,7 @@
   <div id="work-page">
     
     <section class="section black work-visual" data-theme="light">
-      <ContentVisual :dimmed="true" mode="parallax">
+      <ContentVisual :dimmed="true" mode="visualTrigger">
         <template #title>
           <ContentTitle
             :titleXL = "[ { delay: 0, text: `Finding the right one is` }, { delay: 1, text: `what we do best.` } ]"
@@ -26,7 +26,6 @@
 </template>
 
 <script>
-// import '@/assets/css/page-work.css'
 import PageMixin from '@/mixins/PageMixin';
 
 // component
@@ -47,6 +46,14 @@ export default {
       video,
     }
   },
+  mounted() {
+    console.log('video', this.video);
+    
+    // this.video.addEventListener("DOMContentLoaded", function(){
+    //   console.log('DOMContentLoaded')
+    //  // Handler when the DOM is fully loaded
+    // });
+  }
 }
 </script>
 

@@ -1,17 +1,23 @@
 import store from '@/store/';
-import { gsapAnimationTrigger, gsapThemeTrigger, gsapRefresh, gsapKill } from '@/utils/gsap.js';
+import { gsapAnimationTrigger, gsapThemeTrigger, gsapRefresh, gsapVisualTrigger, gsapParallaxTrigger, gsapKill } from '@/utils/gsap.js';
 
 // mixin
 export default {
 	methods: {
-		async onPageReady() {
+		async PageReady() {
 			console.log('ready');
 			await this.$nextTick();
+
+			// setTimeout(() => {
 			gsapAnimationTrigger();
 			gsapThemeTrigger();
+			gsapParallaxTrigger();
+			gsapVisualTrigger();
 
+			store.commit('setLoading', true);
 			store.commit('setOpenAside', false);
 			document.querySelector('#app').classList.remove('loading');
+			// }, 1);
 
 			setTimeout(() => {
 				store.commit('setLoading', false);
@@ -21,7 +27,7 @@ export default {
 		},
 	},
 	unmounted() {
-		store.commit('setLoading', true);
+		document.querySelector('#app').classList.add('loading'); // page change
 		window.removeEventListener('resize', gsapRefresh);
 		gsapKill();
 	},

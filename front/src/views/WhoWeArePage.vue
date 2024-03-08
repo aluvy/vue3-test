@@ -107,7 +107,7 @@
 
 <script>
 import PageMixin from '@/mixins/PageMixin';
-import { gsapParallaxTrigger } from '@/utils/gsap.js'
+// import { gsapParallaxTrigger } from '@/utils/gsap.js'
 
 // component
 import ContentVisual from '@/components/common/ContentVisual.vue'
@@ -205,7 +205,7 @@ export default {
   },
   async mounted() {
     await this.$nextTick();
-    gsapParallaxTrigger();
+    // gsapParallaxTrigger();
   },
 }
 </script>

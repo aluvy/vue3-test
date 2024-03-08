@@ -2,7 +2,7 @@
   <div id="culture-page">
     
     <section class="section black culture-visual" data-theme="light">
-      <ContentVisual mode="parallax">
+      <ContentVisual mode="visualTrigger">
         <template #title>
           <ContentTitle
             :titleXL = "[ { delay: 0, text: `Here,` }, { delay: 1, text: `The Fifty One` } ]"

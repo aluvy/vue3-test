@@ -2,7 +2,7 @@
   <div id="insight-page">
     
     <section class="section black culture-visual" data-theme="light">
-      <ContentVisual mode="parallax">
+      <ContentVisual mode="visualTrigger">
         <template #title>
           <ContentTitle
             :titleXL = "[ { delay: 0, text: `INSIGHT` } ]"
@@ -68,10 +68,10 @@ export default {
       }
     },
   },
-  async created() {
+  async mounted() {
     await this.fetchLists();
     this.listgroups = this.$store.getters.getInsights;
-    this.onPageReady();
+    this.PageReady();
   }
 }
 </script>

@@ -6,8 +6,8 @@ B: who we are, contact us : 높이 80%화면 반응형 | 좌측정렬 3단 텍�
 C: aboutus : 우측이미지 반응형 | 좌측정렬 3단텍스트 + sns | 이미지배경
 D: recruit : 완전다름
   -->
-  <div class="visual-area parallax-bg" :class="{ full: type==='full', normal: type==='normal', halfLeft: type==='halfLeft' }"  data-speed="-0.5">
-    <div class="slogan parallax-text">
+  <div class="visual-area visualTrigger-bg" :class="{ full: type==='full', normal: type==='normal', halfLeft: type==='halfLeft', visualTriggerMode: mode ==='visualTrigger' }" data-speed="-0.5">
+    <div class="slogan visualTrigger-slogan">
       <div class="slogan-inner">
         <slot name="title"></slot>
         
@@ -21,14 +21,15 @@ D: recruit : 완전다름
 
       </div>
     </div>
-    <div class="bg gsap-item parallax-bg" :class="{ dimmed : dimmed === true }" data-speed="-0.1">
-      <slot name="visual"></slot>
+    <div class="bg visualTrigger-bg" :class="{ dimmed : dimmed === true }" data-speed="-0.1">
+      <div class="bg-inner gsap-item">
+        <slot name="visual"></slot>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { gsapParallaxVisualTrigger } from '@/utils/gsap.js'
 
 export default {
   data() {
@@ -59,10 +60,6 @@ export default {
 
     }
   },
-  async mounted() {
-    await this.$nextTick();
-    if( this.mode === 'parallax' ) gsapParallaxVisualTrigger();
-  }
 }
 </script>
 
@@ -71,6 +68,7 @@ export default {
 .visual-area .slogan { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; }
 .visual-area .slogan-inner { width: 100%; max-width: var(--max-width); padding: var(--inner-pad); }
 .visual-area .bg { position: absolute; inset: 0; z-index: 1; }
+.visual-area .bg-inner { position: absolute; inset: 0; z-index: 1; }
 .visual-area .bg.dimmed::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0, 0.5); z-index: 2; }
 .visual-area .bg .img { position: absolute; inset: 0; background-position: center; background-repeat: no-repeat; background-size: cover; z-index: 1; }
 .visual-area .bg video { position: absolute; left: 50%; top: 50%; transform: translate3D(-50%, -50%, 0); min-width: 100%; min-height: 100%; z-index: 1; }
@@ -89,7 +87,7 @@ export default {
 
 
 /* visual animation */
-.visual-area .bg.onEnter { animation-name: scale-in-1; animation-duration: 1s; animation-fill-mode: forwards; animation-delay: .8s; animation-fill-mode: backwards; }
+.visual-area .bg-inner.onEnter { animation-name: scale-in-1; animation-duration: 1s; animation-fill-mode: forwards; animation-delay: .8s; animation-fill-mode: backwards; }
 .visual-area.halfLeft .bg.onEnter { animation-name: fade-in-slide-left-20; animation-duration: 1s; animation-delay: .8s; animation-fill-mode: backwards; }
 
 
