@@ -14,7 +14,8 @@
 .who-service { position: relative; padding: 25rem 0; overflow: hidden; }
 .who-service .inner { position: relative; z-index: 2; }
 .who-service .bg { position: absolute; inset: 0; overflow: hidden; z-index: 1; }
-.who-service .bg > div { position: absolute; left: 0; top: 50%; margin-top: calc(var(--vh) * 1.2 / 2 * -1); width: 100%; height: calc(var(--vh) * 1.2); background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 1; }
+.who-service .bg > div { position: absolute; left: 0; top: 0; margin-top: calc(var(--vh) * 1.1 / 2 * -1); width: 100%; height: calc(var(--vh) * 1.2); background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 1; }
+/* .who-service .bg > div { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 1; } */
 
 /* client */
 .who-client { padding: 10rem 0; }

@@ -56,6 +56,7 @@ const store = createStore({
 	},
 	actions: {
 		async dispatchInsightList(context, payload) {
+			console.log(payload);
 			if (!context.state.insightsStatus) return;
 			try {
 				const res = await fetchLists(payload.num);

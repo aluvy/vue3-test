@@ -6,7 +6,7 @@ const router = createRouter({
 	// mode: 'history',
 	// base: '/#',
 	scrollBehavior(to, from, savedPosition) {
-		console.log(to, from, savedPosition);
+		// console.log(to, from, savedPosition);
 
 		if (to.path === '/insight' && from.path.includes('/insight/')) {
 			return savedPosition;

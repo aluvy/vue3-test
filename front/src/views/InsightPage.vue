@@ -23,8 +23,6 @@
 
         <div v-if="!listState">All Items Loaded</div>
 
-        
-
       </section>
     </div>
   </div>

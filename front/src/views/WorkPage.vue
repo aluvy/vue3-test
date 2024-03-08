@@ -18,7 +18,8 @@
     </section>
 
     <div id="content">
-      ddddsadsfds
+      <WorkList :listgroups="listgroups"></WorkList>
+      ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>
     </div>
 
 
@@ -26,33 +27,52 @@
 </template>
 
 <script>
-import PageMixin from '@/mixins/PageMixin';
+import FetchPageMixin from '@/mixins/FetchPageMixin'
+// '@/mixins/fetchPageMixin';
 
 // component
 import ContentVisual from '@/components/common/ContentVisual.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
+import WorkList from '@/components/common/WorkList.vue'
 
 // assets
 import video from '@/assets/images/work/video.mp4'
 
 export default {
-  mixins: [PageMixin],
+  mixins: [FetchPageMixin],
   components: {
     ContentVisual,
     ContentTitle,
+    WorkList
   },
   data() {
     return {
       video,
+      listNum: 1,
+      listState: this.$store.getInsightsStatus,
+      listgroups: [],
     }
   },
-  mounted() {
-    console.log('video', this.video);
-    
-    // this.video.addEventListener("DOMContentLoaded", function(){
-    //   console.log('DOMContentLoaded')
-    //  // Handler when the DOM is fully loaded
-    // });
+  methods: {
+    async fetchLists() {
+      // if ( !this.listState ) return false;
+      try {
+        await this.$store.dispatch('dispatchInsightList', { num: this.listnum });
+        this.listnum++;
+        console.log('try', this.listnum);
+      } catch (e) {
+        console.log('error', e);
+      }
+    },
+  },
+  async mounted() {
+    // await this.$nextTick();
+    // setTimeout(()=>{
+    //   this.PageReady();
+    // }, 100);
+    await this.fetchLists();
+    this.listgroups = this.$store.getters.getInsights;
+    this.PageReady();
   }
 }
 </script>
