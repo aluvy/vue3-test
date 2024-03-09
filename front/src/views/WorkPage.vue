@@ -19,7 +19,6 @@
 
     <div id="content">
       <WorkList :listGroups="listGroups"></WorkList>
-      ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>ddddsadsfds<br>
     </div>
 
 
@@ -51,6 +50,7 @@ export default {
       listNum: 1,
       listState: this.$store.getInsightsStatus,
       listGroups: [],
+      data: [],
     }
   },
   methods: {
@@ -66,12 +66,32 @@ export default {
     },
   },
   async mounted() {
-    // await this.$nextTick();
-    // setTimeout(()=>{
-    //   this.PageReady();
-    // }, 100);
     await this.fetchLists();
     this.listGroups = this.$store.getters.getInsights;
+    const dataGroup = [
+      { num: 5, layout: 51 },
+      { num: 4, layout: 43 },
+      { num: 2, layout: 21 },
+      { num: 3, layout: 31 },
+      { num: 2, layout: 21 },
+      { num: 2, layout: 21 },
+      { num: 3, layout: 31 },
+      { num: 4, layout: 41 },
+      { num: 4, layout: 46 },
+      { num: 3, layout: 34 },
+      { num: 3, layout: 31 },
+      { num: 4, layout: 44 },
+      { num: 3, layout: 34 },
+      { num: 3, layout: 33 },
+      { num: 4, layout: 41 },
+      { num: 4, layout: 43 },
+      { num: 2, layout: 21 }
+    ];
+    let testGroup = [...this.$store.getters.getInsights];
+    let list = dataGroup.map( a => {
+      return { layout: a.layout, data: testGroup.splice(0, a.num) };
+    });
+    this.listGroups = list;
     this.PageReady();
   }
 }
