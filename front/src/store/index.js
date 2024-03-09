@@ -1,5 +1,5 @@
 import { createStore } from 'vuex';
-import { fetchInsightsLists, fetchWorksLists } from '@/api/insight.js';
+import { fetchInsightsLists, fetchWorksLists } from '@/api/list.js';
 
 const store = createStore({
 	state() {

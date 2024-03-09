@@ -8,7 +8,6 @@
               <p class="title">
                 <span v-for="ttl in list.title" :key="ttl">{{ ttl }}</span>
               </p>
-              <p class="date">{{ list.date.slice(0,4) }}.{{ list.date.slice(4,6) }}</p>
             </div>
             <div class="bg" :style="`background-image:url(${list.image})`"></div>
           </router-link>
@@ -34,26 +33,23 @@ export default {
 .work-group li { perspective: 2000px; }
 .work-group li a { position: relative; display: block; }
 .work-group li a::after { position: absolute; inset: 0; content: ''; background: rgba(0,0,0, 0.3); transition: background .7s; z-index: 2; }
-.work-group li .title-wrap { position: absolute; left: 0; bottom: 0; width: 100%; height: 50%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; color: #fff; padding: 0 2rem 4rem; background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); z-index: 3; }
+.work-group li .title-wrap { position: absolute; left: 0; bottom: 0; width: 100%; height: 50%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; color: #fff; padding: 2.2rem; background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); z-index: 3; }
 
-.work-group li .title-wrap .title,
-.work-group li .title-wrap .date { font-weight: normal; line-height: 1; text-align: center; word-break: keep-all; }
-.work-group li .title-wrap .title { font-size: 1.8rem; letter-spacing: 0.1rem; }
-.work-group li .title-wrap .title span { display: block; }
-.work-group li .title-wrap .date { font-size: 1.2rem; font-style: italic; margin-top: 1.4rem; }
+.work-group li .title-wrap .title { font-size: 2.4rem; letter-spacing: 0.1rem; }
+/* .work-group li .title-wrap .title span { display: block; } */
 .work-group li .bg { position: relative; background-size: cover; background-position: center; z-index: 1; }
 .work-group li .bg::before { content: ''; display: block; padding-bottom: 70%; }
 
 .len1 li .bg::before { padding-bottom: 35%; }
 
-.len5 li.order1.size2 { grid-column: 1 / 3; grid-row: 1 / 3; order: 1; }
-.len5 li.order2.size2 { grid-column: 2 / 4; grid-row: 1 / 3; order: 2; }
-.len5 li.order3.size2 { grid-column: 3 / 5; grid-row: 1 / 3; order: 3; }
+.len5 li.order1.size3 { grid-column: 1 / 3; grid-row: 1 / 3; order: 1; }
+.len5 li.order2.size3 { grid-column: 2 / 4; grid-row: 1 / 3; order: 2; }
+.len5 li.order3.size3 { grid-column: 3 / 5; grid-row: 1 / 3; order: 3; }
+
+.work-group.len5 li.size2 .title-wrap {padding: 4.2rem; }
 
 .work-group.len1 li .title-wrap .title,
 .work-group.len5 li.size2 .title-wrap .title { font-size: 3rem; }
-.work-group.len1 li .title-wrap .date,
-.work-group.len5 li.size2 .title-wrap .date { font-size: 1.6rem; margin-top: 1.6rem; }
 
 /* hover */
 .work-group li a:hover::after { background: rgba(0,0,0,0); }
@@ -85,8 +81,6 @@ export default {
 
   .work-group.len1 li .title-wrap .title,
   .work-group.len5 li.size2 .title-wrap .title { font-size: 2rem; }
-  .work-group.len1 li .title-wrap .date,
-  .work-group.len5 li.size2 .title-wrap .date { font-size: 1.4rem; margin-top: 1.2rem; }
 }
 @media only screen and (max-width: 425px) {
   .work-group.len4 { display: grid; grid-template-columns: repeat(1, 1fr); }

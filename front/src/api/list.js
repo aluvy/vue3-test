@@ -10,7 +10,7 @@ function fetchInsightsLists(num) {
 }
 
 function fetchWorksLists(num) {
-	return instance.get(`/works/list${num}.json`);
+	return instance.get(`/work/list${num}.json`);
 }
 
 export { fetchInsightsLists, fetchWorksLists };
