@@ -87,6 +87,7 @@ const gsapVisualTrigger = function () {
 			// markers: true,
 		},
 		opacity: 0,
+		// height: 0,
 	});
 };
 

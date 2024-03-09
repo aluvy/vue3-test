@@ -6,8 +6,8 @@ B: who we are, contact us : 높이 80%화면 반응형 | 좌측정렬 3단 텍�
 C: aboutus : 우측이미지 반응형 | 좌측정렬 3단텍스트 + sns | 이미지배경
 D: recruit : 완전다름
   -->
-  <div class="visual-area visualTrigger-bg" :class="{ full: type==='full', normal: type==='normal', halfLeft: type==='halfLeft', visualTriggerMode: mode ==='visualTrigger' }" data-speed="-0.5">
-    <div class="slogan visualTrigger-slogan">
+  <div class="visual-area" :class="{ full: type==='full', normal: type==='normal', halfLeft: type==='halfLeft', visualTriggerMode: mode ==='visualTrigger' }">
+    <div class="slogan visualTrigger-slogan visualTrigger-bg" data-speed="-0.5">
       <div class="slogan-inner">
         <slot name="title"></slot>
         
@@ -21,7 +21,7 @@ D: recruit : 완전다름
 
       </div>
     </div>
-    <div class="bg visualTrigger-bg" :class="{ dimmed : dimmed === true }" data-speed="-0.1">
+    <div class="bg visualTrigger-bg" :class="{ dimmed : dimmed === true }" data-speed="-0.6">
       <div class="bg-inner gsap-item">
         <slot name="visual"></slot>
       </div>
@@ -34,7 +34,7 @@ D: recruit : 완전다름
 export default {
   data() {
     return {
-      isRun: false,
+      // isRun: false,
     }
   },
   props: {
@@ -44,21 +44,27 @@ export default {
   },
   methods: {
     scrollDown() {
-      if(this.isRun) return;
+      let winH = window.innerHeight;
+      window.scrollTo({
+        top: winH,
+        behavior: 'smooth',
+      });
+    },
+    // scrollDown() {
+    //   if(this.isRun) return;
 
-      const winH = window.innerHeight;
-      const endH = document.querySelector('html').scrollHeight - winH;
+    //   const winH = window.innerHeight;
+    //   const endH = document.querySelector('html').scrollHeight - winH;
 
-      this.isRun = true;
-      this.intervalId = setInterval(() => {
-        if (window.scrollY >= winH || window.scrollY >= endH) {
-          this.isRun = false;
-          clearInterval(this.intervalId);
-        }
-        window.scroll(winH, window.scrollY + 50);
-      }, 20);
-
-    }
+    //   this.isRun = true;
+    //   this.intervalId = setInterval(() => {
+    //     if (window.scrollY >= winH || window.scrollY >= endH) {
+    //       this.isRun = false;
+    //       clearInterval(this.intervalId);
+    //     }
+    //     window.scroll(winH, window.scrollY + 50);
+    //   }, 20);
+    // }
   },
 }
 </script>
