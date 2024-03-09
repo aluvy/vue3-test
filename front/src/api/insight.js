@@ -1,16 +1,16 @@
 import axios from 'axios';
 
 const instance = axios.create({
-	baseURL: process.env.VUE_APP_API_URL,
+	// baseURL: process.env.VUE_APP_API_URL,
+	baseURL: 'https://aluvy.github.io/vue3-test/data',
 });
 
-// axios.default.withCredentials = true;
-// const options = {
-// 	withCredentials: true,
-// };
-
-function fetchLists(num) {
-	return instance.get(`https://aluvy.github.io/vue3-test/data/insight/list${num}.json`);
+function fetchInsightsLists(num) {
+	return instance.get(`/insight/list${num}.json`);
 }
 
-export { fetchLists };
+function fetchWorksLists(num) {
+	return instance.get(`/works/list${num}.json`);
+}
+
+export { fetchInsightsLists, fetchWorksLists };

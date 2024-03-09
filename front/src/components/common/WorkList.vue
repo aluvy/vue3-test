@@ -42,9 +42,9 @@ export default {
 .work-group li .title-wrap .title span { display: block; }
 .work-group li .title-wrap .date { font-size: 1.2rem; font-style: italic; margin-top: 1.4rem; }
 .work-group li .bg { position: relative; background-size: cover; background-position: center; z-index: 1; }
-.work-group li .bg::before { content: ''; display: block; padding-bottom: 100%; }
+.work-group li .bg::before { content: ''; display: block; padding-bottom: 70%; }
 
-.len1 li .bg::before { padding-bottom: 50%; }
+.len1 li .bg::before { padding-bottom: 35%; }
 
 .len5 li.order1.size2 { grid-column: 1 / 3; grid-row: 1 / 3; order: 1; }
 .len5 li.order2.size2 { grid-column: 2 / 4; grid-row: 1 / 3; order: 2; }

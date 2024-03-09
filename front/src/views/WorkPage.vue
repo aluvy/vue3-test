@@ -57,7 +57,7 @@ export default {
     async fetchLists() {
       // if ( !this.listState ) return false;
       try {
-        await this.$store.dispatch('dispatchInsightList', { num: this.listNum });
+        await this.$store.dispatch('dispatchWorkList', { num: this.listNum });
         this.listnum++;
         console.log('try', this.listNum);
       } catch (e) {

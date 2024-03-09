@@ -1,5 +1,5 @@
 import { createStore } from 'vuex';
-import { fetchLists } from '@/api/insight.js';
+import { fetchInsightsLists, fetchWorksLists } from '@/api/insight.js';
 
 const store = createStore({
 	state() {
@@ -13,6 +13,8 @@ const store = createStore({
 
 			insightsStatus: true,
 			insights: [],
+			worksStatus: true,
+			works: [],
 		};
 	},
 	getters: {
@@ -25,6 +27,8 @@ const store = createStore({
 
 		getInsightsStatus: state => state.insightsStatus,
 		getInsights: state => state.insights,
+		getWorksStatus: state => state.worksStatus,
+		getWorks: state => state.works,
 	},
 	mutations: {
 		setLoading(state, payload) {
@@ -53,13 +57,31 @@ const store = createStore({
 		setInsightsStatus(state, payload) {
 			state.insightsStatus = payload;
 		},
+		setWorks(state, payload) {
+			state.works = payload;
+		},
+		setWorkstatus(state, payload) {
+			state.worksStatus = payload;
+		},
 	},
 	actions: {
 		async dispatchInsightList(context, payload) {
 			console.log(payload);
 			if (!context.state.insightsStatus) return;
 			try {
-				const res = await fetchLists(payload.num);
+				const res = await fetchInsightsLists(payload.num);
+				context.commit('setInsights', res.data);
+				console.log(payload.num, res);
+			} catch (e) {
+				console.log('error', e);
+				context.commit('setInsightsStatus', false);
+			}
+		},
+		async dispatchWorkList(context, payload) {
+			console.log(payload);
+			if (!context.state.insightsStatus) return;
+			try {
+				const res = await fetchWorksLists(payload.num);
 				context.commit('setInsights', res.data);
 				console.log(payload.num, res);
 			} catch (e) {
