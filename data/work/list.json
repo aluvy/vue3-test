@@ -5,6 +5,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/54-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -13,6 +14,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/53-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -21,6 +23,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/52-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -29,6 +32,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/51-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -37,6 +41,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/50-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -45,6 +50,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/49-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -53,6 +59,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/48-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -61,6 +68,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/47-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -69,6 +77,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/46-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -77,6 +86,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/45-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -85,6 +95,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/44-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -93,6 +104,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/43-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -101,6 +113,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/42-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -109,6 +122,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/41-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -117,6 +131,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/40-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -125,6 +140,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/39-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -133,6 +149,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/38-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -141,6 +158,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/37-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -149,6 +167,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/36-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -157,6 +176,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/35-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -165,14 +185,16 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/34-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
     "idx": 33,
-    "title": ["LOTTE Hotels &amp; Resorts"],
+    "title": ["LOTTE Hotels & Resorts"],
     "date": "00000000",
     "category": "LG CS CENTER",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/33-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -181,6 +203,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/32-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -189,6 +212,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/31-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -197,6 +221,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/30-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -205,6 +230,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/29-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -213,6 +239,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/28-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -221,6 +248,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/27-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -229,6 +257,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/26-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -237,6 +266,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/25-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -245,6 +275,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/24-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -253,6 +284,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/23-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -261,6 +293,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/22-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -269,6 +302,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/21-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -277,6 +311,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/20-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -285,6 +320,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/19-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -293,6 +329,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/18-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -301,6 +338,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/17-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -309,6 +347,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/16-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -317,6 +356,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/15-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -325,6 +365,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/14-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -333,6 +374,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/13-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -341,6 +383,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/12-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -349,6 +392,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/11-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -357,6 +401,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/10-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -365,6 +410,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/9-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -373,6 +419,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/8-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -381,6 +428,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/7-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -389,6 +437,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/6-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -397,14 +446,16 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/5-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
     "idx": 4,
-    "title": ["WIND &amp; WAVE"],
+    "title": ["WIND & WAVE"],
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/4-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -413,6 +464,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/3-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -421,6 +473,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/2-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -429,6 +482,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/1-thumb.jpg",
+    "theme": "light",
     "url": "/"
   },
   {
@@ -437,6 +491,7 @@
     "date": "00000000",
     "category": "web & mobile",
     "image": "https://aluvy.github.io/vue3-test/data/work/images/0-thumb.jpg",
+    "theme": "light",
     "url": "/"
   }
 ]
