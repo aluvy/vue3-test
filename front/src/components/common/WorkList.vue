@@ -53,14 +53,14 @@ export default {
 .work-group.layout-52 li:nth-child(3) .title-wrap .title { font-size: 2.4rem; } */
 
 .work-group.layout-41 li:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
-.work-group.layout-41 li:nth-child(1) .title-wrap { padding: 4.4rem; }
-.work-group.layout-41 li:nth-child(1) .title-wrap .title { font-size: 2.4rem; }
+/* .work-group.layout-41 li:nth-child(1) .title-wrap { padding: 4.4rem; }
+.work-group.layout-41 li:nth-child(1) .title-wrap .title { font-size: 2.4rem; } */
 .work-group.layout-41 li:nth-child(2) .bg::before { padding-bottom: var(--workitem-height); }
 .work-group.layout-41 li:nth-child(2) { grid-column: 3 / 5; grid-row: 1 / 2; }
 
 .work-group.layout-42 li:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
-.work-group.layout-42 li:nth-child(1) .title-wrap { padding: 4.4rem; }
-.work-group.layout-42 li:nth-child(1) .title-wrap .title { font-size: 2.4rem; }
+/* .work-group.layout-42 li:nth-child(1) .title-wrap { padding: 4.4rem; }
+.work-group.layout-42 li:nth-child(1) .title-wrap .title { font-size: 2.4rem; } */
 .work-group.layout-42 li:nth-child(4) .bg::before { padding-bottom: var(--workitem-height); }
 .work-group.layout-42 li:nth-child(4) { grid-column: 3 / 5; grid-row: 2 / 3; }
 
