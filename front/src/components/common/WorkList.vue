@@ -34,11 +34,11 @@ export default {
 .work-group li { perspective: 2000px; }
 .work-group li a { position: relative; display: block; }
 .work-group li a::after { position: absolute; inset: 0; content: ''; /* background: rgba(0,0,0, 0.3);*/ transition: background .5s; z-index: 2; }
-.work-group li .title-wrap { position: absolute; left: 0; bottom: 0; width: 100%; height: 50%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; color: #fff; padding: 2.2rem; z-index: 3; }
-.work-group li.theme-white { color: #fff; }
-.work-group li.theme-black { color: #000; }
+.work-group li .title-wrap { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; color: #fff; padding: 2.2rem; z-index: 3; }
+.work-group li.theme-white .title-wrap { color: #fff; }
+.work-group li.theme-black .title-wrap { color: #000; }
 
-.work-group li .title-wrap .title { font-size: 2.4rem; letter-spacing: 0.1rem; }
+.work-group li .title-wrap .title { font-size: 2.4rem; letter-spacing: 0.1rem; word-break: keep-all; }
 .work-group li .bg { position: relative; background-size: cover; background-position: center; z-index: 1; }
 .work-group li .bg::before { content: ''; display: block; padding-bottom: calc(var(--workitem-height) * 2); }
 
@@ -143,7 +143,7 @@ export default {
   :root {
     --workitem-height: 55%;
   }
-  .work-group li .title-wrap { padding: 2.2rem; }
+  /* .work-group li .title-wrap { padding: 2.2rem; } */
 }
 
 @media only screen and (max-width: 1024px) {
@@ -154,7 +154,7 @@ export default {
     --workitem-height: 52%;
   }
   .work-group { display: block; }
-  .work-group li .title-wrap { padding: 0 2rem 3rem; }
+  .work-group li .title-wrap { padding: 2rem; }
   .work-group li .title-wrap .title { font-size: 1.6rem; }
 
   .work-group li .bg::before,
@@ -178,6 +178,11 @@ export default {
   .work-group.len5 li.size2 .title-wrap .title { font-size: 2rem; } */
 }
 @media only screen and (max-width: 425px) {
+  :root {
+    --workitem-height: 90%;
+  }
+  .work-group li .title-wrap { padding: 1.4rem; }
+  /* .work-group li .title-wrap .title { font-size: 1.6rem; } */
   /* .work-group.len4 { display: grid; grid-template-columns: repeat(1, 1fr); }
   .work-group.len5 { display: grid; grid-template-columns: repeat(1, 1fr); } */
 
