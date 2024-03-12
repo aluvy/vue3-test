@@ -1,7 +1,7 @@
 <template>
   <div id="who-page" ref="elem">
 
-    <section class="section black who-visual" data-theme="light">
+    <section class="section black who-visual" data-theme="white">
       <ContentVisual type="normal" :dimmed="true">
         <template #title>
           <ContentTitle
@@ -24,7 +24,7 @@
     </section>
 
     <div id="content">
-      <section class="section who-overview" data-theme="light">
+      <section class="section who-overview" data-theme="white">
         <div class="inner">
           <ContentTitle
             :titleS = "[ { delay: 1, text: `Overview` } ]"
@@ -64,7 +64,7 @@
         </div>
       </section>
 
-      <section class="section white who-service" data-theme="dark">
+      <section class="section white who-service" data-theme="black">
         <div class="inner">
           <ContentTitle
             :titleL="[ { delay: 1, text: `Our Services` }]"
@@ -78,7 +78,7 @@
         </div>
       </section>
 
-      <section class="section white who-client" data-theme="dark">
+      <section class="section white who-client" data-theme="black">
         <div class="inner">
           <ContentTitle
             :titleS = "[ { delay: 1, text: `Our Clients`} ]"
@@ -95,7 +95,7 @@
         </div>
       </section>
 
-      <section class="section" data-theme="light">
+      <section class="section" data-theme="white">
         <PageLink :Links="[
           { url: '/contact-us', title: `CONTACT US`, bg: Linkbg }
         ]"></PageLink>

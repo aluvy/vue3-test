@@ -1,5 +1,5 @@
 <template>
-  <section id="main-page" data-theme="light">
+  <section id="main-page" data-theme="white">
     <SwiperMain :slides="visuals"></SwiperMain>
   </section>
 </template>

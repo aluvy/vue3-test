@@ -1,7 +1,7 @@
 <template>
   <div id="culture-page">
     
-    <section class="section black culture-visual" data-theme="light">
+    <section class="section black culture-visual" data-theme="white">
       <ContentVisual mode="visualTrigger">
         <template #title>
           <ContentTitle
@@ -19,7 +19,7 @@
 
     <div id="content">
       
-      <section class="section white overview" data-theme="dark">
+      <section class="section white overview" data-theme="black">
         <div class="inner">
           <ContentTitle
             :titleL = "[ { delay: 0, text: `Hello,` }, { delay: 1, text: `The Fifty One` } ]"
@@ -34,7 +34,7 @@
         </div>
       </section>
 
-      <section class="section white space" data-theme="dark">
+      <section class="section white space" data-theme="black">
         <ul>
           <li v-for="space in spaces" :key="space" class="gsap-item" :class="{ big: space.size===2}"  :style="`background-image: url(${space.image}); background-color: ${space.bg}`">
             <p>{{ space.text }}</p>
@@ -42,7 +42,7 @@
         </ul>
       </section>
 
-      <section class="section insight" data-theme="light">
+      <section class="section insight" data-theme="white">
         <div class="inner">
           <div class="insight-inner">
             <ContentTitle
@@ -56,7 +56,7 @@
         <div class="bg" :style="`background-image:url(${insightBG})`"></div>
       </section>
 
-      <section class="section white benefit" data-theme="dark">
+      <section class="section white benefit" data-theme="black">
         <ContentTitle
           :titleL = "[ { delay: 0, text: `Benefits` } ]"
           align="center"

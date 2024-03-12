@@ -1,7 +1,7 @@
 <template>
   <div id="contact-page">
     
-    <section class="section black contact-visual" data-theme="light">
+    <section class="section black contact-visual" data-theme="white">
       <ContentVisual type="normal" :dimmed="true">
         <template #title>
           <ContentTitle
@@ -22,7 +22,7 @@
 
     <div id="content">
 
-      <section class="section contact" data-theme="light">
+      <section class="section contact" data-theme="white">
         <div id="map">
           <KakaoMap></KakaoMap>
         </div>
@@ -47,7 +47,7 @@
         </div>
       </section>
       
-      <section class="section" data-theme="light">
+      <section class="section" data-theme="white">
         <PageLink :Links="[
           { url: '/who-we-are', title: `WHO WE ARE`, bg: Linkbg }
         ]"></PageLink>

@@ -1,7 +1,7 @@
 <template>
   <div id="about-page" ref="elem">
 
-    <section class="section black about-visual" data-theme="light">
+    <section class="section black about-visual" data-theme="white">
       <ContentVisual type="halfLeft">
         <template #title>
           <ContentTitle
@@ -22,7 +22,7 @@
 
 
     <div id="content">
-      <section class="section white about-link" data-theme="dark">
+      <section class="section white about-link" data-theme="black">
         <div class="inner">
           <ul class="list">
             <li v-for="link in links" :key="link">
@@ -36,11 +36,11 @@
         </div>
       </section>
 
-      <section class="section white about-img" data-theme="light">
+      <section class="section white about-img" data-theme="white">
         <div class="img gsap-item"><img :src="poster" alt=""></div>
       </section>
 
-      <section class="section black about-awards" data-theme="light">
+      <section class="section black about-awards" data-theme="white">
         <div class="inner">
           <ContentTitle
             :titleS = "[ { delay: 1, text: `AWARDS` } ]"
@@ -64,7 +64,7 @@
         </div>
       </section>
 
-      <section class="section black" data-theme="light">
+      <section class="section black" data-theme="white">
         <div class="about-video gsap-item">
           <video preload="auto" loop autoplay muted playsinline><source :src="video" type="video/mp4"></video>
         </div>

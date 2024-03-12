@@ -1,7 +1,7 @@
 <template>
   <div id="work-page">
     
-    <section class="section black work-visual" data-theme="light">
+    <section class="section black work-visual" data-theme="white">
       <ContentVisual :dimmed="true" mode="visualTrigger">
         <template #title>
           <ContentTitle

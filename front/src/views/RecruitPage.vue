@@ -1,7 +1,7 @@
 <template>
   <div id="recruit-page">
     
-    <section class="section recruit-visual" data-theme="light">
+    <section class="section recruit-visual" data-theme="white">
       <div class="slogan">
         <div class="slogan-inner">
           <h2>
@@ -18,7 +18,7 @@
 
     <div id="content">
 
-      <section class="section recruit" data-theme="light">
+      <section class="section recruit" data-theme="white">
         <div class="inner">
           <h3 class="ttl">
             <p>'THE51'을 이끌어갈</p>
@@ -111,7 +111,7 @@
         </div>
       </section>
 
-      <section class="section talent" data-theme="light">
+      <section class="section talent" data-theme="white">
         <div class="inner">
           <div class="tit-area">
             <strong>
@@ -130,7 +130,7 @@
         </div>
       </section>
 
-      <section class="section joinus" data-theme="light">
+      <section class="section joinus" data-theme="white">
         <div class="inner">
           <strong>WANT TO JOIN US?</strong>
           <p>이력서 및 포트폴리오 첨부하여 <br class="mo-show">메일 제목 “입사지원” 표기 후 메일로 접수</p>

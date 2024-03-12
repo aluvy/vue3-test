@@ -45,13 +45,13 @@
 .OpenAside .header-menu span::before { transform: rotate(45deg) translate(7px, 6px) scale(.771); }
 .OpenAside .header-menu span::after { transform: rotate(-45deg) translate(7px, -6px) scale(.771); }
 /* theme */
-html:not(.OpenAside) #header[data-theme='light'] .header-logo a::before { opacity: 1; }
-html:not(.OpenAside) #header[data-theme='dark'] .header-logo a::before { opacity: 0; }
-html:not(.OpenAside) #header[data-theme='lignt'] .header-logo a::after { opacity: 0; }
-html:not(.OpenAside) #header[data-theme='dark'] .header-logo a::after { opacity: 1; }
-html:not(.OpenAside) #header[data-theme='dark'] .header-menu span,
-html:not(.OpenAside) #header[data-theme='dark'] .header-menu span::before,
-html:not(.OpenAside) #header[data-theme='dark'] .header-menu span::after { background: #000; }
+html:not(.OpenAside) #header[data-theme='white'] .header-logo a::before { opacity: 1; }
+html:not(.OpenAside) #header[data-theme='black'] .header-logo a::before { opacity: 0; }
+html:not(.OpenAside) #header[data-theme='white'] .header-logo a::after { opacity: 0; }
+html:not(.OpenAside) #header[data-theme='black'] .header-logo a::after { opacity: 1; }
+html:not(.OpenAside) #header[data-theme='black'] .header-menu span,
+html:not(.OpenAside) #header[data-theme='black'] .header-menu span::before,
+html:not(.OpenAside) #header[data-theme='black'] .header-menu span::after { background: #000; }
 
 
 

@@ -1,7 +1,7 @@
 <template>
   <div id="insight-page">
     
-    <section class="section black culture-visual" data-theme="light">
+    <section class="section black culture-visual" data-theme="white">
       <ContentVisual mode="visualTrigger">
         <template #title>
           <ContentTitle
@@ -18,7 +18,7 @@
     </section>
 
     <div id="content">
-      <section class="section" data-theme="light">
+      <section class="section" data-theme="white">
         <InsightList :listGroups="listGroups"></InsightList>
 
         <div v-if="!listState">All Items Loaded</div>

@@ -1,7 +1,7 @@
 <template>
   <div id="insight-view">
     
-    <section class="section black culture-visual" data-theme="light">
+    <section class="section black culture-visual" data-theme="white">
       <ContentVisual mode="visualTrigger" :dimmed="true">
         <template #title>
           <ContentTitle
