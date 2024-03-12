@@ -40,27 +40,8 @@ export default {
       ],
     }
   },
-  methods: {
-    // imageload() {
-    //   console.log('loaded');
-    //   this.PageReady();
-    // }
-  },
   async mounted() {
 		await this.$nextTick();
-
-    // console.log(this.image1);
-    // const img = document.createElement("img");
-    // img.src = this.image1;
-
-    // // onLoad
-    // // console.log(img);
-    // img.onLoad = function() {
-    //   console.log('ddd');
-    // };
-    // // console.log('mounted');
-    // this.PageReady();
-
     document.documentElement.classList.add('rock-scroll');
     this.$store.commit('setFooter', false);
   },
