@@ -1,6 +1,9 @@
 <template>
   <section id="main-page" data-theme="light">
     <SwiperMain :slides="visuals"></SwiperMain>
+    <div class="blind">
+      <img :src="image.image1" @loadeddata="load" alt="">
+    </div>
   </section>
 </template>
 
@@ -40,8 +43,13 @@ export default {
       ],
     }
   },
+  methods: {
+    load() {
+      console.log('load');
+    }
+  },
   async mounted() {
-		await this.$nextTick();
+		// await this.$nextTick();
     
     document.documentElement.classList.add('rock-scroll');
     this.$store.commit('setFooter', false);
