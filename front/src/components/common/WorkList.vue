@@ -30,8 +30,8 @@ export default {
 
 .work-group li { perspective: 2000px; }
 .work-group li a { position: relative; display: block; }
-.work-group li a::after { position: absolute; inset: 0; content: ''; background: rgba(0,0,0, 0.3); transition: background .7s; z-index: 2; }
-.work-group li .title-wrap { position: absolute; left: 0; bottom: 0; width: 100%; height: 50%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; color: #fff; padding: 2.2rem; background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); z-index: 3; }
+.work-group li a::after { position: absolute; inset: 0; content: ''; /* background: rgba(0,0,0, 0.3);*/ transition: background .5s; z-index: 2; }
+.work-group li .title-wrap { position: absolute; left: 0; bottom: 0; width: 100%; height: 50%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; color: #fff; padding: 2.2rem; z-index: 3; }
 
 .work-group li .title-wrap .title { font-size: 2.4rem; letter-spacing: 0.1rem; }
 .work-group li .bg { position: relative; background-size: cover; background-position: center; z-index: 1; }
@@ -40,21 +40,34 @@ export default {
 
 /* layout */
 .work-group.layout-51 li:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
+.work-group.layout-51 li:nth-child(1) .title-wrap { padding: 4.4rem; }
+.work-group.layout-51 li:nth-child(1) .title-wrap .title { font-size: 2.4rem; }
+
 .work-group.layout-52 li:nth-child(3) { grid-column: 3 / 5; grid-row: 1 / 3; }
+.work-group.layout-52 li:nth-child(3) .title-wrap { padding: 4.4rem; }
+.work-group.layout-52 li:nth-child(3) .title-wrap .title { font-size: 2.4rem; }
 
 .work-group.layout-41 li:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
+.work-group.layout-41 li:nth-child(1) .title-wrap { padding: 4.4rem; }
+.work-group.layout-41 li:nth-child(1) .title-wrap .title { font-size: 2.4rem; }
 .work-group.layout-41 li:nth-child(2) .bg::before { padding-bottom: 35%; }
 .work-group.layout-41 li:nth-child(2) { grid-column: 3 / 5; grid-row: 1 / 2; }
 
 .work-group.layout-42 li:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
+.work-group.layout-42 li:nth-child(1) .title-wrap { padding: 4.4rem; }
+.work-group.layout-42 li:nth-child(1) .title-wrap .title { font-size: 2.4rem; }
 .work-group.layout-42 li:nth-child(4) .bg::before { padding-bottom: 35%; }
 .work-group.layout-42 li:nth-child(4) { grid-column: 3 / 5; grid-row: 2 / 3; }
 
 .work-group.layout-43 li:nth-child(1) .bg::before { padding-bottom: 35%; }
 .work-group.layout-43 li:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 2; }
 .work-group.layout-43 li:nth-child(4) { grid-column: 3 / 5; grid-row: 1 / 3; }
+.work-group.layout-43 li:nth-child(4) .title-wrap { padding: 4.4rem; }
+.work-group.layout-43 li:nth-child(4) .title-wrap .title { font-size: 2.4rem; }
 
 .work-group.layout-44 li:nth-child(3) { grid-column: 3 / 5; grid-row: 1 / 3; }
+.work-group.layout-44 li:nth-child(3) .title-wrap { padding: 4.4rem; }
+.work-group.layout-44 li:nth-child(3) .title-wrap .title { font-size: 2.4rem; }
 .work-group.layout-44 li:nth-child(4) .bg::before { padding-bottom: 35%; }
 .work-group.layout-44 li:nth-child(4) { grid-column: 1 / 3; grid-row: 2 / 3; }
 
@@ -75,8 +88,12 @@ export default {
 .work-group.layout-46 li:nth-child(4) { grid-column: 1 / 3; grid-row: 3 / 4; }
 .work-group.layout-46 li:nth-child(2) .bg::before { padding-bottom: 105%; }
 .work-group.layout-46 li:nth-child(2) { grid-column: 3 / 5; grid-row: 1 / 4; }
+.work-group.layout-46 li:nth-child(2) .title-wrap { padding: 4.4rem; }
+.work-group.layout-46 li:nth-child(2) .title-wrap .title { font-size: 2.4rem; }
 
 .work-group.layout-31 li:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
+.work-group.layout-31 li:nth-child(1) .title-wrap { padding: 4.4rem; }
+.work-group.layout-31 li:nth-child(1) .title-wrap .title { font-size: 2.4rem; }
 .work-group.layout-31 li:nth-child(2) .bg::before,
 .work-group.layout-31 li:nth-child(3) .bg::before { padding-bottom: 35%; }
 .work-group.layout-31 li:nth-child(2) { grid-column: 3 / 5; grid-row: 1 / 2; }
@@ -103,7 +120,7 @@ export default {
 
 
 /* hover */
-.work-group li a:hover::after { background: rgba(0,0,0,0); }
+.work-group li a:hover::after { background: rgba(0,0,0, 0.5); }
 
 .work-group li .onEnter { animation-name: workList-item; animation-duration: .7s; }
 .work-group li:nth-child(1) .onEnter { animation-delay: 0s; }
@@ -117,6 +134,11 @@ export default {
   100% { transform: rotateX(0) translate3d(0,0,0); }
 }
 
+
+
+@media only screen and (max-width: 1440px) {
+
+}
 
 @media only screen and (max-width: 1024px) {
   /* .work-group.len4 { display: grid; grid-template-columns: repeat(2, 1fr); }

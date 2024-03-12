@@ -1,9 +1,6 @@
 <template>
   <section id="main-page" data-theme="light">
     <SwiperMain :slides="visuals"></SwiperMain>
-    <div class="blind">
-      <img :src="image.image1" @loadeddata="load" alt="">
-    </div>
   </section>
 </template>
 
@@ -16,9 +13,9 @@ import SwiperMain from '@/components/common/SwiperMain.vue'
 // assets
 import image1 from '@/assets/images/main/visual-2024-happy-new-goods.jpg';
 import image2 from '@/assets/images/main/visual-golden-time-year-end-party.jpg';
-import image3 from '@/assets/images/main/visual-hyundaicard-my-company.png';
-import image4 from '@/assets/images/main/visual-tvn-drama-voice-season4.png';
-import image5 from '@/assets/images/main/visual-amorepacific.png';
+import image3 from '@/assets/images/main/visual-hyundaicard-my-company.jpg';
+import image4 from '@/assets/images/main/visual-tvn-drama-voice-season4.jpg';
+import image5 from '@/assets/images/main/visual-amorepacific.jpg';
 import image6 from '@/assets/images/main/visual-hyundai-n-brand.jpg';
 import image7 from '@/assets/images/main/visual-culture.jpg';
 import image8 from '@/assets/images/main/visual-company-relocation.jpg';
@@ -30,7 +27,6 @@ export default {
   },
   data() {
     return {
-      image: [ image1, image2, image3, image4, image5, image6, image7, image8 ],
       visuals: [
         { url: '', img: image1, slogan: ['2024', 'Happy', 'New', 'Goods'] },
         { url: '', img: image2, slogan: ['Golden', 'Time', 'Year-end', 'Party'] },
@@ -43,14 +39,7 @@ export default {
       ],
     }
   },
-  methods: {
-    load() {
-      console.log('load');
-    }
-  },
   async mounted() {
-		// await this.$nextTick();
-    
     document.documentElement.classList.add('rock-scroll');
     this.$store.commit('setFooter', false);
   },

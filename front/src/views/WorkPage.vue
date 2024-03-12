@@ -98,5 +98,6 @@ export default {
 </script>
 
 <style scoped>
-@import '@/assets/css/page-work.css';
+/* @import '@/assets/css/page-work.css'; */
+#work-page { background: #191919; }
 </style>
