@@ -63,7 +63,7 @@ export default {
       } catch (e) {
         console.log('error', e);
       }
-    },
+    }
   },
   async mounted() {
     await this.fetchLists();

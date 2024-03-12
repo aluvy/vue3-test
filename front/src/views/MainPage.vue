@@ -27,6 +27,7 @@ export default {
   },
   data() {
     return {
+      image1,
       visuals: [
         { url: '', img: image1, slogan: ['2024', 'Happy', 'New', 'Goods'] },
         { url: '', img: image2, slogan: ['Golden', 'Time', 'Year-end', 'Party'] },
@@ -39,7 +40,27 @@ export default {
       ],
     }
   },
-  mounted() {
+  methods: {
+    // imageload() {
+    //   console.log('loaded');
+    //   this.PageReady();
+    // }
+  },
+  async mounted() {
+		await this.$nextTick();
+
+    // console.log(this.image1);
+    // const img = document.createElement("img");
+    // img.src = this.image1;
+
+    // // onLoad
+    // // console.log(img);
+    // img.onLoad = function() {
+    //   console.log('ddd');
+    // };
+    // // console.log('mounted');
+    // this.PageReady();
+
     document.documentElement.classList.add('rock-scroll');
     this.$store.commit('setFooter', false);
   },
@@ -51,5 +72,5 @@ export default {
 </script>
 
 <style scoped>
-#main-page { background: #000; }
+#main-page { background: #000; background-image: url('@/assets/images/main/visual-2024-happy-new-goods.jpg'); background-size: 0 0; }
 </style>
