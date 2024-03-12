@@ -35,6 +35,8 @@ export default {
 .work-group li a { position: relative; display: block; }
 .work-group li a::after { position: absolute; inset: 0; content: ''; /* background: rgba(0,0,0, 0.3);*/ transition: background .5s; z-index: 2; }
 .work-group li .title-wrap { position: absolute; left: 0; bottom: 0; width: 100%; height: 50%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; color: #fff; padding: 2.2rem; z-index: 3; }
+.work-group li.theme-white { color: #fff; }
+.work-group li.theme-black { color: #000; }
 
 .work-group li .title-wrap .title { font-size: 2.4rem; letter-spacing: 0.1rem; }
 .work-group li .bg { position: relative; background-size: cover; background-position: center; z-index: 1; }
