@@ -1,0 +1,442 @@
+[
+  {
+    "idx": 54,
+    "title": ["Hyundaicard My Company"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/54-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 53,
+    "title": ["LG BEST SHOP"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/53-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 52,
+    "title": ["LG Electronics Subscription Service"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/52-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 51,
+    "title": ["ACT+"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/51-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 50,
+    "title": ["KT SHINE APP"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/50-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 49,
+    "title": ["LG Company"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/49-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 48,
+    "title": ["JB WOORI CAPITAL"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/48-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 47,
+    "title": ["KYOBO BOOKS MOBILE"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/47-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 46,
+    "title": ["LG CNS Entrue Consulting"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/46-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 45,
+    "title": ["LG Content Production"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/45-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 44,
+    "title": ["LG Content Production"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/44-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 43,
+    "title": ["TVN Drama Voice Season 4"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/43-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 42,
+    "title": ["GENESIS"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/42-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 41,
+    "title": ["SAMSUNG SDS"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/41-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 40,
+    "title": ["LG Global Business"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/40-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 39,
+    "title": ["LG U+ Kiosk"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/39-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 38,
+    "title": ["LG Global site Rollout"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/38-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 37,
+    "title": ["HYUNDAI MOTORS"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/37-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 36,
+    "title": ["AMOREPACIFIC"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/36-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 35,
+    "title": ["LG CS CENTER"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/35-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 34,
+    "title": ["PYEOUNG CHANG Olympics"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/34-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 33,
+    "title": ["LOTTE Hotels &amp; Resorts"],
+    "date": "00000000",
+    "category": "LG CS CENTER",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/33-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 32,
+    "title": ["Hyundai Motors N Brand"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/32-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 31,
+    "title": ["KT Family Box"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/31-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 30,
+    "title": ["LIRIKOS MARINE ENERGY"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/30-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 29,
+    "title": ["DAELIM Corporation"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/29-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 28,
+    "title": ["KYOBO Lifeplanet"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/28-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 27,
+    "title": ["GS Supermarket"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/27-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 26,
+    "title": ["LG.com 4.0 Global Rollout"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/26-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 25,
+    "title": ["HANSSEM Mall"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/25-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 24,
+    "title": ["KYOBO BOOK SHOWCASE"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/24-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 23,
+    "title": ["SERVEONE"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/23-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 22,
+    "title": ["Hyundai GENESIS"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/22-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 21,
+    "title": ["DAELIM Corporation"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/21-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 20,
+    "title": ["SAMSUNG.com PDP"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/20-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 19,
+    "title": ["GS25 My Refrigerator"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/19-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 18,
+    "title": ["LOTTE.com"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/18-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 17,
+    "title": ["LG Hausys Z:IN"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/17-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 16,
+    "title": ["HANKOOK Tire Global Rollout"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/16-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 15,
+    "title": ["Doowon University"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/15-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 14,
+    "title": ["ebay"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/14-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 13,
+    "title": ["KYOBO BOOK APP"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/13-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 12,
+    "title": ["GS25 My Refrigerator"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/12-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 11,
+    "title": ["LG B2B Partner Portal"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/11-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 10,
+    "title": ["CJ GRAND Shopping"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/10-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 9,
+    "title": ["KONJIAM Resort"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/9-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 8,
+    "title": ["KYOBO BOOK Used Market"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/8-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 7,
+    "title": ["KONJIAM Hwadamsup"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/7-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 6,
+    "title": ["CJ Oshishang"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/6-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 5,
+    "title": ["KYOBO BOOK READINGTREE"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/5-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 4,
+    "title": ["WIND &amp; WAVE"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/4-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 3,
+    "title": ["AMOREPACIFIC"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/3-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 2,
+    "title": ["LG.com 3.0 Global Rollout"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/2-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 1,
+    "title": ["SERVEONE"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/1-thumb.jpg",
+    "url": "/"
+  },
+  {
+    "idx": 0,
+    "title": ["LG POP-STORE"],
+    "date": "00000000",
+    "category": "web & mobile",
+    "image": "https://aluvy.github.io/vue3-test/data/work/images/0-thumb.jpg",
+    "url": "/"
+  }
+]
