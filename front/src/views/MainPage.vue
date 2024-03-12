@@ -1,7 +1,5 @@
 <template>
   <section id="main-page" data-theme="light">
-    <!-- <link rel="preload" :href="sintel-short.mp4" as="video" type="video/mp4" /> -->
-    <link rel="preload" :href="image.image1" as="image" />
     <SwiperMain :slides="visuals"></SwiperMain>
   </section>
 </template>
