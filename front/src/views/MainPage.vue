@@ -1,6 +1,16 @@
 <template>
   <section id="main-page" data-theme="light">
     <SwiperMain :slides="visuals"></SwiperMain>
+    <div class="blind" aria-hidden="true">
+      <img :src="image1" rel="preload" alt="">
+      <img :src="image2" rel="preload" alt="">
+      <img :src="image3" rel="preload" alt="">
+      <img :src="image4" rel="preload" alt="">
+      <img :src="image5" rel="preload" alt="">
+      <img :src="image6" rel="preload" alt="">
+      <img :src="image7" rel="preload" alt="">
+      <img :src="image8" rel="preload" alt="">
+    </div>
   </section>
 </template>
 
@@ -28,6 +38,13 @@ export default {
   data() {
     return {
       image1,
+      image2,
+      image3,
+      image4,
+      image5,
+      image6,
+      image7,
+      image8,
       visuals: [
         { url: '', img: image1, slogan: ['2024', 'Happy', 'New', 'Goods'] },
         { url: '', img: image2, slogan: ['Golden', 'Time', 'Year-end', 'Party'] },
@@ -53,5 +70,5 @@ export default {
 </script>
 
 <style scoped>
-#main-page { background: #000; background-image: url('@/assets/images/main/visual-2024-happy-new-goods.jpg'); background-size: 0 0; }
+#main-page { background: #000; }
 </style>
