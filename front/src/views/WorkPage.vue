@@ -48,7 +48,7 @@ export default {
     return {
       video,
       listNum: 1,
-      listState: this.$store.getInsightsStatus,
+      listState: this.$store.getWorksStatus,
       listGroups: [],
       data: [],
     }
@@ -67,8 +67,8 @@ export default {
   },
   async mounted() {
     await this.fetchLists();
-    this.listGroups = this.$store.getters.getInsights;
-    const dataGroup = [
+    // this.listGroups = this.$store.getters.getWorks;
+    const dataLayout = [
       { num: 5, layout: 51 },
       { num: 4, layout: 43 },
       { num: 2, layout: 21 },
@@ -87,9 +87,9 @@ export default {
       { num: 4, layout: 43 },
       { num: 2, layout: 21 }
     ];
-    let testGroup = [...this.$store.getters.getInsights];
-    let list = dataGroup.map( a => {
-      return { layout: a.layout, data: testGroup.splice(0, a.num) };
+    let dataGroup = [...this.$store.getters.getWorks];
+    let list = dataLayout.map( a => {
+      return { layout: a.layout, data: dataGroup.splice(0, a.num) };
     });
     this.listGroups = list;
     this.PageReady();

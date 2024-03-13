@@ -79,14 +79,14 @@ const store = createStore({
 		},
 		async dispatchWorkList(context, payload) {
 			console.log(payload);
-			if (!context.state.insightsStatus) return;
+			if (!context.state.worksStatus) return;
 			try {
 				const res = await fetchWorksLists(payload.num);
-				context.commit('setInsights', res.data);
+				context.commit('setWorks', res.data);
 				console.log(payload.num, res);
 			} catch (e) {
 				console.log('error', e);
-				context.commit('setInsightsStatus', false);
+				context.commit('setWorkstatus', false);
 			}
 		},
 	},

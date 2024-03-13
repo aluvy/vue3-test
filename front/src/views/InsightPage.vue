@@ -60,15 +60,56 @@ export default {
       try {
         await this.$store.dispatch('dispatchInsightList', { num: this.listNum });
         this.listNum++;
-        console.log('try', this.listNum);
+        this.setDataLayout();
+        // console.log('try', this.listNum);
       } catch (e) {
         console.log('error', e);
       }
     },
+    setDataLayout() {
+      const dataLayout = [
+        { num: 5, layout: 52 },
+        { num: 1, layout: 11 },
+        { num: 5, layout: 51 },
+        { num: 5, layout: 52 },
+        { num: 1, layout: 11 },
+        { num: 5, layout: 53 },
+        { num: 4, layout: 41 },
+        { num: 1, layout: 11 },
+        { num: 5, layout: 51 },
+        { num: 4, layout: 41 },
+      ];
+      let dataGroup = [...this.$store.getters.getInsights];
+      let list = dataLayout.map( a => {
+        return { layout: a.layout, data: dataGroup.splice(0, a.num) };
+      });
+      // let list = dataGroup;
+      this.listGroups = list;
+    }
   },
   async mounted() {
     await this.fetchLists();
-    this.listGroups = this.$store.getters.getInsights;
+    // this.listGroups = this.$store.getters.getInsights;
+
+    // const dataLayout = [
+    //   { num: 4, layout: 41 },
+    //   { num: 5, layout: 51 },
+    //   { num: 1, layout: 11 },
+    //   { num: 4, layout: 41 },
+    //   { num: 5, layout: 53 },
+    //   { num: 1, layout: 11 },
+    //   { num: 5, layout: 52 },
+    //   { num: 5, layout: 51 },
+    //   { num: 1, layout: 11 },
+    //   { num: 5, layout: 52 },
+    // ];
+    // let dataGroup = [...this.$store.getters.getInsights];
+    // let list = dataLayout.map( a => {
+    //   return { layout: a.layout, data: dataGroup.splice(0, a.num) };
+    // });
+    // let list = dataGroup;
+    // this.listGroups = list;
+
     this.PageReady();
   }
 }
