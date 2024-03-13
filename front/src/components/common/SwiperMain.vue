@@ -25,6 +25,7 @@
     @swiper="onSwiper"
     @transitionStart="transitionStart"
     @transitionEnd="transitionEnd"
+    @touchEnd="touchMove"
   >
     <swiper-slide v-for="(slide, i) in slides" :key="slide" :virtualIndex="i">
       <div class="slogan-area">
@@ -43,8 +44,8 @@
   </swiper>
 
   <div class="slide-controller">
-    <button type="button" class="btn_prev" @click="mySwiper.slidePrev()"><i class="fa fa-angle-left"></i><span class="blind">prev</span></button>
-    <button type="button" class="btn_next" @click="mySwiper.slideNext()"><i class="fa fa-angle-right"></i><span class="blind">next</span></button>
+    <button type="button" class="btn_prev" @click="mySwiper.slidePrev()"><i></i><span class="blind">prev</span></button>
+    <button type="button" class="btn_next" @click="mySwiper.slideNext()"><i></i><span class="blind">next</span></button>
   </div>
 </template>
 
@@ -103,6 +104,10 @@ export default {
       }
     }
 
+    const touchMove = (swiper, event) => {
+      console.log(swiper, event);
+    }
+
     return {
       mySwiper,
       onSwiper,
@@ -112,7 +117,8 @@ export default {
 
       speed,
       moveStart,
-      direction
+      direction,
+      touchMove
     };
   },
 }
@@ -208,11 +214,19 @@ export default {
 .slide-controller { position: fixed; left: 50%; bottom: 5rem; margin-left: 9rem; transform: translateX(calc(var(--max-width) / 2 * -1)); display: flex; align-items: center; z-index: 5; }
 .slide-controller button { position: relative; width: 4.4rem; height: 4.4rem; font-size: 1rem; line-height: 1.2rem; color: #fff; border-radius: 100%; border: 1px solid rgba(255,255,255, 0.5); }
 .slide-controller button + button { margin-left: 1.4rem; }
-.slide-controller button i { transition: all .3s var(--ease-InOutExpo); }
-.slide-controller button::after { position: absolute; left: calc(50% - 0.7rem); top: calc(50% - 0.8px); content:''; display: block; width: 1.4rem; height: 1px; background: #fff; transform: scaleX(0); transition: transform 0.3s var(--ease-InOutExpo); }
-.slide-controller button:hover::after { transform: scaleX(1); }
-.slide-controller button.btn_prev:hover i { transform: translate3D(-0.6rem, 0, 0); }
-.slide-controller button.btn_next:hover i { transform: translate3D(0.6rem, 0, 0); }
+/* button arrow */
+.slide-controller button i { position: absolute; left: 50%; top: 50%; display: block; width: 13%; height: 13%; transform: translate3d(-50%, -50%, 0); transition: left .3s var(--ease-InOutExpo); }
+.slide-controller button i::before { content:''; display: block; width: 100%; height: 100%; border: 1px solid #fff; border-width: 1px 1px 0 0; }
+.slide-controller button.btn_prev i::before { transform: rotate(-135deg); }
+.slide-controller button.btn_next i::before { transform: rotate(45deg); }
+.slide-controller button i::after { position: absolute; top: 50%; content:''; display: block; width: 0; height: 1px; background: #fff; transform: translate3d(0, -50%, 0); transition: width 0.3s var(--ease-InOutExpo); }
+.slide-controller button.btn_prev i::after { left: 0; }
+.slide-controller button.btn_next i::after { right: 0; }
+/* controller | hover */
+.slide-controller button:hover i::after { width: 1.6rem; }
+.slide-controller button.btn_prev:hover i { left: calc(50% - 15%); }
+.slide-controller button.btn_next:hover i { left: calc(50% + 15%); }
+
 
 
 @media only screen and (max-width: 1440px) {

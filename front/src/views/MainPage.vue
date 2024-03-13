@@ -1,5 +1,5 @@
 <template>
-  <section id="main-page" data-theme="white">
+  <section id="main-page" data-theme="white" :style="`background-image: url(${image1})`">
     <SwiperMain :slides="visuals"></SwiperMain>
   </section>
 </template>
@@ -27,6 +27,7 @@ export default {
   },
   data() {
     return {
+      image1,
       visuals: [
         { url: '', img: image1, slogan: ['2024', 'Happy', 'New', 'Goods'] },
         { url: '', img: image2, slogan: ['Golden', 'Time', 'Year-end', 'Party'] },
@@ -51,5 +52,5 @@ export default {
 </script>
 
 <style scoped>
-#main-page { background: #000; }
+#main-page { background-color: #000; background-size: 0px; background-repeat: no-repeat; background-position: -10rem; }
 </style>

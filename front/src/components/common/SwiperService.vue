@@ -1,6 +1,6 @@
 <template>
   <swiper
-    class="svSwiper gsap-item"
+    class="svSwiper"
     :modules="modules"
     :loop="true"
     :draggable="true"
@@ -22,8 +22,8 @@
       <div class="total">{{ slides.length }}</div>
     </div>
     <div class="svSwiper-controller">
-      <button type="button" class="btn_prev" @click="mySwiper.slidePrev()"><i class="fa fa-angle-left"></i><span class="blind">prev</span></button>
-      <button type="button" class="btn_next" @click="mySwiper.slideNext()"><i class="fa fa-angle-right"></i><span class="blind">next</span></button>
+      <button type="button" class="btn_prev" @click="mySwiper.slidePrev()"><i></i><span class="blind">prev</span></button>
+      <button type="button" class="btn_next" @click="mySwiper.slideNext()"><i></i><span class="blind">next</span></button>
     </div>
   </swiper>
 </template>
@@ -92,11 +92,24 @@ export default {
 .svSwiper-controller button { position: absolute; top: 0; width: 4.4rem; height: 4.4rem; font-size: 1.9rem; line-height: 1.2rem; color: #000; z-index: 99; }
 .svSwiper-controller .btn_prev { left: 7rem; }
 .svSwiper-controller .btn_next { right: 7rem; }
-.svSwiper-controller button i { transition: all .3s var(--ease-InOutExpo); }
-.svSwiper-controller button::after { position: absolute; left: calc(50% - 1.1rem); top: calc(50% - 1px); content:''; display: block; width: 2.2rem; height: 2px; background: #000; transform: scaleX(0); transition: transform 0.3s var(--ease-InOutExpo); }
-.svSwiper-controller button:hover::after { transform: scaleX(1); }
-.svSwiper-controller button.btn_prev:hover i { transform: translate3D(-1rem, 0, 0); }
-.svSwiper-controller button.btn_next:hover i { transform: translate3D(1rem, 0, 0); }
+/* controller | arrow */
+.svSwiper-controller button i { position: absolute; left: 50%; top: 50%; display: block; width: 26%; height: 26%; transform: translate3d(-50%, -50%, 0); transition: left .3s var(--ease-InOutExpo); }
+.svSwiper-controller button i::before { content:''; display: block; width: 100%; height: 100%; border: 1px solid #000; border-width: 2px 2px 0 0; }
+.svSwiper-controller button.btn_prev i::before { transform: rotate(-135deg); }
+.svSwiper-controller button.btn_next i::before { transform: rotate(45deg); }
+.svSwiper-controller button i::after { position: absolute; top: 50%; content:''; display: block; width: 0; height: 2px; background: #000; transform: translate3d(0, -50%, 0); transition: width 0.3s var(--ease-InOutExpo); }
+.svSwiper-controller button.btn_prev i::after { left: 0; }
+.svSwiper-controller button.btn_next i::after { right: 0; }
+/* controller | hover */
+.svSwiper-controller button:hover i::after { width: 2.6rem; }
+.svSwiper-controller button.btn_prev:hover i { left: calc(50% - 15%); }
+.svSwiper-controller button.btn_next:hover i { left: calc(50% + 15%); }
+
+
+
+
+
+
 /* service | swiper | pagination */
 .svSwiper-pagination { position: absolute; left: 0; bottom: 0; display: flex; align-items: center; justify-content: center; width: 100%; font-size: 1.6rem; color: #000; line-height: 2rem; text-align: center; letter-spacing: 0.6rem; }
 .svSwiper-pagination .current,
