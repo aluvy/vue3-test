@@ -1,7 +1,7 @@
 <template>
   <div class="work-wrap">
     <template  v-for="listgroup in listGroups" :key="listgroup">
-      <ul class="work-group" :class="`layout-${listgroup.layout}`" >
+      <ul class="work-group" :class="`layout-${listgroup.layout}`">
         <li v-for="list in listgroup.data" :key="list" :class="`theme-${list.theme}`">
           <router-link :to="`/work/${list.idx}`" class="gsap-item">
             <div class="title-wrap">
@@ -33,7 +33,7 @@ export default {
 
 .work-group li { perspective: 2000px; }
 .work-group li a { position: relative; display: block; }
-.work-group li a::after { position: absolute; inset: 0; content: ''; /* background: rgba(0,0,0, 0.3);*/ transition: background .5s; z-index: 2; }
+.work-group li a::after { position: absolute; inset: 0; content: ''; transition: background .5s; z-index: 2; }
 .work-group li .title-wrap { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; color: #fff; padding: 2.2rem; z-index: 3; }
 .work-group li.theme-white .title-wrap { color: #fff; }
 .work-group li.theme-black .title-wrap { color: #000; }

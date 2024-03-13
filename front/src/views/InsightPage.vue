@@ -49,6 +49,7 @@ export default {
   data() {
     return {
       visual,
+      request: false,
       listNum: 1,
       listState: this.$store.getInsightsStatus,
       listGroups: [],
@@ -57,60 +58,62 @@ export default {
   methods: {
     async fetchLists() {
       // if ( !this.listState ) return false;
+      this.request = false;
+      console.log('fetched', this.listNum);
       try {
         await this.$store.dispatch('dispatchInsightList', { num: this.listNum });
         this.listNum++;
         this.setDataLayout();
+        this.request = true;
         // console.log('try', this.listNum);
       } catch (e) {
         console.log('error', e);
       }
     },
     setDataLayout() {
-      const dataLayout = [
+      let dataLayout;
+      let dataLayout1 = [
         { num: 5, layout: 52 },
         { num: 1, layout: 11 },
         { num: 5, layout: 51 },
+      ];
+      let dataLayout2 = [
         { num: 5, layout: 52 },
         { num: 1, layout: 11 },
         { num: 5, layout: 53 },
         { num: 4, layout: 41 },
+      ];
+      let dataLayout3 = [
         { num: 1, layout: 11 },
         { num: 5, layout: 51 },
         { num: 4, layout: 41 },
       ];
+
+      if( this.listNum === 2 ) dataLayout = dataLayout1;
+      if( this.listNum === 3 ) dataLayout = dataLayout2;
+      if( this.listNum === 4 ) dataLayout = dataLayout3;
+
       let dataGroup = [...this.$store.getters.getInsights];
-      let list = dataLayout.map( a => {
-        return { layout: a.layout, data: dataGroup.splice(0, a.num) };
-      });
-      // let list = dataGroup;
+      let list = dataLayout.map( a => { return { layout: a.layout, data: dataGroup.splice(0, a.num) } });
       this.listGroups = list;
+    },
+    isScrollEnd() {
+      const scroll = Math.ceil(window.scrollY + window.innerHeight);
+      const myScroll = document.body.scrollHeight - document.querySelector("#footer").clientHeight;
+      console.log( 'ee',  scroll >= myScroll );
+      if ( !scroll >= myScroll ) return;
+
+      console.log('eeeeee', this.request);
+      if (this.request) this.fetchLists();
     }
   },
   async mounted() {
     await this.fetchLists();
-    // this.listGroups = this.$store.getters.getInsights;
-
-    // const dataLayout = [
-    //   { num: 4, layout: 41 },
-    //   { num: 5, layout: 51 },
-    //   { num: 1, layout: 11 },
-    //   { num: 4, layout: 41 },
-    //   { num: 5, layout: 53 },
-    //   { num: 1, layout: 11 },
-    //   { num: 5, layout: 52 },
-    //   { num: 5, layout: 51 },
-    //   { num: 1, layout: 11 },
-    //   { num: 5, layout: 52 },
-    // ];
-    // let dataGroup = [...this.$store.getters.getInsights];
-    // let list = dataLayout.map( a => {
-    //   return { layout: a.layout, data: dataGroup.splice(0, a.num) };
-    // });
-    // let list = dataGroup;
-    // this.listGroups = list;
-
     this.PageReady();
+    window.addEventListener('scroll', this.isScrollEnd);
+  },
+  unmounted() {
+    window.removeEventListener('scroll', this.isScrollEnd);
   }
 }
 </script>

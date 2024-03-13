@@ -66,24 +66,24 @@ const store = createStore({
 	},
 	actions: {
 		async dispatchInsightList(context, payload) {
-			console.log(payload);
+			// console.log(payload);
 			if (!context.state.insightsStatus) return;
 			try {
 				const res = await fetchInsightsLists(payload.num);
 				context.commit('setInsights', res.data);
-				console.log(payload.num, res);
+				// console.log(payload.num, res);
 			} catch (e) {
 				console.log('error', e);
 				context.commit('setInsightsStatus', false);
 			}
 		},
 		async dispatchWorkList(context, payload) {
-			console.log(payload);
+			// console.log(payload);
 			if (!context.state.worksStatus) return;
 			try {
 				const res = await fetchWorksLists(payload.num);
 				context.commit('setWorks', res.data);
-				console.log(payload.num, res);
+				// console.log(payload.num, res);
 			} catch (e) {
 				console.log('error', e);
 				context.commit('setWorkstatus', false);

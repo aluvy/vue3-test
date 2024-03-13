@@ -33,9 +33,9 @@ const gsapAnimationTrigger = function () {
 };
 
 const gsapThemeTrigger = function () {
-	ScrollTrigger.refresh();
+	// ScrollTrigger.refresh();
 
-	gsap.utils.toArray('[data-theme]').forEach(item => {
+	gsap.utils.toArray('section[data-theme]').forEach(item => {
 		let theme = item.getAttribute('data-theme');
 		const header = document.querySelector('#header');
 

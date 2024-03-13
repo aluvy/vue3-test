@@ -21,7 +21,6 @@
       <WorkList :listGroups="listGroups"></WorkList>
     </div>
 
-
   </div>
 </template>
 
@@ -59,45 +58,44 @@ export default {
       try {
         await this.$store.dispatch('dispatchWorkList', { num: this.listNum });
         this.listnum++;
-        console.log('try', this.listNum);
+        this.setDataLayout();
+        // console.log('try', this.listNum);
       } catch (e) {
         console.log('error', e);
       }
+    },
+    setDataLayout() {
+      const dataLayout = [
+        { num: 5, layout: 51 },
+        { num: 4, layout: 43 },
+        { num: 2, layout: 21 },
+        { num: 3, layout: 31 },
+        { num: 2, layout: 21 },
+        { num: 2, layout: 21 },
+        { num: 3, layout: 31 },
+        { num: 4, layout: 41 },
+        { num: 4, layout: 46 },
+        { num: 3, layout: 34 },
+        { num: 3, layout: 31 },
+        { num: 4, layout: 44 },
+        { num: 3, layout: 34 },
+        { num: 3, layout: 33 },
+        { num: 4, layout: 41 },
+        { num: 4, layout: 43 },
+        { num: 2, layout: 21 }
+      ];
+      let dataGroup = [...this.$store.getters.getWorks];
+      let list = dataLayout.map( a => { return { layout: a.layout, data: dataGroup.splice(0, a.num) } });
+      this.listGroups = list;
     }
   },
   async mounted() {
     await this.fetchLists();
-    // this.listGroups = this.$store.getters.getWorks;
-    const dataLayout = [
-      { num: 5, layout: 51 },
-      { num: 4, layout: 43 },
-      { num: 2, layout: 21 },
-      { num: 3, layout: 31 },
-      { num: 2, layout: 21 },
-      { num: 2, layout: 21 },
-      { num: 3, layout: 31 },
-      { num: 4, layout: 41 },
-      { num: 4, layout: 46 },
-      { num: 3, layout: 34 },
-      { num: 3, layout: 31 },
-      { num: 4, layout: 44 },
-      { num: 3, layout: 34 },
-      { num: 3, layout: 33 },
-      { num: 4, layout: 41 },
-      { num: 4, layout: 43 },
-      { num: 2, layout: 21 }
-    ];
-    let dataGroup = [...this.$store.getters.getWorks];
-    let list = dataLayout.map( a => {
-      return { layout: a.layout, data: dataGroup.splice(0, a.num) };
-    });
-    this.listGroups = list;
     this.PageReady();
   }
 }
 </script>
 
 <style scoped>
-/* @import '@/assets/css/page-work.css'; */
 #work-page { background: #191919; }
 </style>

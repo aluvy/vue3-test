@@ -57,10 +57,15 @@ export default {
         this.$store.commit('setScrolled', false);
       }
     },
+    // isScrollEnd() {
+      
+    //   console.log('isScrollEnd', Math.ceil(window.scrollY + window.innerHeight) >= (document.body.scrollHeight - document.querySelector("#footer").clientHeight));
+    // }
   },
   created() {
 		window.addEventListener('resize', this.setVh);
     window.addEventListener('scroll', this.isScroll);
+    window.addEventListener('scroll', this.isScrollEnd);
 		this.setVh();
     this.isScroll();
 
@@ -71,6 +76,7 @@ export default {
   unmounted() {
 		window.removeEventListener('resize', this.setVh);
     window.removeEventListener('scroll', this.isScroll);
+    window.removeEventListener('scroll', this.isScrollEnd);
 	},
 }
 </script>
