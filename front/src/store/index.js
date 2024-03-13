@@ -11,9 +11,9 @@ const store = createStore({
 			header: true,
 			footer: true,
 
-			insightsStatus: true,
+			// insightsStatus: true,
 			insights: [],
-			worksStatus: true,
+			// worksStatus: true,
 			works: [],
 		};
 	},
@@ -25,9 +25,9 @@ const store = createStore({
 		isHeader: state => state.header,
 		isFooter: state => state.footer,
 
-		getInsightsStatus: state => state.insightsStatus,
+		// getInsightsStatus: state => state.insightsStatus,
 		getInsights: state => state.insights,
-		getWorksStatus: state => state.worksStatus,
+		// getWorksStatus: state => state.worksStatus,
 		getWorks: state => state.works,
 	},
 	mutations: {
@@ -51,42 +51,44 @@ const store = createStore({
 			state.footer = payload;
 		},
 
-		setInsights(state, payload) {
+		SET_INSIGHT_LIST(state, payload) {
 			state.insights = payload;
 		},
-		setInsightsStatus(state, payload) {
-			state.insightsStatus = payload;
-		},
-		setWorks(state, payload) {
+		// setInsightsStatus(state, payload) {
+		// 	state.insightsStatus = payload;
+		// },
+		SET_WORK_LIST(state, payload) {
 			state.works = payload;
 		},
-		setWorkstatus(state, payload) {
-			state.worksStatus = payload;
-		},
+		// setWorkstatus(state, payload) {
+		// 	state.worksStatus = payload;
+		// },
 	},
 	actions: {
-		async dispatchInsightList(context, payload) {
+		// FETCH_GET_PRODUCT_LIST
+		async FETCH_GET_INSIGHT_LIST(context, payload) {
+			// async dispatchInsightList(context, payload) {
 			// console.log(payload);
-			if (!context.state.insightsStatus) return;
+			// if (!context.state.insightsStatus) return;
 			try {
 				const res = await fetchInsightsLists(payload.num);
-				context.commit('setInsights', res.data);
+				context.commit('SET_INSIGHT_LIST', res.data);
 				// console.log(payload.num, res);
 			} catch (e) {
 				console.log('error', e);
-				context.commit('setInsightsStatus', false);
+				// context.commit('setInsightsStatus', false);
 			}
 		},
-		async dispatchWorkList(context, payload) {
+		async FETCH_GET_WORK_LIST(context, payload) {
 			// console.log(payload);
-			if (!context.state.worksStatus) return;
+			// if (!context.state.worksStatus) return;
 			try {
 				const res = await fetchWorksLists(payload.num);
-				context.commit('setWorks', res.data);
+				context.commit('SET_WORK_LIST', res.data);
 				// console.log(payload.num, res);
 			} catch (e) {
 				console.log('error', e);
-				context.commit('setWorkstatus', false);
+				// context.commit('setWorkstatus', false);
 			}
 		},
 	},

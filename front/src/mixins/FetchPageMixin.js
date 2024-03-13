@@ -26,6 +26,9 @@ export default {
 			window.addEventListener('resize', gsapRefresh);
 		},
 	},
+	update() {
+		gsapRefresh();
+	},
 	unmounted() {
 		document.querySelector('#app').classList.add('loading'); // page change
 		window.removeEventListener('resize', gsapRefresh);

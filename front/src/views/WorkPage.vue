@@ -41,7 +41,7 @@ export default {
   components: {
     ContentVisual,
     ContentTitle,
-    WorkList
+    WorkList,
   },
   data() {
     return {
@@ -56,7 +56,7 @@ export default {
     async fetchLists() {
       // if ( !this.listState ) return false;
       try {
-        await this.$store.dispatch('dispatchWorkList', { num: this.listNum });
+        await this.$store.dispatch('FETCH_GET_WORK_LIST', { num: this.listNum });
         this.listnum++;
         this.setDataLayout();
         // console.log('try', this.listNum);
