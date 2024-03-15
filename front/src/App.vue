@@ -29,6 +29,11 @@ export default {
     AppFooter,
     LoadScreen
   },
+  data() {
+    return {
+      winW: 0,
+    }
+  },
   watch: {
     isOpenAside(state) {
       state
@@ -46,6 +51,8 @@ export default {
   },
   methods: {
     setVh() {
+      if( this.winW === window.innerWidth ) return;
+      this.winW = window.innerWidth;
 			document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
 		},
     isScroll() {
