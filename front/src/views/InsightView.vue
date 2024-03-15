@@ -69,5 +69,5 @@ export default {
 </script>
 
 <style scoped>
-@import '@/assets/css/page-insight.css';
+/* #insight-view { background: #191919;} */
 </style>

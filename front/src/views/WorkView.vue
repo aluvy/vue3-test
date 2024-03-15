@@ -68,5 +68,4 @@ export default {
 </script>
 
 <style scoped>
-@import '@/assets/css/page-insight.css';
 </style>

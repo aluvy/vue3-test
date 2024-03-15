@@ -22,7 +22,7 @@
         <InsightList :listGroups="listGroups"></InsightList>
 
         <div v-if="!listState">All Items Loaded</div>
-        
+
       </section>
     </div>
   </div>
@@ -154,6 +154,6 @@ export default {
 }
 </script>
 
-<style scoped>
-@import '@/assets/css/page-insight.css';
+<style>
+#insight-page { background: #191919; }
 </style>

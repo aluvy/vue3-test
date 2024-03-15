@@ -89,7 +89,7 @@ input[type=number] { -moz-appearance: textform; appearance: textform; }
 select:required:invalid {color:#A0A4AF;}
 option[value=""][disabled] {display:none;} */
 
-::-webkit-scrollbar{ width: 0px; }
+::-webkit-scrollbar{ width: 0; }
 ::-webkit-scrollbar-thumb{ height: 30%; background: rgba(0, 0 ,0 , 0.01); border-radius: 10px; }
 ::-webkit-scrollbar-track{ background: rgba(0, 0, 0, 0.01); }
 
