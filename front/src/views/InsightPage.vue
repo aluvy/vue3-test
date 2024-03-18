@@ -20,8 +20,14 @@
     <div id="content">
       <section class="section" data-theme="white">
         <InsightList :listGroups="listGroups"></InsightList>
-
-        <div v-if="!listState">All Items Loaded</div>
+        
+        <div class="Requesting" v-if="Requesting"><div class="spin"></div></div>
+        
+        <transition name="smooth">
+          <div class="all-data-loaded" v-if="EndRequestTxt"><p>All data loaded.</p></div>
+        </transition>
+        
+        <div class="infinite-scroll"></div>
 
       </section>
     </div>
@@ -30,6 +36,10 @@
 
 <script>
 import FetchPageMixin from '@/mixins/FetchPageMixin';
+
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 // component
 import ContentVisual from '@/components/common/ContentVisual.vue'
@@ -49,32 +59,46 @@ export default {
   data() {
     return {
       visual,
-      request: true,
-      listNum: 1,
-      listState: this.$store.getInsightsStatus,
+      EndRequest: false,
+      EndRequestTxt: false,
+      Requesting: false,
+      NumberOfRequests: 1,
       listGroups: [],
     }
   },
   methods: {
     async fetchLists() {
-      if ( !this.request ) return;
+      if ( this.Requesting ) return;
+      if ( this.EndRequest ) return;
+      if ( this.NumberOfRequests >= 4 ) {
+        this.setEndRequest();
+        return;
+      }
 
-      // console.log('fetched', this.listNum);
+      const timer = this.NumberOfRequests === 1 ? 0 : 500;
+
       try {
-        
-        this.request = false;
-        await this.$store.dispatch('FETCH_GET_INSIGHT_LIST', { num: this.listNum });
-        this.setDataLayout(this.listNum);
-        // this.listNum++;
-        // console.log(this.listNum);
-        
-        // console.log('try', this.listNum);
+        this.Requesting = true;
+        await this.$store.dispatch('FETCH_GET_INSIGHT_LIST', { num: this.NumberOfRequests });
+        setTimeout(()=>{
+          this.setDataLayout(this.NumberOfRequests);
+          this.NumberOfRequests++;
+        }, timer); // 느린척하기
       } catch (e) {
         console.log('error', e);
+        this.setEndRequest();
       }
     },
+    setEndRequest() {
+      this.Requesting = false;
+      this.EndRequest = true;
+      this.EndRequestTxt = true;
+      setTimeout(()=>{
+        this.EndRequestTxt = false;
+      }, 1000);
+      return;
+    },
     setDataLayout(num) {
-      // console.log('setDataLayout', num);
       let dataLayout;
       let dataLayout1 = [
         { num: 5, layout: 52 },
@@ -84,10 +108,20 @@ export default {
       let dataLayout2 = [
         { num: 5, layout: 52 },
         { num: 1, layout: 11 },
+        { num: 5, layout: 51 },
+        { num: 5, layout: 52 },
+        { num: 1, layout: 11 },
         { num: 5, layout: 53 },
         { num: 4, layout: 41 },
       ];
       let dataLayout3 = [
+        { num: 5, layout: 52 },
+        { num: 1, layout: 11 },
+        { num: 5, layout: 51 },
+        { num: 5, layout: 52 },
+        { num: 1, layout: 11 },
+        { num: 5, layout: 53 },
+        { num: 4, layout: 41 },
         { num: 1, layout: 11 },
         { num: 5, layout: 51 },
         { num: 4, layout: 41 },
@@ -99,61 +133,52 @@ export default {
 
       let dataGroup = [...this.$store.getters.getInsights];
       let list = dataLayout.map( a => { return { layout: a.layout, data: dataGroup.splice(0, a.num) } });
+
       this.listGroups = list;
-
-      setTimeout(()=>{
-        this.request = true;
-      }, 2000);
-
-      // gsapRefresh();
+      this.Requesting = false;
     },
-    // infiniteHandler($state) {
-    //   console.log('infiniteHandler', $state);
+    infiniteScroll() {
+      const infiniteScroll = document.querySelectorAll('.infinite-scroll');
+      if (!infiniteScroll.length) return;
 
-    //   // var formData = new FormData();
-		// 	// 	formData.append('currPage', this.page);
-		// 	// 	formData.append('pageSize', '10');
-		// 	// 	this.$store
-		// 	// 		.dispatch('FETCH_GET_PRODUCT_LIST', formData)
-		// 	// 		.then(({ data }) => {
-		// 	// 			if (data.productPageList.length) {
-		// 	// 				console.log(this.page);
-		// 	// 				this.page += 1;
-		// 	// 				this.$store.commit('SET_PRODUCT_LIST', data.productPageList);
-		// 	// 				$state.loaded();
-		// 	// 			} else {
-		// 	// 				$state.complete();
-		// 	// 			}
-		// 	// 		});
-		// 	// 	console.log(this.$store.state.productList);
-    // },
-    isScrollEnd() {
-      // const scroll = Math.ceil(window.scrollY + window.innerHeight);
-      // const myScroll = document.body.scrollHeight - document.querySelector("#footer").clientHeight;
-      // // console.log( 'ee',  scroll >= myScroll );
-      // if ( !scroll >= myScroll ) return;
-
-      // console.log('isScrollEnd', this.request);
-      // if (this.request) this.fetchLists();
+      gsap.to('.infinite-scroll', {
+        scrollTrigger: {
+          start: 'bottom 100%',
+          end: 'bottom 100%',
+          scrub: 1,
+          // markers: true,
+          onEnter: async () => {
+            await this.fetchLists();
+          },
+        },
+      });
     }
   },
-  updated() {
-    console.log('updated');
-    // this.listNum = 1;
-  },
   async mounted() {
-    this.listNum = 1;
     await this.fetchLists();
     this.PageReady();
-    window.addEventListener('scroll', this.isScrollEnd);
+    this.infiniteScroll();
   },
-  unmounted() {
-    this.listNum = 1;
-    window.removeEventListener('scroll', this.isScrollEnd);
-  }
 }
 </script>
 
-<style>
+<style scoped>
 #insight-page { background: #191919; }
+.all-data-loaded { height: 10rem; display: flex; align-items: center; justify-content: center; }
+.all-data-loaded p { text-align: center; color: #fff; font-size: 1.6rem; opacity: 0.7; }
+/* transition */
+.smooth-enter-active,
+.smooth-leave-active { transition: height .3s; }
+#insight-page .all-data-loaded.smooth-leave-to { height: 0; overflow: hidden; }
+
+
+
+.Requesting { display: flex; align-items: center; justify-content: center; padding: 5rem; }
+.Requesting .spin { width: 5rem; height: 5rem; border-radius: 5rem; border: 3px solid rgba(255,255,255, 0.2); border-right-color: #ff7061; animation: spin 1s infinite linear; }
+
+@keyframes spin {
+  0% { transform: rotate(0) scale(1); }
+  50% { transform: rotate(180deg) scale(0.8); }
+  100% { transform: rotate(360deg) scale(1); }
+}
 </style>

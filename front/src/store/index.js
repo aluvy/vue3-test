@@ -11,9 +11,7 @@ const store = createStore({
 			header: true,
 			footer: true,
 
-			// insightsStatus: true,
 			insights: [],
-			// worksStatus: true,
 			works: [],
 		};
 	},
@@ -25,9 +23,7 @@ const store = createStore({
 		isHeader: state => state.header,
 		isFooter: state => state.footer,
 
-		// getInsightsStatus: state => state.insightsStatus,
 		getInsights: state => state.insights,
-		// getWorksStatus: state => state.worksStatus,
 		getWorks: state => state.works,
 	},
 	mutations: {
@@ -52,43 +48,27 @@ const store = createStore({
 		},
 
 		SET_INSIGHT_LIST(state, payload) {
-			state.insights = payload;
+			state.insights = state.insights.concat(payload);
 		},
-		// setInsightsStatus(state, payload) {
-		// 	state.insightsStatus = payload;
-		// },
 		SET_WORK_LIST(state, payload) {
 			state.works = payload;
 		},
-		// setWorkstatus(state, payload) {
-		// 	state.worksStatus = payload;
-		// },
 	},
 	actions: {
-		// FETCH_GET_PRODUCT_LIST
 		async FETCH_GET_INSIGHT_LIST(context, payload) {
-			// async dispatchInsightList(context, payload) {
-			// console.log(payload);
-			// if (!context.state.insightsStatus) return;
 			try {
 				const res = await fetchInsightsLists(payload.num);
 				context.commit('SET_INSIGHT_LIST', res.data);
-				// console.log(payload.num, res);
 			} catch (e) {
 				console.log('error', e);
-				// context.commit('setInsightsStatus', false);
 			}
 		},
 		async FETCH_GET_WORK_LIST(context, payload) {
-			// console.log(payload);
-			// if (!context.state.worksStatus) return;
 			try {
 				const res = await fetchWorksLists(payload.num);
 				context.commit('SET_WORK_LIST', res.data);
-				// console.log(payload.num, res);
 			} catch (e) {
 				console.log('error', e);
-				// context.commit('setWorkstatus', false);
 			}
 		},
 	},

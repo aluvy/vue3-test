@@ -26,8 +26,9 @@ export default {
 			window.addEventListener('resize', gsapRefresh);
 		},
 	},
-	update() {
-		gsapRefresh();
+	updated() {
+		gsapKill();
+		gsapAnimationTrigger();
 	},
 	unmounted() {
 		document.querySelector('#app').classList.add('loading'); // page change

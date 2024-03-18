@@ -45,7 +45,7 @@ export default {
 /* layout */
 .insight-group.layout-51 li:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
 .insight-group.layout-52 li:nth-child(3) { grid-column: 3 / 5; grid-row: 1 / 3; }
-.insight-group.layout-53 li:nth-child(2) { grid-column: 2 / 3; grid-row: 1 / 3; }
+.insight-group.layout-53 li:nth-child(2) { grid-column: 2 / 4; grid-row: 1 / 3; }
 .insight-group.layout-11 li:nth-child(1) { grid-column: 1 / 5; }
 .insight-group.layout-11 li .bg::before { padding-bottom: 50%; }
 
