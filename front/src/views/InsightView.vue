@@ -18,13 +18,14 @@
     </section>
 
     <div id="content">
-      fdddsddasdff
+      <InsightView20220501></InsightView20220501>
     </div>
   </div>
 </template>
 
 <script>
 import PageMixin from '@/mixins/PageMixin';
+import InsightView20220501 from '@/views/insight/InsightView20220501.vue'
 
 // component
 import ContentVisual from '@/components/common/ContentVisual.vue'
@@ -39,22 +40,20 @@ export default {
   components: {
     ContentVisual,
     ContentTitle,
+    InsightView20220501,
   },
   data() {
     return {
       visual,
       title: [],
       date: '',
-      data: [
-        { title: '', desc: '', image: '', },
-        { title: '', desc: '', image: '', },
-        { title: '', desc: '', image: '', },
-        { title: '', desc: '', image: '', },
-        { title: '', desc: '', image: '', },
-      ],
     }
   },
   mounted() {
+
+    const insightId = this.$route.params.insightId;
+    console.log(insightId);
+
     this.title = ['2024', 'Happy New Goods'];
     this.title = this.title.map((o,i)=>{
       return { delay: i, text: o }
@@ -63,11 +62,10 @@ export default {
     this.date = '20240101';
     this.date = `${this.date.slice(0,4)}.${this.date.slice(4,6)}`;
 
-
   }
 }
 </script>
 
 <style scoped>
-/* #insight-view { background: #191919;} */
+#insight-view { background: #191919;}
 </style>
