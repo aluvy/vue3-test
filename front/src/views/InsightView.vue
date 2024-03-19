@@ -62,9 +62,9 @@ export default {
 
       this.visual = item.visual;
     },
-    fetchLists() {
-
-    }
+  },
+  update() {
+    this.getStoreData();
   },
   async mounted() {
 		await this.$nextTick();
