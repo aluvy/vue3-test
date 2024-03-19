@@ -1,5 +1,5 @@
 import { createStore } from 'vuex';
-import { fetchInsightsLists, fetchWorksLists } from '@/api/list.js';
+import { fetchInsightsLists, fetchAllInsightsLists, fetchWorksLists } from '@/api/list.js';
 
 const store = createStore({
 	state() {
@@ -50,6 +50,9 @@ const store = createStore({
 		SET_INSIGHT_LIST(state, payload) {
 			state.insights = state.insights.concat(payload);
 		},
+		SET_ALL_INSIGHT_LIST(state, payload) {
+			state.insights = payload;
+		},
 		SET_WORK_LIST(state, payload) {
 			state.works = payload;
 		},
@@ -59,6 +62,14 @@ const store = createStore({
 			try {
 				const res = await fetchInsightsLists(payload.num);
 				context.commit('SET_INSIGHT_LIST', res.data);
+			} catch (e) {
+				console.log('error', e);
+			}
+		},
+		async FETCH_GET_ALL_INSIGHT_LIST(context) {
+			try {
+				const res = await fetchAllInsightsLists();
+				context.commit('SET_ALL_INSIGHT_LIST', res.data);
 			} catch (e) {
 				console.log('error', e);
 			}
