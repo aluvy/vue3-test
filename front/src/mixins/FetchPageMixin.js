@@ -27,8 +27,12 @@ export default {
 		},
 	},
 	updated() {
-		gsapKill();
-		gsapAnimationTrigger();
+		setTimeout(() => {
+			// gsapKill();
+			// gsapVisualTrigger();
+			gsapAnimationTrigger();
+			gsapRefresh();
+		}, 1);
 	},
 	unmounted() {
 		document.querySelector('#app').classList.add('loading'); // page change

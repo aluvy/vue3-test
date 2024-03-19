@@ -137,6 +137,7 @@ section.section .inner { width: 100%; max-width: var(--max-width); padding: var(
 .gsap-overlay { overflow: hidden; }
 .gsap-item { animation-fill-mode: backwards; animation-duration: .5s; opacity: 0; }
 .gsap-overlay .gsap-item { display: inline-block; }
+.gsap-item { transition: all .3s; }
 .gsap-item.onEnter { opacity: 1; }
 
 

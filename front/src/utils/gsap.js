@@ -5,36 +5,18 @@ gsap.registerPlugin(ScrollTrigger);
 const triggers = ScrollTrigger.getAll();
 
 const gsapAnimationTrigger = function () {
-	ScrollTrigger.refresh();
-	ScrollTrigger.update();
-
-	const container = document.querySelector('#container');
-	gsap.context(() => {
-		const items = container.querySelectorAll('.gsap-item');
-		// console.log(items);
-		items.forEach(item => {
-			gsap.to(item, {
-				scrollTrigger: {
-					trigger: item,
-					start: 'top 100%',
-					// start: 'top 80%',
-					end: 'bottom 0%',
-					// markers: true,
-					// toggleActions: 'restart pause resume none',
-
-					onEnter: e => e.trigger.classList.add('onEnter'),
-					// onLeave: e => e.trigger.classList.remove('onEnter'),
-					// onEnterBack: e => e.trigger.classList.add('onEnter'),
-					// onLeaveBack: e => e.trigger.classList.remove('onEnter'),
-				},
-			});
+	gsap.utils.toArray('.gsap-item').forEach(item => {
+		ScrollTrigger.create({
+			trigger: item,
+			start: 'top 100%',
+			// end: 'bottom 0%',
+			// markers: true,
+			onEnter: e => e.trigger.classList.add('onEnter'),
 		});
-	}, container);
+	});
 };
 
 const gsapThemeTrigger = function () {
-	// ScrollTrigger.refresh();
-
 	gsap.utils.toArray('section[data-theme]').forEach(item => {
 		let theme = item.getAttribute('data-theme');
 		const header = document.querySelector('#header');

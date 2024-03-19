@@ -141,13 +141,16 @@ export default {
       const infiniteScroll = document.querySelectorAll('.infinite-scroll');
       if (!infiniteScroll.length) return;
 
+      console.log('infiniteScroll');
+
       gsap.to('.infinite-scroll', {
         scrollTrigger: {
-          start: 'bottom 100%',
-          end: 'bottom 100%',
+          start: '90% 90%',
+          // end: '0 10px',
           scrub: 1,
           // markers: true,
           onEnter: async () => {
+            console.log('onEnter');
             await this.fetchLists();
           },
         },
@@ -164,6 +167,9 @@ export default {
 
 <style scoped>
 #insight-page { background: #191919; }
+
+/* .infinite-scroll { height: 1rem; background-color: red; } */
+
 .all-data-loaded { height: 10rem; display: flex; align-items: center; justify-content: center; }
 .all-data-loaded p { text-align: center; color: #fff; font-size: 1.6rem; opacity: 0.7; }
 /* transition */
@@ -173,7 +179,7 @@ export default {
 
 
 
-.Requesting { display: flex; align-items: center; justify-content: center; padding: 5rem; }
+.Requesting { display: flex; align-items: center; justify-content: center; padding: 5rem; animation: fade-in .3s; }
 .Requesting .spin { width: 5rem; height: 5rem; border-radius: 5rem; border: 3px solid rgba(255,255,255, 0.2); border-right-color: #ff7061; animation: spin 1s infinite linear; }
 
 @keyframes spin {
@@ -181,4 +187,5 @@ export default {
   50% { transform: rotate(180deg) scale(0.8); }
   100% { transform: rotate(360deg) scale(1); }
 }
+
 </style>
