@@ -72,10 +72,16 @@ const router = createRouter({
 			meta: { title: 'InsightPage' },
 		},
 		{
-			path: '/insight/:insightId',
+			path: '/insightView/',
 			name: 'InsightView',
 			component: () => import('@/views/InsightView.vue'),
 			meta: { title: 'InsightView' },
+			children: [
+				{
+					path: '20220501',
+					component: () => import('@/views/insight/InsightView20220501.vue'),
+				},
+			],
 		},
 		{
 			path: '/recruit',

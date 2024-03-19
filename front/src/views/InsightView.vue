@@ -18,21 +18,19 @@
     </section>
 
     <div id="content">
-      <InsightView20220501></InsightView20220501>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
 import PageMixin from '@/mixins/PageMixin';
-import InsightView20220501 from '@/views/insight/InsightView20220501.vue'
 
 // component
 import ContentVisual from '@/components/common/ContentVisual.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
 
 // assets
-// import visual from '@/assets/images/insight/20240101-visual.jpg'
 import visual from '@/assets/images/insight/visual.jpg'
 
 export default {
@@ -40,7 +38,6 @@ export default {
   components: {
     ContentVisual,
     ContentTitle,
-    InsightView20220501,
   },
   data() {
     return {
@@ -51,8 +48,13 @@ export default {
   },
   mounted() {
 
-    const insightId = this.$route.params.insightId;
-    console.log(insightId);
+    // const insightId = this.$route.params.insightId;
+    const insightId = this.$route.path.split("/")[2];
+    const data = this.$store.getters.getInsights;
+    const item = data.filter( x => String(x.idx) === insightId);
+    
+    console.log(insightId, data, item);
+    
 
     this.title = ['2024', 'Happy New Goods'];
     this.title = this.title.map((o,i)=>{
