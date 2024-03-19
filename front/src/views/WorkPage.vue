@@ -19,6 +19,47 @@
 
     <div id="content">
       <WorkList :listGroups="listGroups"></WorkList>
+
+      <section class="section white stats" data-theme="black">
+        <div class="inner">
+          <ContentTitle
+            :titleL = "[ { delay: 0, text: `Project Stats` } ]"
+            theme="white"
+            align="center"
+          ></ContentTitle>
+          <div class="stats-cont">
+            <ul>
+              <li>
+                <strong>11</strong>
+                <span>years</span>
+                <p>Trough years of experience Having Gained experience</p>
+              </li>
+              <li>
+                <strong>104</strong>
+                <span>members</span>
+                <p>With specialties in each field Creative Professionals</p>
+              </li>
+              <li>
+                <strong>138</strong>
+                <span>projects</span>
+                <p>Focus on projects through selection and focus</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" data-theme="white">
+        
+      </section>
+
+      <section class="section" data-theme="white">
+        <PageLink :Links="[
+          { url: '/contact-us', title: `CONTACT US`, bg: '' },
+          { url: '/contact-us', title: `CONTACT US`, bg: '' },
+        ]"></PageLink>
+      </section>
+
     </div>
 
   </div>
@@ -32,6 +73,7 @@ import FetchPageMixin from '@/mixins/FetchPageMixin'
 import ContentVisual from '@/components/common/ContentVisual.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
 import WorkList from '@/components/common/WorkList.vue'
+import PageLink from '@/components/common/PageLink.vue'
 
 // assets
 import video from '@/assets/images/work/video.mp4'
@@ -42,6 +84,7 @@ export default {
     ContentVisual,
     ContentTitle,
     WorkList,
+    PageLink
   },
   data() {
     return {
@@ -49,7 +92,11 @@ export default {
       listNum: 1,
       listState: this.$store.getWorksStatus,
       listGroups: [],
-      data: [],
+      // data: [],
+      stats: [ 11, 104, 138 ],
+
+      prevPage: { title:'Preious', name: 'Culture', link: '/culture', bg: '' },
+      nextPage: { title: 'Next', name: 'About Us', link: '/about', bg: '' },
     }
   },
   methods: {
@@ -98,4 +145,12 @@ export default {
 
 <style scoped>
 #work-page { background: #191919; }
+
+.stats { padding: 8rem 0 12rem; }
+.stats-cont { margin-top: 6rem; }
+.stats-cont ul { display: flex; align-items: flex-start; justify-content: space-between; }
+.stats-cont li { flex: 0 1 20%; text-align: center; }
+.stats-cont li strong { display: block; font-size: 9rem; color: #6d6d6d; line-height: 1; }
+.stats-cont li span { display: block; font-weight: 500; font-size: 1.8rem; color: #6d6d6d; margin-top: 4rem; }
+.stats-cont li p { font-size: 1.6rem; color: #000; font-weight: 500; word-break: keep-all; line-height: 1.8; margin-top: 3rem; }
 </style>

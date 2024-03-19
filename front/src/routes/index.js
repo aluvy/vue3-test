@@ -7,15 +7,16 @@ const router = createRouter({
 	// mode: 'history',
 	// base: '/#',
 	scrollBehavior(to, from, savedPosition) {
-		if (to.path === '/insight' && from.path.includes('/insight')) {
-			return savedPosition;
-		}
+		// 	if (to.path === '/insight' && from.path.includes('/insight')) {
+		// 		console.log('dddd');
+		// 		return savedPosition;
+		// 	}
 
-		if (to.path !== from.path) {
-			setTimeout(() => {
-				return { top: 0 };
-			}, 100);
-		}
+		// 	if (to.path !== from.path) {
+		// 		console.log('!==');
+		// 		document.querySelector('#app').classList.add('loading');
+		// 		return { top: 0 };
+		// 	}
 		return savedPosition;
 	},
 	routes: [
@@ -77,6 +78,11 @@ const router = createRouter({
 			component: () => import('@/views/InsightDetail.vue'),
 			meta: { title: 'InsightDetail' },
 			children: insightDetail,
+			// beforeEnter: (to, from, next) => {
+			// 	console.log('test', to, from);
+			// 	// await window.scrollTo(0, 0);
+			// 	next();
+			// },
 		},
 		{
 			path: '/recruit',
@@ -97,10 +103,13 @@ const router = createRouter({
 	],
 });
 
-// router.beforeEach((to, from, next) => {
-// 	// document.querySelector('#app').classList.add('loading'); // page change
-// 	console.log('beforeEach', to);
-// 	next();
-// });
+router.beforeEach((to, from, next) => {
+	document.querySelector('#app').classList.add('loading'); // page change
+	// console.log('beforeEach', to);
+	setTimeout(() => {
+		window.scrollTo(0, 0);
+		next();
+	}, 450); // #app.loading transition time
+});
 
 export default router;
