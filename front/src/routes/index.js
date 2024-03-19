@@ -1,21 +1,21 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 // import store from '@/store/';
+import insightDetail from '@/routes/insightDetail.js';
 
 const router = createRouter({
 	history: createWebHashHistory(),
 	// mode: 'history',
 	// base: '/#',
 	scrollBehavior(to, from, savedPosition) {
-		// console.log(to, from, savedPosition);
-
-		if (to.path === '/insight' && from.path.includes('/insight/')) {
+		if (to.path === '/insight' && from.path.includes('/insight')) {
 			return savedPosition;
 		}
 
 		if (to.path !== from.path) {
-			return { top: 0 };
+			setTimeout(() => {
+				return { top: 0 };
+			}, 100);
 		}
-
 		return savedPosition;
 	},
 	routes: [
@@ -72,22 +72,27 @@ const router = createRouter({
 			meta: { title: 'InsightPage' },
 		},
 		{
-			path: '/insightView/',
-			name: 'InsightView',
-			component: () => import('@/views/InsightView.vue'),
-			meta: { title: 'InsightView' },
-			children: [
-				{
-					path: '20210501',
-					component: () => import('@/views/insight/InsightView20220501.vue'),
-				},
-			],
+			path: '/insightDetail/',
+			name: 'InsightDetail',
+			component: () => import('@/views/InsightDetail.vue'),
+			meta: { title: 'InsightDetail' },
+			children: insightDetail,
 		},
 		{
 			path: '/recruit',
 			name: 'RecruitPage',
 			component: () => import('@/views/RecruitPage.vue'),
 			meta: { title: 'RecruitPage' },
+		},
+		{
+			path: '/notFound',
+			name: 'NotFound',
+			component: () => import('@/views/NotFound.vue'),
+			meta: { title: 'NotFound' },
+		},
+		{
+			path: '/:pathMatch(.*)*',
+			redirect: '/notFound',
 		},
 	],
 });

@@ -54,17 +54,13 @@ export default {
         await this.fetchLists();
         data = this.$store.getters.getInsights;
       }
-
       const insightId = this.$route.path.split("/")[2];
       const item = data.filter( x => String(x.idx) === insightId)[0];
-
-      console.log(item);
       
       this.title = item.title;
       this.title = this.title.map((o,i)=>{
         return { delay: i, text: o }
       });
-      console.log(this.title[0]);
 
       this.date = item.date;
       this.date = `${this.date.slice(0,4)}.${this.date.slice(4,6)}`;
@@ -83,9 +79,8 @@ export default {
     this.getStoreData();
   },
   async mounted() {
-		await this.$nextTick();
+    await this.getStoreData();
     this.PageReady();
-    this.getStoreData();
   }
 }
 </script>
