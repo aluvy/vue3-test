@@ -4,6 +4,7 @@
     "title": ["Company Relocation"],
     "date": "20210501",
     "image": "https://aluvy.github.io/vue3-test/data/insight/images/20210501-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20210501-visual.jpg",
     "theme": "white",
     "url": "/"
   },
@@ -12,6 +13,7 @@
     "title": ["Media Center Year-end Party"],
     "date": "20221201",
     "image": "https://aluvy.github.io/vue3-test/data/insight/images/20221201-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20221201-visual.jpg",
     "theme": "white",
     "url": "/"
   },
@@ -20,6 +22,7 @@
     "title": ["2024", "Happy New Goods"],
     "date": "20240101",
     "image": "https://aluvy.github.io/vue3-test/data/insight/images/20240101-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20240101-visual.jpg",
     "theme": "white",
     "url": "/"
   },
@@ -28,6 +31,7 @@
     "title": ["IM GROUP Poster"],
     "date": "20230401",
     "image": "https://aluvy.github.io/vue3-test/data/insight/images/20230401-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20230401-visual.jpg",
     "theme": "white",
     "url": "/"
   },
@@ -36,6 +40,7 @@
     "title": ["Golden Time Year-end Party"],
     "date": "20231201",
     "image": "https://aluvy.github.io/vue3-test/data/insight/images/20231201-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20231201-visual.jpg",
     "theme": "white",
     "url": "/"
   },
@@ -44,6 +49,7 @@
     "title": ["IM GROUP", "First half of 2023"],
     "date": "20230801",
     "image": "https://aluvy.github.io/vue3-test/data/insight/images/20230801-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20230801-visual.jpg",
     "theme": "white",
     "url": "/"
   },
@@ -52,6 +58,7 @@
     "title": ["Media Center Carrot Market"],
     "date": "20230402",
     "image": "https://aluvy.github.io/vue3-test/data/insight/images/20230402-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20230402-visual.jpg",
     "theme": "white",
     "url": "/"
   },
@@ -60,6 +67,7 @@
     "title": ["RECRUIT"],
     "date": "20240301",
     "image": "https://aluvy.github.io/vue3-test/data/insight/images/20240301-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20240301-visual.jpg",
     "theme": "white",
     "url": "/"
   },
@@ -68,6 +76,7 @@
     "title": ["D.i Magazine, February"],
     "date": "20220201",
     "image": "https://aluvy.github.io/vue3-test/data/insight/images/20220201-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20220201-visual.jpg",
     "theme": "white",
     "url": "/"
   },
@@ -76,6 +85,7 @@
     "title": ["Capacity Building Leader Workshop 2019"],
     "date": "20190501",
     "image": "https://aluvy.github.io/vue3-test/data/insight/images/20190501-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20190501-visual.jpg",
     "theme": "white",
     "url": "/"
   },
@@ -84,6 +94,7 @@
     "title": ["D.i Magazine, September"],
     "date": "20200901",
     "image": "https://aluvy.github.io/vue3-test/data/insight/images/20200901-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20200901-visual.jpg",
     "theme": "white",
     "url": "/"
   }

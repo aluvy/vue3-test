@@ -78,7 +78,7 @@ const router = createRouter({
 			meta: { title: 'InsightView' },
 			children: [
 				{
-					path: '20220501',
+					path: '20210501',
 					component: () => import('@/views/insight/InsightView20220501.vue'),
 				},
 			],
