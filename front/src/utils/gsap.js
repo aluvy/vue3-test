@@ -46,38 +46,21 @@ const gsapWorkCount = () => {
 	const count = gsap.utils.toArray('.stats-cont .count');
 	if (!count.length) return;
 
-	const countStart = (trigger, num) => {
-		console.log(trigger, num);
-
-		// let start = 100;
-		trigger.textContent = 'test';
-
-		// while (1) {
-		// 	if (num >= count) break;
-		// 	console.log(start);
-		// 	start++;
-		// 	trigger.textContent = start;
-		// }
-	};
-
 	count.forEach(item => {
-		gsap.fromTo(
-			item,
-			{ text: '0' },
-			{
-				scrollTrigger: {
-					trigger: item,
-					start: 'top 80%',
-					end: 'bottom 80%',
-					once: true,
-					onEnter: ({ trigger }) => {
-						countStart(trigger, Number(trigger.dataset.count));
+		let startCount = { var: 0 };
 
-						trigger.textContent = 'test';
-					},
-				},
-			}
-		);
+		function changeNumber() {
+			item.innerHTML = startCount.var.toFixed();
+		}
+		gsap.to(startCount, {
+			var: item.dataset.count,
+			duration: 3,
+			ease: 'power3.out',
+			onUpdate: changeNumber,
+			scrollTrigger: {
+				trigger: item,
+			},
+		});
 	});
 };
 
