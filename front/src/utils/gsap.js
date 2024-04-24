@@ -57,7 +57,7 @@ const gsapLoader = () => {
 			},
 			{
 				duration: 1,
-				ease: 'power3.out',
+				ease: 'power4.inOut',
 				scaleX() {
 					const position = this.targets()[0].dataset.position;
 					return position === 'left' || position === 'right' ? 0 : 1;

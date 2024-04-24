@@ -11,6 +11,7 @@
 .rock-scroll body { overflow: hidden; }
 
 .no-scroll body { overflow: hidden; } /* aside.. */
+
 #app { opacity: 1; min-width: 32rem; overflow: hidden; }
 
 /* loading */
