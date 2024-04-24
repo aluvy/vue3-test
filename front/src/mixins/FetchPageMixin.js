@@ -1,5 +1,5 @@
 import store from '@/store/';
-import { gsapAnimationTrigger, gsapThemeTrigger, gsapRefresh, gsapVisualTrigger, gsapParallaxTrigger, gsapKill } from '@/utils/gsap.js';
+import { gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapRefresh, gsapVisualTrigger, gsapParallaxTrigger, gsapKill } from '@/utils/gsap.js';
 
 // mixin
 export default {
@@ -9,6 +9,8 @@ export default {
 			await this.$nextTick();
 
 			// setTimeout(() => {
+			gsapWorkItem();
+			gsapWorkCount();
 			gsapAnimationTrigger();
 			gsapThemeTrigger();
 			gsapParallaxTrigger();

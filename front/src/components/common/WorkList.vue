@@ -3,7 +3,7 @@
     <template  v-for="listgroup in listGroups" :key="listgroup">
       <ul class="work-group" :class="`layout-${listgroup.layout}`">
         <li v-for="list in listgroup.data" :key="list" :class="`theme-${list.theme}`">
-          <router-link :to="`/work/${list.idx}`" class="gsap-item">
+          <router-link :to="`/work/${list.idx}`" class="work-item">
             <div class="title-wrap">
               <p class="title">
                 <span v-for="ttl in list.title" :key="ttl">{{ ttl }}</span>
@@ -31,9 +31,9 @@ export default {
 }
 .work-group { display: grid; grid-template-columns: repeat(4, 1fr); }
 
-.work-group li { perspective: 2000px; }
 .work-group li a { position: relative; display: block; }
 .work-group li a::after { position: absolute; inset: 0; content: ''; transition: background .5s; z-index: 2; }
+
 .work-group li .title-wrap { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; color: #fff; padding: 2.2rem; z-index: 3; }
 .work-group li.theme-white .title-wrap { color: #fff; }
 .work-group li.theme-black .title-wrap { color: #000; }
@@ -125,17 +125,19 @@ export default {
 /* hover */
 .work-group li a:hover::after { background: rgba(0,0,0, 0.5); }
 
-.work-group li .onEnter { animation-name: workList-item; animation-duration: .7s; }
+/* .work-item { visibility: hidden; } */
+
+/* .work-group li .onEnter { animation-name: workList-item; animation-duration: .7s; }
 .work-group li:nth-child(1) .onEnter { animation-delay: 0s; }
 .work-group li:nth-child(2) .onEnter { animation-delay: .1s; }
 .work-group li:nth-child(3) .onEnter { animation-delay: .2s; }
 .work-group li:nth-child(4) .onEnter { animation-delay: 0s; }
-.work-group li:nth-child(5) .onEnter { animation-delay: .1s; }
+.work-group li:nth-child(5) .onEnter { animation-delay: .1s; } */
 
-@keyframes workList-item {
+/* @keyframes workList-item {
   0% { transform: rotateX(-45deg) translate3d(0, 20%, 0); }
   100% { transform: rotateX(0) translate3d(0,0,0); }
-}
+} */
 
 
 

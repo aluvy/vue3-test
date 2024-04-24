@@ -30,17 +30,17 @@
           <div class="stats-cont">
             <ul>
               <li>
-                <strong>11</strong>
+                <strong class="count" data-count="11">11</strong>
                 <span>years</span>
                 <p>Trough years of experience Having Gained experience</p>
               </li>
               <li>
-                <strong>104</strong>
+                <strong class="count" data-count="104">104</strong>
                 <span>members</span>
                 <p>With specialties in each field Creative Professionals</p>
               </li>
               <li>
-                <strong>138</strong>
+                <strong class="count" data-count="138">138</strong>
                 <span>projects</span>
                 <p>Focus on projects through selection and focus</p>
               </li>

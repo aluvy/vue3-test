@@ -1,8 +1,85 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
+import { TextPlugin } from 'gsap/TextPlugin';
+
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 const triggers = ScrollTrigger.getAll();
+
+// work list item
+const gsapWorkItem = () => {
+	const workItem = gsap.utils.toArray('.work-item');
+
+	if (!workItem.length) return;
+
+	gsap.set(workItem, { transformPerspective: '2000px' });
+
+	workItem.forEach(item => {
+		gsap.fromTo(
+			item,
+			{
+				autoAlpha: 0,
+				rotationX: -45,
+				y: 120,
+				transformOrigin: '50% 50%',
+			},
+			{
+				autoAlpha: 1,
+				rotationX: 0,
+				y: 0,
+				transformOrigin: '50% 50%',
+				scrollTrigger: {
+					trigger: item,
+					start: 'top 80%',
+					end: 'bottom 80%',
+					once: true,
+					// markers: true,
+					onEnter: ({ trigger }) => trigger.classList.add('onEnter'),
+				},
+			}
+		);
+	});
+};
+
+// work page Project Stats
+const gsapWorkCount = () => {
+	const count = gsap.utils.toArray('.stats-cont .count');
+	if (!count.length) return;
+
+	const countStart = (trigger, num) => {
+		console.log(trigger, num);
+
+		// let start = 100;
+		trigger.textContent = 'test';
+
+		// while (1) {
+		// 	if (num >= count) break;
+		// 	console.log(start);
+		// 	start++;
+		// 	trigger.textContent = start;
+		// }
+	};
+
+	count.forEach(item => {
+		gsap.fromTo(
+			item,
+			{ text: '0' },
+			{
+				scrollTrigger: {
+					trigger: item,
+					start: 'top 80%',
+					end: 'bottom 80%',
+					once: true,
+					onEnter: ({ trigger }) => {
+						countStart(trigger, Number(trigger.dataset.count));
+
+						trigger.textContent = 'test';
+					},
+				},
+			}
+		);
+	});
+};
 
 const gsapAnimationTrigger = function () {
 	gsap.utils.toArray('.gsap-item').forEach(item => {
@@ -83,4 +160,4 @@ const gsapRefresh = function () {
 	ScrollTrigger.update();
 };
 
-export { gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapVisualTrigger, gsapRefresh, gsapKill };
+export { gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapVisualTrigger, gsapRefresh, gsapKill };
