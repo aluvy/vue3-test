@@ -1,5 +1,5 @@
 import store from '@/store/';
-import { gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapRefresh, gsapVisualTrigger, gsapParallaxTrigger, gsapKill } from '@/utils/gsap.js';
+import { gsapLoader, gsapLoaderEnd, gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapRefresh, gsapVisualTrigger, gsapParallaxTrigger, gsapKill } from '@/utils/gsap.js';
 
 // mixin
 export default {
@@ -16,14 +16,15 @@ export default {
 			gsapParallaxTrigger();
 			gsapVisualTrigger();
 
-			store.commit('setLoading', true);
+			// store.commit('setLoading', true);
 			store.commit('setOpenAside', false);
 			document.querySelector('#app').classList.remove('loading');
 			// }, 1);
 
 			setTimeout(() => {
-				store.commit('setLoading', false);
-			}, 1300); // LoadScreen Component transition duration .8s + page loading, change duration .5s
+				gsapLoader();
+				// store.commit('setLoading', false);
+			}, 300); // LoadScreen Component transition duration .8s + page loading, change duration .5s
 
 			window.addEventListener('resize', gsapRefresh);
 		},
@@ -39,6 +40,7 @@ export default {
 	unmounted() {
 		document.querySelector('#app').classList.add('loading'); // page change
 		window.removeEventListener('resize', gsapRefresh);
+		gsapLoaderEnd();
 		gsapKill();
 	},
 };

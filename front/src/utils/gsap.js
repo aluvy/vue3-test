@@ -6,6 +6,73 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 let triggers = ScrollTrigger.getAll();
 
+// load End
+const gsapLoaderEnd = () => {
+	const wrap = document.querySelector('#load-screen');
+	const items = gsap.utils.toArray('#load-screen span');
+
+	gsap.set(wrap, { duration: 0, autoAlpha: 1 });
+	items.forEach(item => {
+		gsap.set(item, {
+			scaleX: 1,
+			scaleY: 1,
+			duration: 0,
+		});
+	});
+};
+
+// load screen settings
+const gsapLoader = () => {
+	const wrap = document.querySelector('#load-screen');
+	const items = gsap.utils.toArray('#load-screen span');
+	const tl = gsap.timeline();
+	tl.set(wrap, { duration: 0, autoAlpha: 1 });
+
+	items.forEach(item => {
+		tl.fromTo(
+			item,
+			{
+				scaleX: 1,
+				scaleY: 1,
+				transformOrigin() {
+					const position = this.targets()[0].dataset.position;
+					let x = 'center';
+					let y = 'center';
+					if (position === 'top') {
+						x = 'center';
+						y = 'top';
+					} else if (position === 'bottom') {
+						x = 'center';
+						y = 'bottom';
+					} else if (position === 'left') {
+						x = 'left';
+						y = 'center';
+					} else if (position === 'right') {
+						x = 'right';
+						y = 'center';
+					}
+
+					return `${x} ${y}`;
+				},
+			},
+			{
+				duration: 1,
+				ease: 'power3.out',
+				scaleX() {
+					const position = this.targets()[0].dataset.position;
+					return position === 'left' || position === 'right' ? 0 : 1;
+				},
+				scaleY() {
+					const position = this.targets()[0].dataset.position;
+					return position === 'top' || position === 'bottom' ? 0 : 1;
+				},
+			},
+			0
+		);
+	});
+	tl.to(wrap, { autoAlpha: 0 });
+};
+
 // work list item
 const gsapWorkItem = () => {
 	const workItem = gsap.utils.toArray('.work-item');
@@ -94,7 +161,7 @@ const gsapThemeTrigger = function () {
 				const headerH = header.offsetHeight;
 				return `bottom ${headerH}`;
 			},
-			markers: true,
+			// markers: true,
 			onEnter: () => header.setAttribute('data-theme', theme),
 			onEnterBack: () => header.setAttribute('data-theme', theme),
 		});
@@ -153,4 +220,4 @@ const gsapRefresh = function () {
 	ScrollTrigger.update();
 };
 
-export { gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapVisualTrigger, gsapRefresh, gsapKill };
+export { gsapLoader, gsapLoaderEnd, gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapVisualTrigger, gsapRefresh, gsapKill };
