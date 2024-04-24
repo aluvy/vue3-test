@@ -12,15 +12,12 @@ export default {
 		gsapParallaxTrigger();
 		gsapVisualTrigger();
 
-		// store.commit('setLoading', true);
 		store.commit('setOpenAside', false);
 		document.querySelector('#app').classList.remove('loading');
-		// }, 1);
 
 		setTimeout(() => {
 			gsapLoader();
-			// store.commit('setLoading', false);
-		}, 300); // LoadScreen Component transition duration .8s + page loading, change duration .5s
+		}, 300);
 
 		window.addEventListener('resize', gsapRefresh);
 	},

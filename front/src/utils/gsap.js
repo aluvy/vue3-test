@@ -8,8 +8,10 @@ let triggers = ScrollTrigger.getAll();
 
 // load End
 const gsapLoaderEnd = () => {
-	const wrap = document.querySelector('#load-screen');
 	const items = gsap.utils.toArray('#load-screen span');
+	if (!items.length) return;
+
+	const wrap = document.querySelector('#load-screen');
 
 	gsap.set(wrap, { duration: 0, autoAlpha: 1 });
 	items.forEach(item => {
@@ -23,8 +25,10 @@ const gsapLoaderEnd = () => {
 
 // load screen settings
 const gsapLoader = () => {
-	const wrap = document.querySelector('#load-screen');
 	const items = gsap.utils.toArray('#load-screen span');
+	if (!items.length) return;
+
+	const wrap = document.querySelector('#load-screen');
 	const tl = gsap.timeline();
 	tl.set(wrap, { duration: 0, autoAlpha: 1 });
 
