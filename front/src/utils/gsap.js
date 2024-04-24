@@ -4,16 +4,14 @@ import { TextPlugin } from 'gsap/TextPlugin';
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-const triggers = ScrollTrigger.getAll();
+let triggers = ScrollTrigger.getAll();
 
 // work list item
 const gsapWorkItem = () => {
 	const workItem = gsap.utils.toArray('.work-item');
-
 	if (!workItem.length) return;
 
 	gsap.set(workItem, { transformPerspective: '2000px' });
-
 	workItem.forEach(item => {
 		gsap.fromTo(
 			item,
@@ -76,16 +74,27 @@ const gsapAnimationTrigger = function () {
 	});
 };
 
+// theme
 const gsapThemeTrigger = function () {
-	gsap.utils.toArray('section[data-theme]').forEach(item => {
-		let theme = item.getAttribute('data-theme');
+	const section = gsap.utils.toArray('section[data-theme]');
+
+	if (!section) return;
+
+	section.forEach(item => {
+		let theme = item.dataset.theme;
 		const header = document.querySelector('#header');
 
 		ScrollTrigger.create({
 			trigger: item,
-			start: 'top 40px',
-			end: 'bottom 40px',
-			// markers: true,
+			start() {
+				const headerH = header.offsetHeight;
+				return `top ${headerH}`;
+			},
+			end() {
+				const headerH = header.offsetHeight;
+				return `bottom ${headerH}`;
+			},
+			markers: true,
 			onEnter: () => header.setAttribute('data-theme', theme),
 			onEnterBack: () => header.setAttribute('data-theme', theme),
 		});
@@ -134,6 +143,7 @@ const gsapVisualTrigger = function () {
 };
 
 const gsapKill = function () {
+	triggers = ScrollTrigger.getAll();
 	triggers.forEach(trigger => trigger.kill());
 };
 
