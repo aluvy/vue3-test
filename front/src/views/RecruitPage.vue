@@ -148,7 +148,7 @@
 
 <script>
 // import '@/assets/css/page-recruit.css'
-import PageMixin from '@/mixins/PageMixin';
+import FetchPageMixin from '@/mixins/FetchPageMixin';
 
 // components
 import CustomAccordion from '@/components/common/CustomAccordion.vue'
@@ -161,7 +161,7 @@ import talent2 from '@/assets/images/recruit/talent2.png'
 import talent3 from '@/assets/images/recruit/talent3.png'
 
 export default {
-  mixins: [PageMixin],
+  mixins: [FetchPageMixin],
   components: {
     CustomAccordion
   },
@@ -447,6 +447,9 @@ export default {
 
       alert('이메일 주소가 복사 되었습니다.');
     }
+  },
+  mounted() {
+    this.PageReady();
   }
 }
 </script>

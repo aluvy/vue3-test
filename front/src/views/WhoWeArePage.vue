@@ -106,7 +106,7 @@
 </template>
 
 <script>
-import PageMixin from '@/mixins/PageMixin';
+import FetchPageMixin from '@/mixins/FetchPageMixin';
 // import { gsapParallaxTrigger } from '@/utils/gsap.js'
 
 // component
@@ -151,7 +151,7 @@ export default {
     SwiperService,
     PageLink
   },
-  mixins: [PageMixin],
+  mixins: [FetchPageMixin],
   data() {
     return {
       visual,
@@ -206,6 +206,7 @@ export default {
   async mounted() {
     await this.$nextTick();
     // gsapParallaxTrigger();
+    this.PageReady();
   },
 }
 </script>

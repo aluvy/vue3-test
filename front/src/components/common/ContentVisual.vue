@@ -10,14 +10,6 @@ D: recruit : 완전다름
     <div class="slogan visualTrigger-slogan visualTrigger-bg" data-speed="-0.5">
       <div class="slogan-inner">
         <slot name="title"></slot>
-        
-        <div class="scroll-down" v-if="type==='full'">
-          <button type="button" @click="scrollDown">
-            <svg viewBox="0 0 30 45">
-              <path d="M15,1.118c12.352,0,13.967,12.88,13.967,12.88v18.76  c0,0-1.514,11.204-13.967,11.204S0.931,32.966,0.931,32.966V14.05C0.931,14.05,2.648,1.118,15,1.118z"></path>
-            </svg>
-          </button>
-        </div>
 
       </div>
     </div>
@@ -25,13 +17,20 @@ D: recruit : 완전다름
       <div class="bg-inner gsap-item">
         <slot name="visual"></slot>
       </div>
+      
+      <ScrollDown class="scrolldown" />
     </div>
+
   </div>
 </template>
 
 <script>
+import ScrollDown from '@/components/visual/ScrollDown.vue'
 
 export default {
+  components: {
+    ScrollDown
+  },
   data() {
     return {
       // isRun: false,
@@ -98,16 +97,16 @@ export default {
 
 
 /* scroll down */
-.visual-area .scroll-down { position: absolute; left: 50%; bottom: 3rem; margin-left: -2.5rem; animation: nudgeMouse 2.4s cubic-bezier(0.250,0.460,0.450,0.940) infinite; }
-.visual-area .scroll-down button { width: 5rem; height: 5rem; }
+.visual-area .scrolldown { position: absolute; left: 50%; bottom: 3rem; margin-left: -2.5rem; z-index: 2; }
+/* .visual-area .scroll-down button { width: 5rem; height: 5rem; }
 .visual-area .scroll-down button::before { position: absolute; left: 50%; top: 22px; content: ''; display: block; width: 2px; height: 6px; margin-left: -1px; border-radius: 2px; background-color: rgba(255,255,255,0.5); transition: background-color .55s; animation: mousewheel 2.4s cubic-bezier(0.000,0.000,0.725,1.000) infinite; }
 .visual-area .scroll-down button::after { position: absolute; left: 50%; top: 0; content: ''; display: block; width: 3rem; height: 4.5rem; margin-left: -1.5rem; border: 2px solid rgba(255,255,255,0.5); border-radius: 3rem; z-index: 2; }
 .visual-area .scroll-down button svg { width: 3rem; height: 4.5rem; }
 .visual-area .scroll-down button svg path { stroke: #fff; fill: transparent; stroke-width: 2px; stroke-dashoffset: 120; stroke-dasharray: 120; animation: mouse-scroll-btn-roll-out .55s cubic-bezier(.5,.1,.07,1); }
 .visual-area .scroll-down button:hover svg path { stroke-dashoffset:0; animation: mouse-scroll-btn-roll-over .55s cubic-bezier(.5,.1,.07,1); }
-.visual-area .scroll-down button:hover::before { background-color: #fff; }
+.visual-area .scroll-down button:hover::before { background-color: #fff; } */
 
-@keyframes mousewheel {
+/* @keyframes mousewheel {
   0%{ opacity:1; transform:scaleY(1) translateY(-1rem); }
   45%{ opacity:0; transform:scaleY(0.5) translateY(1.3rem); }
   46%{ opacity:0; transform:scaleY(1) translateY(-1rem); }
@@ -125,7 +124,7 @@ export default {
   0%{ transform:translateY(0); }
   45%{ transform:translateY(8px); }
   65%, 100%{ transform:translateY(0); }
-}
+} */
 
 @media only screen and (max-width: 1440px) {
   .visual-area.halfLeft { height: calc(var(--vh) * 0.9); }

@@ -1,6 +1,7 @@
 <template>
   <transition name="aside">
     <div class="aside-wrap" v-if="isOpenAside">
+    <!-- <div class="aside-wrap"> -->
       <div class="aside-body">
         <div class="aside-inner">
           <nav class="aside-nav">

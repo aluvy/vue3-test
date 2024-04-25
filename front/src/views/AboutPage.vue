@@ -76,7 +76,7 @@
 
 <script>
 // import '@/assets/css/page-about.css'
-import PageMixin from '@/mixins/PageMixin';
+import FetchPageMixin from '@/mixins/FetchPageMixin';
 
 // component
 import ContentVisual from '@/components/common/ContentVisual.vue'
@@ -94,7 +94,7 @@ export default {
     ContentTitle,
     SnsLink,
   },
-  mixins: [PageMixin],
+  mixins: [FetchPageMixin],
   data() {
     return {
       visual,
@@ -124,6 +124,9 @@ export default {
       ],
     }
   },
+  mounted() {
+    this.PageReady();
+  }
 }
 </script>
 

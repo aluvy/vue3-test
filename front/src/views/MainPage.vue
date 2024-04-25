@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import PageMixin from '@/mixins/PageMixin';
+import FetchPageMixin from '@/mixins/FetchPageMixin';
 
 // components
 import SwiperMain from '@/components/common/SwiperMain.vue'
@@ -21,7 +21,7 @@ import image7 from '@/assets/images/main/visual-culture.jpg';
 import image8 from '@/assets/images/main/visual-company-relocation.jpg';
 
 export default {
-  mixins: [PageMixin],
+  mixins: [FetchPageMixin],
   components: {
     SwiperMain,
   },
@@ -43,6 +43,7 @@ export default {
   async mounted() {
     document.documentElement.classList.add('rock-scroll');
     this.$store.commit('setFooter', false);
+    this.PageReady();
   },
   unmounted() {
     document.documentElement.classList.remove('rock-scroll');

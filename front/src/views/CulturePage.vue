@@ -2,19 +2,13 @@
   <div id="culture-page">
     
     <section class="section black culture-visual" data-theme="white">
-      <ContentVisual mode="visualTrigger">
-        <template #title>
-          <ContentTitle
-            :titleXL = "[ { delay: 0, text: `Here,` }, { delay: 1, text: `The Fifty One` } ]"
-            :visualTitle = "[ { delay: 2, text: `Culture` } ]"
-            theme="black"
-            align="center"
-          ></ContentTitle>
-        </template>
+      <VisualFull :titles = "[`Here,`, `The Fifty One`]" :descs="[`Culture`]" :dimmed="false">
         <template #visual>
-          <div class="img" :style="`background-image: url(${visual})`"></div>
+          <div class="img">
+            <img :src="visual">
+          </div>
         </template>
-      </ContentVisual>
+      </VisualFull>
     </section>
 
     <div id="content">
@@ -70,10 +64,10 @@
 
 <script>
 // import '@/assets/css/page-culture.css'
-import PageMixin from '@/mixins/PageMixin';
+import FetchPageMixin from '@/mixins/FetchPageMixin';
 
 // component
-import ContentVisual from '@/components/common/ContentVisual.vue'
+import VisualFull from '@/components/visual/VisualFull.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
 import CarouselBenefit from '@/components/common/CarouselBenefit.vue'
 
@@ -88,9 +82,9 @@ import space5 from '@/assets/images/culture/space5.jpg'
 import insightBG from '@/assets/images/culture/insight-bg.jpg'
 
 export default {
-  mixins: [PageMixin],
+  mixins: [FetchPageMixin],
   components: {
-    ContentVisual,
+    VisualFull,
     ContentTitle,
     CarouselBenefit,
   },
@@ -115,6 +109,9 @@ export default {
       ]
     }
   },
+  mounted() {
+    this.PageReady();
+  }
 }
 </script>
 

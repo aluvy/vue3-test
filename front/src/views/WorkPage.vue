@@ -2,19 +2,11 @@
   <div id="work-page">
     
     <section class="section black work-visual" data-theme="white">
-      <ContentVisual :dimmed="true" mode="visualTrigger">
-        <template #title>
-          <ContentTitle
-            :titleXL = "[ { delay: 0, text: `Finding the right one is` }, { delay: 1, text: `what we do best.` } ]"
-            :visualTitle = "[ { delay: 2, text: `What We Made` } ]"
-            theme="black"
-            align="center"
-          ></ContentTitle>
-        </template>
+      <VisualFull :titles = "[`Finding the right one is`, `what we do best.`]" :descs = "[`What We Made`]">
         <template #visual>
           <video preload="auto" loop autoplay muted playsinline><source :src="video" type="video/mp4"></video>
         </template>
-      </ContentVisual>
+      </VisualFull>
     </section>
 
     <div id="content">
@@ -70,7 +62,7 @@ import FetchPageMixin from '@/mixins/FetchPageMixin'
 // '@/mixins/fetchPageMixin';
 
 // component
-import ContentVisual from '@/components/common/ContentVisual.vue'
+import VisualFull from '@/components/visual/VisualFull.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
 import WorkList from '@/components/common/WorkList.vue'
 import PageLink from '@/components/common/PageLink.vue'
@@ -81,7 +73,7 @@ import video from '@/assets/images/work/video.mp4'
 export default {
   mixins: [FetchPageMixin],
   components: {
-    ContentVisual,
+    VisualFull,
     ContentTitle,
     WorkList,
     PageLink

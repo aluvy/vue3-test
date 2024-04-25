@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import PageMixin from '@/mixins/PageMixin';
+import FetchPageMixin from '@/mixins/FetchPageMixin';
 
 // component
 import ContentVisual from '@/components/common/ContentVisual.vue'
@@ -71,7 +71,7 @@ import visual from '@/assets/images/contact/visual.jpg'
 import Linkbg from '@/assets/images/contact/link-bg.jpg'
 
 export default {
-  mixins: [PageMixin],
+  mixins: [FetchPageMixin],
   components: {
     ContentVisual,
     ContentTitle,
@@ -84,6 +84,9 @@ export default {
       Linkbg,
     }
   },
+  mounted() {
+    this.PageReady();
+  }
 }
 </script>
 

@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import PageMixin from '@/mixins/PageMixin';
+import FetchPageMixin from '@/mixins/FetchPageMixin';
 
 export default {
   components: {
   },
-  mixins: [PageMixin],
+  mixins: [FetchPageMixin],
   data() {
     return {
     }
@@ -21,6 +21,7 @@ export default {
   async mounted() {
     await this.$nextTick();
     // gsapParallaxTrigger();
+    this.PageReady();
   },
 }
 </script>

@@ -37,7 +37,8 @@
         </div>
       </div>
       <div class="img-area">
-        <div class="img" :style="`background-image: url(${slide.img})`">
+        <div class="img">
+          <img :src="slide.img">
         </div>
       </div>
     </swiper-slide>
@@ -148,7 +149,8 @@ export default {
 
 /*** imgarea ******************************************************/
 .mySwiper .swiper-slide .img-area { width: 100%; height: var(--vh); z-index: 1; }
-.mySwiper .swiper-slide .img-area .img { position: relative; width: 100%; height: 100%; background-position: center; background-size: cover; background-repeat: no-repeat; transform: scale(0.6); transition-property: transform; transition-duration: var(--mainSwiper-img-scale-duration); transition-timing-function: var(--mainSwiper-easing); }
+.mySwiper .swiper-slide .img-area .img { position: relative; width: 100%; height: 100%; background-position: center; background-size: cover; background-repeat: no-repeat; transform: scale(0.6); transition-property: transform; transition-duration: var(--mainSwiper-img-scale-duration); transition-timing-function: var(--mainSwiper-easing); overflow: hidden; }
+.mySwiper .swiper-slide .img-area .img img { width: 100%; height: 100%; object-fit: cover; }
 
 /* imgarea - img - scale */
 .mySwiper.moveStart .swiper-slide .img-area .img { transform: scale(0.5); }

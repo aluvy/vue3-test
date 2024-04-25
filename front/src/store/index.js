@@ -4,7 +4,7 @@ import { fetchInsightsLists, fetchAllInsightsLists, fetchWorksLists } from '@/ap
 const store = createStore({
 	state() {
 		return {
-			// Loading: true,
+			Loading: true,
 			OpenAside: false,
 			Scrolled: false,
 			NoScroll: false,
@@ -16,7 +16,7 @@ const store = createStore({
 		};
 	},
 	getters: {
-		// isLoading: state => state.Loading,
+		isLoading: state => state.Loading,
 		isOpenAside: state => state.OpenAside,
 		isScrolled: state => state.Scrolled,
 		isNoScroll: state => state.NoScroll,
@@ -27,9 +27,9 @@ const store = createStore({
 		getWorks: state => state.works,
 	},
 	mutations: {
-		// setLoading(state, payload) {
-		// 	state.Loading = payload;
-		// },
+		setLoading(state, payload) {
+			state.Loading = payload;
+		},
 		setOpenAside(state, payload) {
 			state.OpenAside = payload;
 			state.NoScroll = payload;

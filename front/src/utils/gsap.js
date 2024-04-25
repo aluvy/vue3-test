@@ -6,7 +6,62 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 let triggers = ScrollTrigger.getAll();
 
-// load End
+/** full visual animation */
+const gsapFullVisualAnimation = () => {
+	const visualAreaFull = document.querySelector('.visual-area-full');
+	if (!visualAreaFull) return;
+
+	const bgInner = visualAreaFull.querySelector('.bg-inner');
+	const titles = [...visualAreaFull.querySelectorAll('.title-item')].map(a => a.querySelector('span'));
+	const descs = [...visualAreaFull.querySelectorAll('.desc-item')].map(a => a.querySelector('span'));
+
+	gsap.from(bgInner, { duration: 3, scale: 1.5, ease: 'power3.out' });
+
+	const tl = gsap.timeline();
+	titles.forEach((a, i) => {
+		tl.from(
+			a,
+			{
+				delay() {
+					return i === 0 ? 0.6 : 0;
+				},
+
+				y: '100%',
+				ease: 'power3.out',
+			},
+			'<0.1'
+		);
+	});
+	descs.forEach(a => {
+		tl.from(a, { opacity: 0, ease: 'power3.out' }, '<0.1');
+	});
+
+	// parallax
+	const parallaxItems = [...visualAreaFull.querySelectorAll('[data-speed]')];
+	const slogan = visualAreaFull.querySelector('.slogan');
+	console.log(parallaxItems);
+
+	const scrollTl = gsap.timeline({
+		scrollTrigger: {
+			trigger: visualAreaFull,
+			start: 'top top',
+			end: 'bottom top',
+			// markers: true,
+			scrub: true,
+		},
+	});
+
+	parallaxItems.forEach(a => {
+		const depth = a.dataset.speed;
+		const height = a.offsetHeight;
+		const y = height * depth;
+
+		scrollTl.to(a, { y, ease: 'none' }, 0);
+	});
+	scrollTl.to(slogan, { opacity: 0, ease: 'none' }, 0);
+};
+
+// loader hide
 const gsapLoaderEnd = () => {
 	const items = gsap.utils.toArray('#load-screen span');
 	if (!items.length) return;
@@ -23,7 +78,7 @@ const gsapLoaderEnd = () => {
 	});
 };
 
-// load screen settings
+// loader show animation
 const gsapLoader = () => {
 	const items = gsap.utils.toArray('#load-screen span');
 	if (!items.length) return;
@@ -145,7 +200,7 @@ const gsapAnimationTrigger = function () {
 	});
 };
 
-// theme
+// header theme
 const gsapThemeTrigger = function () {
 	const section = gsap.utils.toArray('section[data-theme]');
 
@@ -214,14 +269,15 @@ const gsapVisualTrigger = function () {
 };
 
 const gsapKill = function () {
+	console.log('gsapKill');
 	triggers = ScrollTrigger.getAll();
 	triggers.forEach(trigger => trigger.kill());
 };
 
 const gsapRefresh = function () {
-	console.log('refresh');
+	console.log('gsapRefresh');
 	ScrollTrigger.refresh();
 	ScrollTrigger.update();
 };
 
-export { gsapLoader, gsapLoaderEnd, gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapVisualTrigger, gsapRefresh, gsapKill };
+export { gsapLoader, gsapLoaderEnd, gsapFullVisualAnimation, gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapVisualTrigger, gsapRefresh, gsapKill };

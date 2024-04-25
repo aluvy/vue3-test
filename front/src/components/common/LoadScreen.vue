@@ -8,8 +8,23 @@
 </template>
 
 <script>
-// export default {
-// }
+import { gsapLoader, gsapLoaderEnd } from '@/utils/gsap.js';
+import { mapGetters } from 'vuex';
+
+export default {
+  computed: {
+    ...mapGetters(['isLoading']),
+  },
+  watch: {
+    isLoading(n) {
+      if ( !n ) {
+        gsapLoader();
+      } else {
+        gsapLoaderEnd();
+      }
+    }
+  }
+}
 </script>
 
 <style scoped>

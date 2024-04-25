@@ -2,19 +2,11 @@
   <div id="insight-page">
     
     <section class="section black culture-visual" data-theme="white">
-      <ContentVisual mode="visualTrigger">
-        <template #title>
-          <ContentTitle
-            :titleXL = "[ { delay: 0, text: `INSIGHT` } ]"
-            :visualTitle = "[ { delay: 1, text: `더피프티원의 새로운 이야기` } ]"
-            theme="black"
-            align="center"
-          ></ContentTitle>
-        </template>
+      <VisualFull :titles = "[`INSIGHT`]" :descs="[`피프티원의 새로운 이야기`]" :dimmed="false">
         <template #visual>
           <div class="img" :style="`background-image: url(${visual})`"></div>
         </template>
-      </ContentVisual>
+      </VisualFull>
     </section>
 
     <div id="content">
@@ -42,8 +34,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 // component
-import ContentVisual from '@/components/common/ContentVisual.vue'
-import ContentTitle from '@/components/common/ContentTitle.vue'
+import VisualFull from '@/components/visual/VisualFull.vue'
+// import ContentTitle from '@/components/common/ContentTitle.vue'
 import InsightList from '@/components/common/InsightList.vue'
 
 // assets
@@ -52,8 +44,8 @@ import visual from '@/assets/images/insight/visual.jpg'
 export default {
   mixins: [FetchPageMixin],
   components: {
-    ContentVisual,
-    ContentTitle,
+    VisualFull,
+    // ContentTitle,
     InsightList,
   },
   data() {

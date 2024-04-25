@@ -1,11 +1,13 @@
 import store from '@/store/';
-import { gsapLoader, gsapLoaderEnd, gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapRefresh, gsapVisualTrigger, gsapParallaxTrigger, gsapKill } from '@/utils/gsap.js';
+import { gsapFullVisualAnimation, gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapRefresh, gsapVisualTrigger, gsapParallaxTrigger, gsapKill } from '@/utils/gsap.js';
 
 // mixin
 export default {
 	methods: {
 		async PageReady() {
 			console.log('ready');
+			// store.commit('setOpenAside', false);
+			store.commit('setLoading', true);
 			await this.$nextTick();
 
 			gsapWorkItem();
@@ -15,12 +17,14 @@ export default {
 			gsapParallaxTrigger();
 			gsapVisualTrigger();
 
-			store.commit('setOpenAside', false);
-			document.querySelector('#app').classList.remove('loading');
-
 			setTimeout(() => {
-				gsapLoader();
-			}, 300);
+				document.querySelector('#app').classList.remove('loading');
+				store.commit('setLoading', false);
+			}, 1);
+
+			// setTimeout(() => {
+			gsapFullVisualAnimation();
+			// }, 150);
 
 			window.addEventListener('resize', gsapRefresh);
 		},
@@ -32,9 +36,9 @@ export default {
 		}, 1);
 	},
 	unmounted() {
+		store.commit('setOpenAside', false);
 		document.querySelector('#app').classList.add('loading'); // page change
 		window.removeEventListener('resize', gsapRefresh);
-		gsapLoaderEnd();
 		gsapKill();
 	},
 };

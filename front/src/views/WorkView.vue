@@ -2,19 +2,13 @@
   <div id="work-view">
     
     <section class="section black work-visual" data-theme="white">
-      <ContentVisual mode="visualTrigger" :dimmed="true">
-        <template #title>
-          <ContentTitle
-            :titleXL = "title"
-            :visualTitle = "[ { delay: 1, text: date } ]"
-            theme="black"
-            align="center"
-          ></ContentTitle>
-        </template>
+      <VisualFull :titles = "title" :descs = "[date]">
         <template #visual>
-          <div class="img" :style="`background-image: url(${visual})`"></div>
+          <div class="img">
+            <img :src="visual">
+          </div>
         </template>
-      </ContentVisual>
+      </VisualFull>
     </section>
 
     <div id="content">
@@ -24,21 +18,21 @@
 </template>
 
 <script>
-import PageMixin from '@/mixins/PageMixin';
+import FetchPageMixin from '@/mixins/FetchPageMixin';
 
 // component
-import ContentVisual from '@/components/common/ContentVisual.vue'
-import ContentTitle from '@/components/common/ContentTitle.vue'
+import VisualFull from '@/components/visual/VisualFull.vue'
+// import ContentTitle from '@/components/common/ContentTitle.vue'
 
 // assets
 // import visual from '@/assets/images/insight/20240101-visual.jpg'
 import visual from '@/assets/images/insight/visual.jpg'
 
 export default {
-  mixins: [PageMixin],
+  mixins: [FetchPageMixin],
   components: {
-    ContentVisual,
-    ContentTitle,
+    VisualFull,
+    // ContentTitle,
   },
   data() {
     return {
@@ -56,13 +50,13 @@ export default {
   },
   mounted() {
     this.title = ['HYUNDAICARD', 'My Company'];
-    this.title = this.title.map((o,i)=>{
-      return { delay: i, text: o }
-    })
+    // this.title = this.title.map((o,i)=>{
+    //   return { delay: i, text: o }
+    // })
 
     this.date = 'Web & Mobile Site';
 
-
+    this.PageReady();
   }
 }
 </script>
