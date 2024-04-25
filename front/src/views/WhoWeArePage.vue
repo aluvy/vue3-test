@@ -2,7 +2,11 @@
   <div id="who-page" ref="elem">
 
     <section class="section black who-visual" data-theme="white">
-      <VisualDefault :pages="[`WHO WE ARE`]" :titles="[`Special Group For`, `Digital Marketing`]" :descs="[`더피프티원은 매년 다양한 프로젝트 경험과 전문성 있는 인적자원으로`,`프로젝트를 성공적으로 진행하며 업계를 선도합니다.`]">
+      <VisualDefault
+        :pages="[`WHO WE ARE`]"
+        :titles="[`Special Group For`, `Digital Marketing`]"
+        :descs="[`더피프티원은 매년 다양한 프로젝트 경험과 전문성 있는 인적자원으로`,`프로젝트를 성공적으로 진행하며 업계를 선도합니다.`]"
+      >
         <template #visual>
           <div class="img"><img :src="visual"></div>
         </template>

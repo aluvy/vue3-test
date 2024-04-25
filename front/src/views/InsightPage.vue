@@ -2,7 +2,11 @@
   <div id="insight-page">
     
     <section class="section black culture-visual" data-theme="white">
-      <VisualFull :titles = "[`INSIGHT`]" :descs="[`피프티원의 새로운 이야기`]" :dimmed="false">
+      <VisualFull
+        :titles = "[`INSIGHT`]"
+        :descs="[`피프티원의 새로운 이야기`]"
+        :dimmed="false"
+      >
         <template #visual>
           <div class="img" :style="`background-image: url(${visual})`"></div>
         </template>

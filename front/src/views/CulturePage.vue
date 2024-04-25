@@ -2,7 +2,11 @@
   <div id="culture-page">
     
     <section class="section black culture-visual" data-theme="white">
-      <VisualFull :titles = "[`Here,`, `The Fifty One`]" :descs="[`Culture`]" :dimmed="false">
+      <VisualFull
+        :titles = "[`Here,`, `The Fifty One`]"
+        :descs="[`Culture`]"
+        :dimmed="false"
+      >
         <template #visual>
           <div class="img">
             <img :src="visual">

@@ -2,7 +2,10 @@
   <div id="insight-view">
     
     <section class="section black culture-visual" data-theme="white">
-      <VisualFull :titles="title" :descs="[date]">
+      <VisualFull
+        :titles="title"
+        :descs="[date]"
+      >
         <template #visual>
           <div class="img">
             <img :src="visual">

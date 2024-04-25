@@ -2,7 +2,10 @@
   <div id="work-page">
     
     <section class="section black work-visual" data-theme="white">
-      <VisualFull :titles = "[`Finding the right one is`, `what we do best.`]" :descs = "[`What We Made`]">
+      <VisualFull
+        :titles = "[`Finding the right one is`, `what we do best.`]"
+        :descs = "[`What We Made`]"
+      >
         <template #visual>
           <video preload="auto" loop autoplay muted playsinline><source :src="video" type="video/mp4"></video>
         </template>

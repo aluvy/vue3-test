@@ -2,7 +2,11 @@
   <div id="contact-page">
     
     <section class="section black contact-visual" data-theme="white">
-      <VisualDefault :pages="[`CONTACT`]" :titles="[`Want To Work`, `With Us?`]" :descs="[`더피프티원은 다양한 프로젝트 경험과 구성인력의 전문화로 조직간`, `Co-Work을 통해 성공적인 프로젝트를 진행합니다.`]">
+      <VisualDefault
+        :pages = "[`CONTACT`]"
+        :titles = "[`Want To Work`, `With Us?`]"
+        :descs = "[`더피프티원은 다양한 프로젝트 경험과 구성인력의 전문화로 조직간`, `Co-Work을 통해 성공적인 프로젝트를 진행합니다.`]"
+      >
         <template #visual>
           <div class="img"><img :src="visual"></div>
         </template>
