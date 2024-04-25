@@ -1,5 +1,5 @@
 import store from '@/store/';
-import { gsapFullVisualAnimation, gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapRefresh, gsapVisualTrigger, gsapParallaxTrigger, gsapKill } from '@/utils/gsap.js';
+import { gsapFullVisualAnimation, gsapNormalVisualAnimation, gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapRefresh, gsapParallaxTrigger, gsapKill } from '@/utils/gsap.js';
 
 // mixin
 export default {
@@ -15,7 +15,6 @@ export default {
 			gsapAnimationTrigger();
 			gsapThemeTrigger();
 			gsapParallaxTrigger();
-			gsapVisualTrigger();
 
 			setTimeout(() => {
 				document.querySelector('#app').classList.remove('loading');
@@ -24,6 +23,7 @@ export default {
 
 			// setTimeout(() => {
 			gsapFullVisualAnimation();
+			gsapNormalVisualAnimation();
 			// }, 150);
 
 			window.addEventListener('resize', gsapRefresh);

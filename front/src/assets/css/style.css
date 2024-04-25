@@ -9,6 +9,7 @@
 
   --fs-title-xl: 9rem;
   --fs-title-l: 5.6rem;
+  --fs-title-ml: 4.7rem;
   --fs-title-m: 2rem;
   --fs-title-s: 1.6rem;
   --fs-desc: 1.6rem;
@@ -170,6 +171,7 @@ section.section .inner { width: 100%; max-width: var(--max-width); padding: var(
 
     --fs-title-xl: 7.6rem;
     --fs-title-l: 4.7rem;
+    --fs-title-ml: 4.4rem;
     --fs-title-m: 1.8rem;
     /* --fs-title-s: 1.6rem; */
     /* --fs-desc: 1.6rem; */
@@ -182,6 +184,7 @@ section.section .inner { width: 100%; max-width: var(--max-width); padding: var(
 
     --fs-title-xl: 6.3rem;
     --fs-title-l: 4.4rem;
+    --fs-title-ml: 4rem;
     /* --fs-title-m: 1.8rem; */
     /* --fs-title-s: 1.6rem; */
     /* --fs-desc: 1.6rem; */
@@ -229,7 +232,7 @@ section.section .inner { width: 100%; max-width: var(--max-width); padding: var(
 @media only screen and (max-width: 425px) {
   :root {
     --fs-title-xl: 4rem;
-    --fs-title-l: 4.2rem;
+    --fs-title-ml: 3.6rem;
   }
   
 }

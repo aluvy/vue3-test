@@ -2,25 +2,11 @@
   <div id="who-page" ref="elem">
 
     <section class="section black who-visual" data-theme="white">
-      <ContentVisual type="normal" :dimmed="true">
-        <template #title>
-          <ContentTitle
-            :pageTitle = "[ { delay: 0, text: `WHO WE ARE` } ]"
-            :titleL="[
-              { delay: 1, text: `Special Group For` },
-              { delay: 2, text: `Digital Marketing`,}
-            ]"
-            :desc = "[
-              { delay: 3, text: `더피프티원은 매년 다양한 프로젝트 경험과 전문성 있는 인적자원으로`},
-              { delay: 4, text: `프로젝트를 성공적으로 진행하며 업계를 선도합니다.` }
-            ]"
-            theme="black"
-          ></ContentTitle>
-        </template>
+      <VisualDefault :pages="[`WHO WE ARE`]" :titles="[`Special Group For`, `Digital Marketing`]" :descs="[`더피프티원은 매년 다양한 프로젝트 경험과 전문성 있는 인적자원으로`,`프로젝트를 성공적으로 진행하며 업계를 선도합니다.`]">
         <template #visual>
-          <div class="img" :style="`background-image: url(${visual})`"></div>
+          <div class="img"><img :src="visual"></div>
         </template>
-      </ContentVisual>
+      </VisualDefault>
     </section>
 
     <div id="content">
@@ -110,7 +96,7 @@ import FetchPageMixin from '@/mixins/FetchPageMixin';
 // import { gsapParallaxTrigger } from '@/utils/gsap.js'
 
 // component
-import ContentVisual from '@/components/common/ContentVisual.vue'
+import VisualDefault from '@/components/visual/VisualDefault.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
 import PageLink from '@/components/common/PageLink.vue'
 import SwiperService from '@/components/common/SwiperService.vue'
@@ -146,7 +132,7 @@ import client24 from '@/assets/images/who/client-logo24.jpg'
 
 export default {
   components: {
-    ContentVisual,
+    VisualDefault,
     ContentTitle,
     SwiperService,
     PageLink

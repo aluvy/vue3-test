@@ -17,20 +17,14 @@ D: recruit : 완전다름
       <div class="bg-inner gsap-item">
         <slot name="visual"></slot>
       </div>
-      
-      <ScrollDown class="scrolldown" />
+
     </div>
 
   </div>
 </template>
 
 <script>
-import ScrollDown from '@/components/visual/ScrollDown.vue'
-
 export default {
-  components: {
-    ScrollDown
-  },
   data() {
     return {
       // isRun: false,

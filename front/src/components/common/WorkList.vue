@@ -9,7 +9,7 @@
                 <span v-for="ttl in list.title" :key="ttl">{{ ttl }}</span>
               </p>
             </div>
-            <div class="bg" :style="`background-image:url(${list.image})`"></div>
+            <div class="bg"><img :src="list.image"></div>
           </router-link>
         </li>
       </ul>
@@ -30,18 +30,15 @@ export default {
   --workitem-height: 35%
 }
 .work-group { display: grid; grid-template-columns: repeat(4, 1fr); }
-
 .work-group li a { position: relative; display: block; }
 .work-group li a::after { position: absolute; inset: 0; content: ''; transition: background .5s; z-index: 2; }
-
 .work-group li .title-wrap { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; color: #fff; padding: 2.2rem; z-index: 3; }
 .work-group li.theme-white .title-wrap { color: #fff; }
 .work-group li.theme-black .title-wrap { color: #000; }
-
 .work-group li .title-wrap .title { font-size: 2.4rem; letter-spacing: 0.1rem; word-break: keep-all; }
-.work-group li .bg { position: relative; background-size: cover; background-position: center; z-index: 1; }
+.work-group li .bg { position: relative; z-index: 1; }
+.work-group li .bg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .work-group li .bg::before { content: ''; display: block; padding-bottom: calc(var(--workitem-height) * 2); }
-
 
 /* layout */
 .work-group.layout-51 li:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }

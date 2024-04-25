@@ -39,7 +39,6 @@ const gsapFullVisualAnimation = () => {
 	// parallax
 	const parallaxItems = [...visualAreaFull.querySelectorAll('[data-speed]')];
 	const slogan = visualAreaFull.querySelector('.slogan');
-	console.log(parallaxItems);
 
 	const scrollTl = gsap.timeline({
 		scrollTrigger: {
@@ -59,6 +58,48 @@ const gsapFullVisualAnimation = () => {
 		scrollTl.to(a, { y, ease: 'none' }, 0);
 	});
 	scrollTl.to(slogan, { opacity: 0, ease: 'none' }, 0);
+};
+
+/** full normal animation */
+const gsapNormalVisualAnimation = () => {
+	const visualAreaDefault = document.querySelector('.visual-area-normal');
+	if (!visualAreaDefault) return;
+
+	const bgInner = visualAreaDefault.querySelector('.bg-inner');
+	const pages = [...visualAreaDefault.querySelectorAll('.page-item')].map(a => a.querySelector('span'));
+	const titles = [...visualAreaDefault.querySelectorAll('.title-item')].map(a => a.querySelector('span'));
+	const descs = [...visualAreaDefault.querySelectorAll('.desc-item')].map(a => a.querySelector('span'));
+
+	gsap.from(bgInner, { duration: 3, scale: 1.5, ease: 'power3.out' });
+
+	const tl = gsap.timeline();
+	pages.forEach((a, i) => {
+		tl.from(
+			a,
+			{
+				delay() {
+					return i === 0 ? 0.6 : 0;
+				},
+
+				y: '100%',
+				ease: 'power3.out',
+			},
+			'<0.1'
+		);
+	});
+	titles.forEach(a => {
+		tl.from(
+			a,
+			{
+				y: '100%',
+				ease: 'power3.out',
+			},
+			'<0.1'
+		);
+	});
+	descs.forEach(a => {
+		tl.from(a, { opacity: 0, ease: 'power3.out' }, '<0.1');
+	});
 };
 
 // loader hide
@@ -244,29 +285,30 @@ const gsapParallaxTrigger = function () {
 	});
 };
 
-const gsapVisualTrigger = function () {
-	const visualTriggerMode = document.querySelectorAll('.visualTriggerMode');
-	if (!visualTriggerMode.length) return;
+// const gsapVisualTrigger = function () {
+// 	const visualTriggerMode = document.querySelectorAll('.visualTriggerMode');
+// 	console.log('gsapVisualTrigger', visualTriggerMode);
+// 	if (!visualTriggerMode.length) return;
 
-	gsap.to('.visualTrigger-bg', {
-		scrollTrigger: {
-			scrub: true,
-		},
-		y: (i, target) => -ScrollTrigger.maxScroll(window) * target.dataset.speed,
-		ease: 'none',
-	});
-	gsap.to('.visualTrigger-slogan', {
-		scrollTrigger: {
-			trigger: '.visualTriggerMode',
-			start: '1% 1%',
-			end: '99% 1%',
-			scrub: 1,
-			// markers: true,
-		},
-		opacity: 0,
-		// height: 0,
-	});
-};
+// 	gsap.to('.visualTrigger-bg', {
+// 		scrollTrigger: {
+// 			scrub: true,
+// 		},
+// 		y: (i, target) => -ScrollTrigger.maxScroll(window) * target.dataset.speed,
+// 		ease: 'none',
+// 	});
+// 	gsap.to('.visualTrigger-slogan', {
+// 		scrollTrigger: {
+// 			trigger: '.visualTriggerMode',
+// 			start: '1% 1%',
+// 			end: '99% 1%',
+// 			scrub: 1,
+// 			// markers: true,
+// 		},
+// 		opacity: 0,
+// 		// height: 0,
+// 	});
+// };
 
 const gsapKill = function () {
 	console.log('gsapKill');
@@ -280,4 +322,4 @@ const gsapRefresh = function () {
 	ScrollTrigger.update();
 };
 
-export { gsapLoader, gsapLoaderEnd, gsapFullVisualAnimation, gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapVisualTrigger, gsapRefresh, gsapKill };
+export { gsapLoader, gsapLoaderEnd, gsapFullVisualAnimation, gsapNormalVisualAnimation, gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapRefresh, gsapKill };
