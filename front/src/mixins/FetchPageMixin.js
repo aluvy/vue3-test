@@ -27,27 +27,31 @@ export default {
 		async PageReady() {
 			console.log('ready');
 			// store.commit('setOpenAside', false);
-			store.commit('setLoading', true);
+			// store.commit('setLoading', true);
 			await this.$nextTick();
 
-			gsapWorkItem();
-			gsapWorkCount();
-			gsapAnimationTrigger();
+			document.querySelector('#app').classList.remove('loading');
+			store.commit('setLoading', false);
+
+			this.gsapInit();
+
+			// console.log(process.env);
+
+			window.addEventListener('resize', gsapRefresh);
+		},
+		gsapInit() {
+			// header theme
 			gsapHeaderThemeTrigger();
-			gsapParallaxTrigger();
-
-			setTimeout(() => {
-				document.querySelector('#app').classList.remove('loading');
-				store.commit('setLoading', false);
-			}, 1);
-
-			// setTimeout(() => {
+			// visual
 			gsapFullVisualAnimation();
 			gsapNormalVisualAnimation();
 			gsapAboutVisualAnimation();
-			// }, 150);
-
-			window.addEventListener('resize', gsapRefresh);
+			// work
+			gsapWorkItem();
+			gsapWorkCount();
+			//
+			gsapAnimationTrigger();
+			gsapParallaxTrigger();
 		},
 	},
 	updated() {
@@ -57,8 +61,8 @@ export default {
 		}, 1);
 	},
 	unmounted() {
-		store.commit('setOpenAside', false);
 		document.querySelector('#app').classList.add('loading'); // page change
+		// store.commit('setOpenAside', false);
 		window.removeEventListener('resize', gsapRefresh);
 		gsapKill();
 	},

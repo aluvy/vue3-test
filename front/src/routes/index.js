@@ -1,5 +1,6 @@
+// import { Vue } from 'vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
-// import store from '@/store/';
+import store from '@/store/';
 import insightDetail from '@/routes/insightDetail.js';
 
 const router = createRouter({
@@ -7,6 +8,15 @@ const router = createRouter({
 	// mode: 'history',
 	// base: '/#',
 	scrollBehavior(to, from, savedPosition) {
+		// console.log(to, from); // "WorkPage", "WorkView"
+
+		console.log(to.name, from.name);
+
+		if (to.name === 'WorkPage' && from.name === 'WorkView') {
+			console.log(savedPosition);
+			return savedPosition;
+		}
+
 		// 	if (to.path === '/insight' && from.path.includes('/insight')) {
 		// 		console.log('dddd');
 		// 		return savedPosition;
@@ -17,7 +27,7 @@ const router = createRouter({
 		// 		document.querySelector('#app').classList.add('loading');
 		// 		return { top: 0 };
 		// 	}
-		return savedPosition;
+		return { top: 0 };
 	},
 	routes: [
 		{
@@ -28,55 +38,55 @@ const router = createRouter({
 			path: '/main',
 			name: 'MainPage',
 			component: () => import('@/views/MainPage.vue'),
-			meta: { title: 'main' },
+			meta: { title: 'The 51' },
 		},
 		{
 			path: '/work',
 			name: 'WorkPage',
 			component: () => import('@/views/WorkPage.vue'),
-			meta: { title: 'WorkPage' },
+			meta: { title: 'Work' },
 		},
 		{
 			path: '/work/:workId',
 			name: 'WorkView',
 			component: () => import('@/views/WorkView.vue'),
-			meta: { title: 'WorkView' },
+			meta: { title: 'Work' },
 		},
 		{
 			path: '/about',
 			name: 'AboutPage',
 			component: () => import('@/views/AboutPage.vue'),
-			meta: { title: 'AboutPage' },
+			meta: { title: 'About us' },
 		},
 		{
 			path: '/who-we-are',
 			name: 'WhoWeArePage',
 			component: () => import('@/views/WhoWeArePage.vue'),
-			meta: { title: 'WhoWeArePage' },
+			meta: { title: 'Who we are' },
 		},
 		{
 			path: '/contact-us',
 			name: 'ContactUsPage',
 			component: () => import('@/views/ContactUsPage.vue'),
-			meta: { title: 'ContactUsPage' },
+			meta: { title: 'Contact Us' },
 		},
 		{
 			path: '/culture',
 			name: 'CulturePage',
 			component: () => import('@/views/CulturePage.vue'),
-			meta: { title: 'CulturePage' },
+			meta: { title: 'Culture' },
 		},
 		{
 			path: '/insight',
 			name: 'InsightPage',
 			component: () => import('@/views/InsightPage.vue'),
-			meta: { title: 'InsightPage' },
+			meta: { title: 'INSIGHT' },
 		},
 		{
 			path: '/insightDetail/',
 			name: 'InsightDetail',
 			component: () => import('@/views/InsightDetail.vue'),
-			meta: { title: 'InsightDetail' },
+			meta: { title: 'INSIGHT' },
 			children: insightDetail,
 			// beforeEnter: (to, from, next) => {
 			// 	console.log('test', to, from);
@@ -88,7 +98,7 @@ const router = createRouter({
 			path: '/recruit',
 			name: 'RecruitPage',
 			component: () => import('@/views/RecruitPage.vue'),
-			meta: { title: 'RecruitPage' },
+			meta: { title: 'Recruit' },
 		},
 		{
 			path: '/notFound',
@@ -105,9 +115,18 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
 	document.querySelector('#app').classList.add('loading'); // page change
+
 	// console.log('beforeEach', to);
+	// setTimeout(() => {
+	// 	window.scrollTo(0, 0);
+	const title = to.meta.title === undefined ? 'The 51' : `${to.meta.title} | The 51 - digital marketing agency`;
+
 	setTimeout(() => {
-		window.scrollTo(0, 0);
+		// page init
+		document.title = title;
+		store.commit('setLoading', true);
+		store.commit('setOpenAside', false);
+
 		next();
 	}, 450); // #app.loading transition time
 });
