@@ -60,28 +60,28 @@ const gsapFullVisualAnimation = () => {
 	scrollTl.to(slogan, { opacity: 0, ease: 'none' }, 0);
 };
 
-/** full normal animation */
+/** normal visual animation */
 const gsapNormalVisualAnimation = () => {
 	const visualAreaDefault = document.querySelector('.visual-area-normal');
 	if (!visualAreaDefault) return;
 
 	const bgInner = visualAreaDefault.querySelector('.bg-inner');
-	const pages = [...visualAreaDefault.querySelectorAll('.page-item')].map(a => a.querySelector('span'));
+	const cates = [...visualAreaDefault.querySelectorAll('.cate-item')].map(a => a.querySelector('span'));
 	const titles = [...visualAreaDefault.querySelectorAll('.title-item')].map(a => a.querySelector('span'));
 	const descs = [...visualAreaDefault.querySelectorAll('.desc-item')].map(a => a.querySelector('span'));
 
 	gsap.from(bgInner, { duration: 3, scale: 1.5, ease: 'power3.out' });
 
 	const tl = gsap.timeline();
-	pages.forEach((a, i) => {
+	cates.forEach((a, i) => {
 		tl.from(
 			a,
 			{
 				delay() {
 					return i === 0 ? 0.6 : 0;
 				},
-
-				y: '100%',
+				opacity: 0,
+				y: '150%',
 				ease: 'power3.out',
 			},
 			'<0.1'
@@ -98,8 +98,56 @@ const gsapNormalVisualAnimation = () => {
 		);
 	});
 	descs.forEach(a => {
-		tl.from(a, { opacity: 0, ease: 'power3.out' }, '<0.1');
+		tl.from(a, { opacity: 0, y: '150%', ease: 'power3.out' }, '<0.1');
 	});
+};
+
+/** about visual animation */
+const gsapAboutVisualAnimation = () => {
+	const visualAreaAbout = document.querySelector('.visual-area-about');
+	if (!visualAreaAbout) return;
+
+	const bgInner = visualAreaAbout.querySelector('.bg-inner');
+	const cates = [...visualAreaAbout.querySelectorAll('.cate-item')].map(a => a.querySelector('span'));
+	const titles = [...visualAreaAbout.querySelectorAll('.title-item')].map(a => a.querySelector('span'));
+	const descs = [...visualAreaAbout.querySelectorAll('.desc-item')].map(a => a.querySelector('span'));
+	const sns = visualAreaAbout.querySelector('.sns-wrap');
+
+	if (!matchMedia('screen and (max-width: 768px)').matches) {
+		gsap.from(bgInner, { delay: 0.4, duration: 1.6, opacity: 0, x: '50%', ease: 'power3.out' });
+	} else {
+		gsap.from(bgInner, { delay: 0.4, duration: 1.6, opacity: 0, y: '50%', ease: 'power3.out' });
+	}
+
+	const tl = gsap.timeline();
+	cates.forEach((a, i) => {
+		tl.from(
+			a,
+			{
+				delay() {
+					return i === 0 ? 0.6 : 0;
+				},
+				opacity: 0,
+				y: '150%',
+				ease: 'power3.out',
+			},
+			'<0.1'
+		);
+	});
+	titles.forEach(a => {
+		tl.from(
+			a,
+			{
+				y: '100%',
+				ease: 'power3.out',
+			},
+			'<0.1'
+		);
+	});
+	descs.forEach(a => {
+		tl.from(a, { opacity: 0, y: '150%', ease: 'power3.out' }, '<0.1');
+	});
+	tl.from(sns, { opacity: 0, y: '70%', ease: 'power3.out' }, '<0.1');
 };
 
 // loader hide
@@ -322,4 +370,4 @@ const gsapRefresh = function () {
 	ScrollTrigger.update();
 };
 
-export { gsapLoader, gsapLoaderEnd, gsapFullVisualAnimation, gsapNormalVisualAnimation, gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapRefresh, gsapKill };
+export { gsapLoader, gsapLoaderEnd, gsapFullVisualAnimation, gsapNormalVisualAnimation, gsapAboutVisualAnimation, gsapWorkItem, gsapWorkCount, gsapAnimationTrigger, gsapThemeTrigger, gsapParallaxTrigger, gsapRefresh, gsapKill };

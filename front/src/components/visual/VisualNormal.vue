@@ -1,6 +1,6 @@
 <template>
 <!-- 
-  work, workview, culture, insight, insightview, 
+  who we are, contact us
 -->
   <div class="visual-area-normal">
 
@@ -8,7 +8,7 @@
       <div class="slogan-inner">
 
         <div class="title-s">
-          <p class="page-item" v-for="page in pages" :key="page"><span>{{ page }}</span></p>  
+          <p class="cate-item" v-for="cate in cates" :key="cate"><span>{{ cate }}</span></p>  
         </div>
         <div class="title-l">
           <p class="title-item" v-for="title in titles" :key="title"><span>{{ title }}</span></p>  
@@ -35,7 +35,7 @@ export default {
     
   },
   props: {
-    pages: { type: Array, default(){ return [] } },
+    cates: { type: Array, default(){ return [] } },
     titles: { type: Array, default(){ return [] } },
     descs: { type: Array, default(){ return [] } },
     dimmed: { type: Boolean, default: true },
@@ -50,7 +50,7 @@ export default {
 .visual-area-normal .slogan-inner { width: 100%; max-width: var(--max-width); padding: var(--inner-pad); text-align: left; }
 
 .visual-area-normal .slogan .title-s { font-size: var(--fs-title-s); line-height: 1; font-weight: 700; color: rgba(255,255,255, 0.74); }
-.visual-area-normal .slogan .title-s p { overflow: hidden; }
+/* .visual-area-normal .slogan .title-s p { overflow: hidden; } */
 .visual-area-normal .slogan .title-s p span { display: block; word-break: keep-all; }
 
 .visual-area-normal .slogan .title-l { font-size: var(--fs-title-ml); line-height: 1.2; font-weight: 700; color: #fff; margin-top: 2rem; }
@@ -58,7 +58,7 @@ export default {
 .visual-area-normal .slogan .title-l p span { display: block; word-break: keep-all; }
 
 .visual-area-normal .slogan .desc { font-size: var(--fs-title-s); line-height: 1.8; color: rgba(255,255,255, 0.7); margin-top: 2.4rem; }
-.visual-area-normal .slogan .desc p { overflow: hidden; }
+/* .visual-area-normal .slogan .desc p { overflow: hidden; } */
 .visual-area-normal .slogan .desc p span { display: block; }
 
 .visual-area-normal .bg { position: absolute; inset: 0; z-index: 1; }

@@ -2,15 +2,15 @@
   <div id="contact-page">
     
     <section class="section black contact-visual" data-theme="white">
-      <VisualDefault
-        :pages = "[`CONTACT`]"
+      <VisualNormal
+        :cates = "[`CONTACT`]"
         :titles = "[`Want To Work`, `With Us?`]"
         :descs = "[`더피프티원은 다양한 프로젝트 경험과 구성인력의 전문화로 조직간`, `Co-Work을 통해 성공적인 프로젝트를 진행합니다.`]"
       >
         <template #visual>
           <div class="img"><img :src="visual"></div>
         </template>
-      </VisualDefault>
+      </VisualNormal>
     </section>
 
     <div id="content">
@@ -54,7 +54,7 @@
 import FetchPageMixin from '@/mixins/FetchPageMixin';
 
 // component
-import VisualDefault from '@/components/visual/VisualDefault.vue'
+import VisualNormal from '@/components/visual/VisualNormal.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
 import KakaoMap from '@/components/common/KakaoMap.vue'
 import PageLink from '@/components/common/PageLink.vue'
@@ -66,7 +66,7 @@ import Linkbg from '@/assets/images/contact/link-bg.jpg'
 export default {
   mixins: [FetchPageMixin],
   components: {
-    VisualDefault,
+    VisualNormal,
     ContentTitle,
     KakaoMap,
     PageLink

@@ -13,8 +13,6 @@
         <div class="desc">
           <p class="desc-item" v-for="desc in descs" :key="desc"><span>{{ desc }}</span></p>
         </div>
-        
-        <!-- <slot name="slogan"></slot> -->
 
       </div>
       <ScrollDown class="scrolldown" />

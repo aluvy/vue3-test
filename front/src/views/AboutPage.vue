@@ -2,24 +2,16 @@
   <div id="about-page" ref="elem">
 
     <section class="section black about-visual" data-theme="white">
-      <ContentVisual type="halfLeft">
-        <template #title>
-          <ContentTitle
-            :pageTitle = "[ { delay: 0, text: `ABOUT US` } ]"
-            :titleL = "[ { delay: 1, text: `Awesome` }, { delay: 2, text: `Global Capability` } ]"
-            :desc = "[
-              { delay: 3, text: `우리는 다양한 프로젝트 경험과 구성인력의 전문화로 조직간 Co-work을 통해 성공적인 프로젝트를 진행합니다.`},
-            ]"
-            theme="black"
-          ></ContentTitle>
-          <SnsLink site="about" class="gsap-item"></SnsLink>
-        </template>
+      <VisualAbout
+        :cates="[`ABOUT US`]"
+        :titles="[`Awesome`, `Global Capability`]"
+        :descs="[`우리는 다양한 프로젝트 경험과 구성인력의 전문화로 조직간 Co-work을 통해 성공적인 프로젝트를 진행합니다.`]"
+      >
         <template #visual>
-          <div class="img" :style="`background-image: url(${visual})`"></div>
+          <div class="img"><img :src="visual" alt=""></div>
         </template>
-      </ContentVisual>
+      </VisualAbout>
     </section>
-
 
     <div id="content">
       <section class="section white about-link" data-theme="black">
@@ -79,9 +71,8 @@
 import FetchPageMixin from '@/mixins/FetchPageMixin';
 
 // component
-import ContentVisual from '@/components/common/ContentVisual.vue'
+import VisualAbout from '@/components/visual/VisualAbout.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
-import SnsLink from '@/components/common/SnsLink.vue'
 
 // assets
 import visual from '@/assets/images/about/visual.jpg'
@@ -90,9 +81,8 @@ import video from '@/assets/images/about/video.mp4'
 
 export default {
   components: {
-    ContentVisual,
+    VisualAbout,
     ContentTitle,
-    SnsLink,
   },
   mixins: [FetchPageMixin],
   data() {
