@@ -1,54 +1,11 @@
-import Scrollbar from 'smooth-scrollbar';
-
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
+import { scrollbar, scrollbarInit, markers } from '@/utils/scrollbar.js';
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-let scrollbar;
-
-function test() {
-	const ScrollContainer = document.querySelector('#my-scrollbar');
-	const ScrollbarOptions = {
-		damping: 0.1, // 낮을수록 많이 미끄러짐 보통 0.1 ~ 0.5 사이를 많이 넣음
-		// thumbMinSize: 0,
-		// renderByPixels: true,
-		alwaysShowTracks: false, // true: scroll bar가 항상 보이게 한다.
-		// continuousScrolling: true,
-		// wheelEventTarget: ,
-		// plugins: {},
-	};
-	scrollbar = Scrollbar.init(ScrollContainer, { ...ScrollbarOptions });
-	Scrollbar.init(ScrollContainer, ScrollbarOptions);
-	ScrollTrigger.scrollerProxy(ScrollContainer, {
-		scrollTop(value) {
-			if (arguments.length) {
-				scrollbar.scrollTop = value; // setter
-			}
-			return scrollbar.scrollTop; // getter
-		},
-	});
-
-	scrollbar.addListener(ScrollTrigger.update);
-	ScrollTrigger.defaults({ scroller: ScrollContainer });
-	// };
-}
-
-test();
-
-// scrollbar.addListener(s => {
-// 	console.log(s.offset.y); // returns “scrollTop” equivalent
-// });
-
-function markers() {
-	if (document.querySelector('.gsap-marker-scroller-start')) {
-		const markers = gsap.utils.toArray('[class *= "gsap-marker"]');
-		scrollbar.addListener(({ offset }) => {
-			gsap.set(markers, { marginTop: -offset.y });
-		});
-	}
-}
+scrollbarInit(ScrollTrigger); // smooth scrollbar init
 
 let triggers = ScrollTrigger.getAll();
 
@@ -75,9 +32,10 @@ const gsapHeaderThemeTrigger = function () {
 			// markers: true,
 			onEnter: () => header.setAttribute('data-theme', theme),
 			onEnterBack: () => header.setAttribute('data-theme', theme),
+			// markers: true,
 		});
 	});
-	// markers();
+	// markers(gsap);
 };
 
 /** loader show animation */
@@ -204,7 +162,7 @@ const gsapFullVisualAnimation = () => {
 	});
 	scrollTl.to(slogan, { opacity: 0, ease: 'none' }, 0);
 
-	markers();
+	markers(gsap);
 };
 
 /** normal visual animation */
@@ -313,32 +271,23 @@ const gsapWorkItem = () => {
 
 	gsap.set(workItem, { transformPerspective: '2000px' });
 	workItem.forEach(item => {
-		gsap.fromTo(
-			item,
-			{
-				autoAlpha: 0,
-				rotationX: -45,
-				y: 120,
-				transformOrigin: '50% 50%',
+		gsap.from(item, {
+			autoAlpha: 0,
+			rotationX: -45,
+			y: 120,
+			transformOrigin: '50% 50%',
+			scrollTrigger: {
+				trigger: item,
+				start: `${-120 - 45} 95%`, // -y-rotationX
+				end: 'bottom 95%',
+				once: true,
+				// markers: true,
+				// id: 'workItem',
+				// onEnter: ({ trigger }) => trigger.classList.add('onEnter'),
 			},
-			{
-				autoAlpha: 1,
-				rotationX: 0,
-				y: 0,
-				transformOrigin: '50% 50%',
-				scrollTrigger: {
-					trigger: item,
-					start: '0 100%',
-					end: 'bottom 100%',
-					once: true,
-					// markers: true,
-					// id: 'workItem',
-					onEnter: ({ trigger }) => trigger.classList.add('onEnter'),
-				},
-			}
-		);
+		});
 	});
-	// markers();
+	// markers(gsap);
 };
 
 /** work page Project Stats */
@@ -362,7 +311,7 @@ const gsapWorkCount = () => {
 			},
 		});
 	});
-	// markers();
+	// markers(gsap);
 };
 
 const gsapAnimationTrigger = function () {
@@ -375,7 +324,7 @@ const gsapAnimationTrigger = function () {
 			onEnter: e => e.trigger.classList.add('onEnter'),
 		});
 	});
-	// markers();
+	// markers(gsap);
 };
 
 /**
@@ -393,33 +342,8 @@ const gsapParallaxTrigger = function () {
 		y: (i, target) => -ScrollTrigger.maxScroll(window) * target.dataset.speed,
 		ease: 'none',
 	});
-	// markers();
+	// markers(gsap);
 };
-
-// const gsapVisualTrigger = function () {
-// 	const visualTriggerMode = document.querySelectorAll('.visualTriggerMode');
-// 	console.log('gsapVisualTrigger', visualTriggerMode);
-// 	if (!visualTriggerMode.length) return;
-
-// 	gsap.to('.visualTrigger-bg', {
-// 		scrollTrigger: {
-// 			scrub: true,
-// 		},
-// 		y: (i, target) => -ScrollTrigger.maxScroll(window) * target.dataset.speed,
-// 		ease: 'none',
-// 	});
-// 	gsap.to('.visualTrigger-slogan', {
-// 		scrollTrigger: {
-// 			trigger: '.visualTriggerMode',
-// 			start: '1% 1%',
-// 			end: '99% 1%',
-// 			scrub: 1,
-// 			// markers: true,
-// 		},
-// 		opacity: 0,
-// 		// height: 0,
-// 	});
-// };
 
 const gsapKill = function () {
 	console.log('gsapKill');
@@ -435,6 +359,7 @@ const gsapRefresh = function () {
 
 export {
 	scrollbar,
+
 	// loader
 	gsapLoader,
 	gsapLoaderEnd,

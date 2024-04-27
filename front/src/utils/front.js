@@ -1,5 +1,13 @@
 import store from '@/store/';
 
+const welcomeMsg = () => {
+	let msg = `%c 💚 The Fifty One | digital marketing agency 🩵 contact@the-51.com 🤍 `;
+	let styles = ['font-size: 12px', 'color: #fffce1', 'font-family: monospace', 'background: #0e100f', 'display: inline-block', 'padding: 1rem 3rem', 'border: 1px solid #fffce1', 'border-radius: 4px;'].join(';');
+	console.log(msg, styles);
+};
+
+welcomeMsg();
+
 const front = {
 	/** front.setVh : 가로사이즈 변경 시에만 실행 */
 	winW: 0,
