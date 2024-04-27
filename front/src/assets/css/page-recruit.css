@@ -83,7 +83,7 @@
 .joinus strong { display: block; font-size:12rem; font-weight: 700; }
 .joinus p { font-size: 3rem; margin-top: 0.8rem; }
 .joinus .email { position: relative; width: fit-content; font-size: 11.5rem; font-weight: 700; word-break: keep-all; white-space: nowrap; margin: 4rem auto 0; line-height: 1.2; border-bottom: 5px solid #fff; }
-.joinus button { position: absolute; display: flex; align-items: center; justify-content: center; width: 12rem; height: 12rem; border-radius: 12rem; text-align: left; font-size: 2.2rem; background: #E6363E; transform: translate(-50%, -50%); opacity: 0; transition: all .3s; }
+.joinus button { position: absolute; display: flex; align-items: center; justify-content: center; width: 12rem; height: 12rem; border-radius: 12rem; text-align: left; font-size: 2.2rem; background: #E6363E; transform: translate(-50%, -50%); opacity: 0; transition: all .5s ease-in-out; }
 .joinus button.active { opacity: 1; }
 
 

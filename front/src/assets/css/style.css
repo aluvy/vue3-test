@@ -17,7 +17,7 @@
 /* smooth scrollbar */
 #my-scrollbar { position: fixed; width: 100%; height: 100%; overflow-y: scroll; overflow-x: hidden; z-index: 1; }
 .scrollbar-track.scrollbar-track-y { background: transparent; }
-.scrollbar-thumb.scrollbar-thumb-y { width: 3px; background: rgba(0,0,0, 0.2); }
+.scrollbar-thumb.scrollbar-thumb-y { width: 5px; background: rgba(0,0,0, 0.6); }
 
 .mo-show { display: none; }
 .rock-scroll body { overflow: hidden; } /* index */

@@ -432,9 +432,9 @@ export default {
   methods: {
     mouseMove(e) {
       this.mouseEvent.active = true;
-      if( e.layerX < 10 || e.layerY < 10 ) return;
-      this.mouseEvent.x = e.layerX;
-      this.mouseEvent.y = e.layerY;
+      if(!e.target.classList.contains("email")) return;   // target이 .email 아니면 return
+      this.mouseEvent.x = e.offsetX;
+      this.mouseEvent.y = e.offsetY;
     },
     mouseLeave() {
       this.mouseEvent.active = false;

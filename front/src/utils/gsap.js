@@ -1,7 +1,5 @@
 import Scrollbar from 'smooth-scrollbar';
 
-// Scrollbar.init(document.querySelector('#my-scrollbar'), options);
-
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
@@ -14,10 +12,10 @@ function test() {
 	const ScrollContainer = document.querySelector('#my-scrollbar');
 	const ScrollbarOptions = {
 		damping: 0.1, // 낮을수록 많이 미끄러짐 보통 0.1 ~ 0.5 사이를 많이 넣음
-		thumbMinSize: 0,
-		renderByPixels: true,
-		alwaysShowTracks: true, // true: scroll bar가 항상 보이게 한다.
-		continuousScrolling: true,
+		// thumbMinSize: 0,
+		// renderByPixels: true,
+		alwaysShowTracks: false, // true: scroll bar가 항상 보이게 한다.
+		// continuousScrolling: true,
 		// wheelEventTarget: ,
 		// plugins: {},
 	};
