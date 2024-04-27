@@ -37,8 +37,8 @@ body::after { position: fixed; inset: 0; content:''; background: #191919; opacit
 .rock-scroll #container { margin-bottom: 0; } /* index */
 
 /** header ***************************************************/
-#app-header { position: fixed; left: 0; top: 0; right: 0; padding-top: 3rem; z-index: 999; }
-/* #header { position: fixed; left: 0; top: 0; right: 0; padding-top: 3rem; z-index: 999; } */
+#app-header { position: fixed; left: 0; top: 0; right: 0; z-index: 999; }
+#header { /* position: fixed; left: 0; top: 0; right: 0; */ padding-top: 3rem; /* z-index: 999; */ }
 .header-inner { position: relative; max-width: var(--max-width); padding: var(--inner-pad); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; z-index: 9; }
 .header-logo a { position: relative; display: block; width: 4.4rem; margin-right: auto; }
 .header-logo a::before,
