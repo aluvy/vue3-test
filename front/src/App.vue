@@ -1,6 +1,6 @@
 <template>
   
-  <AppHeader></AppHeader>
+  <Teleport to="#app-header"><AppHeader></AppHeader></Teleport>
   
   <div id="container">
     <router-view v-slot="{ Component, route }">
@@ -10,16 +10,20 @@
     </router-view>
   </div>
 
-  <AppFooter></AppFooter>
-  <LoadScreen></LoadScreen>
+  <Teleport to="#app-footer"><AppFooter></AppFooter></Teleport>
+  <Teleport to="body"><LoadScreen></LoadScreen></Teleport>
+  <Teleport to="body"><ScrollTop></ScrollTop></Teleport>
 </template>
 
 <script>
-// import store from '@/store/';
 import { mapGetters } from 'vuex'
+import { scrollbar } from '@/utils/gsap.js'
+
+import front from '@/utils/front.js'
 
 import AppHeader from '@/components/layout/AppHeader.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
+import ScrollTop from '@/components/common/ScrollTop.vue'
 import LoadScreen from '@/components/common/LoadScreen.vue'
 
 export default {
@@ -27,63 +31,40 @@ export default {
   components: {
     AppHeader,
     AppFooter,
+    ScrollTop,
     LoadScreen
   },
-  data() {
-    return {
-      winW: 0,
-    }
-  },
   watch: {
-    isOpenAside(state) {
-      state
-        ? document.documentElement.classList.add('OpenAside')
-        : document.documentElement.classList.remove('OpenAside');
-    },
-    isNoScroll(state) {
-      state
-        ? document.documentElement.classList.add('no-scroll')
-        : document.documentElement.classList.remove('no-scroll');
-    },
+    isOpenAside(state) { front.isOpenAside(state) },
+    isNoScroll(state) { front.isNoScroll(state) },
   },
   computed: {
     ...mapGetters(['isOpenAside', 'isNoScroll']),
   },
-  methods: {
-    setVh() {
-      if( this.winW === window.innerWidth ) return;
-      this.winW = window.innerWidth;
-			document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
-		},
-    isScroll() {
-      if (window.scrollY > 10) {
-        document.documentElement.classList.add('scrolled');
-        this.$store.commit('setScrolled', true);
-      } else {
-        document.documentElement.classList.remove('scrolled');
-        this.$store.commit('setScrolled', false);
-      }
-    },
-    // isScrollEnd() {
-      
-    //   console.log('isScrollEnd', Math.ceil(window.scrollY + window.innerHeight) >= (document.body.scrollHeight - document.querySelector("#footer").clientHeight));
-    // }
-  },
   created() {
-		window.addEventListener('resize', this.setVh);
-    window.addEventListener('scroll', this.isScroll);
-    window.addEventListener('scroll', this.isScrollEnd);
-		this.setVh();
-    this.isScroll();
+    // console.log(process.env);
+    
+    front.setVh();
+    front.isScroll();
+
+    window.addEventListener('resize', front.setVh);
+    // window.addEventListener('scroll', front.isScroll);
+    // scroll event
+    scrollbar.addListener(s => {
+      front.isScroll(s);
+      // console.log(s.offset.y); // returns “scrollTop” equivalent
+    });
 
     window.addEventListener('beforeunload', () => {
       document.querySelector('#app').classList.add('loading');  // page refresh
     });
 	},
   unmounted() {
-		window.removeEventListener('resize', this.setVh);
-    window.removeEventListener('scroll', this.isScroll);
-    window.removeEventListener('scroll', this.isScrollEnd);
+		window.removeEventListener('resize', front.setVh);
+    // window.removeEventListener('scroll', front.isScroll);
+    scrollbar.removeListener( s => {
+      front.isScroll(s);
+    })
 	},
 }
 </script>

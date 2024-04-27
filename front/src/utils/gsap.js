@@ -1,8 +1,56 @@
+import Scrollbar from 'smooth-scrollbar';
+
+// Scrollbar.init(document.querySelector('#my-scrollbar'), options);
+
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+let scrollbar;
+
+function test() {
+	const ScrollContainer = document.querySelector('#my-scrollbar');
+	const ScrollbarOptions = {
+		damping: 0.1, // 낮을수록 많이 미끄러짐 보통 0.1 ~ 0.5 사이를 많이 넣음
+		thumbMinSize: 0,
+		renderByPixels: true,
+		alwaysShowTracks: true, // true: scroll bar가 항상 보이게 한다.
+		continuousScrolling: true,
+		// wheelEventTarget: ,
+		// plugins: {},
+	};
+	scrollbar = Scrollbar.init(ScrollContainer, { ...ScrollbarOptions });
+	Scrollbar.init(ScrollContainer, ScrollbarOptions);
+	ScrollTrigger.scrollerProxy(ScrollContainer, {
+		scrollTop(value) {
+			if (arguments.length) {
+				scrollbar.scrollTop = value; // setter
+			}
+			return scrollbar.scrollTop; // getter
+		},
+	});
+
+	scrollbar.addListener(ScrollTrigger.update);
+	ScrollTrigger.defaults({ scroller: ScrollContainer });
+	// };
+}
+
+test();
+
+// scrollbar.addListener(s => {
+// 	console.log(s.offset.y); // returns “scrollTop” equivalent
+// });
+
+function markers() {
+	if (document.querySelector('.gsap-marker-scroller-start')) {
+		const markers = gsap.utils.toArray('[class *= "gsap-marker"]');
+		scrollbar.addListener(({ offset }) => {
+			gsap.set(markers, { marginTop: -offset.y });
+		});
+	}
+}
 
 let triggers = ScrollTrigger.getAll();
 
@@ -31,6 +79,7 @@ const gsapHeaderThemeTrigger = function () {
 			onEnterBack: () => header.setAttribute('data-theme', theme),
 		});
 	});
+	// markers();
 };
 
 /** loader show animation */
@@ -156,6 +205,8 @@ const gsapFullVisualAnimation = () => {
 		scrollTl.to(a, { y, ease: 'none' }, 0);
 	});
 	scrollTl.to(slogan, { opacity: 0, ease: 'none' }, 0);
+
+	markers();
 };
 
 /** normal visual animation */
@@ -279,15 +330,17 @@ const gsapWorkItem = () => {
 				transformOrigin: '50% 50%',
 				scrollTrigger: {
 					trigger: item,
-					start: 'top 80%',
-					end: 'bottom 80%',
+					start: '0 100%',
+					end: 'bottom 100%',
 					once: true,
 					// markers: true,
+					// id: 'workItem',
 					onEnter: ({ trigger }) => trigger.classList.add('onEnter'),
 				},
 			}
 		);
 	});
+	// markers();
 };
 
 /** work page Project Stats */
@@ -311,6 +364,7 @@ const gsapWorkCount = () => {
 			},
 		});
 	});
+	// markers();
 };
 
 const gsapAnimationTrigger = function () {
@@ -323,6 +377,7 @@ const gsapAnimationTrigger = function () {
 			onEnter: e => e.trigger.classList.add('onEnter'),
 		});
 	});
+	// markers();
 };
 
 /**
@@ -340,6 +395,7 @@ const gsapParallaxTrigger = function () {
 		y: (i, target) => -ScrollTrigger.maxScroll(window) * target.dataset.speed,
 		ease: 'none',
 	});
+	// markers();
 };
 
 // const gsapVisualTrigger = function () {
@@ -380,6 +436,7 @@ const gsapRefresh = function () {
 };
 
 export {
+	scrollbar,
 	// loader
 	gsapLoader,
 	gsapLoaderEnd,

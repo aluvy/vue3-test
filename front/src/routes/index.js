@@ -1,5 +1,6 @@
 // import { Vue } from 'vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
+import { scrollbar } from '@/utils/gsap.js';
 import store from '@/store/';
 import insightDetail from '@/routes/insightDetail.js';
 
@@ -10,10 +11,10 @@ const router = createRouter({
 	scrollBehavior(to, from, savedPosition) {
 		// console.log(to, from); // "WorkPage", "WorkView"
 
-		console.log(to.name, from.name);
+		// console.log(to.name, from.name);
 
 		if (to.name === 'WorkPage' && from.name === 'WorkView') {
-			console.log(savedPosition);
+			console.log('savedPosition', savedPosition);
 			return savedPosition;
 		}
 
@@ -27,6 +28,7 @@ const router = createRouter({
 		// 		document.querySelector('#app').classList.add('loading');
 		// 		return { top: 0 };
 		// 	}
+		scrollbar.scrollTo(0, 0, 0);
 		return { top: 0 };
 	},
 	routes: [
@@ -114,11 +116,8 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	document.querySelector('#app').classList.add('loading'); // page change
+	document.documentElement.classList.add('loading'); // page change
 
-	// console.log('beforeEach', to);
-	// setTimeout(() => {
-	// 	window.scrollTo(0, 0);
 	const title = to.meta.title === undefined ? 'The 51' : `${to.meta.title} | The 51 - digital marketing agency`;
 
 	setTimeout(() => {

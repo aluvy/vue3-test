@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { scrollbar } from '@/utils/gsap.js'
+
 export default {
   data() {
     return {
@@ -21,10 +23,11 @@ export default {
   methods: {
     scrollDown() {
       let winH = window.innerHeight;
-      window.scrollTo({
-        top: winH,
-        behavior: 'smooth',
-      });
+      // window.scrollTo({
+      //   top: winH,
+      //   behavior: 'smooth',
+      // });
+      scrollbar.scrollTo(0, winH, 600);
     },
   },
 }

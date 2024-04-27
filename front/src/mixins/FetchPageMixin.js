@@ -1,5 +1,6 @@
 import store from '@/store/';
 import {
+	// smoothScrollbar,
 	// header theme
 	gsapHeaderThemeTrigger,
 
@@ -28,14 +29,14 @@ export default {
 			console.log('ready');
 			// store.commit('setOpenAside', false);
 			// store.commit('setLoading', true);
+			// smoothScrollbar();
 			await this.$nextTick();
 
-			document.querySelector('#app').classList.remove('loading');
+			// document.querySelector('#app').classList.remove('loading');
+			document.documentElement.classList.remove('loading'); // page change
 			store.commit('setLoading', false);
 
 			this.gsapInit();
-
-			// console.log(process.env);
 
 			window.addEventListener('resize', gsapRefresh);
 		},
@@ -61,8 +62,9 @@ export default {
 		}, 1);
 	},
 	unmounted() {
-		document.querySelector('#app').classList.add('loading'); // page change
+		// document.querySelector('#app').classList.add('loading'); // page change
 		// store.commit('setOpenAside', false);
+		document.documentElement.classList.add('loading'); // page change
 		window.removeEventListener('resize', gsapRefresh);
 		gsapKill();
 	},
