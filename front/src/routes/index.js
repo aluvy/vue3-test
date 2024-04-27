@@ -2,21 +2,35 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { scrollbar } from '@/utils/gsap.js';
 import store from '@/store/';
-import insightDetail from '@/routes/insightDetail.js';
+import insightView from '@/routes/insightView.js';
+
+let workListOffsetY = 0;
+let insightListOffsetY = 0;
 
 const router = createRouter({
 	history: createWebHashHistory(),
 	// mode: 'history',
 	// base: '/#',
 	scrollBehavior(to, from, savedPosition) {
+		console.log('scrollBehavior');
 		// console.log(to, from); // "WorkPage", "WorkView"
 
 		// console.log(to.name, from.name);
 
 		if (to.name === 'WorkPage' && from.name === 'WorkView') {
-			console.log('savedPosition', savedPosition);
+			setTimeout(() => {
+				scrollbar.scrollTo(0, workListOffsetY, 0);
+			}, 1000);
 			return savedPosition;
 		}
+
+		if (to.name === 'InsightPage' && from.name === 'InsightView') {
+			setTimeout(() => {
+				scrollbar.scrollTo(0, insightListOffsetY, 0);
+			}, 1000);
+			return savedPosition;
+		}
+		// insightListOffsetY
 
 		// 	if (to.path === '/insight' && from.path.includes('/insight')) {
 		// 		console.log('dddd');
@@ -84,12 +98,18 @@ const router = createRouter({
 			component: () => import('@/views/InsightPage.vue'),
 			meta: { title: 'INSIGHT' },
 		},
+		// {
+		// 	path: '/work/:workId',
+		// 	name: 'WorkView',
+		// 	component: () => import('@/views/WorkView.vue'),
+		// 	meta: { title: 'Work' },
+		// },
 		{
-			path: '/insightDetail/',
-			name: 'InsightDetail',
-			component: () => import('@/views/InsightDetail.vue'),
+			path: '/insightView/',
+			name: 'InsightView',
+			component: () => import('@/views/InsightView.vue'),
 			meta: { title: 'INSIGHT' },
-			children: insightDetail,
+			children: insightView,
 			// beforeEnter: (to, from, next) => {
 			// 	console.log('test', to, from);
 			// 	// await window.scrollTo(0, 0);
@@ -117,6 +137,19 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
 	document.documentElement.classList.add('loading'); // page change
+
+	if (from.name === 'WorkPage') {
+		workListOffsetY = scrollbar.offset.y;
+		console.log('workListOffsetY', workListOffsetY);
+	}
+	if (from.name === 'InsightPage') {
+		insightListOffsetY = scrollbar.offset.y;
+		console.log('insightListOffsetY', insightListOffsetY);
+	}
+
+	// console.log(to, from);
+	console.log('beforeEach');
+	// store.commit('setScrollOffset', scrollbar.offset); // scrollOffset
 
 	const title = to.meta.title === undefined ? 'The 51' : `${to.meta.title} | The 51 - digital marketing agency`;
 

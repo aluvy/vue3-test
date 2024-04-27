@@ -3,7 +3,7 @@
     <template  v-for="listgroup in listGroups" :key="listgroup">
       <ul class="insight-group" :class="`layout-${listgroup.layout}`">
         <li v-for="list in listgroup.data" :key="list" :class="`theme-${list.theme}`">
-          <router-link :to="`/insightDetail/${list.idx}`" class="gsap-item">
+          <router-link :to="`/insightView/${list.idx}`" class="gsap-item">
             <div class="title-wrap">
               <p class="title">
                 <span v-for="ttl in list.title" :key="ttl">{{ ttl }}</span>

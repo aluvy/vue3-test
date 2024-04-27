@@ -4,6 +4,8 @@ import { fetchInsightsLists, fetchAllInsightsLists, fetchWorksLists } from '@/ap
 const store = createStore({
 	state() {
 		return {
+			// scrollOffset: { x: 0, y: 0 },
+
 			Loading: true,
 			OpenAside: false,
 			Scrolled: false,
@@ -16,6 +18,7 @@ const store = createStore({
 		};
 	},
 	getters: {
+		// isScrollOffset: state => state.scrollOffset,
 		isLoading: state => state.Loading,
 		isOpenAside: state => state.OpenAside,
 		isScrolled: state => state.Scrolled,
@@ -27,6 +30,9 @@ const store = createStore({
 		getWorks: state => state.works,
 	},
 	mutations: {
+		// setScrollOffset(state, payload) {
+		// 	state.scrollOffset = payload;
+		// },
 		setLoading(state, payload) {
 			state.Loading = payload;
 		},
