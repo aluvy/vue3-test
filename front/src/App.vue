@@ -23,8 +23,8 @@ import front from '@/utils/front.js'
 
 import AppHeader from '@/components/layout/AppHeader.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
-import ScrollTop from '@/components/common/ScrollTop.vue'
-import LoadScreen from '@/components/common/LoadScreen.vue'
+import ScrollTop from '@/components/layout/ScrollTop.vue'
+import LoadScreen from '@/components/layout/LoadScreen.vue'
 
 export default {
   name: 'App',

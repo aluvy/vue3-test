@@ -345,6 +345,35 @@ const gsapParallaxTrigger = function () {
 	// markers(gsap);
 };
 
+/**
+ * LinkPage PrevNext
+ */
+const gsapLinkPagePrevNext = function () {
+	const Items = gsap.utils.toArray('.linkpage-prevnext .item');
+	if (!Items.length) return;
+
+	gsap.set(Items, { transformPerspective: '2000px' });
+	Items.forEach((item, idx) => {
+		gsap.from(item, {
+			autoAlpha: 0,
+			delay() {
+				return 0.2 * idx;
+			},
+			rotationX: -35,
+			// y: 120,
+			transformOrigin: '100% 100%',
+			scrollTrigger: {
+				trigger: item,
+				start: `${-45} 95%`, // -y-rotationX
+				end: 'bottom 95%',
+				once: true,
+				// markers: true,
+			},
+		});
+	});
+	// markers(gsap);
+};
+
 const gsapKill = function () {
 	console.log('gsapKill');
 	triggers = ScrollTrigger.getAll();
@@ -375,6 +404,9 @@ export {
 	// work
 	gsapWorkItem,
 	gsapWorkCount,
+
+	// link
+	gsapLinkPagePrevNext,
 
 	//
 	gsapAnimationTrigger,

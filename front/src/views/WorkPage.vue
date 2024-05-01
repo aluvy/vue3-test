@@ -13,6 +13,7 @@
     </section>
 
     <div id="content">
+      
       <WorkList :listGroups="listGroups"></WorkList>
 
       <section class="section white stats" data-theme="black">
@@ -44,15 +45,11 @@
         </div>
       </section>
 
-      <section class="section" data-theme="white">
-        
-      </section>
-
-      <section class="section" data-theme="white">
-        <PageLink :Links="[
-          { url: '/contact-us', title: `CONTACT US`, bg: '' },
-          { url: '/contact-us', title: `CONTACT US`, bg: '' },
-        ]"></PageLink>
+      <section class="section white" data-theme="white">
+        <LinkPagePrevNext :Links="[
+          { url: '/culture', stitle: `Previous`, title: `Culture`, img: imgLinkBGCulture },
+          { url: '/about', stitle: `Next`, title: `About Us`, img: imgLinkBGAbout },
+        ]"></LinkPagePrevNext>
       </section>
 
     </div>
@@ -62,16 +59,17 @@
 
 <script>
 import FetchPageMixin from '@/mixins/FetchPageMixin'
-// '@/mixins/fetchPageMixin';
 
 // component
 import VisualFull from '@/components/visual/VisualFull.vue'
 import ContentTitle from '@/components/common/ContentTitle.vue'
 import WorkList from '@/components/common/WorkList.vue'
-import PageLink from '@/components/common/PageLink.vue'
+import LinkPagePrevNext from '@/components/common/LinkPagePrevNext.vue'
 
 // assets
 import video from '@/assets/images/work/video.mp4'
+import imgLinkBGCulture from '@/assets/images/work/link-bg-culture.jpg'
+import imgLinkBGAbout from '@/assets/images/work/link-bg-about.jpg'
 
 export default {
   mixins: [FetchPageMixin],
@@ -79,7 +77,7 @@ export default {
     VisualFull,
     ContentTitle,
     WorkList,
-    PageLink
+    LinkPagePrevNext
   },
   data() {
     return {
@@ -90,8 +88,8 @@ export default {
       // data: [],
       stats: [ 11, 104, 138 ],
 
-      prevPage: { title:'Preious', name: 'Culture', link: '/culture', bg: '' },
-      nextPage: { title: 'Next', name: 'About Us', link: '/about', bg: '' },
+      imgLinkBGCulture,
+      imgLinkBGAbout
     }
   },
   methods: {

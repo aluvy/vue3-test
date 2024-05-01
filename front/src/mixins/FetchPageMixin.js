@@ -13,6 +13,9 @@ import {
 	gsapWorkItem,
 	gsapWorkCount,
 
+	// link
+	gsapLinkPagePrevNext,
+
 	//
 	gsapAnimationTrigger,
 	gsapParallaxTrigger,
@@ -50,6 +53,8 @@ export default {
 			// work
 			gsapWorkItem();
 			gsapWorkCount();
+			// link
+			gsapLinkPagePrevNext();
 			//
 			gsapAnimationTrigger();
 			gsapParallaxTrigger();
