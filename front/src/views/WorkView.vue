@@ -15,35 +15,15 @@
     </section>
 
     <div id="content">
-      fdddsddasdff
+      <section class="section white" data-theme="white">
+        fdddsddasdff
+      </section>
 
       <section class="section white" data-theme="white">
-        <ul class="">
-          <li>
-            <router-link to="">
-              <div class="txt">
-                <span>Previous Project</span>
-                <strong>HYUNDAICARD My Company</strong>
-                <svg class="next-arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 39 12"><line class="top" x1="23" y1="-0.5" x2="29.5" y2="6.5" stroke="#ffffff;"></line><line class="bottom" x1="23" y1="12.5" x2="29.5" y2="5.5" stroke="#ffffff;"></line></svg>
-              </div>
-              <div class="bg"><img src="" alt=""></div>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="">
-              <div class="txt">
-                <span>Next Project</span>
-                <strong>AMOREPACIFIC</strong>
-                <svg class="next-arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 39 12"><line class="top" x1="23" y1="-0.5" x2="29.5" y2="6.5" stroke="#ffffff;"></line><line class="bottom" x1="23" y1="12.5" x2="29.5" y2="5.5" stroke="#ffffff;"></line></svg>
-              </div>
-              <div class="bg"></div>
-            </router-link>
-          </li>
-        </ul>
-        <!-- <LinkPagePrevNext :Links="[
-          { url: '/culture', stitle: `Previous`, title: `Culture`, img: imgLinkBGCulture },
-          { url: '/about', stitle: `Next`, title: `About Us`, img: imgLinkBGAbout },
-        ]"></LinkPagePrevNext> -->
+        <LinkWorkView :Links = "[
+          { url: '/test', stitle: 'Previous Project', title: [`HYUNDAICARD`, `My Company`], img: 'http://www.the-51.com/wp-content/uploads/2022/11/hyndaicard-main.png', },
+          { url: '/test', stitle: 'Next Project', title: [`AMOREPACIFIC`], img: 'http://www.the-51.com/wp-content/uploads/2022/05/img.png', },
+        ]"></LinkWorkView>
       </section>
     </div>
 
@@ -55,6 +35,7 @@ import FetchPageMixin from '@/mixins/FetchPageMixin';
 
 // component
 import VisualFull from '@/components/visual/VisualFull.vue'
+import LinkWorkView from '@/components/common/LinkWorkView.vue'
 // import ContentTitle from '@/components/common/ContentTitle.vue'
 
 // assets
@@ -65,6 +46,7 @@ export default {
   mixins: [FetchPageMixin],
   components: {
     VisualFull,
+    LinkWorkView,
     // ContentTitle,
   },
   data() {
@@ -95,5 +77,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
