@@ -21,8 +21,8 @@
 
       <section class="section white" data-theme="white">
         <LinkWorkView :Links = "[
-          { url: '/test', stitle: 'Previous Project', title: [`HYUNDAICARD`, `My Company`], img: 'http://www.the-51.com/wp-content/uploads/2022/11/hyndaicard-main.png', },
-          { url: '/test', stitle: 'Next Project', title: [`AMOREPACIFIC`], img: 'http://www.the-51.com/wp-content/uploads/2022/05/img.png', },
+          { class:'prev', url: '/test', stitle: 'Previous Project', title: [`HYUNDAICARD`, `My Company`], img: 'http://www.the-51.com/wp-content/uploads/2022/11/hyndaicard-main.png', },
+          { class:'next', url: '/test', stitle: 'Next Project', title: [`AMOREPACIFIC`], img: 'http://www.the-51.com/wp-content/uploads/2022/05/img.png', },
         ]"></LinkWorkView>
       </section>
     </div>
