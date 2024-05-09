@@ -64,53 +64,38 @@ export default {
   },
   methods: {
     async fetchLists() {
-      if ( this.Requesting ) return;
-      if ( this.EndRequest ) return;
-      if ( this.NumberOfRequests >= 4 ) {
-        this.setEndRequest();
-        return;
-      }
+      // if ( this.Requesting ) return;
+      // if ( this.EndRequest ) return;
+      // if ( this.NumberOfRequests >= 4 ) {
+      //   this.setEndRequest();
+      //   return;
+      // }
 
-      const timer = this.NumberOfRequests === 1 ? 0 : 500;
+      // const timer = this.NumberOfRequests === 1 ? 0 : 500;
 
       try {
         this.Requesting = true;
         await this.$store.dispatch('FETCH_GET_INSIGHT_LIST', { num: this.NumberOfRequests });
-        setTimeout(()=>{
+        // setTimeout(()=>{
           this.setDataLayout(this.NumberOfRequests);
-          this.NumberOfRequests++;
-        }, timer); // 느린척하기
+          // this.NumberOfRequests++;
+        // }, timer); // 느린척하기
       } catch (e) {
         console.log('error', e);
-        this.setEndRequest();
+        // this.setEndRequest();
       }
     },
-    setEndRequest() {
-      this.Requesting = false;
-      this.EndRequest = true;
-      this.EndRequestTxt = true;
-      setTimeout(()=>{
-        this.EndRequestTxt = false;
-      }, 1000);
-      return;
-    },
-    setDataLayout(num) {
-      let dataLayout;
-      let dataLayout1 = [
-        { num: 5, layout: 52 },
-        { num: 1, layout: 11 },
-        { num: 5, layout: 51 },
-      ];
-      let dataLayout2 = [
-        { num: 5, layout: 52 },
-        { num: 1, layout: 11 },
-        { num: 5, layout: 51 },
-        { num: 5, layout: 52 },
-        { num: 1, layout: 11 },
-        { num: 5, layout: 53 },
-        { num: 4, layout: 41 },
-      ];
-      let dataLayout3 = [
+    // setEndRequest() {
+    //   this.Requesting = false;
+    //   this.EndRequest = true;
+    //   this.EndRequestTxt = true;
+    //   setTimeout(()=>{
+    //     this.EndRequestTxt = false;
+    //   }, 1000);
+    //   return;
+    // },
+    setDataLayout() {
+      let dataLayout = [
         { num: 5, layout: 52 },
         { num: 1, layout: 11 },
         { num: 5, layout: 51 },
@@ -122,10 +107,36 @@ export default {
         { num: 5, layout: 51 },
         { num: 4, layout: 41 },
       ];
+      // let dataLayout1 = [
+      //   { num: 5, layout: 52 },
+      //   { num: 1, layout: 11 },
+      //   { num: 5, layout: 51 },
+      // ];
+      // let dataLayout2 = [
+      //   { num: 5, layout: 52 },
+      //   { num: 1, layout: 11 },
+      //   { num: 5, layout: 51 },
+      //   { num: 5, layout: 52 },
+      //   { num: 1, layout: 11 },
+      //   { num: 5, layout: 53 },
+      //   { num: 4, layout: 41 },
+      // ];
+      // let dataLayout3 = [
+      //   { num: 5, layout: 52 },
+      //   { num: 1, layout: 11 },
+      //   { num: 5, layout: 51 },
+      //   { num: 5, layout: 52 },
+      //   { num: 1, layout: 11 },
+      //   { num: 5, layout: 53 },
+      //   { num: 4, layout: 41 },
+      //   { num: 1, layout: 11 },
+      //   { num: 5, layout: 51 },
+      //   { num: 4, layout: 41 },
+      // ];
 
-      if( num === 1 ) dataLayout = dataLayout1;
-      if( num === 2 ) dataLayout = dataLayout2;
-      if( num === 3 ) dataLayout = dataLayout3;
+      // if( num === 1 ) dataLayout = dataLayout1;
+      // if( num === 2 ) dataLayout = dataLayout2;
+      // if( num === 3 ) dataLayout = dataLayout3;
 
       let dataGroup = [...this.$store.getters.getInsights];
       let list = dataLayout.map( a => { return { layout: a.layout, data: dataGroup.splice(0, a.num) } });
@@ -133,30 +144,30 @@ export default {
       this.listGroups = list;
       this.Requesting = false;
     },
-    infiniteScroll() {
-      const infiniteScroll = document.querySelectorAll('.infinite-scroll');
-      if (!infiniteScroll.length) return;
+    // infiniteScroll() {
+    //   const infiniteScroll = document.querySelectorAll('.infinite-scroll');
+    //   if (!infiniteScroll.length) return;
 
-      console.log('infiniteScroll');
+    //   console.log('infiniteScroll');
 
-      gsap.to('.infinite-scroll', {
-        scrollTrigger: {
-          start: '90% 90%',
-          // end: '0 10px',
-          scrub: 1,
-          // markers: true,
-          onEnter: async () => {
-            console.log('onEnter');
-            await this.fetchLists();
-          },
-        },
-      });
-    }
+    //   gsap.to('.infinite-scroll', {
+    //     scrollTrigger: {
+    //       start: '90% 90%',
+    //       // end: '0 10px',
+    //       scrub: 1,
+    //       // markers: true,
+    //       onEnter: async () => {
+    //         console.log('onEnter');
+    //         await this.fetchLists();
+    //       },
+    //     },
+    //   });
+    // }
   },
   async mounted() {
     await this.fetchLists();
     this.PageReady();
-    this.infiniteScroll();
+    // this.infiniteScroll();
   },
 }
 </script>

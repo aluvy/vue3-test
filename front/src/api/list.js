@@ -5,8 +5,11 @@ const instance = axios.create({
 	baseURL: 'https://aluvy.github.io/vue3-test/data',
 });
 
-function fetchInsightsLists(num) {
-	return instance.get(`/insight/list${num}.json`);
+// function fetchInsightsLists(num) {
+// 	return instance.get(`/insight/list${num}.json`);
+// }
+function fetchInsightsLists() {
+	return instance.get(`/insight/list.json`);
 }
 
 function fetchAllInsightsLists() {

@@ -47,11 +47,16 @@ export default {
 .LinkWorkView li a .bg { position: absolute; inset: 0; overflow: hidden; z-index: 1; }
 .LinkWorkView li a .bg::before { position: absolute; inset: 0; content: ''; background: rgba(0,0,0, 0.35); transition: background-color 0.4s cubic-bezier(0.05, 0.2, 0.1, 1) 0s; z-index: 2; }
 .LinkWorkView li a .bg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s cubic-bezier(0.05, 0.2, 0.1, 1) 0s; }
+
 /* hover */
-.LinkWorkView li.prev a:hover .txt { transform: translate3D(40px, 0, 0); }
-.LinkWorkView li.next a:hover .txt { transform: translate3D(-40px, 0, 0); }
-.LinkWorkView li a:hover .bg::before {background-color: rgba(13,13,13,0.9); }
-.LinkWorkView li a:hover .bg img { transform: scale(1.1); }
+.LinkWorkView li.prev a:hover .txt,
+.LinkWorkView li.prev a:focus .txt { transform: translate3D(40px, 0, 0); }
+.LinkWorkView li.next a:hover .txt,
+.LinkWorkView li.next a:focus .txt { transform: translate3D(-40px, 0, 0); }
+.LinkWorkView li a:hover .bg::before,
+.LinkWorkView li a:focus .bg::before {background-color: rgba(13,13,13,0.9); }
+.LinkWorkView li a:hover .bg img,
+.LinkWorkView li a:focus .bg img { transform: scale(1.1); }
 
 
 /* animation */
@@ -66,16 +71,22 @@ export default {
 .LinkWorkView li.next a .txt-inner .line { right: -74px; transform: translate3D(28px, -50%, 0) scaleX(0); transform-origin: right; }
 
 /* hover animation */
-.LinkWorkView li a:hover .txt-inner svg { transform: translateX(42px); }
-.LinkWorkView li.prev a:hover .txt-inner svg { animation: svgPrevStart 0.4s cubic-bezier(0.05, 0.2, 0.1, 1) forwards; }
-.LinkWorkView li.next a:hover .txt-inner svg {animation: svgNextStart 0.4s cubic-bezier(0.05, 0.2, 0.1, 1) forwards; }
+.LinkWorkView li a:hover .txt-inner svg,
+.LinkWorkView li a:focus .txt-inner svg { transform: translateX(42px); }
+.LinkWorkView li.prev a:hover .txt-inner svg,
+.LinkWorkView li.prev a:focus .txt-inner svg { animation: svgPrevStart 0.4s cubic-bezier(0.05, 0.2, 0.1, 1) forwards; }
+.LinkWorkView li.next a:hover .txt-inner svg,
+.LinkWorkView li.next a:focus .txt-inner svg {animation: svgNextStart 0.4s cubic-bezier(0.05, 0.2, 0.1, 1) forwards; }
 /*  */
-.LinkWorkView li a:hover .txt-inner svg line { stroke-dashoffset: 30px; animation: arrowStart 0.3s cubic-bezier(0.05, 0.2, 0.1, 1) 0.1s forwards; }
+.LinkWorkView li a:hover .txt-inner svg line,
+.LinkWorkView li a:focus .txt-inner svg line { stroke-dashoffset: 30px; animation: arrowStart 0.3s cubic-bezier(0.05, 0.2, 0.1, 1) 0.1s forwards; }
 /*  */
-.LinkWorkView li a:hover .txt-inner .line { transform: translate3d(0, -50%, 0) scaleX(1); }
-.LinkWorkView li.prev a:hover .txt-inner .line { transform-origin: left; animation: linePrevStart 0.4s cubic-bezier(0.05, 0.2, 0.1, 1) forwards; }
-.LinkWorkView li.next a:hover .txt-inner .line { transform-origin: right; animation: lineNextStart 0.4s cubic-bezier(0.05, 0.2, 0.1, 1) forwards; }
-
+.LinkWorkView li a:hover .txt-inner .line,
+.LinkWorkView li a:focus .txt-inner .line { transform: translate3d(0, -50%, 0) scaleX(1); }
+.LinkWorkView li.prev a:hover .txt-inner .line,
+.LinkWorkView li.prev a:focus .txt-inner .line { transform-origin: left; animation: linePrevStart 0.4s cubic-bezier(0.05, 0.2, 0.1, 1) forwards; }
+.LinkWorkView li.next a:hover .txt-inner .line,
+.LinkWorkView li.next a:focus .txt-inner .line { transform-origin: right; animation: lineNextStart 0.4s cubic-bezier(0.05, 0.2, 0.1, 1) forwards; }
 
 /* mouse leave animation */
 .LinkWorkView li.prev a .txt-inner svg {  animation: svgPrevEnd 0.7s cubic-bezier(0, 0.2, 0.1, 1) forwards; }
@@ -85,10 +96,6 @@ export default {
 /*  */
 .LinkWorkView li.prev a .txt-inner .line { animation: linePrevEnd 0.4s cubic-bezier(0.05, 0.2, 0.1, 1) forwards; }
 .LinkWorkView li.next a .txt-inner .line { animation: lineNextEnd 0.4s cubic-bezier(0.05, 0.2, 0.1, 1) forwards; }
-
-
-
-
 
 @keyframes lineNextStart {
 	0% { transform: translateY(-50%) translateX(-88px) scaleX(0); }
