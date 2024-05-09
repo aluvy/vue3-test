@@ -1,0 +1,220 @@
+#recruit-page { background: #292929; }
+#recruit-page,
+#recruit-page :not(i) { font-family: 'Pretendard', 'Sans-serif', "맑은 고딕", "Malgun Gothic"; }
+#recruit-page .red-dot::after { content: '.'; color: #E6363E; }
+
+/* visual */
+.recruit-visual { position: relative; height: var(--vh); overflow: hidden; }
+.recruit-visual .slogan { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; }
+.recruit-visual .slogan-inner { width: 100%; max-width: var(--max-width); padding: var(--inner-pad); }
+.recruit-visual .slogan-inner h2 { width: 100%; max-width: 130rem; font-size: 15rem; font-weight: 700; color: rgba(255,255,255, 0.8); line-height: 1; margin: 0 auto; }
+.recruit-visual .slogan-inner p { word-break: keep-all; white-space: nowrap; }
+.recruit-visual .slogan-inner p span { color: #fff; }
+.recruit-visual .slogan-inner p:nth-child(2) { text-align: right; }
+.recruit-visual .bg { position: absolute; inset: 0; z-index: 1; }
+.recruit-visual .bg .img { width: 100%; height: 100%; background-size: 50% auto; background-position: top -21rem right -17%; background-repeat: no-repeat; }
+
+/* vishal | animation */
+.recruit-visual .slogan-inner p.onEnter {  animation-delay: .8s; animation-duration: 1s; }
+.recruit-visual .slogan-inner p:nth-child(1).onEnter { animation-name: fade-in-slide-right-20; }
+.recruit-visual .slogan-inner p:nth-child(2).onEnter { animation-name: fade-in-slide-left-20; }
+.recruit-visual .bg.onEnter { animation-name: scale-in-2; animation-duration: 1s; animation-fill-mode: forwards; }
+
+/* recruit-leader */
+.recruit .inner { display: flex; align-items: flex-start; justify-content: space-between; color: #fff; }
+.recruit h3.ttl { flex: 0 0 34rem; font-size: 2.2rem; line-height: 1.1; font-weight: 700; }
+.recruit h3.ttl p span { display: block; font-size: 6rem; font-weight: 700; }
+.recruit h3.ttl p + p { margin-top: 1rem; }
+.recruit h4.ttl { font-size: 3.6rem; font-weight: 700; margin-top: 15rem; }
+.recruit .cont .recruit-desc { font-size: 3rem; color: #fff; font-weight: 700; word-break: keep-all; }
+
+/* recruit | info */
+.recruit .info { margin-top: 8rem; }
+.recruit .info li { display: flex; align-items: flex-start; justify-content: space-between; border-top: 1px solid rgba(255,255,255, 0.4); padding: 4rem 0; }
+.recruit .info li:first-child { border-color: #fff; }
+.recruit .info .subscript { color: rgba(255,255,255, 0.7); font-size: 1.6rem; }
+.recruit .info-ttl { flex: 0 0 30rem; font-size: 3rem; font-weight: 700; }
+.recruit .info-cont { flex: 1 1 auto; }
+.recruit .info-cont dt,
+.recruit .info-cont dd { padding: .8rem 0; font-size: 2rem; }
+.recruit .info-cont i.fa-solid { padding: 0 1.6rem; font-size: 1.2rem; }
+/* first-child */
+.recruit .info li:first-child .info-cont { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; }
+.recruit .info li:first-child .info-cont dt { flex: 0 0 16rem; font-size: 2.4rem; font-weight: 700; }
+.recruit .info li:first-child .info-cont dd { flex: 1 1 calc(100% - 16rem); }
+
+/* recruit | part */
+.recruit .part { margin-top: 2rem; }
+.recruit .part-item { border-top: 1px solid rgba(255,255,255, 0.4); transition: all .3s; }
+.recruit .part-item:first-child { border-color: #fff; }
+.recruit .part-ttl a { display: flex; align-items: center; justify-content: space-between; padding: 3.4rem 0; }
+.recruit .part-ttl a strong { flex: 0 0 33rem; font-size: 2.4rem; }
+.recruit .part-ttl a span { font-weight: normal; font-size: 2rem; }
+.recruit .part-ttl a strong span { font-size: 1.6rem; }
+.recruit .part-ttl a i { position: relative; display: block; width: 2.1rem; height: 2.1rem; margin-left: auto; }
+.recruit .part-ttl a i::before,
+.recruit .part-ttl a i::after { position: absolute; content:''; display: block; background: #fff; }
+.recruit .part-ttl a i::before { left: 0; top: 50%; transform: translate(0, -50%); width: 100%; height: 1px; }
+.recruit .part-ttl a i::after { left: 50%; top: 0; transform: translate(-50%, 0); width: 1px; height: 100%; transition: transform .3s; }
+.recruit .part-item.active i::after { transform: rotate(90deg); }
+
+.recruit .part-cont { padding: 5rem; background: rgba(0,0,0, 0.15); overflow: hidden; }
+.recruit .part-cont dl + dl { padding-top: 5rem; }
+.recruit .part-cont dt { font-size: 2.4rem; padding-bottom: 1.2rem; }
+.recruit .part-cont dd { position: relative; padding-left: 1.2rem; color: rgba(255,255,255, 0.6); font-size: 2rem; }
+.recruit .part-cont dd + dd { margin-top: 0.4rem; }
+.recruit .part-cont dd::before { position: absolute; left: 0; top: 1.2rem; content:''; display: block; width: 3px; height: 3px; border-radius: 3px; background: rgba(255,255,255, 0.4); }
+
+/* talent */
+.talent { margin-top: 20rem; color: #fff; }
+.talent .tit-area { text-align: center; }
+.talent .tit-area strong { display: block; font-size: 6rem; word-break: keep-all; }
+.talent .tit-area p { font-size: 3rem; margin-top: 1.2rem; word-break: keep-all; }
+.talent ul { display: flex; align-items: flex-start; justify-content: space-between; margin-top: 12rem; }
+.talent ul li { flex: 0 0 33.33%; text-align: center; }
+.talent ul li i { display: block; width: 15rem; margin: 0 auto; background-size: 100% auto; background-position: center; background-repeat: no-repeat;}
+.talent ul li i::after { content: ''; display: block; padding-bottom: 100%; }
+.talent ul li p,
+.talent ul li strong { padding: 0 4rem; word-break: keep-all; }
+.talent ul li strong { display: block; font-size: 3rem; font-weight: normal; margin-top: 1.2rem; }
+.talent ul li p { padding-top: 1rem; font-size: 2rem; line-height: 1.6; }
+
+.joinus { padding: 40rem 0; color: #fff; text-align: center; }
+.joinus strong { display: block; font-size:12rem; font-weight: 700; }
+.joinus p { font-size: 3rem; margin-top: 0.8rem; }
+.joinus .email { position: relative; width: fit-content; font-size: 11.5rem; font-weight: 700; word-break: keep-all; white-space: nowrap; margin: 4rem auto 0; line-height: 1.2; border-bottom: 5px solid #fff; }
+.joinus button { position: absolute; display: flex; align-items: center; justify-content: center; width: 12rem; height: 12rem; border-radius: 12rem; text-align: left; font-size: 2.2rem; background: #E6363E; transform: translate(-50%, -50%); opacity: 0; transition: all .5s ease-in-out; }
+.joinus button.active { opacity: 1; }
+
+
+@media only screen and (max-width: 1440px) {
+  .recruit-visual .slogan-inner h2 { font-size: 12rem; }
+  .recruit-visual .bg .img { background-size: 70% auto; background-position: top -21rem right -45%; }
+
+  .recruit .info-ttl { flex: 0 0 20rem; }
+
+  .joinus strong { font-size: 9rem; }
+  .joinus p { font-size: 2.6rem; }
+  .joinus .email { font-size: 9rem; }
+  .joinus button { width: 10rem; height: 10rem; border-radius: 10rem; font-size: 1.8rem; }
+}
+
+@media only screen and (max-width: 1220px) {
+  .recruit-visual .slogan-inner h2 { font-size: 10rem; }
+
+  .recruit .inner { display: block; }
+  .recruit h3.ttl { font-size: 3rem; }
+  .recruit h3.ttl p span { display: inline-block; font-size: 7rem; }
+  .recruit h3.ttl p span + span { padding-left: 1rem; }
+  .recruit .cont .recruit-desc { margin-top: 5rem; font-size: 2.6rem; }
+  
+  .joinus { padding: 30rem 0; }
+  .joinus strong { font-size: 7rem; }
+  .joinus p { font-size: 2.4rem; }
+  .joinus .email { font-size: 7rem; }
+}
+
+@media only screen and (max-width: 1024px) {
+  .recruit-visual .slogan-inner h2 { font-size: 8rem; }
+  .recruit-visual .bg .img { background-size: 80% auto; background-position: top -18rem right -80%; }
+
+  .talent .tit-area strong { font-size: 4.2rem; }
+  .talent .tit-area p { font-size: 2.2rem; }
+  .talent ul { margin-top: 6rem; }
+  .talent ul li i { width: 13rem; }
+  .talent ul li p,
+  .talent ul li strong { padding: 0 2rem; font-size: 2.4rem; }
+  .talent ul li p { font-size: 1.6rem; margin-top: 2rem; }
+
+  .joinus strong { font-size: 6rem; }
+  .joinus p { font-size: 1.8rem; }
+  .joinus .email { font-size: 6rem; }
+  .joinus button { width: 7rem; height: 7rem; border-radius: 7rem; font-size: 1.2rem; }
+}
+
+@media only screen and (max-width: 768px) {
+  .recruit-visual .slogan-inner h2 { font-size: 10rem; max-width: 50%; margin: initial; }
+  .recruit-visual .slogan-inner p { word-break: keep-all; white-space: initial; }
+  .recruit-visual .slogan-inner p:nth-child(2) { text-align: left; }
+  .recruit-visual .slogan-inner p span { display: block; }
+  .recruit-visual .bg .img { background-size: 80rem auto; background-position: top 20% right -35rem; }
+
+  .recruit .info li { display: block; }
+  .recruit .info-ttl { font-size: 2.4rem; }
+  .recruit .info-cont { margin-top: 2rem; }
+  .recruit .info li:first-child .info-cont dt { font-size: 2.2rem; }
+
+  .recruit .part-ttl a { position: relative; display: block; }
+  .recruit .part-ttl a strong { display: block; margin-bottom: 0.6rem; }
+  .recruit .part-ttl a i { position: absolute; right: 0; top: 50%; margin-top: -1rem; width: 1.9rem; height: 1.9rem; }
+  .recruit .part-cont { padding: 4rem; }
+  .recruit .part-cont dl + dl { padding-top: 4rem; }
+  
+  .talent ul { display: block; margin-top: 8rem; }
+  .talent ul li + li { margin-top: 7rem;}
+  .talent ul li i { width: 16rem; }
+  .talent ul li p,
+  .talent ul li strong { padding: 0 5rem; }
+  .talent ul li p { font-size: 2rem; margin-top: 1.2rem; }
+
+  .joinus strong { font-size: 4.6rem; }
+  .joinus p { font-size: 2.2rem; }
+  .joinus .email { font-size: 4.6rem; }
+  .joinus button { display: none; }
+}
+@media only screen and (max-width: 600px) {
+  .joinus strong { font-size: 3rem; }
+  .joinus p { font-size: 2rem; }
+  .joinus .email { font-size: 3rem; }
+}
+@media only screen and (max-width: 425px) {
+  .recruit-visual .slogan-inner h2 { font-size: 7rem; line-height: 1.2; max-width: 60%; }
+  .recruit-visual .bg .img { background-size: 50rem auto; background-position: top 20% right -20rem; }
+
+  .recruit h3.ttl { font-size: 2rem; }
+  .recruit h3.ttl p span { font-size: 4rem; }
+  .recruit h4.ttl { font-size: 2.8rem; }
+  .recruit .cont .recruit-desc { font-size: 1.8rem; }
+
+  .recruit .info { margin-top: 5rem; }
+  .recruit .info li { padding: 3rem 0; }
+  .recruit .info .subscript { font-size: 1.4rem; }
+  .recruit .info-cont { margin-top: 2rem; }
+  .recruit .info-cont dt,
+  .recruit .info-cont dd { padding: 0.4rem 0; font-size: 1.6rem; }
+  .recruit .info li:first-child .info-cont dt { flex: 0 0 10rem; font-size: 1.6rem; }
+  .recruit .info li:first-child .info-cont dd { flex: 1 1 calc(100% - 10rem); }
+
+  .talent .tit-area strong { font-size: 4rem; }
+  .talent .tit-area p { font-size: 2rem; padding-top: 1rem; }
+  /* .talent ul li + li { margin-top: 5rem;} */
+  .talent ul li i { width: 10rem; }
+  .talent ul li strong { font-size: 2.2rem; }
+  .talent ul li p { font-size: 1.6rem; }
+
+  .joinus { padding: 12rem 0 15rem; }
+  .joinus strong { font-size: 2.8rem; }
+  .joinus p { font-size: 1.6rem; }
+  .joinus .email { font-size: 2.8rem; margin-top: 2.2rem; }
+}
+@media only screen and (max-width: 375px) {
+  .recruit-visual .slogan-inner h2 { font-size: 6rem; max-width: initial; }
+  .recruit-visual .bg .img { background-size: 45rem auto; }
+
+  .talent .tit-area strong { font-size: 3.2rem; }
+  .joinus strong { font-size: 2.2rem; }
+  .joinus .email { font-size: 2.2rem; }
+}
+@media only screen and (max-width: 320px) {
+  .recruit-visual .slogan-inner h2 { font-size: 5rem; }
+  .recruit-visual .bg .img { background-size: 40rem auto; background-position: top 20% right -15rem; }
+
+  .talent .tit-area strong { font-size: 3rem; }
+  .joinus strong { font-size: 2.4rem; }
+  .joinus .email { font-size: 2.4rem; }
+}
+
+/* media query - height */
+@media only screen and (max-height: 650px) {
+  
+}

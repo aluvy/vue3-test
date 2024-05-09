@@ -1,0 +1,326 @@
+[
+  {
+    "idx": 20210501,
+    "title": ["Company Relocation"],
+    "date": "20210501",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20210501-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20210501-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20221201,
+    "title": ["Media Center Year-end Party"],
+    "date": "20221201",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20221201-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20221201-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20240101,
+    "title": ["2024", "Happy New Goods"],
+    "date": "20240101",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20240101-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20240101-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20230401,
+    "title": ["IM GROUP Poster"],
+    "date": "20230401",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20230401-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20230401-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20231201,
+    "title": ["Golden Time Year-end Party"],
+    "date": "20231201",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20231201-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20231201-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20230801,
+    "title": ["IM GROUP", "First half of 2023"],
+    "date": "20230801",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20230801-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20230801-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20230402,
+    "title": ["Media Center Carrot Market"],
+    "date": "20230402",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20230402-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20230402-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20240301,
+    "title": ["RECRUIT"],
+    "date": "20240301",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20240301-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20240301-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20220201,
+    "title": ["D.i Magazine, February"],
+    "date": "20220201",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20220201-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20220201-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20190501,
+    "title": ["Capacity Building Leader Workshop 2019"],
+    "date": "20190501",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20190501-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20190501-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20200901,
+    "title": ["D.i Magazine, September"],
+    "date": "20200901",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20200901-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20200901-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20220401,
+    "title": ["D.i Magazine, April"],
+    "date": "20220401",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20220401-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20220401-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20210801,
+    "title": ["D.i Magazine, 10th Anniversary"],
+    "date": "20210801",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20210801-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20210801-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20220501,
+    "title": ["THE FIFTY ONE Rebranding"],
+    "date": "20220501",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20220501-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20220501-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20201101,
+    "title": ["D.i Magazine, November"],
+    "date": "20201101",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20201101-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20201101-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20211201,
+    "title": ["D.i Magazine, Adieu! 2021"],
+    "date": "20211201",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20211201-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20211201-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20190901,
+    "title": ["D.i Magazine, KYOBO Lifeplanet"],
+    "date": "20190901",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20190901-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20190901-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170701,
+    "title": ["D.i Magazine, 8th Anniversary"],
+    "date": "20170701",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170701-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170701-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170401,
+    "title": ["Manager Capability Workshop"],
+    "date": "20170401",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170401-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170401-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170702,
+    "title": ["D.i Magazine, the 51"],
+    "date": "20170702",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170702-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170702-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20171001,
+    "title": ["D.i Magazine, October"],
+    "date": "20171001",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20171001-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20171001-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20190201,
+    "title": ["HCI KOREA 2019, Surfing on the new Wave"],
+    "date": "20190201",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20190201-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20190201-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170601,
+    "title": ["D.i Magazine, HANSSEM"],
+    "date": "20170601",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170601-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170601-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170501,
+    "title": ["D.i Magazine, May"],
+    "date": "20170501",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170501-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170501-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170403,
+    "title": ["D.i Magazine, April"],
+    "date": "20170403",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170403-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170403-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170301,
+    "title": ["HCI KOREA 2017"],
+    "date": "20170301",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170301-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170301-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20171002,
+    "title": ["Autumn Workshop 2017"],
+    "date": "20171002",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20171002-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20171002-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170101,
+    "title": ["Gapyeong Workshop Part1"],
+    "date": "20170101",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170101-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170101-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170102,
+    "title": ["Gapyeong workshop Part 2"],
+    "date": "20170102",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170102-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170102-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170103,
+    "title": ["In-house Education Publishing Team"],
+    "date": "20170103",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170103-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170103-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170201,
+    "title": ["Business trip to the US"],
+    "date": "20170201",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170201-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170201-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170104,
+    "title": ["'Samdamo' Get-together"],
+    "date": "20170104",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170104-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170104-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170105,
+    "title": ["Creative UX Team dinners"],
+    "date": "20170105",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170105-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170105-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20161101,
+    "title": ["Welcome! The Fiftyone Dinner Meeting"],
+    "date": "20161101",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20161101-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20161101-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170602,
+    "title": ["A NEW LOGO, A NEW DIRECTION."],
+    "date": "20170602",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170602-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170602-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  },
+  {
+    "idx": 20170402,
+    "title": ["디지털 인사이트 vol.208"],
+    "date": "20170402",
+    "image": "https://aluvy.github.io/vue3-test/data/insight/images/20170402-thumb.jpg",
+    "visual": "https://aluvy.github.io/vue3-test/data/insight/images/20170402-visual.jpg",
+    "theme": "white",
+    "url": "/"
+  }
+]
