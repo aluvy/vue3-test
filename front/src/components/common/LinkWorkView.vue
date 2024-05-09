@@ -36,6 +36,7 @@ export default {
 <style scoped>
 .LinkWorkView { display: flex; align-items: center; justify-content: space-between; }
 .LinkWorkView li { flex: 1 1 50%; }
+.LinkWorkView li.prev { text-align: right; }
 .LinkWorkView li a { position: relative; display: block; }
 .LinkWorkView li a::after { content: ''; display: block; padding-bottom: 41%; }
 .LinkWorkView li a .txt { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; margin: 0 auto; width: fit-content; color: #fff; line-height: 1.3; transition: transform 0.4s cubic-bezier(0.05, 0.2, 0.1, 1); z-index: 2; }
@@ -137,5 +138,25 @@ export default {
 @keyframes arrowEnd {
 	0% { stroke-dashoffset: 40px; }
 	100% { stroke-dashoffset: 50px; }
+}
+
+@media only screen and (max-width: 1280px) {
+  .LinkWorkView li a::after { padding-bottom: 50%; }
+  .LinkWorkView li a .txt-inner .title { font-size: 2.5rem; }
+}
+@media only screen and (max-width: 768px) {
+  .LinkWorkView li,
+  .LinkWorkView li.prev { text-align: center; }
+  .LinkWorkView li a::after { padding-bottom: 60%; }
+}
+@media only screen and (max-width: 600px) {
+  .LinkWorkView { display: block; }
+  .LinkWorkView li a::after { padding-bottom: 40%; }
+}
+@media only screen and (max-width: 425px) {
+  .LinkWorkView li a::after { padding-bottom: 60%; }
+}
+@media only screen and (max-width: 320px) {
+  .LinkWorkView li a::after { padding-bottom: 80%; }
 }
 </style>
