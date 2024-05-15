@@ -29,8 +29,8 @@ export default {
   .stats-cont li p { margin-top: 2rem; }
 }
 @media only screen and (max-width: 768px) {
-  .stats-cont ul { display: block; }
-  .stats-cont ul li + li { margin-top: 7rem; }
+  .stats-cont { display: block; }
+  .stats-cont li + li { margin-top: 7rem; }
   .stats-cont li span { margin-top: 2rem; }
   .stats-cont li p { margin-top: 0.4rem; }
 }
