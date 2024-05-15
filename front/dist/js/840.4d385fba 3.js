@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunktest"]=self["webpackChunktest"]||[]).push([[840],{2840:function(n,t,e){e.r(t),e.d(t,{default:function(){return a}});var r=e(4108);function u(n,t,e,u,s,c){return(0,r.Wz)(),(0,r.An)("div",null," 20220501 insight view ")}var s={},c=e(4100);const i=(0,c.c)(s,[["render",u]]);var a=i}}]);
-//# sourceMappingURL=840.4d385fba.js.map
