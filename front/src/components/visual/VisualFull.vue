@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style>
-.visual-area-full { position: relative; height: var(--vh); overflow: hidden; }
+.visual-area-full { position: relative; height: var(--vh); min-height: 60rem; overflow: hidden; }
 
 .visual-area-full .slogan { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; }
 .visual-area-full .slogan-inner { width: 100%; max-width: var(--max-width); padding: var(--inner-pad); text-align: center; }
