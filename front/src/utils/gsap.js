@@ -12,12 +12,12 @@ let triggers = ScrollTrigger.getAll();
 /** header theme setting */
 const gsapHeaderThemeTrigger = function () {
 	const section = gsap.utils.toArray('section[data-theme]');
-
 	if (!section) return;
+
+	const header = document.querySelector('#header');
 
 	section.forEach(item => {
 		let theme = item.dataset.theme;
-		const header = document.querySelector('#header');
 
 		ScrollTrigger.create({
 			trigger: item,
@@ -29,13 +29,17 @@ const gsapHeaderThemeTrigger = function () {
 				const headerH = header.offsetHeight;
 				return `bottom ${headerH}`;
 			},
-			// markers: true,
-			onEnter: () => header.setAttribute('data-theme', theme),
-			onEnterBack: () => header.setAttribute('data-theme', theme),
+			immediateRender: false,
+			onEnter: () => {
+				header.setAttribute('data-theme', theme);
+			},
+			onEnterBack: () => {
+				header.setAttribute('data-theme', theme);
+			},
 			// markers: true,
 		});
 	});
-	// markers(gsap);
+	markers(gsap);
 };
 
 /** loader show animation */

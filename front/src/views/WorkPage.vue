@@ -14,7 +14,9 @@
 
     <div id="content">
       
-      <WorkList :listGroups="listGroups"></WorkList>
+      <section class="section white" data-theme="white">
+        <WorkList :listGroups="listGroups"></WorkList>
+      </section>
 
       <section class="section white stats" data-theme="black">
         <div class="inner">
